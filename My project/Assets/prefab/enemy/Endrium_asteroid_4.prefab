@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1887191998474615833
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2332023421540209823, guid: 241efe8b915767845afe1cd610eb92a6, type: 3}
+      propertyPath: itemPool1.Array.data[0]
+      value: 
+      objectReference: {fileID: 2975238635077859917, guid: 49bf451b930993e41b6e95b3def69deb, type: 3}
+    - target: {fileID: 2332023421540209823, guid: 241efe8b915767845afe1cd610eb92a6, type: 3}
+      propertyPath: itemPool1.Array.data[1]
+      value: 
+      objectReference: {fileID: 4838463072474957333, guid: f68a572d5e00a6045ba49d2c286897f4, type: 3}
+    - target: {fileID: 8291838620539253042, guid: 241efe8b915767845afe1cd610eb92a6, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291838620539253042, guid: 241efe8b915767845afe1cd610eb92a6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291838620539253042, guid: 241efe8b915767845afe1cd610eb92a6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291838620539253042, guid: 241efe8b915767845afe1cd610eb92a6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291838620539253042, guid: 241efe8b915767845afe1cd610eb92a6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291838620539253042, guid: 241efe8b915767845afe1cd610eb92a6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291838620539253042, guid: 241efe8b915767845afe1cd610eb92a6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291838620539253042, guid: 241efe8b915767845afe1cd610eb92a6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291838620539253042, guid: 241efe8b915767845afe1cd610eb92a6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291838620539253042, guid: 241efe8b915767845afe1cd610eb92a6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291838620539253042, guid: 241efe8b915767845afe1cd610eb92a6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291838620539253043, guid: 241efe8b915767845afe1cd610eb92a6, type: 3}
+      propertyPath: m_Name
+      value: Endrium_asteroid_4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291838620859551745, guid: 241efe8b915767845afe1cd610eb92a6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -382814223, guid: 2a3c52a4beea8914c96527c981abea97, type: 3}
+    - target: {fileID: 8291838620859551745, guid: 241efe8b915767845afe1cd610eb92a6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: eaabdb3b42c9cc14595674477db723bb, type: 2}
+    - target: {fileID: 8291838621479536241, guid: 241efe8b915767845afe1cd610eb92a6, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291838621479536241, guid: 241efe8b915767845afe1cd610eb92a6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 241efe8b915767845afe1cd610eb92a6, type: 3}

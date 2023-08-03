@@ -1,0 +1,344 @@
+fileFormatVersion: 2
+guid: 121bb03edb248fd4781baee297d1f04b
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 4
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: flaskSheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 129
+        width: 58
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -9.5}
+        - {x: 34, y: 0}
+        - {x: 0, y: 9.5}
+        - {x: -34, y: 0}
+      physicsShape:
+      - - {x: 0, y: -9.5}
+        - {x: 34, y: 0}
+        - {x: 0, y: 9.5}
+        - {x: -34, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5800ef86f340c754096e47cda2c94dcb
+      internalID: -5433260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flaskSheet_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 110
+        width: 58
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -9.5}
+        - {x: 34, y: 0}
+        - {x: 0, y: 9.5}
+        - {x: -34, y: 0}
+      physicsShape:
+      - - {x: 0, y: -9.5}
+        - {x: 34, y: 0}
+        - {x: 0, y: 9.5}
+        - {x: -34, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4014df4c6969cd74abc03308df9fc713
+      internalID: 1335824253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flaskSheet_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 91
+        width: 58
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -9.5}
+        - {x: 34, y: 0}
+        - {x: 0, y: 9.5}
+        - {x: -34, y: 0}
+      physicsShape:
+      - - {x: 0, y: -9.5}
+        - {x: 34, y: 0}
+        - {x: 0, y: 9.5}
+        - {x: -34, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 541162799487ef6489558a3ffc430aba
+      internalID: 1848309951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flaskSheet_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 72
+        width: 58
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -9.5}
+        - {x: 34, y: 0}
+        - {x: 0, y: 9.5}
+        - {x: -34, y: 0}
+      physicsShape:
+      - - {x: 0, y: -9.5}
+        - {x: 34, y: 0}
+        - {x: 0, y: 9.5}
+        - {x: -34, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 139906589bbdaca46b422f6cc68a20ab
+      internalID: -1727090506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flaskSheet_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 53
+        width: 58
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -9.5}
+        - {x: 34, y: 0}
+        - {x: 0, y: 9.5}
+        - {x: -34, y: 0}
+      physicsShape:
+      - - {x: 0, y: -9.5}
+        - {x: 34, y: 0}
+        - {x: 0, y: 9.5}
+        - {x: -34, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c50a814e670a6474096ec06f57cbc4db
+      internalID: 1803183087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flaskSheet_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 34
+        width: 58
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -9.5}
+        - {x: 34, y: 0}
+        - {x: 0, y: 9.5}
+        - {x: -34, y: 0}
+      physicsShape:
+      - - {x: 0, y: -9.5}
+        - {x: 34, y: 0}
+        - {x: 0, y: 9.5}
+        - {x: -34, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 437c429cd27998f48995e96018dd685f
+      internalID: 642500872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flaskSheet_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 15
+        width: 58
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -9.5}
+        - {x: 34, y: 0}
+        - {x: 0, y: 9.5}
+        - {x: -34, y: 0}
+      physicsShape:
+      - - {x: 0, y: -9.5}
+        - {x: 34, y: 0}
+        - {x: 0, y: 9.5}
+        - {x: -34, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4f9146057fa6dc4793babcd64b3c0df
+      internalID: -919239815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      flaskSheet_1: 1335824253
+      flaskSheet_2: 1848309951
+      flaskSheet_3: -1727090506
+      flaskSheet_4: 1803183087
+      flaskSheet_0: -5433260
+      flaskSheet_5: 642500872
+      flaskSheet_6: -919239815
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemy
+  - player
+  - PlayerOffet1
+  - PlayerOffset2
+  - PlayerOffset3
+  - PlayerOffset4
+  - PlayerProjectile
+  - HealthBar
+  - WorldCanvas
+  - Weapeon
+  - Timer
+  - Spawner
+  - Enviroment
+  - MapIcon
+  - MapIcons
+  - RespawnManager
+  - SummonUpgrade
+  - StatusSystem
+  - Summon
+  - BrittleStatus
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - BackGround
+  - Water
+  - UI
+  - MiniMap
+  - Enviroment
+  - nothing
+  - pickUp
+  - gizmos
+  - spawnedEnemies
+  - mapEnemies
+  - BigEnemies
+  - PostProcessing
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: enemy
+    uniqueID: 709511165
+    locked: 0

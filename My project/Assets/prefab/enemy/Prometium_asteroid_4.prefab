@@ -1,0 +1,102 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3810890502242843224
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5184074126243089258, guid: e65f4f5dc402a8545bfaac68885843e6, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184074126243089258, guid: e65f4f5dc402a8545bfaac68885843e6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184074126243089258, guid: e65f4f5dc402a8545bfaac68885843e6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184074126243089258, guid: e65f4f5dc402a8545bfaac68885843e6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184074126243089258, guid: e65f4f5dc402a8545bfaac68885843e6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184074126243089258, guid: e65f4f5dc402a8545bfaac68885843e6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184074126243089258, guid: e65f4f5dc402a8545bfaac68885843e6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184074126243089258, guid: e65f4f5dc402a8545bfaac68885843e6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184074126243089258, guid: e65f4f5dc402a8545bfaac68885843e6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184074126243089258, guid: e65f4f5dc402a8545bfaac68885843e6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184074126243089258, guid: e65f4f5dc402a8545bfaac68885843e6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184074126243089259, guid: e65f4f5dc402a8545bfaac68885843e6, type: 3}
+      propertyPath: m_Name
+      value: Prometium_asteroid_4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184074126564452953, guid: e65f4f5dc402a8545bfaac68885843e6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1985468518, guid: a97196ba5d8514d418229510ad84d6b9, type: 3}
+    m_RemovedComponents:
+    - {fileID: 5184074126564452959, guid: e65f4f5dc402a8545bfaac68885843e6, type: 3}
+    - {fileID: 6217894547432624457, guid: e65f4f5dc402a8545bfaac68885843e6, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: e65f4f5dc402a8545bfaac68885843e6, type: 3}
+--- !u!1 &8291838620859551749 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5184074126564452957, guid: e65f4f5dc402a8545bfaac68885843e6, type: 3}
+  m_PrefabInstance: {fileID: 3810890502242843224}
+  m_PrefabAsset: {fileID: 0}
+--- !u!60 &3463271890008656913
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8291838620859551749}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.25, y: 3.25}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -1.625, y: 1.625}
+      - {x: -1.625, y: -1.625}
+      - {x: 0.100112855, y: -1.594068}
+      - {x: 0.22593546, y: -0.637244}
+      - {x: 1.6171359, y: -0.36539942}
+      - {x: 1.6049836, y: 0.51853347}
+      - {x: 1.1080593, y: 1.5945916}
