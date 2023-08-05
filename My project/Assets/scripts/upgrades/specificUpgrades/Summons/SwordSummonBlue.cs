@@ -37,10 +37,10 @@ public class SwordSummonBlue : upgrade
             description = string.Format("Every fifh slash of Shapeless is critical");
         }else if(level == 2)
         {
-           // float pom = fireRate * 0.2f;
-           // drone.baseFireRate -= pom;
+            float pom = fireRate * 0.2f;
+            drone.baseFireRate -= pom;
 
-            drone.Crit = true;
+           // drone.Crit = true;
 
             description = string.Format("Drone firerate + 15% damage + 3");
         }else if(level == 3)

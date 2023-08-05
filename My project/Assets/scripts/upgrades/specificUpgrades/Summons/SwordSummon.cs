@@ -1,3 +1,4 @@
+using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,13 +12,12 @@ public class SwordSummon : Summon
     [SerializeField] GameObject SlashObjectT;
     [SerializeField] GameObject SlashObjectF;
 
-
-    public bool Crit = false;
-    public int CritDamage;
+   // public bool Crit = false;
+    //public int CritDamage;
 
     public int slashAmount = 1;
     public float slashDelay;
-    public int TicksNeeded;
+    //public int TicksNeeded;
    // List<ShapeLessTarget>Targets = new List<ShapeLessTarget>();
 
  //  public class ShapeLessTarget
@@ -30,7 +30,6 @@ public class SwordSummon : Summon
     void Start()
     {
         scaleSummonDamage();
-
         eventManager.OnImpact += strike;
     }
 

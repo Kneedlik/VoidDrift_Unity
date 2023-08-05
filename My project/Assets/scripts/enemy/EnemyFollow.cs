@@ -38,11 +38,11 @@ public class EnemyFollow : MonoBehaviour
         if(health.stop == false)
         {
             Vector3 dir = target.position - transform.position;
-            rb.AddForce(dir.normalized * speed * Time.deltaTime);
+           rb.AddForce(dir.normalized * speed * Time.deltaTime);
             setMaxSpeed(maxSpeed);
         }else
         {
-            health.stop = true;
+            health.stop = false;
         }
 
     }
