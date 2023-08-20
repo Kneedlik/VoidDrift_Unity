@@ -5,6 +5,7 @@ using UnityEngine.Rendering.Universal;
 
 public static class KnedlikLib 
 {
+
     public static void scaleParticleSize(GameObject target, GameObject particle, float multiplier)
     {
         float size;
@@ -294,6 +295,14 @@ public static class KnedlikLib
             target = Enemies2[rand].transform;
         }
         return true;
+    }
+
+    public static int GetPercencHP(GameObject target, float percent)
+    {
+        Health health = target.GetComponent<Health>();
+        float pom =  (float)health.maxHealth * percent;
+
+        return (int)pom;
     }
 
 

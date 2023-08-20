@@ -16,14 +16,14 @@ public class BioHammerGreen : upgrade
         setColor();
     }
 
-    public override bool requirmentsMet()
-    {
-        if(BonusHealthDamageG.instance.level >= 3)
-        {
-            return true;
-        }else return false;
+   // public override bool requirmentsMet()
+   // {
+   //     if(BonusHealthDamageG.instance.level >= 3)
+   //     {
+   //         return true;
+   //     }else return false;
 
-    }
+   // }
 
     public override void function()
     {
@@ -48,7 +48,7 @@ public class BioHammerGreen : upgrade
             pom = pom - fireRate;
             hammer.fireRate -= pom; 
 
-            description = string.Format("Biohammer firerate + 15% biohammer base damage + 5");
+            description = string.Format("Biohammer firerate + 15% Biohammer base damage + 5");
         }else if(level == 2)
         {
             float pom = fireRate * 1.15f;
@@ -62,7 +62,7 @@ public class BioHammerGreen : upgrade
         {
             hammer.damage += 12;
 
-            description = string.Format("Bio hammer bonus health damage + 30%");
+            description = string.Format("Bio Hammer now deals 1% max Health Damage Bio hammer bonus health damage + 30%");
         }else if(level == 4)
         {
             hammer.healthScaling += 0.3f;

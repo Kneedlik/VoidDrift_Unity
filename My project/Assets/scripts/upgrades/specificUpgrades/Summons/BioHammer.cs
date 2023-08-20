@@ -10,10 +10,13 @@ public class BioHammer : Summon
     Transform target;
     public float healthScaling = 1;
 
+    [SerializeField] GameObject DamageEffect;
+
     private void Start()
     {
         scaleSize();
         scaleSummonDamage();
+        PlayerStats.OnLevel += scaleSummonDamage;
     }
 
     // Update is called once per frame
@@ -29,7 +32,7 @@ public class BioHammer : Summon
             if(target != null)
             {
                 timeStamp = fireRate;
-                Invoke("shoot", damageDelay);
+                StartCoroutine(Shoot(target));
             }else if(setRandomTarget(out target) == false)
              {
                 target = null;
@@ -38,23 +41,28 @@ public class BioHammer : Summon
         }
     }
 
-    void shoot()
+    IEnumerator Shoot(Transform target)
     {
-       Health health = target.GetComponent<Health>();
+        Transform pom = target;
+       GameObject obj = Instantiate(DamageEffect,pom.position,Quaternion.Euler(0,0,0));
+        obj.transform.SetParent(pom);
+
+        yield return new WaitForSeconds(damageDelay);
+
+        Health health = pom.GetComponent<Health>();
         int plusDamage = damage;
 
-        if(health != null)
+        if (health != null)
         {
-           
-            if (eventManager.OnImpact != null)
+            if (eventManager.SummonOnImpact != null)
             {
-                eventManager.OnImpact(target.gameObject, damage,ref plusDamage);
+                eventManager.SummonOnImpact(target.gameObject, damage, ref plusDamage);
             }
 
-            if(eventManager.PostImpact != null)
-            {
-                eventManager.PostImpact(target.gameObject, plusDamage,ref plusDamage);
-            }
+          //  if (eventManager.PostImpact != null)
+           // {
+           //     eventManager.PostImpact(target.gameObject, plusDamage, ref plusDamage);
+           // }
             health.TakeDamage(damage);
         }
     }
