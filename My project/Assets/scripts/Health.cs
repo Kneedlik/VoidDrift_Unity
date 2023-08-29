@@ -38,8 +38,11 @@ public class Health : MonoBehaviour
         }
 
         multiplier = 1;
-        healthBar = healthBarGObject.GetComponent<healthBar>();
-        healthBarGObject.SetActive(false);
+        if (healthBarGObject != null)
+        {
+            healthBar = healthBarGObject.GetComponent<healthBar>();
+            healthBarGObject.SetActive(false);
+        }
         health = maxHealth;
         flashColor = GetComponent<FlashColor>();
         baseMaxHealth = maxHealth;
@@ -74,13 +77,15 @@ public class Health : MonoBehaviour
 
             health -= damage;
 
-            if (healthBarGObject.activeSelf == false)
+            if(healthBarGObject != null)
             {
-                healthBarGObject.SetActive(true);
-                healthBar.SetMaxHealth(maxHealth);
+                if (healthBarGObject.activeSelf == false)
+                {
+                    healthBarGObject.SetActive(true);
+                    healthBar.SetMaxHealth(maxHealth);
+                }
+                healthBar.SetHealth(health);
             }
-            healthBar.SetHealth(health);
-
 
             if (flashColor != null)
             {
@@ -121,12 +126,15 @@ public class Health : MonoBehaviour
 
             health -= damage;
 
-            if (healthBarGObject.activeSelf == false)
+            if(healthBarGObject != null)
             {
-                healthBarGObject.SetActive(true);
-                healthBar.SetMaxHealth(maxHealth);
+                if (healthBarGObject.activeSelf == false)
+                {
+                    healthBarGObject.SetActive(true);
+                    healthBar.SetMaxHealth(maxHealth);
+                }
+                healthBar.SetHealth(health);
             }
-            healthBar.SetHealth(health);
 
             if (flashColor != null )
             {
@@ -180,14 +188,31 @@ public class Health : MonoBehaviour
         
         if(respawning == false)
         {
-            Destroy(healthBarGObject);
-            Destroy(self);
+            if(healthBarGObject != null)
+            {
+                Destroy(healthBarGObject);
+            }
+            
+            if(self != null)
+            {
+                Destroy(self);
+            }else Destroy(gameObject);
+           
         }else if(prefab != null)
         {
             RespawnManager.instance.respawn(respawnTime, prefab, location, true);
-            Destroy(healthBarGObject);
-            Destroy(self);
-        }else
+            if (healthBarGObject != null)
+            {
+                Destroy(healthBarGObject);
+            }
+
+            if (self != null)
+            {
+                Destroy(self);
+            }
+            else Destroy(gameObject);
+        }
+        else
         {
             RespawnManager.instance.respawn(respawnTime,gameObject,location, false);
         }
@@ -225,8 +250,6 @@ public class Health : MonoBehaviour
         go.GetComponent<TMP_Text>().color = color;
        // go.GetComponent<TextMesh>().text = Damage.ToString();
     }
-
-   
 
     public void setUp()
     {

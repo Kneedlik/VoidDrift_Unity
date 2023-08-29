@@ -8,7 +8,7 @@ public class HomingProjectile : MonoBehaviour
     public float force;
     public float rotSpeed;
     public int damage;
-
+    
     Rigidbody2D rb;
     public float destroyTime;
    // public bool isTrigger = true;
@@ -18,6 +18,7 @@ public class HomingProjectile : MonoBehaviour
         target = GameObject.FindWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
     }
+
 
     // Update is called once per frame
     void Update()

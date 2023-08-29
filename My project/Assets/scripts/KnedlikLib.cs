@@ -305,5 +305,12 @@ public static class KnedlikLib
         return (int)pom;
     }
 
+    public static int ScaleByLevel(int health)
+    {
+        float pom = (float)health * levelingSystem.instance.healthPerLevel * (levelingSystem.instance.level - 1);
+        pom += health;
+        return (int)pom;
+    }
+
 
 }

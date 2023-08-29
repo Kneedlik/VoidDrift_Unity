@@ -12,6 +12,7 @@ public class explosion : MonoBehaviour
     public float destroyTime;
     public float force;
     public bool isEnemy = false;
+    public bool LevelScaling;
     
 
     void Start()
@@ -49,7 +50,12 @@ public class explosion : MonoBehaviour
 
             if (health != null)
             {
-                health.TakeDamage(reducedDamage);
+                int pom = reducedDamage;
+                if(LevelScaling)
+                {
+                    pom = KnedlikLib.ScaleByLevel(reducedDamage);
+                }
+                health.TakeDamage(pom);
             }
         }
         else
