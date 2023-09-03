@@ -17,8 +17,10 @@ MonoBehaviour:
   max: 80
   enemies:
   - {fileID: 9134502682905301589, guid: a5e73291dab67dc45a9d612a32ab9112, type: 3}
+  - {fileID: 1795891829044645782, guid: efeed5e7240131a4ea9db64c7ab1d6fa, type: 3}
   chanses:
-  - 100
+  - 80
+  - 20
   spawnRate: 1.2
   spawnN: 4
   healthMultiplier: 5

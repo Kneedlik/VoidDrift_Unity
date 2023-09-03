@@ -255,14 +255,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 105
-  maxHealth: 124
+  maxHealth: 140
   baseMaxHealth: 0
   damageN: {fileID: 8636022699047134357, guid: 971665a441a2ea448a247928736ad030, type: 3}
   self: {fileID: 9134502682905301589}
   healthBarGObject: {fileID: 3133499188072674632}
   healthBar: {fileID: 3133499188072674638}
   damageMultiplier: 1
-  armor: 0
+  armor: 5
   multiplier: 0
   ParticleExplosion: {fileID: 0}
   DeathAnim: {fileID: 2360855068873841653, guid: 9d024159c29a5ed4dadc422aca7b568f, type: 3}
@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 15
-  coolDown: 0
+  coolDown: 1
 --- !u!114 &56373245907405246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,7 +342,7 @@ MonoBehaviour:
   itemPool1:
   - {fileID: 6255875214124632419, guid: 6c27fa9bae4513444a8f57ed58c0c332, type: 3}
   dropChancePool1:
-  - 2
+  - 1
   pos: {fileID: 0}
 --- !u!95 &491196765021058153
 Animator:

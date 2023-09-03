@@ -9,6 +9,7 @@ public class explosion : MonoBehaviour
 
     public int damage;
     public int reducedDamage;
+    [SerializeField] float TrueDamage;
     public float destroyTime;
     public float force;
     public bool isEnemy = false;
@@ -54,6 +55,12 @@ public class explosion : MonoBehaviour
                 if(LevelScaling)
                 {
                     pom = KnedlikLib.ScaleByLevel(reducedDamage);
+                }
+
+                if(TrueDamage > 0)
+                {
+                    float pom2 = KnedlikLib.GetPercencHP(collision.gameObject, TrueDamage);
+                    pom += (int)pom2;
                 }
                 health.TakeDamage(pom);
             }

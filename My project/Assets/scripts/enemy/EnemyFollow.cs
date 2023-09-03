@@ -42,7 +42,7 @@ public class EnemyFollow : MonoBehaviour
             setMaxSpeed(maxSpeed);
         }else
         {
-            health.stop = true;
+            health.stop = false;
         }
 
     }
