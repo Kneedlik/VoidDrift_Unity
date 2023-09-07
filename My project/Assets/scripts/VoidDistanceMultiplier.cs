@@ -55,6 +55,28 @@ public class VoidDistanceMultiplier : MonoBehaviour
             OutOffBounds = false;
         }
 
+        if (OutOffBounds)
+        {
+            HealthMultiplier = 1 + Distance * HealthScaling;
+            XPMultiplier = 1 + Distance * XPScaling;
+            SpeedMultiplier = 1 + Distance * SpeedScaling;
+            SpawnRateMultiplier = 1 + Distance * SpawnRateScaling;
+
+            if(SpeedMultiplier > MaxSpeedMultiplier)
+            {
+                float pom;
+                float diff;
+
+                pom = MaxSpeedMultiplier / SpeedScaling;
+
+            }
+
+            if(SpawnRateMultiplier > MaxSpawnRateMultiplier) 
+            {
+
+            }
+        }
+
     }
 
     private void OnDrawGizmosSelected()
