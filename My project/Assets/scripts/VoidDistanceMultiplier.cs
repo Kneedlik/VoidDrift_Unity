@@ -24,6 +24,8 @@ public class VoidDistanceMultiplier : MonoBehaviour
     [SerializeField] float SpeedScaling;
     [SerializeField] float SpawnRateScaling;
 
+    [SerializeField] float FallOff;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -64,16 +66,12 @@ public class VoidDistanceMultiplier : MonoBehaviour
 
             if(SpeedMultiplier > MaxSpeedMultiplier)
             {
-                float pom;
-                float diff;
-
-                pom = MaxSpeedMultiplier / SpeedScaling;
-
+               SpeedMultiplier = CalculateWithFallOff(SpeedMultiplier, MaxSpeedMultiplier,SpeedScaling);
             }
 
             if(SpawnRateMultiplier > MaxSpawnRateMultiplier) 
             {
-
+                SpawnRateMultiplier = CalculateWithFallOff(SpawnRateMultiplier, MaxSpawnRateMultiplier,SpawnRateScaling);
             }
         }
 
@@ -83,5 +81,16 @@ public class VoidDistanceMultiplier : MonoBehaviour
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireCube(transform.position,new Vector3(DistanceX * 2,DistanceY * 2,0 ));
+    }
+
+    float CalculateWithFallOff(float Multiplier,float MaxMultiplier, float Scaling)
+    {
+        float pom;
+        float diff;
+
+        pom = (MaxMultiplier - 1) / Scaling;
+        diff = Distance - pom;
+        Multiplier = MaxMultiplier + (diff * Scaling / FallOff);
+        return Multiplier;
     }
 }

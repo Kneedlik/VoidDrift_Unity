@@ -7,7 +7,6 @@ public class DissableOnDistance : MonoBehaviour
     [SerializeField] Transform player;
     [SerializeField] float distance;
 
-
     void Start()
     {
         

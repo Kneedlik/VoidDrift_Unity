@@ -43,19 +43,27 @@ public class BulletScript : Projectile
                 health.TakeDamage(damagePlus);
             }
 
-            pierce--;
-
-            if (pierce <= 0)
+            if (Bounce > 0)
             {
-                sr.enabled = false;
-                rb.velocity = Vector2.zero;
+                Bounce--;
+            }
+            else
+            {
+                pierce--;
 
-                Instantiate(impactEffect, transform.position, transform.rotation);
-                if(impactParticles != null)
+                if (pierce <= 0)
                 {
-                    Instantiate(impactParticles, transform.position, Quaternion.Euler(-90, 0, 0));
+                    sr.enabled = false;
+                    rb.velocity = Vector2.zero;
+
+                    Instantiate(impactEffect, transform.position, transform.rotation);
+                    if (impactParticles != null)
+                    {
+                        Instantiate(impactParticles, transform.position, Quaternion.Euler(-90, 0, 0));
+                    }
+                    Destroy(gameObject);
                 }
-                Destroy(gameObject);
+
             }
         }
     }

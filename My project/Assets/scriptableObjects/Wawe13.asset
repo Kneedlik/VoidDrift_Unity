@@ -19,4 +19,4 @@ MonoBehaviour:
   chanses: []
   spawnRate: 0
   spawnN: 0
-  healthMultiplier: 1
+  healthMultiplier: 14

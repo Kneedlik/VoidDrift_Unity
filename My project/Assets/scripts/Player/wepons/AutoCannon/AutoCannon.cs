@@ -20,6 +20,8 @@ public class AutoCannon : weapeon
     GameObject[] sideCubes = new GameObject[100];
     public GameObject cubePrefab;
 
+    public int Bounce;
+
     private void Start()
     {
         cubes = new GameObject[100];
@@ -87,6 +89,7 @@ public class AutoCannon : weapeon
                 bulletDamage.setArea(size);
                 bulletDamage.setPierce(pierce);
                 bulletDamage.setKnockBack(knockBack);
+                bulletDamage.setBounce(Bounce);
 
                 rb = bullet.GetComponent<Rigidbody2D>();
                 rb.AddForce(firePoint.up * Force, ForceMode2D.Impulse);
@@ -107,6 +110,7 @@ public class AutoCannon : weapeon
                 bulletDamage.setArea(size);
                 bulletDamage.setPierce(pierce);
                 bulletDamage.setKnockBack(knockBack);
+                bulletDamage.setBounce(Bounce);
 
                 rb = bullet.GetComponent<Rigidbody2D>();
                 rb.AddForce(sideCubes[j].transform.up * Force, ForceMode2D.Impulse);

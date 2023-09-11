@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: Wawe8
   m_EditorClassIdentifier: 
   end: 840
-  min: 0
-  max: 0
+  min: 4
+  max: 60
   enemies:
   - {fileID: 1076211932900973745, guid: a967c783e696c41458fd2340fbf04114, type: 3}
   - {fileID: 6796515708585979782, guid: 707e4402cfe9c1f47a7cdee5a24ab68e, type: 3}
   chanses:
   - 50
   - 50
-  spawnRate: 0
-  spawnN: 0
-  healthMultiplier: 1
+  spawnRate: 1.2
+  spawnN: 4
+  healthMultiplier: 6

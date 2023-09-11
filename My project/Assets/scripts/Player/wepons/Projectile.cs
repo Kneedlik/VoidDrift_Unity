@@ -8,6 +8,7 @@ public class Projectile : MonoBehaviour
     public int damage;
     public float destroyTime;
     public int pierce = 0;
+    public int Bounce = 0;
     public float knockBack;
 
     
@@ -32,5 +33,10 @@ public class Projectile : MonoBehaviour
     public void setKnockBack(float amount)
     {
         knockBack = amount;
+    }
+
+    public void setBounce(int amount) 
+    {
+        Bounce = amount;
     }
 }

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Wawe14
   m_EditorClassIdentifier: 
   end: 1500
-  min: 0
-  max: 0
+  min: 10
+  max: 100
   enemies:
   - {fileID: 1076211932900973745, guid: a967c783e696c41458fd2340fbf04114, type: 3}
   - {fileID: 9134502682905301589, guid: a5e73291dab67dc45a9d612a32ab9112, type: 3}
@@ -25,6 +25,6 @@ MonoBehaviour:
   - 20
   - 10
   - 15
-  spawnRate: 0
-  spawnN: 0
-  healthMultiplier: 1
+  spawnRate: 0.6
+  spawnN: 8
+  healthMultiplier: 16
