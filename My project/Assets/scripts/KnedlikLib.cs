@@ -312,5 +312,65 @@ public static class KnedlikLib
         return (int)pom;
     }
 
+    public class MyMath
+    {
+        public static int solveQuadratic(float a, float b, float c, out float x1, out float x2)
+        {
+            var discriminant = b * b - 4 * a * c;
+            if (discriminant < 0)
+            {
+                x1 = Mathf.Infinity;
+                x2 = -x1;
+                return 0;
+            }
+            x1 = (-b + Mathf.Sqrt(discriminant)) / (2 * a);
+            x2 = (-b - Mathf.Sqrt(discriminant)) / (2 * a);
+            return discriminant > 0 ? 2 : 1;
+
+        }
+    }
+
+    public static bool InterceptionPoint(Vector2 target, Vector2 FirePoint, Vector2 TargetVelocity, float speedB, out Vector2 result)
+    {
+        var aToB = FirePoint - target;
+        var dc = aToB.magnitude;
+        var alpha = Vector2.Angle(aToB, TargetVelocity) * Mathf.Deg2Rad;
+        var speedA = TargetVelocity.magnitude;
+        var r = speedA / speedB;
+        if (MyMath.solveQuadratic(1 - r * r, 2 * r * dc * Mathf.Cos(alpha), -(dc * dc), out var x1, out var x2) == 0)
+        {
+            result = Vector2.zero;
+            return false;
+        }
+        var da = Mathf.Max(x1, x2);
+        var t = da / speedB;
+        Vector2 c = target + TargetVelocity * t;
+
+        result = (c - FirePoint).normalized;
+        return true;
+    }
+
+    public static bool InterceptionPoint(Vector2 target, Vector2 FirePoint, Vector2 TargetVelocity, float speedB, out Vector2 result, out float resultAngle)
+    {
+        var aToB = FirePoint - target;
+        var dc = aToB.magnitude;
+        var alpha = Vector2.Angle(aToB, TargetVelocity) * Mathf.Deg2Rad;
+        var speedA = TargetVelocity.magnitude;
+        var r = speedA / speedB;
+        if (MyMath.solveQuadratic(1 - r * r, 2 * r * dc * Mathf.Cos(alpha), -(dc * dc), out var x1, out var x2) == 0)
+        {
+            result = Vector2.zero;
+            resultAngle = 0;
+            return false;
+        }
+        var da = Mathf.Max(x1, x2);
+        var t = da / speedB;
+        Vector2 c = target + TargetVelocity * t;
+
+        result = (c - FirePoint).normalized;
+        resultAngle = Mathf.Atan2(result.y, result.x) * Mathf.Rad2Deg - 90;
+        return true;
+    }
+
 
 }

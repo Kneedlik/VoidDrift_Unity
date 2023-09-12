@@ -14,6 +14,7 @@ public class BulletScript : Projectile
         sr = this.GetComponent<SpriteRenderer>();
         rb = this.GetComponent<Rigidbody2D>();
        damage = damagePlus ;
+        Destroy(gameObject, destroyTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -43,15 +44,35 @@ public class BulletScript : Projectile
                 health.TakeDamage(damagePlus);
             }
 
-            if (Bounce > 0)
-            {
-                Bounce--;
-            }
-            else
-            {
-                pierce--;
 
-                if (pierce <= 0)
+            pierce = pierce - 1;
+
+            if (pierce <= 0)
+            {
+                if (Bounce > 0)
+                {
+                    Bounce = Bounce - 1;
+                    Transform target;
+                    if(KnedlikLib.FindClosestEnemy(gameObject.transform,out target))
+                    {
+                        Rigidbody2D rb2 = target.GetComponent<Rigidbody2D>();
+                        AutoCannon weapeon = GameObject.FindWithTag("Weapeon").GetComponent<AutoCannon>();
+                        Vector2 direction;
+                        float angle;
+                        if (KnedlikLib.InterceptionPoint(target.position, transform.position, rb2.velocity,weapeon.Force, out direction,out angle))
+                        {
+                            rb.rotation = angle;
+                            rb.velocity = direction * weapeon.Force;
+                        }else
+                        {
+                            
+                        }
+                    }else
+                    {
+                        
+                    }
+                }
+                else
                 {
                     sr.enabled = false;
                     rb.velocity = Vector2.zero;
@@ -63,13 +84,13 @@ public class BulletScript : Projectile
                     }
                     Destroy(gameObject);
                 }
-
             }
+
         }
     }
 
     private void Update()
     {
-        Destroy(gameObject, destroyTime);
+       
     }
 }
