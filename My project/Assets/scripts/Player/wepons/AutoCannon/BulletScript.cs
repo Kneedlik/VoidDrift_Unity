@@ -52,12 +52,14 @@ public class BulletScript : Projectile
                 if (Bounce > 0)
                 {
                     Bounce = Bounce - 1;
+                    AutoCannon weapeon = GameObject.FindWithTag("Weapeon").GetComponent<AutoCannon>();
+                    Vector2 direction;
                     Transform target;
+
                     if(KnedlikLib.FindClosestEnemy(gameObject.transform,out target))
                     {
                         Rigidbody2D rb2 = target.GetComponent<Rigidbody2D>();
-                        AutoCannon weapeon = GameObject.FindWithTag("Weapeon").GetComponent<AutoCannon>();
-                        Vector2 direction;
+                      
                         float angle;
                         if (KnedlikLib.InterceptionPoint(target.position, transform.position, rb2.velocity,weapeon.Force, out direction,out angle))
                         {
@@ -65,11 +67,17 @@ public class BulletScript : Projectile
                             rb.velocity = direction * weapeon.Force;
                         }else
                         {
-                            
+                            float rand1 = Random.Range(0, 1);
+                            float rand2 = Random.Range(0, 1);
+                            direction = new Vector2(rand1, rand2);
+                            rb.velocity = direction * weapeon.Force;
                         }
                     }else
                     {
-                        
+                        float rand1 = Random.Range(0, 1);
+                        float rand2 = Random.Range(0, 1);
+                        direction = new Vector2(rand1, rand2);
+                        rb.velocity = direction * weapeon.Force;
                     }
                 }
                 else
