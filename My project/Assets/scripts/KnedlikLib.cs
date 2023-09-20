@@ -372,5 +372,16 @@ public static class KnedlikLib
         return true;
     }
 
+    public static void SetMaxSpeed(float MaxSpeed, Rigidbody2D rb)
+    {
+        if (rb != null)
+        {
+            if (rb.velocity.magnitude > MaxSpeed)
+            {
+                rb.velocity = rb.velocity.normalized * MaxSpeed;
+            }
+        }
+    }
+
 
 }

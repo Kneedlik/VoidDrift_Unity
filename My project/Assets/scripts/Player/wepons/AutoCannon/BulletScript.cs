@@ -8,6 +8,7 @@ public class BulletScript : Projectile
     private Rigidbody2D rb;
     public GameObject impactEffect;
     public GameObject impactParticles;
+    Transform target;
     
     private void Start()
     {
@@ -22,16 +23,21 @@ public class BulletScript : Projectile
         if (collision.transform.tag != "Player" && collision.isTrigger == false)
         {
             Health health = collision.GetComponent<Health>();
-             rb = collision.GetComponent<Rigidbody2D>();
+            Rigidbody2D rbTarget = collision.GetComponent<Rigidbody2D>();
             Vector2 dir = (collision.transform.position - transform.position).normalized;
 
-            if (rb != null)
+            if (rbTarget != null)
             {
-                rb.AddForce(dir * knockBack, ForceMode2D.Impulse);
+                rbTarget.AddForce(dir * knockBack, ForceMode2D.Impulse);
             }
 
             if (health != null)
             {
+                if (eventManager.ImpactGunOnly != null)
+                {
+                    eventManager.ImpactGunOnly(collision.gameObject, gameObject);
+                }
+
                 if (eventManager.OnImpact != null)
                 {
                     eventManager.OnImpact(collision.gameObject,damage,ref damagePlus);
@@ -45,39 +51,40 @@ public class BulletScript : Projectile
             }
 
 
-            pierce = pierce - 1;
-
             if (pierce <= 0)
             {
                 if (Bounce > 0)
                 {
                     Bounce = Bounce - 1;
-                    AutoCannon weapeon = GameObject.FindWithTag("Weapeon").GetComponent<AutoCannon>();
                     Vector2 direction;
-                    Transform target;
+                   // Transform target;
 
-                    if(KnedlikLib.FindClosestEnemy(gameObject.transform,out target))
+                    List<Transform> transforms = new List<Transform>();
+                    transforms.Add(collision.transform);
+                    if(KnedlikLib.FindClosestEnemy(gameObject.transform,out target,transforms))
                     {
-                        Rigidbody2D rb2 = target.GetComponent<Rigidbody2D>();
+                        rbTarget = target.GetComponent<Rigidbody2D>();
                       
-                        float angle;
-                        if (KnedlikLib.InterceptionPoint(target.position, transform.position, rb2.velocity,weapeon.Force, out direction,out angle))
+                        
+                        if (KnedlikLib.InterceptionPoint(target.position, transform.position, rbTarget.velocity,rb.velocity.magnitude, out direction))
                         {
+                            // rb.
+                            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
                             rb.rotation = angle;
-                            rb.velocity = direction * weapeon.Force;
+                            rb.velocity = direction * rb.velocity.magnitude;
                         }else
                         {
                             float rand1 = Random.Range(0, 1);
                             float rand2 = Random.Range(0, 1);
                             direction = new Vector2(rand1, rand2);
-                            rb.velocity = direction * weapeon.Force;
+                            rb.velocity = direction * rb.velocity.magnitude;
                         }
                     }else
                     {
                         float rand1 = Random.Range(0, 1);
                         float rand2 = Random.Range(0, 1);
                         direction = new Vector2(rand1, rand2);
-                        rb.velocity = direction * weapeon.Force;
+                        rb.velocity = direction * rb.velocity.magnitude;
                     }
                 }
                 else

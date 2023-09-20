@@ -36,7 +36,8 @@ public class LudensEchoSystem : MonoBehaviour
             pom = (int)pom2;
             pom -= Damage;
 
-            Instantiate(ImpactEffect,transform.position,Quaternion.Euler(0,0,0));
+            int Rand = Random.Range(0, 180);
+            Instantiate(ImpactEffect,target.transform.position,Quaternion.Euler(0,0,Rand));
 
             if (Aoe == false)
             {

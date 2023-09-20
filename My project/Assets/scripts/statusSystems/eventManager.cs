@@ -6,6 +6,7 @@ public class eventManager : MonoBehaviour
 {
     
     public delegate void ImpactEffect(GameObject target, int damage, ref int scaledDamage);
+    public delegate void ImpactProjectile(GameObject target, GameObject bullet);
     public delegate void DamageEffect(int amount);
     public delegate void OnFireEffect(GameObject weapeon);
     public delegate void OnFireAllEffect(GameObject weapeon,GameObject bullet);
@@ -15,7 +16,8 @@ public class eventManager : MonoBehaviour
     public static ImpactEffect OnImpact;
     public static ImpactEffect SummonOnImpact;
     public static ImpactEffect PostImpact;
-   
+    public static ImpactProjectile ImpactGunOnly;
+
     public  static OnFireEffect OnFire;
     public static OnFireAllEffect OnFireAll;
     public static DamageEffect OnDamage;
@@ -33,6 +35,7 @@ public class eventManager : MonoBehaviour
         OnDamage = null;
         OnDamageEnemy = null;
         OnKill = null;
+        ImpactGunOnly = null;
 
     }
 }

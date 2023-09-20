@@ -97,7 +97,7 @@ SpriteRenderer:
   m_SortingLayerID: 709511165
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: d78f9d1e6498f4e41b8668e0b2cb71b6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -105,7 +105,7 @@ SpriteRenderer:
   m_Size: {x: 16, y: 16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!58 &5230925269674785857
@@ -138,9 +138,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 15
   reducedDamage: 10
+  TrueDamage: 0
   destroyTime: 0.3
   force: 7.5
   isEnemy: 1
+  LevelScaling: 0
 --- !u!1 &6504948478918992659
 GameObject:
   m_ObjectHideFlags: 0

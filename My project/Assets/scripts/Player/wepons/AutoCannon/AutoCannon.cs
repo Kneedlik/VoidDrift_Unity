@@ -15,7 +15,19 @@ public class AutoCannon : weapeon
 
     public float range;
     public float baseOffset;
+    public float OffsetScaling = 1;
+    public float RangeScaling;
+    public float MaxOffsetScaling;
+    public float FirePointRotation;
+    public float MaxFirePointRotation;
+    [SerializeField] float offset;
+    [SerializeField] float Range1;
+
     public float baseSideOffset;
+    public float sideScaling = 1;
+    public float MaxSideScaling;
+   
+
     public GameObject[] cubes = new GameObject[100];
     GameObject[] sideCubes = new GameObject[100];
     public GameObject cubePrefab;
@@ -77,7 +89,7 @@ public class AutoCannon : weapeon
             for (int j = 0; j < projectileCount; j++)
             {
                 GameObject bullet;
-                bullet = Instantiate(bulletPrefab, cubes[j].transform.position, firePoint.rotation);
+                bullet = Instantiate(bulletPrefab, cubes[j].transform.position, cubes[j].transform.rotation);
 
                 if(eventManager.OnFireAll != null)
                 {
@@ -92,7 +104,7 @@ public class AutoCannon : weapeon
                 bulletDamage.setBounce(Bounce);
 
                 rb = bullet.GetComponent<Rigidbody2D>();
-                rb.AddForce(firePoint.up * Force, ForceMode2D.Impulse);
+                rb.AddForce(bullet.transform.up * Force, ForceMode2D.Impulse);
             }
 
             for (int j = 0; j < sideProjectiles * 2; j++)
@@ -123,8 +135,13 @@ public class AutoCannon : weapeon
 
     public override void setSideFirepoints()
     {
-       // float mid = 45;
+       
         float offset = baseSideOffset / sideProjectiles;
+        offset = offset + (sideProjectiles * sideScaling);
+        if(offset > MaxSideScaling && MaxSideScaling != 0)
+        {
+            offset = MaxSideScaling;
+        }
         float offsetA = offset;
 
         for (int i = 0; i < sideProjectiles * 2; i++)
@@ -146,68 +163,118 @@ public class AutoCannon : weapeon
 
     public override void setFirepoints()
     {
-        for (int i = 0; i < projectileCount; i++)
+         Range1 = range;
+
+        offset = baseOffset / projectileCount;
+        float pom = offset;
+
+        if (projectileCount > 3)
         {
-            Destroy(cubes[i]);
+            offset = offset + projectileCount * OffsetScaling;
+            Range1 = Range1 + projectileCount * RangeScaling;
         }
 
-        Vector2 points = new Vector2(firePoint.position.x, firePoint.position.y);
-        float offset1 = 0;
-        int j = 0;
-        int a;
-        float offset = baseOffset / projectileCount;
-
-
-        if (projectileCount % 2 == 1)
+        if (Range1 > range * MaxOffsetScaling)
         {
-            points.x += range;
-
-            cubes[j] = Instantiate(cubePrefab, points, firePoint.rotation);
-            cubes[j].transform.parent = gameObject.transform;
-            j++;
-
+            Range1 = range * MaxOffsetScaling;
         }
-        else
+
+        if (offset > pom * MaxOffsetScaling)
         {
-            points.x += range;
-            offset1 += (offset / 2);
-            points.y = firePoint.position.y + offset1;
-            cubes[j] = Instantiate(cubePrefab, points, firePoint.rotation);
-            cubes[j].transform.parent = gameObject.transform;
-            j++;
-            points.y = firePoint.position.y - offset1;
-            cubes[j] = Instantiate(cubePrefab, points, firePoint.rotation);
-            cubes[j].transform.parent = gameObject.transform;
-            j++;
+            offset = offset + pom * OffsetScaling;
         }
-        int count = j;
-        for (int i = 0; i < (projectileCount - count); i++)
+
+        bool Finished = false;
+        int b = 0;
+        while (Finished == false && b < 100)
         {
-            i++;
-            offset1 += offset;
+            float rot = 0;
+            float offset1 = 0;
+            int a;
+            int j = 0;
+            Vector2 points = new Vector2(firePoint.position.x, firePoint.position.y);
+            Finished = true;
+            b++;
 
-            points.y = firePoint.position.y + offset1;
-
-            float distance = Vector2.Distance(firePoint.position, points);
-            a = 0;
-
-            while (distance > range && a < 1000)
+            for (int i = 0; i < projectileCount; i++)
             {
-                a++;
-                points.x -= 0.3f;
-                distance = Vector2.Distance(firePoint.position, points);
+                if (cubes[i] != null)
+                {
+                    Destroy(cubes[i]);
+                }
             }
-            cubes[j] = Instantiate(cubePrefab, points, firePoint.rotation);
-            cubes[j].transform.parent = gameObject.transform;
-            j++;
 
-            points.y = firePoint.position.y - offset1;
+            if (projectileCount % 2 == 1)
+            {
+                points.x += Range1;
 
-            cubes[j] = Instantiate(cubePrefab, points, firePoint.rotation);
-            cubes[j].transform.parent = gameObject.transform;
-            j++;
+                cubes[j] = Instantiate(cubePrefab, points, firePoint.rotation);
+                cubes[j].transform.parent = gameObject.transform;
+                j++;
 
+            }
+            else
+            {
+                points.x += Range1;
+                offset1 += (offset / 2);
+                points.y = firePoint.position.y + offset1;
+                cubes[j] = Instantiate(cubePrefab, points, firePoint.rotation);
+                cubes[j].transform.parent = gameObject.transform;
+                j++;
+                points.y = firePoint.position.y - offset1;
+                cubes[j] = Instantiate(cubePrefab, points, firePoint.rotation);
+                cubes[j].transform.parent = gameObject.transform;
+                j++;
+            }
+
+            int count = j;
+            for (int i = 0; i < (projectileCount - count); i++)
+            {
+                i++;
+                offset1 += offset;
+
+                float distance;
+                a = 0;
+
+                points.y = firePoint.position.y + offset1;
+                distance = Vector2.Distance(firePoint.position, points);
+
+                while (distance > Range1 && a < 250)
+                {
+                    a++;
+                    points.x -= 0.3f;
+                    distance = Vector2.Distance(firePoint.position, points);
+                }
+
+                if(a >= 249)
+                {
+                    offset -= 0.05f;
+                    Range1 += 0.2f;
+                    Finished = false;
+                }
+
+                rot += FirePointRotation;
+                if(rot > MaxFirePointRotation)
+                {
+                    rot = MaxFirePointRotation;
+                }
+
+                cubes[j] = Instantiate(cubePrefab, points, Quaternion.Euler(0,0,firePoint.rotation.eulerAngles.z + rot));
+                cubes[j].transform.parent = gameObject.transform;
+                j++;
+
+                points.y = firePoint.position.y - offset1;
+
+                cubes[j] = Instantiate(cubePrefab, points, Quaternion.Euler(0, 0, firePoint.rotation.eulerAngles.z - rot));
+                cubes[j].transform.parent = gameObject.transform;
+                j++;
+                
+
+            }
+            Debug.Log(b);
         }
+
+        
     }
 
     public override void ResetFirePoints()
