@@ -163,6 +163,7 @@ public class AutoCannon : weapeon
 
     public override void setFirepoints()
     {
+        Transform Player = GameObject.FindWithTag("Player").GetComponent<Transform>();
          Range1 = range;
 
         offset = baseOffset / projectileCount;
@@ -188,6 +189,9 @@ public class AutoCannon : weapeon
         int b = 0;
         while (Finished == false && b < 100)
         {
+            firePoint.position = Player.position;
+            firePoint.position = new Vector3 (Player.position.x,Player.position.y - 2 + (Range1 * -0.2f),0);
+
             float rot = 0;
             float offset1 = 0;
             int a;
