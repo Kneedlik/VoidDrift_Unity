@@ -26,6 +26,8 @@ public class AutoCannon : weapeon
     public float baseSideOffset;
     public float sideScaling = 1;
     public float MaxSideScaling;
+
+    public bool Laser;
    
 
     public GameObject[] cubes = new GameObject[100];
@@ -36,6 +38,9 @@ public class AutoCannon : weapeon
 
     private void Start()
     {
+        PlayerStats.OnLevel += SetAS;
+        PlayerStats.OnLevel += SetForce;
+
         cubes = new GameObject[100];
         timeStamp = 0;
         shootCheck = false;
@@ -183,6 +188,12 @@ public class AutoCannon : weapeon
         if (offset > pom * MaxOffsetScaling)
         {
             offset = offset + pom * OffsetScaling;
+        }
+
+        if(Laser)
+        {
+            offset = 0.05f;
+            Range1 = 2;
         }
 
         bool Finished = false;

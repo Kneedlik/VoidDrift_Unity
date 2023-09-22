@@ -16,9 +16,9 @@ public class AC_GatlingGun : upgrade
     public override void function()
     {
         weapeon gun = GameObject.FindWithTag("Weapeon").GetComponent<weapeon>();
-        gun.baseBulletCoolDown -= ASamount;
+        gun.ASmultiplier += ASamount;
         gun.baseDamage -= DamagePenalty;
-        PlayerStats.sharedInstance.IncreaseAS(0);
+        
         level++;
     }
 }

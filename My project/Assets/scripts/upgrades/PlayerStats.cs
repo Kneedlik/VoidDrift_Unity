@@ -113,10 +113,10 @@ public class PlayerStats : MonoBehaviour
         gun.setSideFirepoints();
     }
 
-    public void increasePeojetileSpeed(int amount)
-    {
-        gun.Force = gun.BaseForce * ProjectileForce;
-    }
+    //public void increasePeojetileSpeed(int amount)
+   // {
+   //     gun.Force = gun.BaseForce * ProjectileForce;
+   // }
 
     public void addRevive(int amount)
     {

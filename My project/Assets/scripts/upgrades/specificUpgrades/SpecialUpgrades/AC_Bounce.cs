@@ -5,7 +5,8 @@ using UnityEngine;
 public class AC_Bounce : upgrade
 {
     public int Amount;
-    public int DamageAmount;
+    //public int DamageAmount;
+    public float ProjectileSpeed;
 
     private void Start()
     {
@@ -17,9 +18,10 @@ public class AC_Bounce : upgrade
     {
         AutoCannon AC = GameObject.FindWithTag("Weapeon").GetComponent<AutoCannon>();
         AC.Bounce += Amount;
-        AC.baseDamage += DamageAmount;
+        AC.BaseForce += ProjectileSpeed;
+       // AC.baseDamage += DamageAmount;
 
-        PlayerStats.sharedInstance.increaseDMG(0);
+      //  PlayerStats.sharedInstance.increaseDMG(0);
         level++;
     }
 

@@ -21,6 +21,12 @@ public class AC_BounceFinal : upgrade
 
     public override void function()
     {
+        AutoCannon Gun = GameObject.FindWithTag("Weapeon").GetComponent<AutoCannon>();
+
+        Gun.baseDamage += Damage;
+        Gun.Bounce += Bounce;
+        Gun.ForceMultiplier += Speed;
+        PlayerStats.sharedInstance.increaseProjectiles(ProjectilePenalty * -1);
 
 
     }

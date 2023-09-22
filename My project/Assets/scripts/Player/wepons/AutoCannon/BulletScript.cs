@@ -9,6 +9,9 @@ public class BulletScript : Projectile
     public GameObject impactEffect;
     public GameObject impactParticles;
     Transform target;
+
+    public float MaxBounceDistance;
+    public bool MaxBounceDistanceOff = false;
     
     private void Start()
     {
@@ -61,25 +64,30 @@ public class BulletScript : Projectile
 
                     List<Transform> transforms = new List<Transform>();
                     transforms.Add(collision.transform);
+                    bool RandomCheck = false;
                     if(KnedlikLib.FindClosestEnemy(gameObject.transform,out target,transforms))
                     {
                         rbTarget = target.GetComponent<Rigidbody2D>();
-                      
-                        
-                        if (KnedlikLib.InterceptionPoint(target.position, transform.position, rbTarget.velocity,rb.velocity.magnitude, out direction))
+                        if (Vector3.Distance(target.position, transform.position) < MaxBounceDistance && MaxBounceDistanceOff == false)
                         {
-                            // rb.
-                            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
-                            rb.rotation = angle;
-                            rb.velocity = direction * rb.velocity.magnitude;
+                            if (KnedlikLib.InterceptionPoint(target.position, transform.position, rbTarget.velocity, rb.velocity.magnitude, out direction))
+                            {
+
+                                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
+                                rb.rotation = angle;
+                                rb.velocity = direction * rb.velocity.magnitude;
+                            }
+                            else
+                            {
+                                RandomCheck = true;
+                            }
                         }else
                         {
-                            float rand1 = Random.Range(0, 1);
-                            float rand2 = Random.Range(0, 1);
-                            direction = new Vector2(rand1, rand2);
-                            rb.velocity = direction * rb.velocity.magnitude;
+                            RandomCheck = true;
                         }
-                    }else
+                    }
+
+                    if (RandomCheck)
                     {
                         float rand1 = Random.Range(0, 1);
                         float rand2 = Random.Range(0, 1);
