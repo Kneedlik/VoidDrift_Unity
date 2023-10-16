@@ -19,6 +19,14 @@ PrefabInstance:
       propertyPath: levelScaling
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1859748942483792731, guid: fc6bca04a2964864ba8498fcb4f50dc6, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1859748942483792731, guid: fc6bca04a2964864ba8498fcb4f50dc6, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 709511165
+      objectReference: {fileID: 0}
     - target: {fileID: 1859748942483792732, guid: fc6bca04a2964864ba8498fcb4f50dc6, type: 3}
       propertyPath: m_SleepingMode
       value: 2

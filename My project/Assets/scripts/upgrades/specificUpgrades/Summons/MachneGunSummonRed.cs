@@ -9,13 +9,18 @@ public class MachneGunSummonRed : upgrade
     MachneGun drone;
 
     float fireRate;
-
-    
-
     void Start()
     {
         Type = type.red;
         setColor();
+    }
+    public override bool requirmentsMet()
+    {
+        if (KnedlikLib.CheckSummon(this))
+        {
+            return true;
+        }
+        else return false;
     }
 
     public override void function()
@@ -25,7 +30,7 @@ public class MachneGunSummonRed : upgrade
            if(SummonsManager.instance.addSummon(summon,out pom))
            {
                 drone = pom.GetComponent<MachneGun>();
-                if(SummonsManager.instance.summonCount >= SummonsManager.instance.maxSummons)
+                if(SummonsManager.instance.summonCount < SummonsManager.instance.maxSummons)
                 {
                     cloneSelf();
                 }
@@ -45,19 +50,19 @@ public class MachneGunSummonRed : upgrade
         {
             drone.bulletsInBurst += 1;
 
-            description = string.Format("Drone firerate + 20% ");
+            description = string.Format("Drone cooldown - 40% ");
 
         }else if(level == 3)
         {
-            float pom = fireRate * 1.2f;
+            float pom = fireRate * 1.4f;
             pom = pom - fireRate;
             drone.baseFireRate -= pom;
 
-            description = string.Format("Drone projectiles +1 base damage + 3");
+            description = string.Format("Drone projectiles +1 base damage + 5");
         }else if(level == 4)
         {
             drone.bulletsInBurst += 1;
-            drone.baseDamage += 3;
+            drone.baseDamage += 5;
         }
 
 

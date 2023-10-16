@@ -329,7 +329,6 @@ public static class KnedlikLib
 
         }
     }
-
     public static bool InterceptionPoint(Vector2 target, Vector2 FirePoint, Vector2 TargetVelocity, float speedB, out Vector2 result)
     {
         var aToB = FirePoint - target;
@@ -381,6 +380,14 @@ public static class KnedlikLib
                 rb.velocity = rb.velocity.normalized * MaxSpeed;
             }
         }
+    }
+
+    public static bool CheckSummon(upgrade obj)
+    {
+        if(obj.level > 0 || SummonsManager.instance.summonCount < SummonsManager.instance.maxSummons )
+        {
+            return true;
+        }else return false;
     }
 
 

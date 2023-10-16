@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 
 public class AutoCannon : weapeon
 {
@@ -28,6 +29,9 @@ public class AutoCannon : weapeon
     public float MaxSideScaling;
 
     public bool Laser;
+    public bool Raiden;
+   [SerializeField] int RealProjectiles;
+    BulletScript BulletDamage;
    
 
     public GameObject[] cubes = new GameObject[100];
@@ -35,6 +39,8 @@ public class AutoCannon : weapeon
     public GameObject cubePrefab;
 
     public int Bounce;
+    public float BounceDistance;
+    public bool BounceDistanceOff = false;
 
     private void Start()
     {
@@ -91,7 +97,7 @@ public class AutoCannon : weapeon
                 eventManager.OnFire(gameObject);
             }
             
-            for (int j = 0; j < projectileCount; j++)
+            for (int j = 0; j < RealProjectiles; j++)
             {
                 GameObject bullet;
                 bullet = Instantiate(bulletPrefab, cubes[j].transform.position, cubes[j].transform.rotation);
@@ -101,12 +107,13 @@ public class AutoCannon : weapeon
                     eventManager.OnFireAll(gameObject,bullet);
                 }
 
-                bulletDamage = bullet.GetComponent<Projectile>();
-                bulletDamage.setDamage(damage + extraDamage);
-                bulletDamage.setArea(size);
-                bulletDamage.setPierce(pierce);
-                bulletDamage.setKnockBack(knockBack);
-                bulletDamage.setBounce(Bounce);
+                BulletDamage = bullet.GetComponent<BulletScript>();
+                BulletDamage.setDamage(damage + extraDamage);
+                BulletDamage.setArea(size);
+                BulletDamage.setPierce(pierce);
+                BulletDamage.setKnockBack(knockBack);
+                BulletDamage.setBounce(Bounce);
+                BulletDamage.MaxBounceDistance = BounceDistance;
 
                 rb = bullet.GetComponent<Rigidbody2D>();
                 rb.AddForce(bullet.transform.up * Force, ForceMode2D.Impulse);
@@ -122,12 +129,13 @@ public class AutoCannon : weapeon
                     eventManager.OnFireAll(gameObject, bullet);
                 }
 
-                bulletDamage = bullet.GetComponent<Projectile>();
-                bulletDamage.setDamage(damage + extraDamage);
-                bulletDamage.setArea(size);
-                bulletDamage.setPierce(pierce);
-                bulletDamage.setKnockBack(knockBack);
-                bulletDamage.setBounce(Bounce);
+                BulletDamage = bullet.GetComponent<BulletScript>();
+                BulletDamage.setDamage(damage + extraDamage);
+                BulletDamage.setArea(size);
+                BulletDamage.setPierce(pierce);
+                BulletDamage.setKnockBack(knockBack);
+                BulletDamage.setBounce(Bounce);
+                BulletDamage.MaxBounceDistance = BounceDistance;               
 
                 rb = bullet.GetComponent<Rigidbody2D>();
                 rb.AddForce(sideCubes[j].transform.up * Force, ForceMode2D.Impulse);
@@ -142,12 +150,12 @@ public class AutoCannon : weapeon
     {
        
         float offset = baseSideOffset / sideProjectiles;
-        offset = offset + (sideProjectiles * sideScaling);
+        offset = offset + (sideProjectiles * sideScaling) / sideProjectiles;
         if(offset > MaxSideScaling && MaxSideScaling != 0)
         {
             offset = MaxSideScaling;
         }
-        float offsetA = offset;
+        float offsetA = offset * 2;
 
         for (int i = 0; i < sideProjectiles * 2; i++)
         {
@@ -165,19 +173,24 @@ public class AutoCannon : weapeon
             offsetA += offset;
         }
     }
-
     public override void setFirepoints()
     {
         Transform Player = GameObject.FindWithTag("Player").GetComponent<Transform>();
          Range1 = range;
 
-        offset = baseOffset / projectileCount;
+        RealProjectiles = projectileCount;
+        if (RealProjectiles < 1)
+        {
+            RealProjectiles = 1;
+        }
+
+        offset = baseOffset / RealProjectiles;
         float pom = offset;
 
-        if (projectileCount > 3)
+        if (RealProjectiles > 3)
         {
-            offset = offset + projectileCount * OffsetScaling;
-            Range1 = Range1 + projectileCount * RangeScaling;
+            offset = offset + RealProjectiles * OffsetScaling;
+            Range1 = Range1 + RealProjectiles * RangeScaling;
         }
 
         if (Range1 > range * MaxOffsetScaling)
@@ -190,106 +203,299 @@ public class AutoCannon : weapeon
             offset = offset + pom * OffsetScaling;
         }
 
-        if(Laser)
-        {
-            offset = 0.05f;
-            Range1 = 2;
-        }
-
         bool Finished = false;
-        int b = 0;
-        while (Finished == false && b < 100)
+        int b = 0;       
+
+        if (Raiden == false)
         {
-            firePoint.position = Player.position;
-            firePoint.position = new Vector3 (Player.position.x,Player.position.y - 2 + (Range1 * -0.2f),0);
-
-            float rot = 0;
-            float offset1 = 0;
-            int a;
-            int j = 0;
-            Vector2 points = new Vector2(firePoint.position.x, firePoint.position.y);
-            Finished = true;
-            b++;
-
-            for (int i = 0; i < projectileCount; i++)
+            if (Laser)
             {
-                if (cubes[i] != null)
-                {
-                    Destroy(cubes[i]);
-                }
+                offset = 0.05f;
+                Range1 = 2;
             }
 
-            if (projectileCount % 2 == 1)
+            while (Finished == false && b < 100)
             {
-                points.x += Range1;
+                firePoint.position = Player.position;
+                firePoint.position = new Vector3(Player.position.x - 2 + (Range1 * -0.15f), Player.position.y, 0);
 
-                cubes[j] = Instantiate(cubePrefab, points, firePoint.rotation);
-                cubes[j].transform.parent = gameObject.transform;
-                j++;
+                float rot = 0;
+                float offset1 = 0;
+                int a;
+                int j = 0;
+                Vector2 points = new Vector2(firePoint.position.x, firePoint.position.y);
+                Finished = true;
+                b++;
 
+                for (int i = 0; i < RealProjectiles; i++)
+                {
+                    if (cubes[i] != null)
+                    {
+                        Destroy(cubes[i]);
+                    }
+                }
+
+                if (RealProjectiles % 2 == 1)
+                {
+                    points.x += Range1;
+
+                    cubes[j] = Instantiate(cubePrefab, points, firePoint.rotation);
+                    cubes[j].transform.parent = gameObject.transform;
+                    j++;
+
+                }
+                else
+                {
+                    points.x += Range1;
+                    offset1 += (offset / 2);
+                    points.y = firePoint.position.y + offset1;
+                    cubes[j] = Instantiate(cubePrefab, points, firePoint.rotation);
+                    cubes[j].transform.parent = gameObject.transform;
+                    j++;
+                    points.y = firePoint.position.y - offset1;
+                    cubes[j] = Instantiate(cubePrefab, points, firePoint.rotation);
+                    cubes[j].transform.parent = gameObject.transform;
+                    j++;
+                }
+
+                int count = j;
+                for (int i = 0; i < (RealProjectiles - count); i++)
+                {
+                    i++;
+                    offset1 += offset;
+
+                    float distance;
+                    a = 0;
+
+                    points.y = firePoint.position.y + offset1;
+                    distance = Vector2.Distance(firePoint.position, points);
+
+                    while (distance > Range1 && a < 250)
+                    {
+                        a++;
+                        points.x -= 0.3f;
+                        distance = Vector2.Distance(firePoint.position, points);
+                    }
+
+                    if (a >= 249)
+                    {
+                        offset -= 0.05f;
+                        Range1 += 0.2f;
+                        Finished = false;
+                    }
+
+                    rot += FirePointRotation;
+                    if (rot > MaxFirePointRotation)
+                    {
+                        rot = MaxFirePointRotation;
+                    }  
+                    
+                    if(Laser)
+                    {
+                        rot = 0;
+                    }
+
+                    cubes[j] = Instantiate(cubePrefab, points, Quaternion.Euler(0, 0, firePoint.rotation.eulerAngles.z + rot));
+                    cubes[j].transform.parent = gameObject.transform;
+                    j++;
+
+                    points.y = firePoint.position.y - offset1;
+
+                    cubes[j] = Instantiate(cubePrefab, points, Quaternion.Euler(0, 0, firePoint.rotation.eulerAngles.z - rot));
+                    cubes[j].transform.parent = gameObject.transform;
+                    j++;
+
+
+                }
+
+            }
+
+        }else
+        {
+            int Set;
+            int SetAmount;            
+
+            if(RealProjectiles <= 12 )
+            {
+                Set = 2;
+                if(RealProjectiles % 2 == 1)
+                {
+                    RealProjectiles -= 1;                   
+                }
+                SetAmount = RealProjectiles / 2;
+            }else if(RealProjectiles <= 18 )
+            {
+                Set = 3;
+                if(RealProjectiles % 3 == 1)
+                {
+                    RealProjectiles -= 1;
+                }
+                SetAmount = RealProjectiles / 3;
             }
             else
             {
-                points.x += Range1;
-                offset1 += (offset / 2);
-                points.y = firePoint.position.y + offset1;
-                cubes[j] = Instantiate(cubePrefab, points, firePoint.rotation);
-                cubes[j].transform.parent = gameObject.transform;
-                j++;
-                points.y = firePoint.position.y - offset1;
-                cubes[j] = Instantiate(cubePrefab, points, firePoint.rotation);
-                cubes[j].transform.parent = gameObject.transform;
-                j++;
+                Set = 4;
+                if (RealProjectiles % 2 == 1)
+                {
+                    RealProjectiles -= 1;
+                }
+                SetAmount = RealProjectiles / 4;
+                bulletsInABurst = 4;
             }
 
-            int count = j;
-            for (int i = 0; i < (projectileCount - count); i++)
+            while (Finished == false && b < 100)
             {
-                i++;
-                offset1 += offset;
+                firePoint.position = Player.position;
+                firePoint.position = new Vector3(Player.position.x - 2 + (Range1 * -0.15f), Player.position.y, 0);
 
-                float distance;
-                a = 0;
+                float rot = 0;
+                float offset1 = 0;
+                float OffsetBig;
 
-                points.y = firePoint.position.y + offset1;
-                distance = Vector2.Distance(firePoint.position, points);
-
-                while (distance > Range1 && a < 250)
+                if (Set == 2)
                 {
-                    a++;
-                    points.x -= 0.3f;
-                    distance = Vector2.Distance(firePoint.position, points);
-                }
-
-                if(a >= 249)
+                    OffsetBig = offset * 1.2f;
+                }else if (Set == 3) 
                 {
-                    offset -= 0.05f;
-                    Range1 += 0.2f;
-                    Finished = false;
-                }
-
-                rot += FirePointRotation;
-                if(rot > MaxFirePointRotation)
+                    OffsetBig = offset * 1.6f;
+                }else
                 {
-                    rot = MaxFirePointRotation;
+                    OffsetBig = offset * 2f;
                 }
-
-                cubes[j] = Instantiate(cubePrefab, points, Quaternion.Euler(0,0,firePoint.rotation.eulerAngles.z + rot));
-                cubes[j].transform.parent = gameObject.transform;
-                j++;
-
-                points.y = firePoint.position.y - offset1;
-
-                cubes[j] = Instantiate(cubePrefab, points, Quaternion.Euler(0, 0, firePoint.rotation.eulerAngles.z - rot));
-                cubes[j].transform.parent = gameObject.transform;
-                j++;
                 
+                float OffsetSmall = offset * 0.8f;
+
+                int a;
+                int j = 0;
+                Vector2 points = new Vector2(firePoint.position.x, firePoint.position.y);
+                Finished = true;
+                b++;
+
+                for (int i = 0; i < RealProjectiles; i++)
+                {
+                    if (cubes[i] != null)
+                    {
+                        Destroy(cubes[i]);
+                    }
+                }
+
+                int count = 0;
+                if (SetAmount % 2 == 1)
+                {
+                    points.x += Range1;                  
+
+                    //cubes[j] = Instantiate(cubePrefab, points, firePoint.rotation);
+                    //cubes[j].transform.parent = gameObject.transform;
+                    //j++;
+
+                    if (Set % 2 == 1)
+                    {
+                        count++;
+                        points.y = firePoint.position.y + offset1;
+                        cubes[j] = Instantiate(cubePrefab, points, firePoint.rotation);
+                        cubes[j].transform.parent = gameObject.transform;
+                        j++;
+                        offset1 += OffsetSmall;
+                        
+                    }else
+                    {
+                        offset1 += OffsetSmall / 2;   
+                    }
+
+                    for (int i = 0; i < Set - count; i++)
+                    {
+                        points.y = firePoint.position.y + offset1;
+                        cubes[j] = Instantiate(cubePrefab, points, firePoint.rotation);
+                        cubes[j].transform.parent = gameObject.transform;
+                        j++;
+                        i++;
+
+                        points.y = firePoint.position.y - offset1;
+                        cubes[j] = Instantiate(cubePrefab, points, firePoint.rotation);
+                        cubes[j].transform.parent = gameObject.transform;
+                        offset1 += OffsetSmall;
+                        j++;
+                    }
+                }
+                else
+                {
+                    points.x += Range1;
+                    offset1 += OffsetBig / 2;
+
+                    for (int i = 0; i < Set; i++)
+                    {
+                        points.y = firePoint.position.y + offset1;
+                        cubes[j] = Instantiate(cubePrefab, points, firePoint.rotation);
+                        cubes[j].transform.parent = gameObject.transform;
+                        j++;
+
+                        points.y = firePoint.position.y - offset1;
+                        cubes[j] = Instantiate(cubePrefab, points, firePoint.rotation);
+                        cubes[j].transform.parent = gameObject.transform;
+                        j++;
+                        offset1 += OffsetSmall;
+                    }
+                }
+
+                count = j;
+                int SetIndex = 0;
+                rot += FirePointRotation * 6;
+
+                for (int i = 0; i < (RealProjectiles - count); i++)
+                {
+                    i++;
+
+                    if(SetIndex >= Set)
+                    {
+                        offset1 += OffsetBig;
+                        rot += FirePointRotation * 6;
+                        if (rot > MaxFirePointRotation)
+                        {
+                            rot = MaxFirePointRotation;
+                        }
+                        SetIndex = 0;
+                    }else
+                    {
+                        offset1 += OffsetSmall;
+                        SetIndex++;
+                    }
+                    
+                    float distance;
+                    a = 0;
+
+                    points.y = firePoint.position.y + offset1;
+                    distance = Vector2.Distance(firePoint.position, points);
+
+                    while (distance > Range1 && a < 250)
+                    {
+                        a++;
+                        points.x -= 0.3f;
+                        distance = Vector2.Distance(firePoint.position, points);
+                    }
+
+                    if (a >= 249)
+                    {
+                        offset -= 0.05f;
+                        Range1 += 0.2f;
+                        Finished = false;
+                    }
+
+                    cubes[j] = Instantiate(cubePrefab, points, Quaternion.Euler(0, 0, firePoint.rotation.eulerAngles.z + rot));
+                    cubes[j].transform.parent = gameObject.transform;
+                    j++;
+
+                    points.y = firePoint.position.y - offset1;
+
+                    cubes[j] = Instantiate(cubePrefab, points, Quaternion.Euler(0, 0, firePoint.rotation.eulerAngles.z - rot));
+                    cubes[j].transform.parent = gameObject.transform;
+                    j++;
+                }
 
             }
-            Debug.Log(b);
+
         }
 
-        
+
     }
 
     public override void ResetFirePoints()

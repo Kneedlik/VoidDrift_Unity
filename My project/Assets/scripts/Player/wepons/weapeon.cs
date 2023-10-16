@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class weapeon : MonoBehaviour
 {
-    protected Projectile bulletDamage;
     public Transform firePoint;
     public Transform SidefirePoint1;
     public Transform SidefirePoint2;
@@ -39,7 +38,7 @@ public class weapeon : MonoBehaviour
     {
         bulletCoolDown = baseBulletCoolDown / ASmultiplier;
         float realMultiplier = (float)PlayerStats.sharedInstance.ASmultiplier / 100f;
-        bulletCoolDown = bulletCoolDown / realMultiplier;
+        bulletCoolDown = bulletCoolDown / realMultiplier;      
     }
 
     public void SetForce()

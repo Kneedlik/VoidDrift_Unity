@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6532451}
   - component: {fileID: 6532450}
+  - component: {fileID: 6532452}
   m_Layer: 0
   m_Name: prometium_asteroid_sheet_3 (2)
   m_TagString: Untagged
@@ -207,6 +208,18 @@ Transform:
   m_Father: {fileID: 1703780422}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6532452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6532449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ef91c96ff1ba9d459c77b0119ac429c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &22694332
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -588,6 +601,7 @@ GameObject:
   m_Component:
   - component: {fileID: 89574789}
   - component: {fileID: 89574788}
+  - component: {fileID: 89574790}
   m_Layer: 0
   m_Name: asteroid_sheet_2_2
   m_TagString: Untagged
@@ -662,6 +676,18 @@ Transform:
   m_Father: {fileID: 1703780422}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &89574790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89574787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ef91c96ff1ba9d459c77b0119ac429c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &96179474
 GameObject:
   m_ObjectHideFlags: 0
@@ -1146,6 +1172,7 @@ GameObject:
   m_Component:
   - component: {fileID: 241409123}
   - component: {fileID: 241409122}
+  - component: {fileID: 241409124}
   m_Layer: 0
   m_Name: endurium_asteroid_sheet_0
   m_TagString: Untagged
@@ -1220,6 +1247,18 @@ Transform:
   m_Father: {fileID: 1703780422}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &241409124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241409121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ef91c96ff1ba9d459c77b0119ac429c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &375604638
 GameObject:
   m_ObjectHideFlags: 0
@@ -1230,6 +1269,7 @@ GameObject:
   m_Component:
   - component: {fileID: 375604640}
   - component: {fileID: 375604639}
+  - component: {fileID: 375604641}
   m_Layer: 0
   m_Name: endurium_asteroid_sheet_0
   m_TagString: Untagged
@@ -1304,6 +1344,18 @@ Transform:
   m_Father: {fileID: 1703780422}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &375604641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375604638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ef91c96ff1ba9d459c77b0119ac429c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &377797629
 GameObject:
   m_ObjectHideFlags: 0
@@ -1633,6 +1685,82 @@ MonoBehaviour:
   highLightColor:
     serializedVersion: 2
     rgba: 3355443200
+--- !u!1 &488418867
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 488418870}
+  - component: {fileID: 488418869}
+  - component: {fileID: 488418868}
+  m_Layer: 5
+  m_Name: StartPanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &488418868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488418867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.15686275, g: 0.11764706, b: 0.15686275, a: 0.627451}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &488418869
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488418867}
+  m_CullTransparentMesh: 1
+--- !u!224 &488418870
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488418867}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1367059615}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &511445864
 GameObject:
   m_ObjectHideFlags: 0
@@ -1740,6 +1868,7 @@ GameObject:
   m_Component:
   - component: {fileID: 525028712}
   - component: {fileID: 525028711}
+  - component: {fileID: 525028713}
   m_Layer: 0
   m_Name: prometium_asteroid_sheet_3 (1)
   m_TagString: Untagged
@@ -1814,6 +1943,18 @@ Transform:
   m_Father: {fileID: 1703780422}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &525028713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525028710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ef91c96ff1ba9d459c77b0119ac429c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &583988870
 GameObject:
   m_ObjectHideFlags: 0
@@ -1873,6 +2014,7 @@ GameObject:
   m_Component:
   - component: {fileID: 584598636}
   - component: {fileID: 584598637}
+  - component: {fileID: 584598638}
   m_Layer: 0
   m_Name: asteroid_sheet_2_0
   m_TagString: Untagged
@@ -1947,6 +2089,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &584598638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 584598635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ef91c96ff1ba9d459c77b0119ac429c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &615098064
 GameObject:
   m_ObjectHideFlags: 0
@@ -1957,6 +2111,7 @@ GameObject:
   m_Component:
   - component: {fileID: 615098066}
   - component: {fileID: 615098065}
+  - component: {fileID: 615098067}
   m_Layer: 0
   m_Name: prometium_asteroid_sheet_1
   m_TagString: Untagged
@@ -2031,6 +2186,18 @@ Transform:
   m_Father: {fileID: 1703780422}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &615098067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 615098064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ef91c96ff1ba9d459c77b0119ac429c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &626449476
 GameObject:
   m_ObjectHideFlags: 0
@@ -2041,6 +2208,7 @@ GameObject:
   m_Component:
   - component: {fileID: 626449478}
   - component: {fileID: 626449477}
+  - component: {fileID: 626449479}
   m_Layer: 0
   m_Name: terbium_asteroid_sheet_0 (1)
   m_TagString: Untagged
@@ -2115,6 +2283,18 @@ Transform:
   m_Father: {fileID: 1703780422}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &626449479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626449476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ef91c96ff1ba9d459c77b0119ac429c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &627122618
 GameObject:
   m_ObjectHideFlags: 0
@@ -2337,6 +2517,7 @@ GameObject:
   m_Component:
   - component: {fileID: 681021516}
   - component: {fileID: 681021515}
+  - component: {fileID: 681021517}
   m_Layer: 0
   m_Name: asteroid_sheet_2_1 (1)
   m_TagString: Untagged
@@ -2411,6 +2592,18 @@ Transform:
   m_Father: {fileID: 1703780422}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &681021517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 681021514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ef91c96ff1ba9d459c77b0119ac429c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &742569912
 GameObject:
   m_ObjectHideFlags: 0
@@ -2421,6 +2614,7 @@ GameObject:
   m_Component:
   - component: {fileID: 742569914}
   - component: {fileID: 742569913}
+  - component: {fileID: 742569915}
   m_Layer: 0
   m_Name: asteroid_sheet_2_1
   m_TagString: Untagged
@@ -2495,6 +2689,18 @@ Transform:
   m_Father: {fileID: 1703780422}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &742569915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742569912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ef91c96ff1ba9d459c77b0119ac429c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &791009461
 GameObject:
   m_ObjectHideFlags: 0
@@ -2505,6 +2711,7 @@ GameObject:
   m_Component:
   - component: {fileID: 791009463}
   - component: {fileID: 791009462}
+  - component: {fileID: 791009464}
   m_Layer: 0
   m_Name: prometium_asteroid_sheet_0
   m_TagString: Untagged
@@ -2579,6 +2786,18 @@ Transform:
   m_Father: {fileID: 1703780422}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &791009464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791009461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ef91c96ff1ba9d459c77b0119ac429c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &847150430
 GameObject:
   m_ObjectHideFlags: 0
@@ -2670,6 +2889,7 @@ GameObject:
   m_Component:
   - component: {fileID: 952329516}
   - component: {fileID: 952329515}
+  - component: {fileID: 952329517}
   m_Layer: 0
   m_Name: terbium_asteroid_sheet_0
   m_TagString: Untagged
@@ -2744,6 +2964,18 @@ Transform:
   m_Father: {fileID: 1703780422}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &952329517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952329514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ef91c96ff1ba9d459c77b0119ac429c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &992860635
 GameObject:
   m_ObjectHideFlags: 0
@@ -2754,6 +2986,7 @@ GameObject:
   m_Component:
   - component: {fileID: 992860636}
   - component: {fileID: 992860637}
+  - component: {fileID: 992860638}
   m_Layer: 0
   m_Name: asteroid_sheet_2_3
   m_TagString: Untagged
@@ -2828,6 +3061,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &992860638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992860635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ef91c96ff1ba9d459c77b0119ac429c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1002732053
 GameObject:
   m_ObjectHideFlags: 0
@@ -2922,6 +3167,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1029219000}
   - component: {fileID: 1029218999}
+  - component: {fileID: 1029219001}
   m_Layer: 0
   m_Name: endurium_asteroid_sheet_1
   m_TagString: Untagged
@@ -2996,6 +3242,18 @@ Transform:
   m_Father: {fileID: 1703780422}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1029219001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1029218998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ef91c96ff1ba9d459c77b0119ac429c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1032932135
 GameObject:
   m_ObjectHideFlags: 0
@@ -3141,6 +3399,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1035146444}
   - component: {fileID: 1035146445}
+  - component: {fileID: 1035146446}
   m_Layer: 0
   m_Name: asteroid_sheet_2_0 (1)
   m_TagString: Untagged
@@ -3215,6 +3474,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1035146446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035146443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ef91c96ff1ba9d459c77b0119ac429c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1045849219
 GameObject:
   m_ObjectHideFlags: 0
@@ -3225,6 +3496,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1045849221}
   - component: {fileID: 1045849220}
+  - component: {fileID: 1045849222}
   m_Layer: 0
   m_Name: asteroid_sheet_2_0
   m_TagString: Untagged
@@ -3299,6 +3571,18 @@ Transform:
   m_Father: {fileID: 1703780422}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1045849222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1045849219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ef91c96ff1ba9d459c77b0119ac429c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1060631456
 GameObject:
   m_ObjectHideFlags: 0
@@ -3309,6 +3593,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1060631458}
   - component: {fileID: 1060631457}
+  - component: {fileID: 1060631459}
   m_Layer: 0
   m_Name: endurium_asteroid_sheet_1
   m_TagString: Untagged
@@ -3383,6 +3668,18 @@ Transform:
   m_Father: {fileID: 1703780422}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1060631459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060631456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ef91c96ff1ba9d459c77b0119ac429c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1079560497 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2591387429320788520, guid: 19687077a00042742927cca0a889de02, type: 3}
@@ -3415,6 +3712,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1174381091}
   - component: {fileID: 1174381090}
+  - component: {fileID: 1174381092}
   m_Layer: 0
   m_Name: asteroid_sheet_2_3
   m_TagString: Untagged
@@ -3489,6 +3787,18 @@ Transform:
   m_Father: {fileID: 1703780422}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1174381092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174381089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ef91c96ff1ba9d459c77b0119ac429c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1181884215
 GameObject:
   m_ObjectHideFlags: 0
@@ -3537,6 +3847,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1319132151}
   - component: {fileID: 1319132150}
+  - component: {fileID: 1319132152}
   m_Layer: 0
   m_Name: asteroid_sheet_2_2
   m_TagString: Untagged
@@ -3611,6 +3922,18 @@ Transform:
   m_Father: {fileID: 1703780422}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1319132152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1319132149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ef91c96ff1ba9d459c77b0119ac429c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1367059611
 GameObject:
   m_ObjectHideFlags: 0
@@ -3707,6 +4030,7 @@ RectTransform:
   - {fileID: 847150431}
   - {fileID: 2002668059}
   - {fileID: 1739046154}
+  - {fileID: 488418870}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3727,6 +4051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa5105dedb48fa04a88ee1feaedf9e05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BaseCursor: {fileID: 2800000, guid: f40fa6970bc6de44d87bf11b974d6f18, type: 3}
   Values: {fileID: 11400000, guid: 36a9bfe61d94e404ba63cf0a5fd37349, type: 2}
   Settings: {fileID: 1739046153}
   StartMenuObject: {fileID: 2002668058}
@@ -3735,6 +4060,8 @@ MonoBehaviour:
   UnChecked: {fileID: 21300000, guid: 85f1412cdd5e87e4eb53bbc556b70629, type: 3}
   SettingsButton: {fileID: 1079560497}
   BackButton: {fileID: 2130480497}
+  StartPanel: {fileID: 488418867}
+  Volume: {fileID: 583988871}
 --- !u!1 &1390339472
 GameObject:
   m_ObjectHideFlags: 0
@@ -3745,6 +4072,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1390339473}
   - component: {fileID: 1390339474}
+  - component: {fileID: 1390339475}
   m_Layer: 0
   m_Name: terbium_asteroid_sheet_1
   m_TagString: Untagged
@@ -3819,6 +4147,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1390339475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390339472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ef91c96ff1ba9d459c77b0119ac429c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1401297481
 GameObject:
   m_ObjectHideFlags: 0
@@ -3829,6 +4169,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1401297483}
   - component: {fileID: 1401297482}
+  - component: {fileID: 1401297484}
   m_Layer: 0
   m_Name: prometium_asteroid_sheet_3
   m_TagString: Untagged
@@ -3903,6 +4244,18 @@ Transform:
   m_Father: {fileID: 1703780422}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1401297484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1401297481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ef91c96ff1ba9d459c77b0119ac429c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1463594579 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5066937012241852700, guid: 19687077a00042742927cca0a889de02, type: 3}
@@ -4482,6 +4835,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1884498000}
   - component: {fileID: 1884498001}
+  - component: {fileID: 1884498002}
   m_Layer: 0
   m_Name: prometium_asteroid_sheet_0
   m_TagString: Untagged
@@ -4556,6 +4910,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1884498002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1884497999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ef91c96ff1ba9d459c77b0119ac429c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1900509324
 GameObject:
   m_ObjectHideFlags: 0
@@ -4785,6 +5151,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2012132075}
   - component: {fileID: 2012132076}
+  - component: {fileID: 2012132077}
   m_Layer: 0
   m_Name: asteroid_sheet_2_1
   m_TagString: Untagged
@@ -4859,6 +5226,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2012132077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012132074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ef91c96ff1ba9d459c77b0119ac429c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2126873477
 GameObject:
   m_ObjectHideFlags: 0

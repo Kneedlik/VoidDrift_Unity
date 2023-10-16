@@ -15,6 +15,14 @@ public class SwordSummonBlue : upgrade
         Type = type.blue;
         setColor();
     }
+    public override bool requirmentsMet()
+    {
+        if (KnedlikLib.CheckSummon(this))
+        {
+            return true;
+        }
+        else return false;
+    }
 
     public override void function()
     {
@@ -23,7 +31,7 @@ public class SwordSummonBlue : upgrade
             if (SummonsManager.instance.addSummon(summon, out pom))
             {
                 drone = pom.GetComponent<SwordSummon>();
-                if (SummonsManager.instance.summonCount >= SummonsManager.instance.maxSummons)
+                if (SummonsManager.instance.summonCount < SummonsManager.instance.maxSummons)
                 {
                     cloneSelf();
                 }
@@ -34,7 +42,7 @@ public class SwordSummonBlue : upgrade
         }else if(level == 1)
         {
             drone.baseDamage += 4;
-            description = string.Format("Every fifh slash of Shapeless is critical");
+            description = string.Format("Every fourth slash of Shapeless is critical");
         }else if(level == 2)
         {
            // float pom = fireRate * 0.2f;
@@ -42,7 +50,7 @@ public class SwordSummonBlue : upgrade
 
             drone.Crit = true;
 
-            description = string.Format("Drone firerate + 15% damage + 3");
+            description = string.Format("Drone cooldown - 25% damage + 4");
         }else if(level == 3)
         {
             float pom = fireRate * 0.15f;

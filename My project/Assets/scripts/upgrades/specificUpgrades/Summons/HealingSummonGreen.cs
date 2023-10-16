@@ -16,6 +16,14 @@ public class HealingSummonGreen : upgrade
         setColor();
     }
 
+    public override bool requirmentsMet()
+    {
+        if (KnedlikLib.CheckSummon(this))
+        {
+            return true;
+        }
+        else return false;
+    }
 
     public override void function()
     {
@@ -24,7 +32,7 @@ public class HealingSummonGreen : upgrade
             if (SummonsManager.instance.addSummon(summon, out pom))
             {
                 heal = pom.GetComponent<HealingSummon>();
-                if (SummonsManager.instance.summonCount >= SummonsManager.instance.maxSummons)
+                if (SummonsManager.instance.summonCount < SummonsManager.instance.maxSummons)
                 {
                     cloneSelf();
                 }

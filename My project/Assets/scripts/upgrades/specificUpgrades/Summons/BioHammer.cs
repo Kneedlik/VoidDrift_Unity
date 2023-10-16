@@ -44,26 +44,29 @@ public class BioHammer : Summon
     IEnumerator Shoot(Transform target)
     {
         Transform pom = target;
-       GameObject obj = Instantiate(DamageEffect,pom.position,Quaternion.Euler(0,0,0));
+        GameObject obj = Instantiate(DamageEffect,pom.position,Quaternion.Euler(0,0,0));
         obj.transform.SetParent(pom);
 
         yield return new WaitForSeconds(damageDelay);
 
-        Health health = pom.GetComponent<Health>();
-        int plusDamage = damage;
-
-        if (health != null)
+        if (pom != null)
         {
-            if (eventManager.SummonOnImpact != null)
-            {
-                eventManager.SummonOnImpact(target.gameObject, damage, ref plusDamage);
-            }
+            Health health = pom.GetComponent<Health>();
+            int plusDamage = damage;
 
-          //  if (eventManager.PostImpact != null)
-           // {
-           //     eventManager.PostImpact(target.gameObject, plusDamage, ref plusDamage);
-           // }
-            health.TakeDamage(damage);
+            if (health != null)
+            {
+                if (eventManager.SummonOnImpact != null)
+                {
+                    eventManager.SummonOnImpact(target.gameObject, damage, ref plusDamage);
+                }
+
+                //  if (eventManager.PostImpact != null)
+                // {
+                //     eventManager.PostImpact(target.gameObject, plusDamage, ref plusDamage);
+                // }
+                health.TakeDamage(damage);
+            }
         }
     }
 

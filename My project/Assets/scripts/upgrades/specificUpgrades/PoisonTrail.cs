@@ -17,14 +17,14 @@ public class PoisonTrail : upgrade
 
     }
 
-   // public override bool requirmentsMet()
-   // {
-   //     if (poisonOnHit.instance.level >= 3)
-   //     {
-   //         return true;
-   //     }
-   //     else return false;
-   // }
+    public override bool requirmentsMet()
+    {
+        if (poisonOnHit.instance.level >= 3)
+        {
+            return true;
+        }
+       else return false;
+    }
 
 
     public override void function()

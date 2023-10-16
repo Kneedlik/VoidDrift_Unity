@@ -17,7 +17,7 @@ public class SpiritFlame : upgrade
 
     public override bool requirmentsMet()
     {
-        if (levelingSystem.instance.purple >= 40 && levelingSystem.instance.level >= 50)
+        if (levelingSystem.instance.purple >= 40 && levelingSystem.instance.level >= 40)
         {
             return true;
         }

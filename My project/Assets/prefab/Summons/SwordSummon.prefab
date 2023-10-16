@@ -101,15 +101,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 6
-  fireRate: 2
+  fireRate: 1.6
   size: 1
   baseDamage: 6
-  baseFireRate: 2
+  baseFireRate: 1.6
   baseSize: 1
   id: 8
-  timeStamp: 0
+  SlashObjectT: {fileID: 2360662370584755344, guid: 90426e44dc2ffe646abbbd5ca3409782, type: 3}
+  SlashObjectF: {fileID: 4302739104029972387, guid: 4e4b49664e0b1614daa8b47c4e3a3153, type: 3}
+  Crit: 0
+  CritDamage: 0
   slashAmount: 1
   slashDelay: 0.4
+  TicksNeeded: 4
 --- !u!95 &7118787310356922786
 Animator:
   serializedVersion: 4

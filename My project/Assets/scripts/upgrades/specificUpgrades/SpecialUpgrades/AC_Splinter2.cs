@@ -21,7 +21,7 @@ public class AC_Splinter2 : upgrade
 
     void Start()
     {
-        Type = type.green;
+        Type = type.special;
         setColor();
     }
 
@@ -30,9 +30,10 @@ public class AC_Splinter2 : upgrade
         if (level == 0)
         {
             eventManager.ImpactGunOnly += SplinterFunc;
+            description = string.Format("Shrapnels + 2");
         }else
         {
-            Amnount++;
+            Amnount += 2;
         }
 
         level++;

@@ -6,10 +6,18 @@ public class AC_Laser : upgrade
 {
     public float FireRate;
 
+    public override bool requirmentsMet()
+    {
+        if(levelingSystem.instance.level >= 30 && AC_GatlingGun.instance.level >= 1 && levelingSystem.instance.FinallForm == false)
+        {
+            return true;
+        }else return false;
+    }
+
     void Start()
     {
-        //Type = type.special;
-        //setColor();
+        Type = type.special;
+        setColor();
     }
 
     public override void function()
@@ -19,7 +27,8 @@ public class AC_Laser : upgrade
         if(level == 0 )
         {
             Gun.Laser = true;
-            Gun.ASmultiplier += 2f;
+            Gun.ASmultiplier += FireRate;
+            levelingSystem.instance.FinallForm = true;
         }
 
         level++;

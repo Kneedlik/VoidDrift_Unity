@@ -107,7 +107,7 @@ public class upgradeSorting : MonoBehaviour
         {
             if (levelingSystem.instance.level % 10 == 0)
             {
-                if (Base.list[i].Type == type.special)
+                if (Base.list[i].Type == type.special && Base.list[i].requirmentsMet())
                 {
                     list.Add(Base.list[i]);
                 }

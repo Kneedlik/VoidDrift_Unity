@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class AC_Rockets : upgrade
 {
+    public static AC_Rockets instance;
+
+
     public GameObject Prefab;
     public int Amount;
     public int Force;
@@ -23,8 +26,8 @@ public class AC_Rockets : upgrade
 
     [SerializeField] float BaseOffset;
 
-    // public override bool requirmentsMet()
-    // {
+   //  public override bool requirmentsMet()
+   //  {
     //     if(levelingSystem.instance.level >= 10)
     //     {
     //         return true;
@@ -33,6 +36,7 @@ public class AC_Rockets : upgrade
 
     private void Start()
     {
+        instance = this;
         Type = type.special;
         setColor();
     }
@@ -42,6 +46,7 @@ public class AC_Rockets : upgrade
         if (level == 0)
         {
             eventManager.OnFire += FireRockets;
+            description = string.Format("Homing missles + 2");
         }
         Amount += AmountIncrease;
         SetFirePoints();
@@ -52,7 +57,9 @@ public class AC_Rockets : upgrade
     public void FireRockets(GameObject Weapeon)
     {
         CurrentShot++;
-        if (CurrentShot >= ShotsNeeded)
+       // AutoCannon AC = GameObject.FindWithTag("Weapeon").GetComponent<AutoCannon>();
+
+        if (CurrentShot >= ShotsNeeded )
         {
             for (int i = 0; i < Amount; i++)
             {

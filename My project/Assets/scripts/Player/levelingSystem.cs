@@ -10,6 +10,7 @@ public class levelingSystem : MonoBehaviour
     public int currentXp;
     public int xpNeeded;
     public int xpInccrease;
+    public float xpInccreaseMultiplier = 1;
     public GameObject levelUpMenu;
     public upgradeSorting sorting;
     public int totalXP;
@@ -28,6 +29,7 @@ public class levelingSystem : MonoBehaviour
     [SerializeField] bool cheating = false;
 
     public bool Double = false;
+    public bool FinallForm = false;
 
     private void Awake()
     {
@@ -66,8 +68,30 @@ public class levelingSystem : MonoBehaviour
 
         if (currentXp >= xpNeeded)
         {
+            currentXp -= xpNeeded;
             level++;
+
+            if (level % 10 != 0)
+            {
+                float pom = xpInccrease * xpInccreaseMultiplier;
+                xpInccrease = (int)pom;
+                xpNeeded += xpInccrease;
+                //Debug.Log(xpNeeded);
+                //Debug.Log(xpInccrease);
+            }
+            else
+            {
+                float pom = (xpInccreaseMultiplier - 1f) * 4f;
+                pom += 1f;
+                pom = pom * xpInccrease;
+                xpInccrease = (int)pom;
+                xpNeeded += xpInccrease;
+               // Debug.Log(xpNeeded);
+                //Debug.Log(xpInccrease);
+            }
+
             ScaleByLevel();
+            bar.displayedLevel(level);
             sorting.setUpCards();
             levelUpMenu.SetActive(true);
             CursorManager.instance.setCursorPointer();
@@ -78,8 +102,6 @@ public class levelingSystem : MonoBehaviour
 
     public void levelUp()
     {
-        currentXp -= xpNeeded;
-        xpNeeded += xpInccrease;
         bar.displayedLevel(level);
         bar.setMaxXp(xpNeeded);
         bar.setXP(currentXp);

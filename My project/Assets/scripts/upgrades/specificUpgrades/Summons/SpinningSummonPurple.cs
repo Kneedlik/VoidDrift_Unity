@@ -19,6 +19,14 @@ public class SpinningSummonPurple : upgrade
         setColor();
     }
 
+    public override bool requirmentsMet()
+    {
+        if (KnedlikLib.CheckSummon(this))
+        {
+            return true;
+        }
+        else return false;
+    }
 
     public override void function()
     {
@@ -29,7 +37,7 @@ public class SpinningSummonPurple : upgrade
                 sum = pom.GetComponent<SpiningSummon>();
                 main = sum.main.GetComponent<SpinningSummonMain>();
 
-                if (SummonsManager.instance.summonCount >= SummonsManager.instance.maxSummons)
+                if (SummonsManager.instance.summonCount < SummonsManager.instance.maxSummons)
                 {
                     cloneSelf();
                 }

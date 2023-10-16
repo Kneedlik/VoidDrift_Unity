@@ -2,14 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpininigSummonOrb : Summon
+public class SpininigSummonOrb : MonoBehaviour
 {
-    float coolDown;
-    List<GameObject> enemies = new List<GameObject>();
-    List<float> timestamps = new List<float>();
-    
-
-
+    public int damage;
     void Start()
     {
         
@@ -49,27 +44,25 @@ public class SpininigSummonOrb : Summon
         Health health = collision.GetComponent<Health>();
         if(health != null)
         {
-            if(enemies.Contains(collision.gameObject) == false)
-            {
-                int Damage = damage;
-               
-
-               // enemies.Add(collision.gameObject);
+            //if(enemies.Contains(collision.gameObject) == false)
+           //{
+            int Damage = damage;
+           // enemies.Add(collision.gameObject);
                // float time = coolDown;
                // timestamps.Add(time);
 
-                if (eventManager.OnImpact != null)
-                {
-                    eventManager.OnImpact(collision.gameObject, damage, ref Damage);
-                }
-
-                if (eventManager.PostImpact != null)
-                {
-                    eventManager.PostImpact(collision.gameObject, Damage, ref Damage);
-                }
-               
-                health.TakeDamage(Damage);
+            if (eventManager.OnImpact != null)
+            {
+                eventManager.OnImpact(collision.gameObject, damage, ref Damage);
             }
+
+            if (eventManager.PostImpact != null)
+            {
+                eventManager.PostImpact(collision.gameObject, Damage, ref Damage);
+            }
+               
+            health.TakeDamage(Damage);
+            //}
         }
     }
 

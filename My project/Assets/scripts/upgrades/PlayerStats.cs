@@ -67,14 +67,14 @@ public class PlayerStats : MonoBehaviour
     public void increaseAREA(int area)
     {
         areaMultiplier += area;
-        Debug.Log("AREA");
+        //Debug.Log("AREA");
         gun.updateSize(areaMultiplier);
     }
 
     public void IncreaseSpeed(int speed)
     {
         SpeedMultiplier += speed;
-        Debug.Log("SPEED");
+        //Debug.Log("SPEED");
         speedScript = GetComponent<PlayerMovement>();
         speedScript.updateMS(SpeedMultiplier);
     }
@@ -82,14 +82,14 @@ public class PlayerStats : MonoBehaviour
     public void IncreaseAS(int AS)
     {
         ASmultiplier += AS;
-        Debug.Log("AS");
+        //Debug.Log("AS");
         gun.updateAS(ASmultiplier);
     }
 
     public void IncreaseEXP(int exp)
     {
         EXPmultiplier += exp;
-        Debug.Log("EXP");
+        //Debug.Log("EXP");
     }
 
     public void increaseProjectiles(int amount)
@@ -144,7 +144,7 @@ public class PlayerStats : MonoBehaviour
 
         if(OnLevel != null)
         {
-
+            OnLevel();
         }
         
     }

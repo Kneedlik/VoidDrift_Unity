@@ -32,7 +32,7 @@ public class SpinningSummonMain :Summon
             }
         }
 
-        setDamage();
+        scaleSummonDamage();
       //  increaseOrbCount(2);
         setDistance();
       //  Invoke("scaleSize", 3);
@@ -70,9 +70,13 @@ public class SpinningSummonMain :Summon
         transform.localScale = new Vector3(orbDistance, orbDistance, 1);
        // increaseOrbCount(0);
     }
-   
-    public void setDamage()
+
+    public override void scaleSummonDamage()
     {
+        float pom = baseDamage * (PlayerStats.sharedInstance.SummonDamage / 100f);
+        pom = pom * (PlayerStats.sharedInstance.damageMultiplier / 100f);
+        damage = (int)pom;
+
         for (int i = 0; i < orbCount; i++)
         {
             if (orbs[i] != null)
@@ -80,6 +84,7 @@ public class SpinningSummonMain :Summon
                 orbs[i].damage = damage;
             }
         }
+
     }
 
     public void setSpeed()

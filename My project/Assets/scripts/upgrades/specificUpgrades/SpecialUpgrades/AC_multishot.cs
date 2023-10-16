@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class AC_multishot : upgrade
 {
+    public static AC_multishot instance;
     public int multishotAmount;
     public float baseArea;
 
     void Start()
     {
+        instance = this;
         Type = type.special;
         setColor();
     }

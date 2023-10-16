@@ -15,8 +15,12 @@ MonoBehaviour:
   end: 1420
   min: 0
   max: 0
-  enemies: []
-  chanses: []
-  spawnRate: 0
-  spawnN: 0
-  healthMultiplier: 14
+  enemies:
+  - {fileID: 6796515708585979782, guid: 707e4402cfe9c1f47a7cdee5a24ab68e, type: 3}
+  - {fileID: 9134502682905301589, guid: a5e73291dab67dc45a9d612a32ab9112, type: 3}
+  chanses:
+  - 50
+  - 50
+  spawnRate: 0.8
+  spawnN: 6
+  healthMultiplier: 10

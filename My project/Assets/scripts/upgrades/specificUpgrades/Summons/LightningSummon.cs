@@ -105,33 +105,33 @@ public class LightningSummon : Summon
 
     public void explosionGraphics(GameObject Target,int damage,ref int Damage)
     {
-        GameObject impact = Instantiate(impactParticle, Target.transform.position, Quaternion.Euler(90, 0, 0));
-        impact.transform.SetParent(Target.transform);
+        if (target != null)
+        {
+            GameObject impact = Instantiate(impactParticle, Target.transform.position, Quaternion.Euler(90, 0, 0));
+            Vector3 pos = new Vector3(target.position.x, target.position.y, target.position.z);
+            impact.transform.SetParent(Target.transform);
 
-
-      GameObject pom = Instantiate(lightningBoltObject,transform.position, Quaternion.Euler(0, 0, 0));
-     LightningBolt bolt = pom.GetComponent<LightningBolt>();
-        bolt.StartPosition = target.position;
-        bolt.EndPosition = Target.transform.position;
-      
+            GameObject pom = Instantiate(lightningBoltObject, transform.position, Quaternion.Euler(0, 0, 0));
+            LightningBolt bolt = pom.GetComponent<LightningBolt>();
+            bolt.StartObject.transform.position = pos;
+            bolt.EndObject.transform.position = Target.transform.position;
+        }
     }
 
     public void SkyBeam()
     {
-      
-       GameObject pom = Instantiate(BigLightning, transform.position, Quaternion.Euler(0, 0, 0));
+        GameObject pom = Instantiate(BigLightning, transform.position, Quaternion.Euler(0, 0, 0));
         LineRenderer line = pom .GetComponent<LineRenderer>();
         LightningBolt bolt = pom.GetComponent<LightningBolt>();
 
         line.widthMultiplier = 10f * size;
 
-        bolt.StartPosition = target.position;
-        bolt.EndPosition = new Vector3(target.position.x, target.position.y + 50, target.position.z);
+        bolt.StartObject.transform.position = target.position;
+        bolt.EndObject.transform.position = new Vector3(target.position.x, target.position.y + 100, target.position.z);
 
         pom = Instantiate(impactParticle,target.position,Quaternion.Euler(90,0,0));
         pom.transform.localScale = new Vector3(3,3,3);
         pom.transform.localPosition *= size;
-
     }
 
     public override bool setRandomTarget(out Transform target)

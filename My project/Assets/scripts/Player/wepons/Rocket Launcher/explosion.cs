@@ -20,10 +20,12 @@ public class explosion : MonoBehaviour
     [SerializeField] bool Impact;
     [SerializeField] bool PostImpact;
     
-
     void Start()
     {
-        Destroy(gameObject, destroyTime);
+      //  if (destroyTime != 0)
+      //  {
+            Destroy(gameObject, destroyTime);
+      //  }
 
         if(!isEnemy)
         {

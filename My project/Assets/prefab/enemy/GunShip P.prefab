@@ -876,7 +876,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7873543695959958672}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.3, z: 0}
+  m_LocalPosition: {x: 0, y: -2.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1116,7 +1116,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7873543696634477138}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.5589437}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1365,13 +1365,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   maxHealth: 400
+  baseMaxHealth: 0
   damageN: {fileID: 8636022699047134357, guid: 971665a441a2ea448a247928736ad030, type: 3}
   self: {fileID: 7873543696634477138}
   healthBarGObject: {fileID: 3395111322037513442}
+  healthBar: {fileID: 0}
   damageMultiplier: 1
   armor: 0
   multiplier: 0
+  ParticleExplosion: {fileID: 0}
+  DeathAnim: {fileID: 0}
+  respawning: 0
+  respawnTime: 0
+  prefab: {fileID: 0}
   randOffset: 30
+  levelScaling: 0
+  stop: 0
 --- !u!114 &3902809289429083275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1398,6 +1407,7 @@ MonoBehaviour:
   backRadius: 10
   breakAwayRadius: 70
   back: 0
+  cannon: {fileID: 0}
 --- !u!1 &7873543696989026226
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class BulletScript : Projectile
 {
@@ -11,7 +12,8 @@ public class BulletScript : Projectile
     Transform target;
 
     public float MaxBounceDistance;
-    public bool MaxBounceDistanceOff = false;
+
+    List<Transform> Enemies = new List<Transform>();
     
     private void Start()
     {
@@ -62,13 +64,12 @@ public class BulletScript : Projectile
                     Vector2 direction;
                    // Transform target;
 
-                    List<Transform> transforms = new List<Transform>();
-                    transforms.Add(collision.transform);
+                    Enemies.Add(collision.transform);
                     bool RandomCheck = false;
-                    if(KnedlikLib.FindClosestEnemy(gameObject.transform,out target,transforms))
+                    if(KnedlikLib.FindClosestEnemy(gameObject.transform,out target,Enemies))
                     {
                         rbTarget = target.GetComponent<Rigidbody2D>();
-                        if (Vector3.Distance(target.position, transform.position) < MaxBounceDistance && MaxBounceDistanceOff == false)
+                        if (Vector3.Distance(target.position, transform.position) < MaxBounceDistance)
                         {
                             if (KnedlikLib.InterceptionPoint(target.position, transform.position, rbTarget.velocity, rb.velocity.magnitude, out direction))
                             {
@@ -85,14 +86,21 @@ public class BulletScript : Projectile
                         {
                             RandomCheck = true;
                         }
+                    }else
+                    {
+                        RandomCheck= true;
                     }
 
                     if (RandomCheck)
                     {
-                        float rand1 = Random.Range(0, 1);
-                        float rand2 = Random.Range(0, 1);
-                        direction = new Vector2(rand1, rand2);
+                        float rand1 = Random.Range(-100, 100) / 100f;
+                        float rand2 = Random.Range(-100, 100) / 100f;
+                        direction = new Vector2(rand1, rand2).normalized;
                         rb.velocity = direction * rb.velocity.magnitude;
+                        Debug.Log(direction);
+
+                        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
+                        rb.rotation = angle;
                     }
                 }
                 else

@@ -40,8 +40,8 @@ public class LightningSystem : MonoBehaviour
         {
             Health health = target.GetComponent<Health>();
            
-            List<GameObject> list = new List<GameObject>();
-            list.Add(target);
+            List<Transform> Enemies = new List<Transform>();
+            Enemies.Add(target.transform);
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
             Transform currentTarget = target.transform;
             Instantiate(ImpactEffect, currentTarget.position, Quaternion.Euler(90, 0, 0));
@@ -58,40 +58,37 @@ public class LightningSystem : MonoBehaviour
                 }
              
             }
-            health.TakeDamage(damage1);
 
             for (int i = 0; i < chain; i++)
             {
-                for (int j = 0; j < enemies.Length; j++)
+                if(KnedlikLib.FindClosestEnemy(Begin.transform,out currentTarget,Enemies))
                 {
-                    if (list.Contains(enemies[j]) == false && Vector3.Distance(enemies[j].transform.position, currentTarget.position) <= distance)
+                    if (Vector3.Distance(Begin.transform.position, currentTarget.position) <= distance)
                     {
-                        Health h = enemies[j].GetComponent<Health>();
-                       
-                        list.Add(enemies[j]);
-                        RemoveBrittle(currentTarget.gameObject, health);
-                        currentTarget = enemies[j].transform;
+                        Health h = currentTarget.GetComponent<Health>();
+                        Enemies.Add(currentTarget);
+
+                        RemoveBrittle(currentTarget.gameObject, h);
                         Instantiate(ImpactEffect, currentTarget.position, Quaternion.Euler(90, 0, 0));
-                        End = enemies[j];
-                        StartCoroutine(lightningGraphics(Begin,End));
-                        Begin = enemies[j];
 
-
-                        if(shock)
+                        if (shock)
                         {
                             int rand1 = Random.Range(0, chance);
 
                             if (rand1 <= 100)
                             {
                                 StartCoroutine(Shock(currentTarget.gameObject));
-                            }   
+                            }
                         }
 
+                        End = currentTarget.gameObject;
+                       StartCoroutine(lightningGraphics(Begin, End));
+                        Begin = currentTarget.gameObject;
                         h.TakeDamage(damage1);
-                        break;
                     }
                 }
             }
+            health.TakeDamage(damage1);
         }
     }
 
@@ -117,14 +114,38 @@ public class LightningSystem : MonoBehaviour
 
     IEnumerator lightningGraphics(GameObject begin, GameObject ending)
     {
-       GameObject pom = Instantiate(lightningObject,transform);
-        Debug.Log("EEE");
+        GameObject pom = Instantiate(lightningObject,transform);
+        //Debug.Log("EEE");
         LightningBolt script = pom.GetComponent<LightningBolt>();
-        script.StartObject = begin;
-        script.EndObject = ending;
+        script.StartObject.transform.position = begin.transform.position;
+        script.EndObject.transform.position = ending.transform.position;
         
 
-        yield return new WaitForSeconds(lightningDuration);
+        yield return new WaitForSeconds(lightningDuration / 3);
+
+        if(begin != null)
+        {
+            script.StartObject.transform.position = begin.transform.position;
+        }
+
+        if(ending != null)
+        {
+            script.EndObject.transform.position = ending.transform.position;
+        }
+
+        yield return new WaitForSeconds(lightningDuration / 3);
+
+        if (begin != null)
+        {
+            script.StartObject.transform.position = begin.transform.position;
+        }
+
+        if (ending != null)
+        {
+            script.EndObject.transform.position = ending.transform.position;
+        }
+        
+        yield return new WaitForSeconds(lightningDuration / 3);
         Destroy(pom);
     }
 
