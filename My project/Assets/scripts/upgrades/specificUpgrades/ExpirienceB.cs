@@ -7,12 +7,14 @@ using UnityEngine;
 public class ExpirienceB : upgrade
 {
     public int amount;
+    public static ExpirienceB instance;
    
 
     private void Awake()
     {
         Type = type.blue;
         setColor();
+        instance = this;
     }
 
     public override void function()

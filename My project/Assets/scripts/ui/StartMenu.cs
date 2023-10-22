@@ -25,6 +25,8 @@ public class StartMenu : MonoBehaviour
     [SerializeField] GameObject StartPanel;
     [SerializeField] Volume Volume;
 
+    [SerializeField] List<GameObject> StartButtons = new List<GameObject>();
+
     private void Start()
     {
         Vector2 cursorHotSpot = new Vector2(BaseCursor.width / 2, BaseCursor.height / 2);
@@ -48,31 +50,41 @@ public class StartMenu : MonoBehaviour
         Volume.profile.TryGet<DepthOfField>(out DepthOfField depthOfField);
         depthOfField.active = true;
         StartCoroutine(StartAnim(depthOfField));
-        //depthOfField.focusDistance.Override(1);
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //depthOfField.focusDistance.Override(0.6f);
     }
 
     IEnumerator StartAnim(DepthOfField depthOfField)
     {
+        for (int i = 0; i < StartButtons.Count; i++)
+        {
+            StartButtons[i].SetActive(false); 
+        }
+
         Image StartPanelImg = StartPanel.GetComponent<Image>();
-        float pomBlur = depthOfField.focusDistance.value;
+        float pomBlur = 0.6f;
         depthOfField.focusDistance.Override(3f);
-        float pomBlurValue = 0;
-        byte pomPanel = 140;
+        float pomBlurValue = 2.5f;
+        byte pomPanel = 100;
         byte pomPanelValue = 0;
         StartPanelImg.color = new Color32(40,30,40,0);
 
         while (pomPanelValue < pomPanel || pomBlurValue > pomBlur)
         {
-            pomPanelValue += 16;
-            StartPanelImg.color = new Color32(40, 30, 40, pomPanelValue);
-            Debug.Log(pomPanelValue);
+            if (pomPanelValue < pomPanel)
+            {
+                pomPanelValue += 14;
+                StartPanelImg.color = new Color32(40, 30, 40, pomPanelValue);
+            }
 
-            pomBlurValue -= 0.01f;
-            //depthOfField.focusDistance.Override(pomBlurValue);
+            if (pomBlurValue >= pomBlur)
+            {
+                pomBlurValue -= 0.25f;
+                depthOfField.focusDistance.Override(pomBlurValue);
+            }
 
             yield return new WaitForSeconds(0.05f);
-        }   
+        }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void ShutDownGame()

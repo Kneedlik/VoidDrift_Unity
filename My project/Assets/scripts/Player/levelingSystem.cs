@@ -1,6 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
+
 
 public class levelingSystem : MonoBehaviour
 {
@@ -31,6 +35,10 @@ public class levelingSystem : MonoBehaviour
     public bool Double = false;
     public bool FinallForm = false;
 
+    [SerializeField] List<GameObject> DissableObj = new List<GameObject>();
+    [SerializeField] Volume Volume;
+    [SerializeField] Canvas Canvas;
+
     private void Awake()
     {
         red = 0;
@@ -58,6 +66,40 @@ public class levelingSystem : MonoBehaviour
         }
 
         
+    }
+
+    public void SetUpLevelMenu(bool Activate)
+    {
+        Volume.profile.TryGet<DepthOfField>(out DepthOfField depthOfField);
+
+        if (Activate)
+        {
+            sorting.setUpCards();
+            levelUpMenu.SetActive(true);
+            CursorManager.instance.setCursorPointer();
+            
+            Time.timeScale = 0;
+            depthOfField.active = true;
+            Canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+
+            for (int i = 0; i < DissableObj.Count; i++)
+            {
+                DissableObj[i].SetActive(false);
+            }
+        }
+        else
+        {
+            levelUpMenu.SetActive(false);
+            CursorManager.instance.setCursorCrosshair();
+            Time.timeScale = 1;
+            depthOfField.active = false;
+            Canvas.renderMode = RenderMode.ScreenSpaceCamera;
+
+            for (int i = 0; i < DissableObj.Count; i++)
+            {
+                DissableObj[i].SetActive(true);
+            }
+        }
     }
 
     public void addXp(int xp)
@@ -92,11 +134,7 @@ public class levelingSystem : MonoBehaviour
 
             ScaleByLevel();
             bar.displayedLevel(level);
-            sorting.setUpCards();
-            levelUpMenu.SetActive(true);
-            CursorManager.instance.setCursorPointer();
-            Time.timeScale = 0;
-            
+            SetUpLevelMenu(true); 
         }
     }
 
@@ -105,18 +143,13 @@ public class levelingSystem : MonoBehaviour
         bar.displayedLevel(level);
         bar.setMaxXp(xpNeeded);
         bar.setXP(currentXp);
-        levelUpMenu.SetActive(false);
-        CursorManager.instance.setCursorCrosshair();
-        Time.timeScale = 1;
+        SetUpLevelMenu(false);
 
         if (currentXp >= xpNeeded)
         {
             level++;
             ScaleByLevel();
-            sorting.setUpCards();
-            levelUpMenu.SetActive(true);
-            CursorManager.instance.setCursorPointer();
-            Time.timeScale = 0;
+            SetUpLevelMenu(true);
         }
     }
 

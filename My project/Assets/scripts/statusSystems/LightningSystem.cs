@@ -19,13 +19,13 @@ public class LightningSystem : MonoBehaviour
     public bool shock;
     public int armorDamage;
     public int shockChance;
+    [SerializeField] GameObject ShockObject;
 
     [SerializeField] GameObject lightningObject;
     [SerializeField] GameObject ImpactEffect;
     public float lightningDuration;
     GameObject Begin;
     GameObject End;
-
 
     void Start()
     {
@@ -50,9 +50,9 @@ public class LightningSystem : MonoBehaviour
 
             if (shock)
             {
-                int rand1 = Random.Range(0, chance);
+                int rand1 = Random.Range(0, 100);
 
-                if(rand1 <= 100)
+                if(rand1 <= shockChance)
                 {
                     StartCoroutine(Shock(currentTarget.gameObject));
                 }
@@ -97,6 +97,8 @@ public class LightningSystem : MonoBehaviour
         if (shocked.Contains(target) == false)
         {
             Health health = target.GetComponent<Health>();
+            GameObject Obj = Instantiate(ShockObject, target.transform.position, Quaternion.Euler(-90, 0, 0));
+            Obj.transform.SetParent(target.transform);
            
             shocked.Add(target);
             health.armor -= armorDamage;
@@ -107,8 +109,8 @@ public class LightningSystem : MonoBehaviour
             {
                 health.armor += armorDamage;
             }
-            shocked.Remove(target);
-            
+            Destroy(Obj);
+            shocked.Remove(target);   
         }
     }
 

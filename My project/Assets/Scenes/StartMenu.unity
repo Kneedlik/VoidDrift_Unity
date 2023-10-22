@@ -379,6 +379,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Exit
       objectReference: {fileID: 0}
+    - target: {fileID: 5066937012241852700, guid: 19687077a00042742927cca0a889de02, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6974546696534985412, guid: 19687077a00042742927cca0a889de02, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -1629,6 +1633,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Options
       objectReference: {fileID: 0}
+    - target: {fileID: 5066937012241852700, guid: 19687077a00042742927cca0a889de02, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6974546696534985412, guid: 19687077a00042742927cca0a889de02, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -1716,7 +1724,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.15686275, g: 0.11764706, b: 0.15686275, a: 0.627451}
+  m_Color: {r: 0.15686275, g: 0.11764706, b: 0.15686275, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4062,6 +4070,10 @@ MonoBehaviour:
   BackButton: {fileID: 2130480497}
   StartPanel: {fileID: 488418867}
   Volume: {fileID: 583988871}
+  StartButtons:
+  - {fileID: 1463594579}
+  - {fileID: 1581458292}
+  - {fileID: 447058685}
 --- !u!1 &1390339472
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ public enum type
     blue,
     black,
     special,
+    iron,
 }
 
 //[CreateAssetMenu(fileName = "new upgrade", menuName = "upgrades")]
@@ -53,7 +54,7 @@ public abstract class upgrade: MonoBehaviour
         }else if(Type == type.blue)
         {
             color = new Color32(65, 255, 255, 255);
-        }else if(Type == type.special)
+        }else if(Type == type.special || Type == type.iron)
         {
             color = new Color32(110, 110, 100, 255);
         }

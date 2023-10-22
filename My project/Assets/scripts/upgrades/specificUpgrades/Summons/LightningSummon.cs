@@ -73,11 +73,21 @@ public class LightningSummon : Summon
 
         for (int i = 0; i < shockAmount; i++)
         {
-           GameObject G = Instantiate(shockObject, target.position, Quaternion.Euler(0, 0, diff + offset));
+            GameObject G = Instantiate(shockObject, target.position, Quaternion.Euler(0, 0, diff + offset));
+            KnedlikLib.ScaleParticleByFloat(G,1f,true);
+
             Rigidbody2D rb = G.GetComponent<Rigidbody2D>();
             rb.AddForce(G.transform.up * shockSpeed,ForceMode2D.Impulse);
             diff += pom;
+
+            explosion explo = G.GetComponent<explosion>();
+            explo.function += ShockImpact;
         }
+    }
+
+    public void ShockImpact(GameObject target,int damage,ref int Damage)
+    {
+        LightningSystem.instance.Shock(target);
     }
     
     public void Shoot()

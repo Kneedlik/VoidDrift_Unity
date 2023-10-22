@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1447349267362357708}
   - component: {fileID: 1447349267362357709}
   - component: {fileID: 1447349267362357706}
-  - component: {fileID: 1447349267362357711}
   - component: {fileID: 1447349267362357710}
   m_Layer: 5
   m_Name: cardDisplay
@@ -153,21 +152,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1447349267362357711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1447349267362357704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c427be113005f234fb663e8c6f9e674f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  image: {fileID: 1447349267549215629}
-  image2: {fileID: 3169440649211538041}
-  delay: 0.5
 --- !u!114 &1447349267362357710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,6 +169,7 @@ MonoBehaviour:
   Description: {fileID: 256110187367952835}
   image: {fileID: 1447349267549215629}
   Insignia: {fileID: 2360901179034907107}
+  SelectedImg: {fileID: 3169440649211538041}
 --- !u!1 &1447349267549215627
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,6 +181,7 @@ GameObject:
   - component: {fileID: 1447349267549215626}
   - component: {fileID: 1447349267549215628}
   - component: {fileID: 1447349267549215629}
+  - component: {fileID: 461793609730925415}
   m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
@@ -261,6 +247,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &461793609730925415
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447349267549215627}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &1447349267853094615
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,6 +270,7 @@ GameObject:
   - component: {fileID: 1447349267853094614}
   - component: {fileID: 1447349267853094616}
   - component: {fileID: 1447349267853094617}
+  - component: {fileID: 4251392187411856090}
   m_Layer: 5
   m_Name: fill
   m_TagString: Untagged
@@ -337,6 +336,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &4251392187411856090
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447349267853094615}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &1447349268692943792
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,6 +494,7 @@ GameObject:
   - component: {fileID: 1447349269089277556}
   - component: {fileID: 1447349269089277558}
   - component: {fileID: 256110187367952835}
+  - component: {fileID: 4632643387604473987}
   m_Layer: 5
   m_Name: description
   m_TagString: Untagged
@@ -607,6 +619,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!225 &4632643387604473987
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447349269089277557}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &3903925975562399636
 GameObject:
   m_ObjectHideFlags: 0
@@ -618,13 +642,14 @@ GameObject:
   - component: {fileID: 2601528725211718}
   - component: {fileID: 4738460421576220294}
   - component: {fileID: 3169440649211538041}
+  - component: {fileID: 1667288371845344559}
   m_Layer: 5
   m_Name: selectCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2601528725211718
 RectTransform:
   m_ObjectHideFlags: 0
@@ -683,6 +708,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &1667288371845344559
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3903925975562399636}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &9056758508766397015
 GameObject:
   m_ObjectHideFlags: 0
@@ -694,6 +731,7 @@ GameObject:
   - component: {fileID: 1756163470105296536}
   - component: {fileID: 7378755482079935397}
   - component: {fileID: 2360901179034907107}
+  - component: {fileID: 8488494007670483747}
   m_Layer: 5
   m_Name: goldenInsignia
   m_TagString: Untagged
@@ -759,3 +797,15 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &8488494007670483747
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9056758508766397015}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
