@@ -244,7 +244,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.8
+      scalar: 0.6
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -297,7 +297,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 40
+      scalar: 50
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -2793,7 +2793,7 @@ ParticleSystem:
     magnitude:
       serializedVersion: 2
       minMaxState: 1
-      scalar: 40
+      scalar: 50
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -2817,8 +2817,8 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.10537503
-          value: 0.25675452
+          time: 0.16608822
+          value: 0.24324286
           inSlope: -0.07063578
           outSlope: -0.07063578
           tangentMode: 0
@@ -5083,9 +5083,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   reducedDamage: 0
-  destroyTime: 1.2
+  TrueDamage: 0
+  destroyTime: 1
   force: 0
   isEnemy: 0
+  LevelScaling: 0
+  ScaleDmg: 0
+  ScaleArea: 0
+  Impact: 0
+  PostImpact: 0
 --- !u!1001 &8571674468061509077
 PrefabInstance:
   m_ObjectHideFlags: 0

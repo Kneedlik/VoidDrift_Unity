@@ -16,9 +16,34 @@ public class LudensEchoSystem : MonoBehaviour
     public int burnAmount;
 
     public List<GameObject> effectedEnemies = new List<GameObject>();
+
+    //Corrupted
+    public List<GameObject> CEffectedEnemies = new List<GameObject>();
+    public int CFlatDamage;
+    public float CTrueDamage;
+    public GameObject CExplosion;
+    public GameObject CImpact;
+
     void Start()
     {
         sharedInstance = this;
+    }
+
+    public void CorruptedEchoProc(GameObject target, int Damage, ref int plusDamage)
+    {
+        if (CEffectedEnemies.Contains(target) == false)
+        {
+            CEffectedEnemies.Add(target);
+            int damage = KnedlikLib.ScaleDamage(CFlatDamage,transform,false);
+
+            explosion EX =  Instantiate(CExplosion,target.transform.position,Quaternion.Euler(0,0,0)).GetComponent<explosion>();
+            EX.damage = damage;
+            EX.TrueDamage = CTrueDamage;
+
+            int Rand = Random.Range(0, 180);
+            Instantiate(CImpact, target.transform.position, Quaternion.Euler(0, 0, Rand));
+
+        }   
     }
 
     public void echoProc(GameObject target, int Damage, ref int plusDamage)

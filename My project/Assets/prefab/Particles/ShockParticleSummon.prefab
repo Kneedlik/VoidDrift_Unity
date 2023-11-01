@@ -4951,7 +4951,7 @@ MonoBehaviour:
   damage: 6
   reducedDamage: 0
   TrueDamage: 0
-  destroyTime: 0.65
+  destroyTime: 0.4
   force: 0
   isEnemy: 0
   LevelScaling: 0

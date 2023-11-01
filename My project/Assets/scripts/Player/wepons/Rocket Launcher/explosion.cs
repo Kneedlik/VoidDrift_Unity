@@ -9,7 +9,7 @@ public class explosion : MonoBehaviour
 
     public int damage;
     public int reducedDamage;
-    [SerializeField] float TrueDamage;
+    public float TrueDamage;
     public float destroyTime;
     public float force;
     public bool isEnemy = false;

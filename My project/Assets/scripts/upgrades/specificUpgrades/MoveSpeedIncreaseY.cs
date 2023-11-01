@@ -20,5 +20,6 @@ public class MoveSpeedIncreaseY : upgrade
     {
         PlayerStats.sharedInstance.IncreaseSpeed(SpeedAmount);
         PlayerStats.sharedInstance.IncreaseAS(ASamount);
+        level++;
     }
 }

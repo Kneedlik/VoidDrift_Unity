@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 
@@ -18,14 +19,79 @@ public class poisonSystem : MonoBehaviour
 
     public float speed;
 
-   [SerializeField] Color32 color;
-   [SerializeField] GameObject particles;
+    [SerializeField] Color32 color;
+    [SerializeField] GameObject particles;
 
     public List<GameObject> poisonedEnemies = new List<GameObject>();
+
+    //Corrupted
+    public int CDamage;
+    public float CTrueDamage;
+    public float CDuration;
+    public float CInfectDistance;
+    public float CSpeed;
+    [SerializeField] GameObject CParticles;
+    public List<GameObject> CpoisonedEnemies = new List<GameObject>();
 
     void Start()
     {
         sharedInstance = this;
+    }
+
+    public void CorruptedPoison(GameObject target,int damage,ref int plusdamage)
+    {
+        if(CpoisonedEnemies.Contains(target) == false && target.tag != "Player")
+        {
+            Health health = target.GetComponent<Health>();
+            if(health != null) 
+            {
+                CpoisonedEnemies.Add(target);
+
+                GameObject P = Instantiate(CParticles, target.transform.position, Quaternion.Euler(0, 0, 0));
+                KnedlikLib.scaleParticleSize(target, P, 1f);
+                P.transform.SetParent(target.transform);
+                StartCoroutine(CStartPoison(health, target));
+                StartCoroutine(stopPoison(target,P,true));
+            }
+            
+        }
+    }
+
+    IEnumerator CStartPoison(Health health,GameObject target)
+    {
+        yield return new WaitForSeconds(CSpeed);
+        int Damage = KnedlikLib.ScaleDamage(CDamage, true, true);
+
+        while (health != null && poisonedEnemies.Contains(target))
+        {
+            if (target.activeInHierarchy)
+            {
+                int extra = 0;
+
+                float pomH = health.maxHealth * CTrueDamage;
+                extra = (int)pomH;
+               
+                health.TakeDamage(Damage + extra);
+
+                GameObject pom = findWithinDistance(target,CInfectDistance);
+                if (pom != null)
+                {
+                    int z = 0;
+                    Poison(pom, 0, ref z);
+                }
+                
+                yield return new WaitForSeconds(CSpeed * PlayerStats.sharedInstance.TickRate);
+            }
+            else
+            {
+                CpoisonedEnemies.Remove(target);
+            }
+        }
+
+        if (CpoisonedEnemies.Contains(target))
+        {
+            CpoisonedEnemies.Remove(target);
+        }
     }
 
     public void Poison(GameObject target, int damage, ref int plusDamage)
@@ -55,7 +121,7 @@ public class poisonSystem : MonoBehaviour
                         StartCoroutine(startPoison(health, target));
                         if(duration != 0)
                         {
-                            StartCoroutine(stopPoison(target,P,C));
+                            StartCoroutine(stopPoison(target,P,false,C));
                         } 
                     }
                 }
@@ -87,7 +153,7 @@ public class poisonSystem : MonoBehaviour
 
                 if (infect)
                 {
-                    GameObject pom = findWithinDistance(target);
+                    GameObject pom = findWithinDistance(target,distance);
                     if (pom != null)
                     {
                         int z = 0;
@@ -109,14 +175,49 @@ public class poisonSystem : MonoBehaviour
        
     }
 
-    IEnumerator stopPoison(GameObject target,GameObject P,Color32 C)
+    IEnumerator stopPoison(GameObject target, GameObject P,bool Corrupted)
     {
-        yield return new WaitForSeconds(duration);
+        if (Corrupted == false)
+        {
+            yield return new WaitForSeconds(duration);
+        }else
+        {
+            yield return new WaitForSeconds(CDuration);
+        }
 
-        
-        
+        if (target != null && target.activeInHierarchy)
+        {
+            Destroy(P);
+        }
 
-        if(target != null && target.activeInHierarchy)
+        if (Corrupted == false)
+        {
+            if (poisonedEnemies.Contains(target))
+            {
+                poisonedEnemies.Remove(target);
+            }
+        }
+        else
+        {
+            if (CpoisonedEnemies.Contains(target))
+            {
+                CpoisonedEnemies.Remove(target);
+            }
+        }
+    }
+
+    IEnumerator stopPoison(GameObject target,GameObject P,bool Corrupted,Color32 C)
+    {
+        if (Corrupted == false)
+        {
+            yield return new WaitForSeconds(duration);
+        }
+        else
+        {
+            yield return new WaitForSeconds(CDuration);
+        }
+
+        if (target != null && target.activeInHierarchy)
         {
             Destroy(P);
             SpriteRenderer S = target.GetComponent<SpriteRenderer>();
@@ -125,21 +226,29 @@ public class poisonSystem : MonoBehaviour
                 S.color = C;
             }
         }
-        
-        
-        if(poisonedEnemies.Contains(target))
+
+        if (Corrupted == false)
         {
-            poisonedEnemies.Remove(target);
+            if (poisonedEnemies.Contains(target))
+            {
+                poisonedEnemies.Remove(target);
+            }
+        }else
+        {
+            if(CpoisonedEnemies.Contains(target))
+            {
+                CpoisonedEnemies.Remove(target);
+            }
         }
     }
 
-    GameObject findWithinDistance(GameObject target)
+    GameObject findWithinDistance(GameObject target,float Distance)
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
         for (int i = 0; i < enemies.Length; i++)
         {
-            if (Vector3.Distance(target.transform.position, enemies[i].transform.position) <= distance && poisonedEnemies.Contains(enemies[i]) == false)
+            if (Vector3.Distance(target.transform.position, enemies[i].transform.position) <= Distance && poisonedEnemies.Contains(enemies[i]) == false)
             {
                 return enemies[i];
             }
@@ -154,7 +263,4 @@ public class poisonSystem : MonoBehaviour
 
         Gizmos.DrawWireSphere(gameObject.transform.position, distance);
     }
-
-   
-
 }

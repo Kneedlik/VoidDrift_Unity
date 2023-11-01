@@ -68,7 +68,7 @@ public class LightningSummon : Summon
     public void Shock()
     {
         int offset = Random.Range(0, 90);
-        float diff = 180f / shockAmount;
+        float diff = 360f / shockAmount;
         float pom = diff;
 
         for (int i = 0; i < shockAmount; i++)
@@ -107,6 +107,11 @@ public class LightningSummon : Summon
         {
             Health health = target.gameObject.GetComponent<Health>();
             health.TakeDamage(damage);
+        }
+
+        if(shock)
+        {
+            Shock();
         }
 
         SkyBeam();

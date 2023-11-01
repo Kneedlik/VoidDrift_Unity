@@ -8,8 +8,7 @@ public class upgradeList : MonoBehaviour
 
     private void Start()
     {
-       addUpgrades();
-       
+       addUpgrades();   
     }
 
     public void addUpgrades()

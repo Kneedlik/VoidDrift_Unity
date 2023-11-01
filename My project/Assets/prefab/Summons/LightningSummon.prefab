@@ -115,7 +115,7 @@ MonoBehaviour:
   shock: 0
   shockAmount: 5
   shockObject: {fileID: 1452660250647727734, guid: fce6b0963766e424cbdc56ca130900cc, type: 3}
-  shockSpeed: 5
+  shockSpeed: 2
 --- !u!114 &5738726159170388763
 MonoBehaviour:
   m_ObjectHideFlags: 0

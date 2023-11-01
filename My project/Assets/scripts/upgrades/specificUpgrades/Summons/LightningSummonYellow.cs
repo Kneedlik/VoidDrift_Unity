@@ -10,7 +10,6 @@ public class LightningSummonYellow : upgrade
 
     float fireRate;
 
-
     void Start()
     {
         Type = type.yellow;
@@ -42,7 +41,6 @@ public class LightningSummonYellow : upgrade
                 rarity -= 10;
                 fireRate = sum.baseFireRate;
                 description = string.Format("Sky beam damage + 5, CoolDown - 25%");
-
             }
         }else if(level == 1)
         {
@@ -53,7 +51,7 @@ public class LightningSummonYellow : upgrade
         {
             sum.Aoe = true;
             sum.projectiles += 1;
-            description = string.Format("Sky beam + 6 CoolDown - 25%");
+            description = string.Format("Sky beam damage + 6 CoolDown - 25%");
         }else if(level == 3)
         {
             sum.damage += 6;

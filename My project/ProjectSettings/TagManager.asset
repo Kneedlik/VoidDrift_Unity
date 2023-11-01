@@ -25,6 +25,8 @@ TagManager:
   - Summon
   - BrittleStatus
   - GlobalVolume
+  - IronUpgrades
+  - CorruptedUpgrades
   layers:
   - Default
   - TransparentFX
