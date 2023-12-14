@@ -152,6 +152,49 @@ public class levelingSystem : MonoBehaviour
         }
     }
 
+    public void SetUpLevelMenuSpecial()
+    {
+        Volume.profile.TryGet<DepthOfField>(out DepthOfField depthOfField);
+        int Level = level;
+        level = 10;
+
+        sorting.setUpCards();
+        levelUpMenu.SetActive(true);
+        CursorManager.instance.setCursorPointer();
+
+        Time.timeScale = 0;
+        depthOfField.active = true;
+        Canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+
+        for (int i = 0; i < DissableObj.Count; i++)
+        {
+            DissableObj[i].SetActive(false);
+        }
+        level = Level;
+    }
+
+    public void SetUpLevelMenuNormal()
+    {
+        Volume.profile.TryGet<DepthOfField>(out DepthOfField depthOfField);
+        int Level = level;
+        level = 3;
+
+        sorting.setUpCards();
+        levelUpMenu.SetActive(true);
+        CursorManager.instance.setCursorPointer();
+
+        Time.timeScale = 0;
+        depthOfField.active = true;
+        Canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+
+        for (int i = 0; i < DissableObj.Count; i++)
+        {
+            DissableObj[i].SetActive(false);
+        }
+
+        level = Level;
+    }
+
     public void addXp(int xp)
     {
         currentXp += xp;

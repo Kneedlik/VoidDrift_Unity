@@ -17,6 +17,7 @@ public class Health : MonoBehaviour
 
     public GameObject ParticleExplosion;
     public GameObject DeathAnim;
+    public DeathFunc DeathFunc;
     FlashColor flashColor;
 
     public bool respawning = false;
@@ -152,22 +153,17 @@ public class Health : MonoBehaviour
         }
     }
 
-    public void Die()
+    public void PreDestroy()
     {
         DropLootOnDeath[] d = gameObject.GetComponents<DropLootOnDeath>();
         dropXP xp = gameObject.GetComponent<dropXP>();
-
-        if (eventManager.OnKill != null)
-        {
-            eventManager.OnKill(gameObject);
-        }
 
         if (xp != null)
         {
             xp.addXP();
         }
 
-        if(d != null)
+        if (d != null)
         {
             for (int i = 0; i < d.Length; i++)
             {
@@ -175,30 +171,34 @@ public class Health : MonoBehaviour
             }
         }
 
-        if(ParticleExplosion != null)
+        if (ParticleExplosion != null)
         {
             Instantiate(ParticleExplosion, transform.position, Quaternion.Euler(-90, 0, 0));
         }
 
-        if(DeathAnim != null)
+        if (DeathAnim != null)
         {
-            Instantiate(DeathAnim,transform.position,Quaternion.identity);
+            Instantiate(DeathAnim, transform.position, Quaternion.identity);
         }
+    }
 
-        
-        if(respawning == false)
+    public void Final()
+    {
+        if (respawning == false)
         {
-            if(healthBarGObject != null)
+            if (healthBarGObject != null)
             {
                 Destroy(healthBarGObject);
             }
-            
-            if(self != null)
+
+            if (self != null)
             {
                 Destroy(self);
-            }else Destroy(gameObject);
-           
-        }else if(prefab != null)
+            }
+            else Destroy(gameObject);
+
+        }
+        else if (prefab != null)
         {
             RespawnManager.instance.respawn(respawnTime, prefab, location, true);
             if (healthBarGObject != null)
@@ -214,7 +214,25 @@ public class Health : MonoBehaviour
         }
         else
         {
-            RespawnManager.instance.respawn(respawnTime,gameObject,location, false);
+            RespawnManager.instance.respawn(respawnTime, gameObject, location, false);
+        }
+    }
+
+    public void Die()
+    {
+        if (eventManager.OnKill != null)
+        {
+            eventManager.OnKill(gameObject);
+        }
+
+        if (DeathFunc != null)
+        {
+            DeathFunc.function();
+        }
+        else
+        {
+            PreDestroy();
+            Final();
         }
         
     }

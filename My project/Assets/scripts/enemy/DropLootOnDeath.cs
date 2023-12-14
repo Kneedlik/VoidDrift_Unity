@@ -47,7 +47,7 @@ public class DropLootOnDeath : MonoBehaviour
  */
     public void DropLoot()
     {
-        float randomNumber1 = Random.Range(0, 100);
+        float randomNumber1 = Random.Range(0.0f, 100.0f);
        
         float pom = 0;
         borders = new float[itemPool1.Length + 1];
@@ -62,14 +62,13 @@ public class DropLootOnDeath : MonoBehaviour
 
         for (int i = 0; i < itemPool1.Length; i++)
         {
-            if (randomNumber1 > borders[i] && randomNumber1 < borders[i + 1])
+            if (randomNumber1 > borders[i] && randomNumber1 <= borders[i + 1])
             {
                 if(pos != null)
                 {
-                    Instantiate(itemPool1[i], pos.position, Quaternion.identity);
+                    Instantiate(itemPool1[i], pos.position, Quaternion.Euler(0,0,0));
                 }
-                else Instantiate(itemPool1[i], transform.position, Quaternion.identity);
-
+                else Instantiate(itemPool1[i], transform.position, Quaternion.Euler(0,0,0));
             }
         }
     }

@@ -33,8 +33,7 @@ public static class KnedlikLib
             {
                 size = temp;
             }
-
-            
+ 
             particle.transform.localScale = new Vector3(size, size, size);
 
             foreach (Transform item in particle.transform)

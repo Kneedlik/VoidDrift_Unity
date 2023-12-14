@@ -17,8 +17,8 @@ public class simpleAI : MonoBehaviour
     protected Seeker seeker;
 
     //patrol
-    protected bool patrol = true;
-    protected bool alert;
+    public bool patrol = true;
+    public bool alert;
    
     protected int wayPointIndex;
 

@@ -21,7 +21,6 @@ public class MachneGun : Summon
         scaleSize();
     }
 
-   
     void Update()
     {
         if(timeStamp >= 0)
@@ -50,7 +49,6 @@ public class MachneGun : Summon
     IEnumerator shoot()
     {
       
-
         for (int i = 0; i < bulletsInBurst; i++)
         {
             if (target != null)

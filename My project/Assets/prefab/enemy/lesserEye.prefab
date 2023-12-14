@@ -357,7 +357,7 @@ MonoBehaviour:
   itemPool1:
   - {fileID: 6255875214124632419, guid: 6c27fa9bae4513444a8f57ed58c0c332, type: 3}
   dropChancePool1:
-  - 2
+  - 0.5
   pos: {fileID: 0}
 --- !u!95 &8596260882829645834
 Animator:
