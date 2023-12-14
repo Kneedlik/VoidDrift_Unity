@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class BulletScript : Projectile
 {
@@ -8,12 +9,18 @@ public class BulletScript : Projectile
     private Rigidbody2D rb;
     public GameObject impactEffect;
     public GameObject impactParticles;
+    Transform target;
+
+    public float MaxBounceDistance;
+
+    List<Transform> Enemies = new List<Transform>();
     
     private void Start()
     {
         sr = this.GetComponent<SpriteRenderer>();
         rb = this.GetComponent<Rigidbody2D>();
        damage = damagePlus ;
+        Destroy(gameObject, destroyTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -21,16 +28,21 @@ public class BulletScript : Projectile
         if (collision.transform.tag != "Player" && collision.isTrigger == false)
         {
             Health health = collision.GetComponent<Health>();
-             rb = collision.GetComponent<Rigidbody2D>();
+            Rigidbody2D rbTarget = collision.GetComponent<Rigidbody2D>();
             Vector2 dir = (collision.transform.position - transform.position).normalized;
 
-            if (rb != null)
+            if (rbTarget != null)
             {
-                rb.AddForce(dir * knockBack, ForceMode2D.Impulse);
+                rbTarget.AddForce(dir * knockBack, ForceMode2D.Impulse);
             }
 
             if (health != null)
             {
+                if (eventManager.ImpactGunOnly != null)
+                {
+                    eventManager.ImpactGunOnly(collision.gameObject, gameObject);
+                }
+
                 if (eventManager.OnImpact != null)
                 {
                     eventManager.OnImpact(collision.gameObject,damage,ref damagePlus);
@@ -43,25 +55,73 @@ public class BulletScript : Projectile
                 health.TakeDamage(damagePlus);
             }
 
-            pierce--;
 
             if (pierce <= 0)
             {
-                sr.enabled = false;
-                rb.velocity = Vector2.zero;
-
-                Instantiate(impactEffect, transform.position, transform.rotation);
-                if(impactParticles != null)
+                if (Bounce > 0)
                 {
-                    Instantiate(impactParticles, transform.position, Quaternion.Euler(-90, 0, 0));
+                    Bounce = Bounce - 1;
+                    Vector2 direction;
+                   // Transform target;
+
+                    Enemies.Add(collision.transform);
+                    bool RandomCheck = false;
+                    if(KnedlikLib.FindClosestEnemy(gameObject.transform,out target,Enemies))
+                    {
+                        rbTarget = target.GetComponent<Rigidbody2D>();
+                        if (Vector3.Distance(target.position, transform.position) < MaxBounceDistance)
+                        {
+                            if (KnedlikLib.InterceptionPoint(target.position, transform.position, rbTarget.velocity, rb.velocity.magnitude, out direction))
+                            {
+
+                                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
+                                rb.rotation = angle;
+                                rb.velocity = direction * rb.velocity.magnitude;
+                            }
+                            else
+                            {
+                                RandomCheck = true;
+                            }
+                        }else
+                        {
+                            RandomCheck = true;
+                        }
+                    }else
+                    {
+                        RandomCheck= true;
+                    }
+
+                    if (RandomCheck)
+                    {
+                        float rand1 = Random.Range(-100, 100) / 100f;
+                        float rand2 = Random.Range(-100, 100) / 100f;
+                        direction = new Vector2(rand1, rand2).normalized;
+                        rb.velocity = direction * rb.velocity.magnitude;
+                        Debug.Log(direction);
+
+                        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
+                        rb.rotation = angle;
+                    }
                 }
-                Destroy(gameObject);
+                else
+                {
+                    sr.enabled = false;
+                    rb.velocity = Vector2.zero;
+
+                    Instantiate(impactEffect, transform.position, transform.rotation);
+                    if (impactParticles != null)
+                    {
+                        Instantiate(impactParticles, transform.position, Quaternion.Euler(-90, 0, 0));
+                    }
+                    Destroy(gameObject);
+                }
             }
+
         }
     }
 
     private void Update()
     {
-        Destroy(gameObject, destroyTime);
+       
     }
 }

@@ -9,14 +9,20 @@ public class BulletHellSummonPurple : upgrade
     BulletHellSummon drone;
     float fireRate;
 
-
-
     void Start()
     {
         Type = type.purple;
         setColor();
     }
 
+    public override bool requirmentsMet()
+    {
+        if (KnedlikLib.CheckSummon(this))
+        {
+            return true;
+        }
+        else return false;
+    }
 
     public override void function()
     {
@@ -25,33 +31,33 @@ public class BulletHellSummonPurple : upgrade
             if (SummonsManager.instance.addSummon(summon, out pom))
             {
                 drone = pom.GetComponent<BulletHellSummon>();
-                if (SummonsManager.instance.summonCount >= SummonsManager.instance.maxSummons)
+                if (SummonsManager.instance.summonCount < SummonsManager.instance.maxSummons)
                 {
                     cloneSelf();
                 }
                 rarity -= 10;
-                description = string.Format("Drone base damage + 3 firerate + 20%");
+                description = string.Format("Drone damage + 8 cooldown - 30%");
                 fireRate = drone.baseFireRate;
             }
         }else if(level == 1)
         {
-            float pom = fireRate * 1.25f;
+            float pom = fireRate * 1.3f;
             pom = pom - fireRate;
             drone.baseFireRate -= pom;
 
-            drone.baseDamage += 3;
+            drone.baseDamage += 8;
 
-            description = string.Format("Drone number of bursts + 1 damage + 3");
+            description = string.Format("Drone number of bursts + 1 damage + 6");
         }else if(level == 2)
         {
             drone.bursts += 1;
-            drone.baseDamage += 3;
+            drone.baseDamage += 6;
 
-            description = string.Format("Drone number of projectiles + 4 base procetile size + 25%");
+            description = string.Format("Drone number of projectiles + 6 base procetile size + 35%");
         }else if(level == 3)
         {
-            drone.projectileAmount += 4;
-            drone.size += 0.25f;
+            drone.projectileAmount += 6;
+            drone.size += 0.35f;
 
             description = string.Format("Drone number of bursts + 1 pierce + 2");
         }else if(level == 4)

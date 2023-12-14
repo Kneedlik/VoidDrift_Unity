@@ -1,0 +1,167 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CruiserBossTurretAI : MonoBehaviour
+{
+    [SerializeField] GameObject Turret1;
+    [SerializeField] GameObject Turret2;
+
+    [SerializeField] List<Transform> Barrels;
+    [SerializeField] List<Transform> FirePointCentre;
+    [SerializeField] float BulletForce;
+    public CheckTrigger Range;
+    [SerializeField] bool Ready;
+    [SerializeField] bool Reloading;
+    float timeStamp;
+    float ReloadTime;
+    float Delay;
+    int Index;
+
+    Transform Player;
+    Rigidbody2D PlayerRB;
+    CruiserBossAI BossAI;
+
+    float baseRot;
+    public float desiredRot1;
+    public float desiredRot2;
+    [SerializeField] float RotSpeed;
+
+    [SerializeField] GameObject BulletPrefab;
+
+    Quaternion Q1;
+    Quaternion Q2;
+
+    void Start()
+    {
+        Player = GameObject.FindWithTag("Player").GetComponent<Transform>();
+        PlayerRB = Player.GetComponent<Rigidbody2D>();
+        baseRot = Turret1.transform.rotation.eulerAngles.z + 90;
+        desiredRot1 = baseRot;
+        desiredRot2 = baseRot;
+        BossAI = GetComponent<CruiserBossAI>();
+        Index = 0;
+    }
+
+    void Update()
+    {
+        if (timeStamp > 0)
+        {
+            timeStamp -= Time.deltaTime;
+        }
+
+        if (BossAI.TurretsActive && Range.Colliding)
+        {
+            if (KnedlikLib.InterceptionPoint(Player.position, FirePointCentre[0].position, PlayerRB.velocity, BulletForce, out var direction1))
+            {
+                float angle = Mathf.Atan2(direction1.y, direction1.x) * Mathf.Rad2Deg - 90;
+                //transform.rotation = Quaternion.Euler(0, 0, angle);
+                desiredRot1 = angle;
+            }
+            else
+            {
+                Vector2 pom = Player.position - FirePointCentre[0].position;
+                pom = pom.normalized;
+                float angle = Mathf.Atan2(pom.y, pom.x) * Mathf.Rad2Deg - 90;
+                desiredRot1 = angle;
+            }
+
+
+            if (KnedlikLib.InterceptionPoint(Player.position, FirePointCentre[1].position, PlayerRB.velocity, BulletForce, out var direction2))
+            {
+                float angle = Mathf.Atan2(direction2.y, direction2.x) * Mathf.Rad2Deg - 90;
+                //transform.rotation = Quaternion.Euler(0, 0, angle);
+                desiredRot2 = angle;
+            }
+            else
+            {
+                //transform.rotation = Quaternion.Euler(0, 0, baseRot);
+                Vector2 pom = Player.position - FirePointCentre[1].position;
+                pom = pom.normalized;
+                float angle = Mathf.Atan2(pom.y, pom.x) * Mathf.Rad2Deg - 90;
+                desiredRot2 = angle;
+            }
+
+            if(timeStamp <= 0)
+            {
+                if(Index == 0 || Index == 2)
+                {
+                    if(Turret1.transform.rotation == Q1)
+                    {
+                        float Rand = Random.Range(0.1f, 0.6f);
+                        Invoke("Fire", Rand);
+                        if (Index == 3)
+                        {
+                            timeStamp = ReloadTime;
+                        }
+                        else
+                        {
+                            timeStamp = Delay;
+                        }
+                    }
+                }else
+                {
+                    if(Turret2.transform.rotation == Q2)
+                    {
+                        float Rand = Random.Range(0.1f, 0.6f);
+                        Invoke("Fire", Rand);
+                        if (Index == 3)
+                        {
+                            timeStamp = ReloadTime;
+                        }
+                        else
+                        {
+                            timeStamp = Delay;
+                        }
+                    }
+                }
+            }
+
+        }
+        else
+        {
+            desiredRot1 = baseRot;
+            desiredRot2 = baseRot;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if(Turret1.transform.rotation.eulerAngles.z != desiredRot1)
+        {
+            Quaternion desiredQuaternion = Quaternion.Euler(0, 0, desiredRot1 -90);
+            Turret1.transform.rotation = Quaternion.RotateTowards(Turret1.transform.rotation, desiredQuaternion, RotSpeed * Time.deltaTime);
+            Q1 = desiredQuaternion;
+        }
+
+        if (Turret2.transform.rotation.eulerAngles.z != desiredRot2)
+        {
+            Quaternion desiredQuaternion = Quaternion.Euler(0, 0, desiredRot2 - 90);
+            Turret2.transform.rotation = Quaternion.RotateTowards(Turret2.transform.rotation, desiredQuaternion, RotSpeed * Time.deltaTime);
+            Q2 = desiredQuaternion;
+        }
+    }
+
+    public void Fire()
+    {
+        GameObject Bullet;
+        Bullet = Instantiate(BulletPrefab, Barrels[Index]);
+        Rigidbody2D rb = Bullet.GetComponent<Rigidbody2D>();
+        rb.velocity = Barrels[Index].up * BulletForce;
+
+        IncreaseIndex();
+
+
+    }
+    
+    public void IncreaseIndex()
+    {
+        if(Index <= 3)
+        {
+            Index++;
+        }else
+        {
+            Index = 0;
+        }
+    }
+}

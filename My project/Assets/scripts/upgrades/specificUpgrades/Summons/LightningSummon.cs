@@ -68,16 +68,26 @@ public class LightningSummon : Summon
     public void Shock()
     {
         int offset = Random.Range(0, 90);
-        float diff = 180f / shockAmount;
+        float diff = 360f / shockAmount;
         float pom = diff;
 
         for (int i = 0; i < shockAmount; i++)
         {
-           GameObject G = Instantiate(shockObject, target.position, Quaternion.Euler(0, 0, diff + offset));
+            GameObject G = Instantiate(shockObject, target.position, Quaternion.Euler(0, 0, diff + offset));
+            KnedlikLib.ScaleParticleByFloat(G,1f,true);
+
             Rigidbody2D rb = G.GetComponent<Rigidbody2D>();
             rb.AddForce(G.transform.up * shockSpeed,ForceMode2D.Impulse);
             diff += pom;
+
+            explosion explo = G.GetComponent<explosion>();
+            explo.function += ShockImpact;
         }
+    }
+
+    public void ShockImpact(GameObject target,int damage,ref int Damage)
+    {
+        LightningSystem.instance.Shock(target);
     }
     
     public void Shoot()
@@ -99,39 +109,44 @@ public class LightningSummon : Summon
             health.TakeDamage(damage);
         }
 
+        if(shock)
+        {
+            Shock();
+        }
+
         SkyBeam();
        
     }
 
     public void explosionGraphics(GameObject Target,int damage,ref int Damage)
     {
-        GameObject impact = Instantiate(impactParticle, Target.transform.position, Quaternion.Euler(90, 0, 0));
-        impact.transform.SetParent(Target.transform);
+        if (target != null)
+        {
+            GameObject impact = Instantiate(impactParticle, Target.transform.position, Quaternion.Euler(90, 0, 0));
+            Vector3 pos = new Vector3(target.position.x, target.position.y, target.position.z);
+            impact.transform.SetParent(Target.transform);
 
-
-      GameObject pom = Instantiate(lightningBoltObject,transform.position, Quaternion.Euler(0, 0, 0));
-     LightningBolt bolt = pom.GetComponent<LightningBolt>();
-        bolt.StartPosition = target.position;
-        bolt.EndPosition = Target.transform.position;
-      
+            GameObject pom = Instantiate(lightningBoltObject, transform.position, Quaternion.Euler(0, 0, 0));
+            LightningBolt bolt = pom.GetComponent<LightningBolt>();
+            bolt.StartObject.transform.position = pos;
+            bolt.EndObject.transform.position = Target.transform.position;
+        }
     }
 
     public void SkyBeam()
     {
-      
-       GameObject pom = Instantiate(BigLightning, transform.position, Quaternion.Euler(0, 0, 0));
+        GameObject pom = Instantiate(BigLightning, transform.position, Quaternion.Euler(0, 0, 0));
         LineRenderer line = pom .GetComponent<LineRenderer>();
         LightningBolt bolt = pom.GetComponent<LightningBolt>();
 
         line.widthMultiplier = 10f * size;
 
-        bolt.StartPosition = target.position;
-        bolt.EndPosition = new Vector3(target.position.x, target.position.y + 50, target.position.z);
+        bolt.StartObject.transform.position = target.position;
+        bolt.EndObject.transform.position = new Vector3(target.position.x, target.position.y + 100, target.position.z);
 
         pom = Instantiate(impactParticle,target.position,Quaternion.Euler(90,0,0));
         pom.transform.localScale = new Vector3(3,3,3);
         pom.transform.localPosition *= size;
-
     }
 
     public override bool setRandomTarget(out Transform target)

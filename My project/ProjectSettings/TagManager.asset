@@ -24,6 +24,9 @@ TagManager:
   - StatusSystem
   - Summon
   - BrittleStatus
+  - GlobalVolume
+  - IronUpgrades
+  - CorruptedUpgrades
   layers:
   - Default
   - TransparentFX
@@ -61,6 +64,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: enemy
+  - name: ForeGround
     uniqueID: 709511165
     locked: 0

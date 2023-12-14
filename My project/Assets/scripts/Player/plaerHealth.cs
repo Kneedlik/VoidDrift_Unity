@@ -225,19 +225,19 @@ public class plaerHealth : MonoBehaviour
             int diff = health - maxHealth;
             health = maxHealth;
          
-            if(OverHealDamage.instance.level > 0)
-            {
-                Transform target;
-                if(KnedlikLib.FindRandomEnemy(out target))
-                {
-                    Health targetHealth = target.GetComponent<Health>();
-                    if(targetHealth != null)
-                    {
-                        float temp = amount * OverHealDamage.instance.multiplier;
-                        targetHealth.TakeDamage((int)temp);
-                    }
-                }
-            }
+           // if(OverHealDamage.instance.level > 0)
+           // {
+           //     Transform target;
+            //    if(KnedlikLib.FindRandomEnemy(out target))
+           //     {
+            //        Health targetHealth = target.GetComponent<Health>();
+            //        if(targetHealth != null)
+            //        {
+            //            float temp = amount * OverHealDamage.instance.multiplier;
+             //           targetHealth.TakeDamage((int)temp);
+            //        }
+             //   }
+           // }
         }
     }
 

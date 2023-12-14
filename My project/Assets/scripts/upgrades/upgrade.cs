@@ -11,12 +11,13 @@ public enum type
     blue,
     black,
     special,
+    iron,
+    currupted,
 }
 
 //[CreateAssetMenu(fileName = "new upgrade", menuName = "upgrades")]
 public abstract class upgrade: MonoBehaviour
 {
-
     public type Type;
     public Color32 color;
     public Sprite icon;
@@ -27,9 +28,6 @@ public abstract class upgrade: MonoBehaviour
     public int maxLevel;
     public int rarity;
 
-    
-
-   
     public virtual void function()
     {
         
@@ -57,9 +55,12 @@ public abstract class upgrade: MonoBehaviour
         }else if(Type == type.blue)
         {
             color = new Color32(65, 255, 255, 255);
-        }else if(Type == type.special)
+        }else if(Type == type.special || Type == type.iron)
         {
             color = new Color32(110, 110, 100, 255);
+        }else if(Type == type.currupted)
+        {
+            color = new Color32(255, 0, 85, 255);
         }
     }
 
@@ -67,8 +68,11 @@ public abstract class upgrade: MonoBehaviour
     {
        GameObject pom = Instantiate(gameObject);
         pom.transform.SetParent(gameObject.transform.parent);
-          gameObject.transform.GetComponentInParent<upgradeList>().addNewUpgrade(pom.GetComponent<upgrade>());
-        
+        upgradeList UList = gameObject.transform.GetComponentInParent<upgradeList>();
+        if( UList != null )
+        {
+            UList.addNewUpgrade(pom.GetComponent<upgrade>());
+        }   
     }
 
 }

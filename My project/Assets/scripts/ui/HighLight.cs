@@ -28,6 +28,7 @@ public class HighLight : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
         StartCoroutine(wait());
         image.color = Color.green;
         image2.enabled = false;
+
     }
 
     IEnumerator wait()

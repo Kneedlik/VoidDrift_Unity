@@ -18,6 +18,15 @@ public class GarlicYellow : upgrade
         setColor();
     }
 
+    public override bool requirmentsMet()
+    {
+        if (KnedlikLib.CheckSummon(this))
+        {
+            return true;
+        }
+        else return false;
+    }
+
     public override void function()
     {
         if (level == 0)
@@ -27,7 +36,7 @@ public class GarlicYellow : upgrade
                 sum = pom.GetComponent<Garlic>();
                 main = sum.main;
 
-                if (SummonsManager.instance.summonCount >= SummonsManager.instance.maxSummons)
+                if (SummonsManager.instance.summonCount < SummonsManager.instance.maxSummons)
                 {
                     cloneSelf();
                 }
@@ -36,40 +45,39 @@ public class GarlicYellow : upgrade
                 fireRate = main.baseFireRate;
                 size = main.baseSize;
 
-                description = string.Format("Serpent base damage + 1 base area + 25%");
+                description = string.Format("Serpent base damage + 3 area + 30%");
             }
         }
         else if (level == 1)
         {
-            main.baseDamage += 1;
-            float pom = size * 0.25f;
+            main.baseDamage += 3;
+            float pom = size * 0.30f;
             main.baseSize += pom;
 
-            description = string.Format("Serpent firerate + 20% base damage + 1");
+            description = string.Format("Serpent firerate + 25% damage + 2");
 
         }else if(level == 2)
         {
-            main.baseDamage += 1;
-            float pom = fireRate * 0.2f;
+            main.baseDamage += 2;
+            float pom = fireRate * 0.25f;
             main.fireRate -= pom;
 
-            description = string.Format("Serpent base damage + 2");
+            description = string.Format("Serpent base damage + 6");
 
 
         }else if(level == 3)
         {
-            main.baseDamage += 2;
+            main.baseDamage += 6;
 
-            description = string.Format("Serpent base area + 30% base firerate + 25%");
+            description = string.Format("Serpent area + 40% cooldown - 30%");
         }else if(level == 4)
         {
-            float pom = fireRate * 0.25f;
+            float pom = fireRate * 0.3f;
             main.baseFireRate -= pom;
-            pom = size * 0.3f;
+            pom = size * 0.4f;
             main.baseSize += pom;
 
         }
-
             level++;
     }
 }

@@ -27,11 +27,11 @@ public class LudensEcho : upgrade
         else if (level == 1)
         {
             LudensEchoSystem.sharedInstance.damage += amount;
-            description = string.Format("Ludens echo now deals damage in an area and has 15 base damage");
+            description = string.Format("Ludens echo now deals damage in an area and has 45 base damage");
         } else if (level == 2)
         {
             LudensEchoSystem.sharedInstance.Aoe = true;
-            LudensEchoSystem.sharedInstance.flatDamage += 15;
+            LudensEchoSystem.sharedInstance.flatDamage += 45;
             description = string.Format("First time you damage an enemy deal + {0}% bonus damage", amount);
         }else if(level == 3)
         {
@@ -40,7 +40,7 @@ public class LudensEcho : upgrade
         }
         else if(level == 4)
         {
-            LudensEchoSystem.sharedInstance.flatDamage += 10;
+            LudensEchoSystem.sharedInstance.flatDamage += 30;
             LudensEchoSystem.sharedInstance.aoeSize += 0.2f;
             description = string.Format("Ludens echo now also applies spirit flame");
         }

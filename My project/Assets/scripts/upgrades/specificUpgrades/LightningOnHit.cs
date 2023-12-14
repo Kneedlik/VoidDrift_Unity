@@ -28,46 +28,44 @@ public class LightningOnHit : upgrade
         {
             LightningSystem.instance.damage1 += damageAmount;
             LightningSystem.instance.chance += chance;
-            description = string.Format("Lightning has 50% chance to aply shock Shocked enemies take 3 more damage from all sources");
+            description = string.Format("Lightning damage + {0} Chance to trigger Lightning + {0}%", damageAmount, chance);
         }else if(level == 2)
         {
-            LightningSystem.instance.shock = true;
-            LightningSystem.instance.shockChance = 50;
-            description = string.Format("Lightning damage + {0} Chance to trigger Lightning + {0}%", damageAmount,chance);
+            LightningSystem.instance.damage1 += damageAmount;
+            LightningSystem.instance.chance += chance;
+            description = string.Format("Lightning has 40% chance to aply shock Shocked enemies take 4 more damage from all sources");
         }else if(level == 3)
         {
-            LightningSystem.instance.damage1 += damageAmount;
-            LightningSystem.instance.chain += chance;
-            description = string.Format("Chance to shock + 15% shock damage + 2");
+            LightningSystem.instance.shock = true;
+            description = string.Format("Chance to shock + 20% Lightning damage + 6");
         }else if(level == 4)
         {
             LightningSystem.instance.shockChance += 15;
-            LightningSystem.instance.armorDamage += 2;
-            description = string.Format("Lightning damage + {0}", damageAmount);
+            LightningSystem.instance.damage1 += 6;
+            description = string.Format("Lightning damage + 10");
         }else if(level == 5)
         {
-            LightningSystem.instance.damage1 += damageAmount;
-            description = string.Format("Chance to shock + 15% shock damage bonus + 3");
+            LightningSystem.instance.damage1 += 10;
+            description = string.Format("Chance to shock + 25% Lightning damage + 6");
         }else if(level == 6)
         {
-            LightningSystem.instance.shockChance += 15;
+            LightningSystem.instance.shockChance += 25;
             LightningSystem.instance.armorDamage += 3;
-            description = string.Format("Lightning Damage + 5");
+            description = string.Format("Lightning Damage + 12");
         }else if(level == 7)
         {
-            LightningSystem.instance.damage1 += 5;
+            LightningSystem.instance.damage1 += 12;
+            description = string.Format("Lightning Damage + 15");
         }
         else if(level == 8)
         {
-            LightningSystem.instance.damage1 += 5;
-            description = string.Format("Shock damage bonus + 4");
-        }else if(level == 9)
-        {
-            LightningSystem.instance.armorDamage += 4;
+            LightningSystem.instance.damage1 += 15;
             description = string.Format("Lightning Damage + {0}", damageAmount2);
+            rarity -= 20;
         }else
         {
             description = string.Format("Lightning Damage + {0}", damageAmount2);
+            LightningSystem.instance.damage1 += damageAmount2; 
         }
 
         level++;

@@ -261,7 +261,7 @@ MonoBehaviour:
   damageN: {fileID: 8636022699047134357, guid: 971665a441a2ea448a247928736ad030, type: 3}
   self: {fileID: 6796515708585979782}
   healthBarGObject: {fileID: 1151445167894976}
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 1151445167894982}
   damageMultiplier: 1
   armor: 0
   multiplier: 0
@@ -272,6 +272,7 @@ MonoBehaviour:
   prefab: {fileID: 0}
   randOffset: 30
   levelScaling: 0
+  stop: 0
 --- !u!114 &6796515708585979787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,8 +312,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc05fc48713b8604795a3503e0c65176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 500
-  maxSpeed: 75
+  speed: 400
+  maxSpeed: 55
 --- !u!114 &6796515708585979780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,6 +341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 1000
+  Flip180: 0
 --- !u!114 &5161465376871732774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,7 +357,8 @@ MonoBehaviour:
   itemPool1:
   - {fileID: 6255875214124632419, guid: 6c27fa9bae4513444a8f57ed58c0c332, type: 3}
   dropChancePool1:
-  - 2
+  - 0.5
+  pos: {fileID: 0}
 --- !u!95 &8596260882829645834
 Animator:
   serializedVersion: 4
@@ -490,6 +493,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6176732122430895012, guid: c4a2bd9581bdedd46bdff0e9fdfd2a41, type: 3}
   m_PrefabInstance: {fileID: 6177881061746868836}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1151445167894982 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6176732122430895010, guid: c4a2bd9581bdedd46bdff0e9fdfd2a41, type: 3}
+  m_PrefabInstance: {fileID: 6177881061746868836}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151445167894976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f085e4866d1c1d46b9c450d634fdae3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1151445167894983 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6176732122430895011, guid: c4a2bd9581bdedd46bdff0e9fdfd2a41, type: 3}

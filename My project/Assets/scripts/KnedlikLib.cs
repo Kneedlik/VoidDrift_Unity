@@ -5,6 +5,7 @@ using UnityEngine.Rendering.Universal;
 
 public static class KnedlikLib 
 {
+
     public static void scaleParticleSize(GameObject target, GameObject particle, float multiplier)
     {
         float size;
@@ -32,8 +33,7 @@ public static class KnedlikLib
             {
                 size = temp;
             }
-
-            
+ 
             particle.transform.localScale = new Vector3(size, size, size);
 
             foreach (Transform item in particle.transform)
@@ -294,6 +294,99 @@ public static class KnedlikLib
             target = Enemies2[rand].transform;
         }
         return true;
+    }
+
+    public static int GetPercencHP(GameObject target, float percent)
+    {
+        Health health = target.GetComponent<Health>();
+        float pom =  (float)health.maxHealth * percent;
+
+        return (int)pom;
+    }
+
+    public static int ScaleByLevel(int health)
+    {
+        float pom = (float)health * levelingSystem.instance.healthPerLevel * (levelingSystem.instance.level - 1);
+        pom += health;
+        return (int)pom;
+    }
+
+    public class MyMath
+    {
+        public static int solveQuadratic(float a, float b, float c, out float x1, out float x2)
+        {
+            var discriminant = b * b - 4 * a * c;
+            if (discriminant < 0)
+            {
+                x1 = Mathf.Infinity;
+                x2 = -x1;
+                return 0;
+            }
+            x1 = (-b + Mathf.Sqrt(discriminant)) / (2 * a);
+            x2 = (-b - Mathf.Sqrt(discriminant)) / (2 * a);
+            return discriminant > 0 ? 2 : 1;
+
+        }
+    }
+    public static bool InterceptionPoint(Vector2 target, Vector2 FirePoint, Vector2 TargetVelocity, float speedB, out Vector2 result)
+    {
+        var aToB = FirePoint - target;
+        var dc = aToB.magnitude;
+        var alpha = Vector2.Angle(aToB, TargetVelocity) * Mathf.Deg2Rad;
+        var speedA = TargetVelocity.magnitude;
+        var r = speedA / speedB;
+        if (MyMath.solveQuadratic(1 - r * r, 2 * r * dc * Mathf.Cos(alpha), -(dc * dc), out var x1, out var x2) == 0)
+        {
+            result = Vector2.zero;
+            return false;
+        }
+        var da = Mathf.Max(x1, x2);
+        var t = da / speedB;
+        Vector2 c = target + TargetVelocity * t;
+
+        result = (c - FirePoint).normalized;
+        return true;
+    }
+
+    public static bool InterceptionPoint(Vector2 target, Vector2 FirePoint, Vector2 TargetVelocity, float speedB, out Vector2 result, out float resultAngle)
+    {
+        var aToB = FirePoint - target;
+        var dc = aToB.magnitude;
+        var alpha = Vector2.Angle(aToB, TargetVelocity) * Mathf.Deg2Rad;
+        var speedA = TargetVelocity.magnitude;
+        var r = speedA / speedB;
+        if (MyMath.solveQuadratic(1 - r * r, 2 * r * dc * Mathf.Cos(alpha), -(dc * dc), out var x1, out var x2) == 0)
+        {
+            result = Vector2.zero;
+            resultAngle = 0;
+            return false;
+        }
+        var da = Mathf.Max(x1, x2);
+        var t = da / speedB;
+        Vector2 c = target + TargetVelocity * t;
+
+        result = (c - FirePoint).normalized;
+        resultAngle = Mathf.Atan2(result.y, result.x) * Mathf.Rad2Deg - 90;
+        return true;
+    }
+
+    public static void SetMaxSpeed(float MaxSpeed, Rigidbody2D rb)
+    {
+        if (rb != null)
+        {
+            if (rb.velocity.magnitude > MaxSpeed)
+            {
+                rb.velocity = rb.velocity.normalized * MaxSpeed;
+            }
+        }
+    }
+
+    public static bool CheckSummon(upgrade obj)
+    {
+        if(obj.level > 0 || SummonsManager.instance.summonCount < SummonsManager.instance.maxSummons )
+        {
+            return true;
+        }else return false;
     }
 
 

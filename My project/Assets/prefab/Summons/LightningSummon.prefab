@@ -114,8 +114,8 @@ MonoBehaviour:
   BigLightning: {fileID: 8241224647456863865, guid: dda30b18b3bdaca44997ee07d0843fa8, type: 3}
   shock: 0
   shockAmount: 5
-  shockObject: {fileID: 0}
-  shockSpeed: 0
+  shockObject: {fileID: 1452660250647727734, guid: fce6b0963766e424cbdc56ca130900cc, type: 3}
+  shockSpeed: 2
 --- !u!114 &5738726159170388763
 MonoBehaviour:
   m_ObjectHideFlags: 0

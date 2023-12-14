@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 5428479199126411803}
   - component: {fileID: 4152748810370877651}
   - component: {fileID: 8256046931734830708}
+  - component: {fileID: 2430769886784292560}
   m_Layer: 0
   m_Name: BulletHellSummon
   m_TagString: Untagged
@@ -224,7 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 424f200b1ee14de4cb2ddc94e1d3c385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 12
+  damage: 16
   fireRate: 2.5
   size: 1
   baseDamage: 8
@@ -257,3 +258,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2430769886784292560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5202527886860771328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 674470da1f7e85940a9c72755fda3c13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  v: {x: 0, y: 0, z: 0}

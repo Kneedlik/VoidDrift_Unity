@@ -15,7 +15,7 @@ public class GlobalDamage : upgrade
 
     public override bool requirmentsMet()
     {
-       if(levelingSystem.instance.purple >= 30)
+       if(levelingSystem.instance.purple >= 15)
         {
             return true;
         }else return false;

@@ -5,6 +5,7 @@ using UnityEngine;
 public class addXpOnCollison : MonoBehaviour
 {
     public int xpValue = 3;
+    public float PercentValue = 0;
     PlayerStats playerStats;
 
 
@@ -19,8 +20,11 @@ public class addXpOnCollison : MonoBehaviour
         if (collision.tag == "Player")
         {
             float realMultiplier = (float)playerStats.EXPmultiplier / 100f;
-            float pomDamage = (float)xpValue * realMultiplier;
+            float pomDamage = PercentValue * levelingSystem.instance.xpNeeded;
+            pomDamage += xpValue;
+            pomDamage = pomDamage * realMultiplier;
             xpValue = (int)pomDamage;
+
             collision.GetComponent<levelingSystem>().addXp(xpValue);
             Destroy(gameObject);
         }
@@ -29,5 +33,11 @@ public class addXpOnCollison : MonoBehaviour
     public void setValue(int value)
     {
         xpValue = value;
+    }
+
+    public void setValue(int value,float percent)
+    {
+        xpValue = value;
+        PercentValue = percent;
     }
 }

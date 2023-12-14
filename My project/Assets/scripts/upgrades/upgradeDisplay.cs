@@ -12,6 +12,7 @@ public class upgradeDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     public TMP_Text Description;
     public Image image;
     public Image Insignia;
+    public Image SelectedImg;
     Button button;
 
     private void Start()
@@ -74,8 +75,6 @@ public class upgradeDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         {
             levelingSystem.instance.yellow++;
         }
-            
-
     }
 
     private void Update()
@@ -85,25 +84,29 @@ public class upgradeDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         image.sprite = Upgrade.icon;
         ColorBlock cb = button.colors;
         cb.normalColor = Upgrade.color;
+        cb.disabledColor = Upgrade.color;
         button.colors = cb;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        
         image.color = Color.white;
-
+        SelectedImg.enabled = true;
+        Debug.Log("tam");
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         
         image.color = Upgrade.color;
+        SelectedImg.enabled = false;
+        Debug.Log("Ven");
     }
 
     private void OnEnable()
     {
         image.color = Upgrade.color;
+        SelectedImg.enabled = false;
     }
 
 

@@ -10,11 +10,18 @@ public class BeamSummonBlue : upgrade
 
     float fireRate;
 
-
     void Start()
     {
         Type = type.blue;
         setColor();
+    }
+    public override bool requirmentsMet()
+    {
+        if (KnedlikLib.CheckSummon(this))
+        {
+            return true;
+        }
+        else return false;
     }
 
     public override void function()
@@ -24,7 +31,7 @@ public class BeamSummonBlue : upgrade
             if (SummonsManager.instance.addSummon(summon, out pom))
             {
                 beam = pom.GetComponent<BeamSummon>();
-                if (SummonsManager.instance.summonCount >= SummonsManager.instance.maxSummons)
+                if (SummonsManager.instance.summonCount < SummonsManager.instance.maxSummons)
                 {
                     cloneSelf();
                 }

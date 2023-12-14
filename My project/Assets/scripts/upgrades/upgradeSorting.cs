@@ -51,10 +51,33 @@ public class upgradeSorting : MonoBehaviour
                     //Debug.Log("vyslo");
                 }                                       
             }
-           // cards[j].Upgrade = list[0];
+            // cards[j].Upgrade = list[0];
+            Button button = cards[j].GetComponent<Button>();
+            button.interactable = false;
+            button.interactable = true;
+            StartCoroutine(DissAbleCards());
+
         }
-     
-        
+
+    }
+
+    IEnumerator DissAbleCards()
+    {
+        Button button;
+        for (int i = 0; i < cards.Count; i++)
+        {
+            button = cards[i].GetComponent<Button>();
+            button.interactable = false;
+        }
+
+        yield return new WaitForSecondsRealtime(0.4f);
+
+        for (int i = 0; i < cards.Count; i++)
+        {
+            button = cards[i].GetComponent<Button>();
+            button.interactable = true;
+        }
+
     }
 
     int decideCards()
@@ -107,7 +130,7 @@ public class upgradeSorting : MonoBehaviour
         {
             if (levelingSystem.instance.level % 10 == 0)
             {
-                if (Base.list[i].Type == type.special)
+                if (Base.list[i].Type == type.special && Base.list[i].requirmentsMet())
                 {
                     list.Add(Base.list[i]);
                 }

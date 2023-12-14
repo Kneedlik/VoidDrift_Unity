@@ -1,4 +1,3 @@
-using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,12 +11,14 @@ public class SwordSummon : Summon
     [SerializeField] GameObject SlashObjectT;
     [SerializeField] GameObject SlashObjectF;
 
-   // public bool Crit = false;
-    //public int CritDamage;
+
+    public bool Crit = false;
+    public int CritDamage;
 
     public int slashAmount = 1;
     public float slashDelay;
-    //public int TicksNeeded;
+    public int TicksNeeded;
+    int CurrentTick;
    // List<ShapeLessTarget>Targets = new List<ShapeLessTarget>();
 
  //  public class ShapeLessTarget
@@ -29,7 +30,9 @@ public class SwordSummon : Summon
 
     void Start()
     {
+        CurrentTick = 0;
         scaleSummonDamage();
+
         eventManager.OnImpact += strike;
     }
 
@@ -106,13 +109,21 @@ public class SwordSummon : Summon
                 {
                     eventManager.SummonOnImpact(target, damage, ref Damage);
                 }
-
-                if (eventManager.PostImpact != null)
-                {
-                    eventManager.SummonOnImpact(target, Damage, ref Damage);
-                }
             
-                health.TakeDamage(damage);
+                if(Crit)
+                {
+                    if(CurrentTick == TicksNeeded)
+                    {
+                        CurrentTick = 0;
+                        float pom = (float)Damage * CritSystem.instance.critMultiplier;
+                        Damage = (int)pom;
+                    }else
+                    {
+                        CurrentTick++;
+                    }
+                }
+
+                health.TakeDamage(Damage);
                 yield return new WaitForSeconds(slashDelay);
             }
         }

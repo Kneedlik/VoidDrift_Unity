@@ -21,14 +21,13 @@ public class AC_Sniper : upgrade
         weapeon gun = GameObject.FindWithTag("Weapeon").GetComponent<weapeon>();
 
         gun.baseDamage += damageAmount;
-        gun.BaseForce += ForceAmount;
+        gun.ForceMultiplier += ForceAmount;
         gun.pierce += PierceAmount;
         gun.baseBulletCoolDown -= ASpenalty;
 
         PlayerStats p = PlayerStats.sharedInstance;
 
         p.increaseDMG(0);
-        p.increasePeojetileSpeed(0);
         p.IncreaseAS(0);
 
         level++;

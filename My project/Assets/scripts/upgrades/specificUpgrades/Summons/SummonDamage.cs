@@ -22,7 +22,7 @@ public class SummonDamage : upgrade
         for (int i = 0; i < upgrades.Length; i++)
         {
             summons[i] = upgrades[i].GetComponent<upgrade>();
-            if(summons[i].level == 5)
+            if(summons[i].level == 4)
             {
                 return true;
             }

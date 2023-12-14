@@ -49,7 +49,7 @@ GameObject:
   - component: {fileID: 6763377482656349659}
   m_Layer: 0
   m_Name: imperialJet (1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -151,11 +151,13 @@ MonoBehaviour:
   multiplier: 0
   ParticleExplosion: {fileID: 0}
   DeathAnim: {fileID: 0}
+  DeathFunc: {fileID: 0}
   respawning: 0
   respawnTime: 0
   prefab: {fileID: 0}
   randOffset: 30
   levelScaling: 0
+  stop: 0
 --- !u!50 &6763377482656349638
 Rigidbody2D:
   serializedVersion: 4
@@ -230,6 +232,8 @@ MonoBehaviour:
   maxSpeed: 30
   nextWayPointDistance: 5
   rotationSpeed: 90
+  patrol: 1
+  alert: 0
   currentTarget: {x: 0, y: 0, z: 0}
   reachedEndOfPath: 0
   cannon: {fileID: 6763377484313374906}
@@ -237,7 +241,6 @@ MonoBehaviour:
   perchDistance: 40
   minDistance: 12.5
   breakAwayRadius: 150
-  endOfGridDistance: 600
   offsetD: 10
   alliedHealth:
   - {fileID: 6763377482656349656}

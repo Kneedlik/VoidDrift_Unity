@@ -102,4 +102,5 @@ MonoBehaviour:
   - {fileID: 6712227383103003835, guid: f5da7f79e828dab4ca78ca05fba1b5e3, type: 3}
   dropChancePool1:
   - 80
-  - 20
+  - 16
+  - 4

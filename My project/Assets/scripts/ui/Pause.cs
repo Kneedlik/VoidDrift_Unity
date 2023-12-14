@@ -2,16 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering.Universal;
+using UnityEngine.Rendering;
 
 public class Pause : MonoBehaviour
 {
     public static bool GamePaused;
     public GameObject PauseUI;
     plaerHealth health;
+    Volume volume;
+
+    [SerializeField] List<GameObject> DissableObj = new List<GameObject>();
 
 
     private void Awake()
     {
+        volume = GameObject.FindGameObjectWithTag("GlobalVolume").GetComponent<Volume>();
         health = GameObject.FindWithTag("Player").GetComponent<plaerHealth>();
         GamePaused = false;
         Resume();
@@ -28,7 +34,7 @@ public class Pause : MonoBehaviour
                 {
                     Resume();
                 }
-                else
+                else if (Time.timeScale != 0)
                 {
                     Pauze();
                 }
@@ -42,6 +48,18 @@ public class Pause : MonoBehaviour
     {
         Time.timeScale = 1;
         GamePaused = false;
+
+        Canvas canvas = GetComponent<Canvas>();
+        canvas.renderMode = RenderMode.ScreenSpaceCamera;
+
+        volume.profile.TryGet<DepthOfField>(out DepthOfField depthOfField);
+        depthOfField.active = false;
+
+        for (int i = 0; i < DissableObj.Count; i++)
+        {
+            DissableObj[i].SetActive(true);
+        }
+
         PauseUI.SetActive(false);
     }
 
@@ -49,6 +67,18 @@ public class Pause : MonoBehaviour
     {
         Time.timeScale = 0;
         GamePaused = true;
+
+        Canvas canvas = GetComponent<Canvas>();
+        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+
+        volume.profile.TryGet<DepthOfField>(out DepthOfField depthOfField);
+        depthOfField.active = true;
+
+        for (int i = 0; i < DissableObj.Count; i++)
+        {
+            DissableObj[i].SetActive(false);
+        }
+
         PauseUI.SetActive(true);
     }
 

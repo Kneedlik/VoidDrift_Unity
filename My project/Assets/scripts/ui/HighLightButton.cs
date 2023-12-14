@@ -36,5 +36,14 @@ public class HighLightButton : MonoBehaviour, IPointerEnterHandler, IPointerExit
         image.color = baseColor;
     }
 
+   // public void OnPointerClick(PointerEventData eventData)
+   // {
+   //     StartCoroutine(wait());
+   //     image.color = baseColor;
+   // }
+
+
+
+
 
 }

@@ -18,11 +18,16 @@ public class BioHammerGreen : upgrade
 
     public override bool requirmentsMet()
     {
-        if(BonusHealthDamageG.instance.level >= 3)
+        // if(BonusHealthDamageG.instance.level >= 3)
+        // {
+        //     return true;
+        // }else return false;
+
+        if (KnedlikLib.CheckSummon(this))
         {
             return true;
-        }else return false;
-
+        }
+        else return false;       
     }
 
     public override void function()
@@ -33,7 +38,7 @@ public class BioHammerGreen : upgrade
             if(SummonsManager.instance.addSummon(summon,out pom))
             {
                 hammer = pom.GetComponent<BioHammer>();
-                if (SummonsManager.instance.summonCount >= SummonsManager.instance.maxSummons)
+                if (SummonsManager.instance.summonCount < SummonsManager.instance.maxSummons)
                 {
                     cloneSelf();
                 }
@@ -41,28 +46,28 @@ public class BioHammerGreen : upgrade
                 fireRate = hammer.fireRate;
             }
 
-            description = string.Format("BioHammer firerate + 25%");
+            description = string.Format("BioHammer cooldown - 30%");
         }else if(level == 1)
         {
-            float pom = fireRate * 1.25f;
+            float pom = fireRate * 1.3f;
             pom = pom - fireRate;
             hammer.fireRate -= pom; 
 
-            description = string.Format("Biohammer firerate + 15% biohammer base damage + 5");
+            description = string.Format("Biohammer firerate + 20% Biohammer base damage + 12");
         }else if(level == 2)
         {
-            float pom = fireRate * 1.15f;
+            float pom = fireRate * 1.2f;
             pom = pom - fireRate;
             hammer.fireRate -= pom;
 
             hammer.damage += 5;
 
-            description = string.Format("Bio Hammer base damage + 12");
+            description = string.Format("Bio Hammer base damage + 20");
         }else if(level == 3)
         {
             hammer.damage += 12;
 
-            description = string.Format("Bio hammer bonus health damage + 30%");
+            description = string.Format("Bio Hammer now deals 1% max Health Damage Bio hammer bonus health damage + 30%");
         }else if(level == 4)
         {
             hammer.healthScaling += 0.3f;

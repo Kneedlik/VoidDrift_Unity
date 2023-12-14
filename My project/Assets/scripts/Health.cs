@@ -17,6 +17,7 @@ public class Health : MonoBehaviour
 
     public GameObject ParticleExplosion;
     public GameObject DeathAnim;
+    public DeathFunc DeathFunc;
     FlashColor flashColor;
 
     public bool respawning = false;
@@ -38,8 +39,11 @@ public class Health : MonoBehaviour
         }
 
         multiplier = 1;
-        healthBar = healthBarGObject.GetComponent<healthBar>();
-        healthBarGObject.SetActive(false);
+        if (healthBarGObject != null)
+        {
+            healthBar = healthBarGObject.GetComponent<healthBar>();
+            healthBarGObject.SetActive(false);
+        }
         health = maxHealth;
         flashColor = GetComponent<FlashColor>();
         baseMaxHealth = maxHealth;
@@ -74,13 +78,15 @@ public class Health : MonoBehaviour
 
             health -= damage;
 
-            if (healthBarGObject.activeSelf == false)
+            if(healthBarGObject != null)
             {
-                healthBarGObject.SetActive(true);
-                healthBar.SetMaxHealth(maxHealth);
+                if (healthBarGObject.activeSelf == false)
+                {
+                    healthBarGObject.SetActive(true);
+                    healthBar.SetMaxHealth(maxHealth);
+                }
+                healthBar.SetHealth(health);
             }
-            healthBar.SetHealth(health);
-
 
             if (flashColor != null)
             {
@@ -121,12 +127,15 @@ public class Health : MonoBehaviour
 
             health -= damage;
 
-            if (healthBarGObject.activeSelf == false)
+            if(healthBarGObject != null)
             {
-                healthBarGObject.SetActive(true);
-                healthBar.SetMaxHealth(maxHealth);
+                if (healthBarGObject.activeSelf == false)
+                {
+                    healthBarGObject.SetActive(true);
+                    healthBar.SetMaxHealth(maxHealth);
+                }
+                healthBar.SetHealth(health);
             }
-            healthBar.SetHealth(health);
 
             if (flashColor != null )
             {
@@ -144,22 +153,17 @@ public class Health : MonoBehaviour
         }
     }
 
-    public void Die()
+    public void PreDestroy()
     {
         DropLootOnDeath[] d = gameObject.GetComponents<DropLootOnDeath>();
         dropXP xp = gameObject.GetComponent<dropXP>();
-
-        if (eventManager.OnKill != null)
-        {
-            eventManager.OnKill(gameObject);
-        }
 
         if (xp != null)
         {
             xp.addXP();
         }
 
-        if(d != null)
+        if (d != null)
         {
             for (int i = 0; i < d.Length; i++)
             {
@@ -167,29 +171,68 @@ public class Health : MonoBehaviour
             }
         }
 
-        if(ParticleExplosion != null)
+        if (ParticleExplosion != null)
         {
             Instantiate(ParticleExplosion, transform.position, Quaternion.Euler(-90, 0, 0));
         }
 
-        if(DeathAnim != null)
+        if (DeathAnim != null)
         {
-            Instantiate(DeathAnim,transform.position,Quaternion.identity);
+            Instantiate(DeathAnim, transform.position, Quaternion.identity);
         }
+    }
 
-        
-        if(respawning == false)
+    public void Final()
+    {
+        if (respawning == false)
         {
-            Destroy(healthBarGObject);
-            Destroy(self);
-        }else if(prefab != null)
+            if (healthBarGObject != null)
+            {
+                Destroy(healthBarGObject);
+            }
+
+            if (self != null)
+            {
+                Destroy(self);
+            }
+            else Destroy(gameObject);
+
+        }
+        else if (prefab != null)
         {
             RespawnManager.instance.respawn(respawnTime, prefab, location, true);
-            Destroy(healthBarGObject);
-            Destroy(self);
-        }else
+            if (healthBarGObject != null)
+            {
+                Destroy(healthBarGObject);
+            }
+
+            if (self != null)
+            {
+                Destroy(self);
+            }
+            else Destroy(gameObject);
+        }
+        else
         {
-            RespawnManager.instance.respawn(respawnTime,gameObject,location, false);
+            RespawnManager.instance.respawn(respawnTime, gameObject, location, false);
+        }
+    }
+
+    public void Die()
+    {
+        if (eventManager.OnKill != null)
+        {
+            eventManager.OnKill(gameObject);
+        }
+
+        if (DeathFunc != null)
+        {
+            DeathFunc.function();
+        }
+        else
+        {
+            PreDestroy();
+            Final();
         }
         
     }
@@ -225,8 +268,6 @@ public class Health : MonoBehaviour
         go.GetComponent<TMP_Text>().color = color;
        // go.GetComponent<TextMesh>().text = Damage.ToString();
     }
-
-   
 
     public void setUp()
     {

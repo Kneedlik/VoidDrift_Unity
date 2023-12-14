@@ -40,7 +40,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963428122823444770}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
@@ -277,9 +277,12 @@ MonoBehaviour:
   damage: 0
   destroyTime: 1.5
   pierce: 0
+  Bounce: 0
   knockBack: 0
   impactEffect: {fileID: 907559903438879465, guid: 1ce0060ea82c3b44fbea7c2d7584e88e, type: 3}
   impactParticles: {fileID: 7437022105064872643, guid: 795f94ad9917fbe4b90ec843e9018744, type: 3}
+  MaxBounceDistance: 0
+  MaxBounceDistanceOff: 0
 --- !u!114 &6566748590372091241
 MonoBehaviour:
   m_ObjectHideFlags: 0

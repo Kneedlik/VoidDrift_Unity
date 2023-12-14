@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: BigWawe1
   m_EditorClassIdentifier: 
   end: 300
-  min: 0
-  max: 60
+  min: 1
+  max: 20
   enemies:
   - {fileID: 2117187936650203918, guid: ec48568e9dc2a9a4aa1d1b0bb7a5e6d3, type: 3}
   chanses:

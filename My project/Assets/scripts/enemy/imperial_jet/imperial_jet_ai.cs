@@ -17,7 +17,6 @@ public class imperial_jet_ai : simpleAI
     bool lineSet;
 
     public float breakAwayRadius;
-    public float endOfGridDistance;
 
     Vector3[] offset;
     public float offsetD;
@@ -126,6 +125,7 @@ public class imperial_jet_ai : simpleAI
         {
             cannon.enabled = false;
             launcher.enabled = false;
+            currentTarget = waypoints[wayPointIndex].position;
         }
 
         if (distance > breakAwayRadius)
@@ -158,11 +158,11 @@ public class imperial_jet_ai : simpleAI
 
         if (alert)
         {                
-                 moveCharacter(speed);
-                 lookAt(currentTarget);              
+            moveCharacter(speed);
+            lookAt(currentTarget);              
            
         }
-        else if (patrol && distance < endOfGridDistance)
+        else if (patrol)
         {
             // Vector2 lookDir = ((Vector2)path.vectorPath[currentWatPoint] - rb.position).normalized;
             // Vector3 lookDir = path.vectorPath[currentWatPoint];
@@ -221,5 +221,15 @@ public class imperial_jet_ai : simpleAI
     public bool getVectorLocked()
     {
         return vectorLocked;
+    }
+
+    public void SetAlert(bool Set)
+    {
+        alert = Set;    
+    }
+
+    public void SetPatrol(bool Set)
+    {
+        patrol = Set;
     }
 }

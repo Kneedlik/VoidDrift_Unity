@@ -17,8 +17,6 @@ public class IncreasePrejectilesR : upgrade
     public override void function()
     {
         PlayerStats.sharedInstance.increaseProjectiles(amount);
+        level++;
     }
-
-
-
 }

@@ -7,8 +7,9 @@ public class MachneGun : Summon
     public float force;
     public int bulletsInBurst;
     public float burstDelay;
-   public GameObject BulletPrefab;
-   [SerializeField] Transform firePoint;
+    public GameObject BulletPrefab;
+    [SerializeField] Transform firePoint;
+    [SerializeField] int Pierce;
 
     Transform target;
    
@@ -20,7 +21,6 @@ public class MachneGun : Summon
         scaleSize();
     }
 
-   
     void Update()
     {
         if(timeStamp >= 0)
@@ -49,7 +49,6 @@ public class MachneGun : Summon
     IEnumerator shoot()
     {
       
-
         for (int i = 0; i < bulletsInBurst; i++)
         {
             if (target != null)
@@ -72,6 +71,7 @@ public class MachneGun : Summon
                 }
 
                 Projectile projectile = Bullet.GetComponent<Projectile>();
+                projectile.pierce = Pierce;
                 projectile.setDamage(damage);
 
                 yield return new WaitForSeconds(burstDelay);

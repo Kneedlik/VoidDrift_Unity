@@ -141,6 +141,7 @@ MonoBehaviour:
   destroyTime: 0.3
   force: 7.5
   isEnemy: 0
+  LevelScaling: 0
 --- !u!1 &6504948478918992659
 GameObject:
   m_ObjectHideFlags: 0
