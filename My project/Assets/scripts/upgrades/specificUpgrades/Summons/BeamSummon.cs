@@ -51,7 +51,6 @@ public class BeamSummon : Summon
         Vector3 pos = (target.position - transform.position).normalized;
 
         line.SetPosition(0,transform.position);
-        
         line.SetPosition(1, transform.position + pos * 100);
 
         if(Aoe)

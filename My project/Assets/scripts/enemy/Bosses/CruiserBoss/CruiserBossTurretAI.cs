@@ -4,18 +4,13 @@ using UnityEngine;
 
 public class CruiserBossTurretAI : MonoBehaviour
 {
+    CruiserConstants Const;
     [SerializeField] GameObject Turret1;
     [SerializeField] GameObject Turret2;
-
     [SerializeField] List<Transform> Barrels;
     [SerializeField] List<Transform> FirePointCentre;
-    [SerializeField] float BulletForce;
     public CheckTrigger Range;
-    [SerializeField] bool Ready;
-    [SerializeField] bool Reloading;
     float timeStamp;
-    float ReloadTime;
-    float Delay;
     int Index;
 
     Transform Player;
@@ -23,11 +18,8 @@ public class CruiserBossTurretAI : MonoBehaviour
     CruiserBossAI BossAI;
 
     float baseRot;
-    public float desiredRot1;
-    public float desiredRot2;
-    [SerializeField] float RotSpeed;
-
-    [SerializeField] GameObject BulletPrefab;
+    float desiredRot1;
+    float desiredRot2;
 
     Quaternion Q1;
     Quaternion Q2;
@@ -41,6 +33,7 @@ public class CruiserBossTurretAI : MonoBehaviour
         desiredRot2 = baseRot;
         BossAI = GetComponent<CruiserBossAI>();
         Index = 0;
+        Const = GetComponent<CruiserConstants>();
     }
 
     void Update()
@@ -52,7 +45,7 @@ public class CruiserBossTurretAI : MonoBehaviour
 
         if (BossAI.TurretsActive && Range.Colliding)
         {
-            if (KnedlikLib.InterceptionPoint(Player.position, FirePointCentre[0].position, PlayerRB.velocity, BulletForce, out var direction1))
+            if (KnedlikLib.InterceptionPoint(Player.position, FirePointCentre[0].position, PlayerRB.velocity, Const.BulletForce, out var direction1))
             {
                 float angle = Mathf.Atan2(direction1.y, direction1.x) * Mathf.Rad2Deg - 90;
                 //transform.rotation = Quaternion.Euler(0, 0, angle);
@@ -67,7 +60,7 @@ public class CruiserBossTurretAI : MonoBehaviour
             }
 
 
-            if (KnedlikLib.InterceptionPoint(Player.position, FirePointCentre[1].position, PlayerRB.velocity, BulletForce, out var direction2))
+            if (KnedlikLib.InterceptionPoint(Player.position, FirePointCentre[1].position, PlayerRB.velocity, Const.BulletForce, out var direction2))
             {
                 float angle = Mathf.Atan2(direction2.y, direction2.x) * Mathf.Rad2Deg - 90;
                 //transform.rotation = Quaternion.Euler(0, 0, angle);
@@ -88,15 +81,15 @@ public class CruiserBossTurretAI : MonoBehaviour
                 {
                     if(Turret1.transform.rotation == Q1)
                     {
-                        float Rand = Random.Range(0.1f, 0.6f);
+                        float Rand = Random.Range(0.1f, 1.2f);
                         Invoke("Fire", Rand);
                         if (Index == 3)
                         {
-                            timeStamp = ReloadTime;
+                            timeStamp = Const.ReloadTime;
                         }
                         else
                         {
-                            timeStamp = Delay;
+                            timeStamp = Const.Delay;
                         }
                     }
                 }else
@@ -107,11 +100,11 @@ public class CruiserBossTurretAI : MonoBehaviour
                         Invoke("Fire", Rand);
                         if (Index == 3)
                         {
-                            timeStamp = ReloadTime;
+                            timeStamp = Const.ReloadTime;
                         }
                         else
                         {
-                            timeStamp = Delay;
+                            timeStamp = Const.Delay;
                         }
                     }
                 }
@@ -130,14 +123,14 @@ public class CruiserBossTurretAI : MonoBehaviour
         if(Turret1.transform.rotation.eulerAngles.z != desiredRot1)
         {
             Quaternion desiredQuaternion = Quaternion.Euler(0, 0, desiredRot1 -90);
-            Turret1.transform.rotation = Quaternion.RotateTowards(Turret1.transform.rotation, desiredQuaternion, RotSpeed * Time.deltaTime);
+            Turret1.transform.rotation = Quaternion.RotateTowards(Turret1.transform.rotation, desiredQuaternion, Const.RotSpeed * Time.deltaTime);
             Q1 = desiredQuaternion;
         }
 
         if (Turret2.transform.rotation.eulerAngles.z != desiredRot2)
         {
             Quaternion desiredQuaternion = Quaternion.Euler(0, 0, desiredRot2 - 90);
-            Turret2.transform.rotation = Quaternion.RotateTowards(Turret2.transform.rotation, desiredQuaternion, RotSpeed * Time.deltaTime);
+            Turret2.transform.rotation = Quaternion.RotateTowards(Turret2.transform.rotation, desiredQuaternion, Const.RotSpeed * Time.deltaTime);
             Q2 = desiredQuaternion;
         }
     }
@@ -145,9 +138,10 @@ public class CruiserBossTurretAI : MonoBehaviour
     public void Fire()
     {
         GameObject Bullet;
-        Bullet = Instantiate(BulletPrefab, Barrels[Index]);
+        Bullet = Instantiate(Const.BulletPrefab, Barrels[Index].position, Barrels[Index].rotation);
         Rigidbody2D rb = Bullet.GetComponent<Rigidbody2D>();
-        rb.velocity = Barrels[Index].up * BulletForce;
+        
+        rb.velocity = Barrels[Index].up * Const.BulletForce;
 
         IncreaseIndex();
 
@@ -156,7 +150,7 @@ public class CruiserBossTurretAI : MonoBehaviour
     
     public void IncreaseIndex()
     {
-        if(Index <= 3)
+        if(Index < 3)
         {
             Index++;
         }else

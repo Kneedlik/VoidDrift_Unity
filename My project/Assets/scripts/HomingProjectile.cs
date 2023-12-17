@@ -152,11 +152,18 @@ public class HomingProjectile : MonoBehaviour
                             {
                                 collision.gameObject.GetComponent<plaerHealth>().TakeDamage(damage);
                             }
+                        }else
+                        {
+                            Health health = collision.gameObject.GetComponent<Health>();
+                            if(health != null && damage > 0)
+                            {
+                                health.TakeDamage(damage);
+                            }
                         }
 
                         rb.velocity = Vector2.zero;
 
-                        gameObject.GetComponent<DropLootOnDeath>().DropLoot();
+                        Instantiate(ExploPrefab, transform.position, Quaternion.identity);
                         Destroy(gameObject);
                     }
                 }

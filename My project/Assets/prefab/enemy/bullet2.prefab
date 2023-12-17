@@ -87,6 +87,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 0d628815a59199f42a19e5b561a37ca1, type: 3}
+    - target: {fileID: 6025737495696429919, guid: 6ad2130c5856b6c48829d19d571c7741, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -6836321913355585336, guid: 6ad2130c5856b6c48829d19d571c7741, type: 3}
     - {fileID: 6566748590372091241, guid: 6ad2130c5856b6c48829d19d571c7741, type: 3}
@@ -109,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 4
-  destroyTime: 2
+  destroyTime: 3.5
   impactEffect: {fileID: 907559903438879465, guid: 1ce0060ea82c3b44fbea7c2d7584e88e, type: 3}
   impactParticles: {fileID: 7437022105064872643, guid: 795f94ad9917fbe4b90ec843e9018744, type: 3}
   pierce: 0

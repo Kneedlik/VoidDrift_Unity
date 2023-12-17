@@ -5,20 +5,32 @@ using UnityEngine;
 public class CheckTrigger : MonoBehaviour
 {
     public bool Colliding;
+    public string Tag;
 
     private void Start()
     {
-        Colliding = false;   
+        Colliding = false; 
+        if (Tag == "")
+        {
+            Tag = "Player";
+        }
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        Colliding = true;
+        if(collision.tag == Tag)
+        {
+            Colliding = true;
+        }   
     }
 
     public void OnTriggerExit2D(Collider2D collision)
     {
-        Colliding = false; 
+        if (collision.tag == Tag)
+        {
+            Colliding = true;
+        }
+
     }
 
 
