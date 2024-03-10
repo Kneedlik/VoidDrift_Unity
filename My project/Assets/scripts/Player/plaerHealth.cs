@@ -20,9 +20,10 @@ public class plaerHealth : MonoBehaviour
     bool invencible;
     public DivineShieldSystem shield;
     float timeStamp;
+    [SerializeField] GameObject DamageParticle;
 
     //death
-   [SerializeField] bool godMode = false;
+    [SerializeField] bool godMode = false;
     [SerializeField] float deathDelay;
     [SerializeField] GameObject ParticleExplosion;
     [SerializeField] ParticleSystem Smoke;
@@ -87,6 +88,9 @@ public class plaerHealth : MonoBehaviour
             healthBar.SetHealth(health);
             CameraFollow.instance.startShake(1, 1);
             flashHealthBar();
+
+            float Rand = Random.Range(0.0f, 180.0f);
+            Instantiate(DamageParticle, transform.position, Quaternion.Euler(Rand, 90, 0));
             Instantiate(shockWawe,transform.position,Quaternion.identity);
             timeStamp = iframes;
            

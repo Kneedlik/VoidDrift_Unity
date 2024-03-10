@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FlashColor : MonoBehaviour
 {
+    [SerializeField] bool UseConstants = true;
     public float duration = 0.3f;
     SpriteRenderer spriteRenderer;
     Material oreginalMaterial;
@@ -11,6 +12,7 @@ public class FlashColor : MonoBehaviour
     Coroutine flash;
 
     float coolDown;
+    float TrueDuration;
 
     private void Update()
     {
@@ -24,6 +26,14 @@ public class FlashColor : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         oreginalMaterial = spriteRenderer.material;
+
+        if(UseConstants)
+        {
+            TrueDuration = Constants.FlashWhiteDuration;
+        }else
+        {
+            TrueDuration = duration;
+        }
     }
 
     public void Flash()
@@ -44,9 +54,9 @@ public class FlashColor : MonoBehaviour
     {
         
         spriteRenderer.material = flashMaterial;
-        yield return new WaitForSeconds(duration);
+        yield return new WaitForSeconds(TrueDuration);
         spriteRenderer.material = oreginalMaterial;
-        coolDown = duration * 2;
+        coolDown = TrueDuration * 2;
         flash = null;
     }
    

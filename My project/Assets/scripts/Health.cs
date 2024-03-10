@@ -4,6 +4,9 @@ using TMPro;
 
 public class Health : MonoBehaviour
 {
+    public delegate void specialFunction(GameObject target, int damage, ref int scaledDamage);
+    public specialFunction function;
+
     public int health = 100;
     public int maxHealth;
     public int baseMaxHealth;
@@ -28,6 +31,8 @@ public class Health : MonoBehaviour
     public float randOffset = 30;
 
     public bool levelScaling = false;
+    public bool Boss = false;
+    public bool AlertOnHit = false;
 
     public bool stop;
     
@@ -63,6 +68,11 @@ public class Health : MonoBehaviour
         float pom = damage * multiplier;
         damage = (int)pom;
 
+        if(function != null)
+        {
+            function(gameObject,damage,ref damage);
+        }
+
         damage -= armor;
         if (damage < 0)
         {
@@ -86,6 +96,27 @@ public class Health : MonoBehaviour
                     healthBar.SetMaxHealth(maxHealth);
                 }
                 healthBar.SetHealth(health);
+            }
+
+            if(Boss)
+            {
+                if(BossBarManager.Instance.health.Contains(this) == false)
+                {
+                    BossBarManager.Instance.AddBar(this);
+                }else
+                {
+                    BossBarManager.Instance.UpdateBar();
+                }
+            }
+
+            if(AlertOnHit)
+            {
+                BaseAI AI = gameObject.GetComponent<BaseAI>();
+                if(AI != null && AI.alert == false)
+                {
+                    AI.alert = true;
+                    AI.patrol = false;
+                }
             }
 
             if (flashColor != null)
@@ -118,6 +149,11 @@ public class Health : MonoBehaviour
             damage = 0;
         }
 
+        if (function != null)
+        {
+            function(gameObject, damage, ref damage);
+        }
+
         if (damage > 0)
         {
             if (eventManager.OnDamageEnemy != null)
@@ -135,6 +171,29 @@ public class Health : MonoBehaviour
                     healthBar.SetMaxHealth(maxHealth);
                 }
                 healthBar.SetHealth(health);
+            }
+
+            if (Boss)
+            {
+                if (BossBarManager.Instance.health.Contains(this) == false)
+                {
+                    BossBarManager.Instance.AddBar(this);
+                }
+                else
+                {
+                    BossBarManager.Instance.UpdateBar();
+                }
+
+            }
+
+            if (AlertOnHit)
+            {
+                BaseAI AI = gameObject.GetComponent<BaseAI>();
+                if (AI != null && AI.alert == false)
+                {
+                    AI.alert = true;
+                    AI.patrol = false;
+                }
             }
 
             if (flashColor != null )
@@ -220,6 +279,11 @@ public class Health : MonoBehaviour
 
     public void Die()
     {
+        if(Boss)
+        {
+            BossBarManager.Instance.RemoveBar(this);
+        }
+
         if (eventManager.OnKill != null)
         {
             eventManager.OnKill(gameObject);

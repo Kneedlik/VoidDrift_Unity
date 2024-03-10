@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class touchDamage : MonoBehaviour
 {
+
     public int damage;
     public float coolDown;
     private float coolDownTime;
@@ -23,6 +24,18 @@ public class touchDamage : MonoBehaviour
     }
 
     private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            if (coolDownTime <= 0)
+            {
+                collision.gameObject.GetComponent<plaerHealth>().TakeDamage(damage);
+                coolDownTime = coolDown;
+            }
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {

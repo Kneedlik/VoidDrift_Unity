@@ -3,28 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
-public class simpleAI : MonoBehaviour
+public class simpleAI : BaseAI
 {
-    public Transform[] waypoints;
-
-    public float speed;
-    public float maxSpeed;
-    public float nextWayPointDistance = 3f;
-    public float rotationSpeed;
-
     //path
     protected Path path;
     protected Seeker seeker;
-
-    //patrol
-    public bool patrol = true;
-    public bool alert;
-   
-    protected int wayPointIndex;
+    protected int currentWatPoint = 0;
 
     protected Transform target;
     public Vector3 currentTarget;
-    protected int currentWatPoint = 0;
     protected float distance;
     public bool reachedEndOfPath = false;
 

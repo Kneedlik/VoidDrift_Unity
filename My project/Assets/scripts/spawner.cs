@@ -49,7 +49,7 @@ public class spawner : MonoBehaviour
                 {
                     GameObject E;
                     GameObject En = new GameObject();
-                    Vector3 pos = generatePosition();
+                    Vector3 pos = KnedlikLib.GenerateRandPosition(transform.position,offsetX,offsetY);
 
                     En =  wawes[count].decideEnemy();
                    
@@ -111,7 +111,7 @@ public class spawner : MonoBehaviour
             for (int i = 0; i < spawnN; i++)
             {
                 GameObject E;
-                Vector3 pos = generatePosition();
+                Vector3 pos = KnedlikLib.GenerateRandPosition(transform.position,offsetX,offsetY);
 
                 GameObject En = wawes[count].decideEnemy();
                 E = Instantiate(En, pos, Quaternion.identity);
@@ -129,43 +129,6 @@ public class spawner : MonoBehaviour
             
         }
         
-    }
-
-    Vector3 generatePosition()
-    {
-        Vector3 pos = new Vector3(0,0,0);
-        int rand = Random.Range(0, 2);
-
-        if (rand == 1)
-        {
-            float rand1 = Random.Range(offsetX * -1, offsetX);
-            int rand2 = Random.Range(0, 2);
-            if(rand2 == 1)
-            {
-                pos = new Vector3(transform.position.x + rand1, transform.position.y + offsetY, 0);
-            }else
-            {
-                pos = new Vector3(transform.position.x + rand1, transform.position.y + offsetY * -1, 0);
-            }
-           
-        }
-        else
-        {
-            float rand1 = Random.Range(offsetY * -1, offsetY);
-            int rand2 = Random.Range(0, 2);
-
-            if (rand2 == 1)
-            {
-                pos = new Vector3(transform.position.x + offsetX, transform.position.y + rand1, 0);
-            }else
-            {
-                pos = new Vector3(transform.position.x + offsetX * -1, transform.position.y + rand1, 0);
-            }
-
-               
-        }
-
-        return pos;
     }
 
     private void OnDrawGizmos()

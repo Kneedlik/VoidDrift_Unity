@@ -148,9 +148,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9741afc7616ffcc4599fbc0ee730efbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 1500
+  UseForce: 0
+  force: 100
   MaxSpeed: 45
-  rotSpeed: 1400
+  rotSpeed: 40
   damage: 5
   destroyTime: 6
   Enemy: 1

@@ -372,7 +372,7 @@ public static class KnedlikLib
 
     public static void SetMaxSpeed(float MaxSpeed, Rigidbody2D rb)
     {
-        if (rb != null)
+        if (rb != null && MaxSpeed > 0)
         {
             if (rb.velocity.magnitude > MaxSpeed)
             {
@@ -389,5 +389,76 @@ public static class KnedlikLib
         }else return false;
     }
 
+    public static void LookAtSmooth(Transform self,Vector3 lookDir,float speed)
+    {
+        Quaternion rotTarget3D = Quaternion.LookRotation(lookDir - new Vector3(self.position.x, self.position.y));
+        Quaternion rotTarget = Quaternion.Euler(0, 0, rotTarget3D.eulerAngles.y < 180 ? 270 - rotTarget3D.eulerAngles.x : rotTarget3D.eulerAngles.x - 270);
+
+        self.rotation = Quaternion.RotateTowards(self.rotation, rotTarget, speed * Time.deltaTime);
+    }
+
+    public static Vector3 GenerateRandPosition(Vector3 posSelf, float OffsetX, float OffsetY)
+    {
+        Vector3 pos = new Vector3(0, 0, 0);
+        int rand = Random.Range(0, 2);
+
+        if (rand == 1)
+        {
+            float rand1 = Random.Range(OffsetX * -1, OffsetX);
+            int rand2 = Random.Range(0, 2);
+            if (rand2 == 1)
+            {
+                pos = new Vector3(posSelf.x + rand1, posSelf.y + OffsetY, 0);
+            }
+            else
+            {
+                pos = new Vector3(posSelf.x + rand1, posSelf.y + OffsetY * -1, 0);
+            }
+
+        }
+        else
+        {
+            float rand1 = Random.Range(OffsetY * -1, OffsetY);
+            int rand2 = Random.Range(0, 2);
+
+            if (rand2 == 1)
+            {
+                pos = new Vector3(posSelf.x + OffsetX, posSelf.y + rand1, 0);
+            }
+            else
+            {
+                pos = new Vector3(posSelf.x + OffsetX * -1, posSelf.y + rand1, 0);
+            }
+        }
+
+        return pos;
+    }
+
+    //public static Vector3 GenerateRandomPositionInSquare(Vector3 self,float OffsetX,float OffsetY)
+    //{
+    //    Vector3 Result = new Vector3(0,0,0);
+    //    int Rand1 = Random.Range(1,4);
+    //
+    //    switch(Rand1)
+    //    {
+    //
+    //    }
+    //
+    //     return Result;
+    // }
+
+    public static bool IncreaseIndex(ref int CurrentIndex, int max)
+    {
+        CurrentIndex++;
+        if(CurrentIndex >= max)
+        {
+            CurrentIndex = 0;
+            return false;
+        }else
+        {
+            return true;
+        }
+       
+    }
 
 }

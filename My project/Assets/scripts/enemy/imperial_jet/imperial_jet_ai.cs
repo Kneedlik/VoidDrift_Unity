@@ -16,8 +16,6 @@ public class imperial_jet_ai : simpleAI
     bool targetSet;
     bool lineSet;
 
-    public float breakAwayRadius;
-
     Vector3[] offset;
     public float offsetD;
 

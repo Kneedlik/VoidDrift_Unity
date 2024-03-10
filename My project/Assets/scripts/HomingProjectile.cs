@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HomingProjectile : MonoBehaviour
 {
+    public bool UseForce = false;
     Transform target;
     public float force;
     public float MaxSpeed;
@@ -29,14 +30,11 @@ public class HomingProjectile : MonoBehaviour
         }else
         {
             KnedlikLib.FindClosestEnemy(transform,out target);
-
-
         }
         rb = GetComponent<Rigidbody2D>();
         TimeStamp = Delay;
         Destroy(gameObject, destroyTime);
     }
-
 
     // Update is called once per frame
     void Update()
@@ -45,11 +43,7 @@ public class HomingProjectile : MonoBehaviour
         {
             if (target != null)
             {
-                // Quaternion rotTarget = Quaternion.LookRotation(target.position - transform.position);
-                Quaternion rotTarget3D = Quaternion.LookRotation(target.position - new Vector3(transform.position.x, transform.position.y));
-                Quaternion rotTarget = Quaternion.Euler(0, 0, rotTarget3D.eulerAngles.y < 180 ? 270 - rotTarget3D.eulerAngles.x : rotTarget3D.eulerAngles.x - 270);
-
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, rotTarget, rotSpeed * Time.deltaTime);
+                KnedlikLib.LookAtSmooth(transform,target.position,rotSpeed);
             }
             else
             {
@@ -66,8 +60,15 @@ public class HomingProjectile : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.AddForce(transform.up * force * Time.deltaTime,ForceMode2D.Force);
-        if(MaxSpeed != 0)
+        if(UseForce)
+        {
+            rb.AddForce(transform.up * force, ForceMode2D.Force);
+        }else
+        {
+            rb.velocity = transform.up * force;
+        }
+        
+        if(MaxSpeed != 0 && UseForce)
         {
             KnedlikLib.SetMaxSpeed(MaxSpeed, rb);
         }
@@ -109,7 +110,11 @@ public class HomingProjectile : MonoBehaviour
 
                     rb.velocity = Vector2.zero;
 
-                    gameObject.GetComponent<DropLootOnDeath>().DropLoot();
+                    DropLootOnDeath DropLoot = GetComponent<DropLootOnDeath>();
+                    if(DropLoot != null)
+                    {
+                        DropLoot.DropLoot();
+                    }
                     Destroy(gameObject);
                 }
             }
@@ -126,7 +131,11 @@ public class HomingProjectile : MonoBehaviour
                         }
 
                     }
-                    Instantiate(ExploPrefab, transform.position, Quaternion.identity);
+
+                    if(ExploPrefab != null)
+                    {
+                        Instantiate(ExploPrefab, transform.position, Quaternion.identity);
+                    }
                     Destroy(gameObject);
                 }
 
@@ -163,7 +172,10 @@ public class HomingProjectile : MonoBehaviour
 
                         rb.velocity = Vector2.zero;
 
-                        Instantiate(ExploPrefab, transform.position, Quaternion.identity);
+                        if (ExploPrefab != null)
+                        {
+                            Instantiate(ExploPrefab, transform.position, Quaternion.identity);
+                        }
                         Destroy(gameObject);
                     }
                 }
@@ -180,7 +192,12 @@ public class HomingProjectile : MonoBehaviour
                             }
 
                         }
-                        Instantiate(ExploPrefab, transform.position, Quaternion.identity);
+
+                        if(ExploPrefab != null)
+                        {
+                            Instantiate(ExploPrefab, transform.position, Quaternion.identity);
+                        }
+                        
                         Destroy(gameObject);
                     }
 

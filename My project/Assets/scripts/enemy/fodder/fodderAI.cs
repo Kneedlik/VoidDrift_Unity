@@ -14,14 +14,9 @@ public class fodderAI : simpleAI
      float timeStamp;
     public float perchTime;
     bool ready;
-
-    public float alertRadius;
-    public float breakAwayRadius;
     public float endOfGridDistance;
     
-
-
-     Vector3[] offset;
+    Vector3[] offset;
     public float offsetD;
 
     protected override void Start()

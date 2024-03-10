@@ -41,7 +41,7 @@ public class BeamSummon : Summon
 
     IEnumerator shoot()
     {
-       GameObject G = Instantiate(Line);
+        GameObject G = Instantiate(Line);
         LineRenderer line = G.GetComponent<LineRenderer>();
         LineFade lineDuration = G.GetComponent<LineFade>();
         lineDuration.duration = beamDuration;

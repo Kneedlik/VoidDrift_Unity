@@ -39,8 +39,15 @@ public class foddeBullet : MonoBehaviour
                 sr.enabled = false;
                 rb.velocity = Vector2.zero;
 
-                Instantiate(impactEffect, transform.position, transform.rotation);
-                Instantiate(impactParticles, transform.position, Quaternion.Euler(-90, 0, 0));
+                if(impactEffect != null)
+                {
+                    Instantiate(impactEffect, transform.position, transform.rotation);
+                }
+
+                if (impactParticles != null)
+                {
+                    Instantiate(impactParticles, transform.position, Quaternion.Euler(-90, 0, 0));
+                }
                 Destroy(gameObject);
             }else
             {

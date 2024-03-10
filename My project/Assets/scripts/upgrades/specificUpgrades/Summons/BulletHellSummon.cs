@@ -49,7 +49,7 @@ public class BulletHellSummon : Summon
                 angle += 90f;
             }
 
-          GameObject B = Instantiate(bullet,transform.position,Quaternion.Euler(0,0,angle));
+            GameObject B = Instantiate(bullet,transform.position,Quaternion.Euler(0,0,angle));
             B.transform.localScale = new Vector3(size, size, 1);
 
             Projectile projectile = B.GetComponent<Projectile>();

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class small_eye_ai : simpleAI
 {
-    public float alertRadius;
-    public float breakAwayRadius;
     public float endOfGridDistance;
     public float dashForce;
     public float dashTime;

@@ -10,8 +10,9 @@ public class CruiserBossTurretAI : MonoBehaviour
     [SerializeField] List<Transform> Barrels;
     [SerializeField] List<Transform> FirePointCentre;
     public CheckTrigger Range;
-    float timeStamp;
+    public float timeStamp;
     int Index;
+    float ReloadTimeAdjusted;
 
     Transform Player;
     Rigidbody2D PlayerRB;
@@ -34,6 +35,7 @@ public class CruiserBossTurretAI : MonoBehaviour
         BossAI = GetComponent<CruiserBossAI>();
         Index = 0;
         Const = GetComponent<CruiserConstants>();
+        ReloadTimeAdjusted = Const.ReloadTime;
     }
 
     void Update()
@@ -43,7 +45,7 @@ public class CruiserBossTurretAI : MonoBehaviour
             timeStamp -= Time.deltaTime;
         }
 
-        if (BossAI.TurretsActive && Range.Colliding)
+        if (Const.Active && Range.Colliding)
         {
             if (KnedlikLib.InterceptionPoint(Player.position, FirePointCentre[0].position, PlayerRB.velocity, Const.BulletForce, out var direction1))
             {
@@ -100,11 +102,13 @@ public class CruiserBossTurretAI : MonoBehaviour
                         Invoke("Fire", Rand);
                         if (Index == 3)
                         {
-                            timeStamp = Const.ReloadTime;
+                            timeStamp = ReloadTimeAdjusted;
+                            ReloadTimeAdjusted = Const.ReloadTime;
                         }
                         else
                         {
-                            timeStamp = Const.Delay;
+                            timeStamp = Const.Delay + Rand;
+                            ReloadTimeAdjusted -= Rand;
                         }
                     }
                 }

@@ -8,10 +8,8 @@ public class gunShipAI : simpleAI
     public float patrolSpeed;
     public float currentSpeed;
     
-    public float alertRadius;
     public float stopRadius;
     public float backRadius;
-    public float breakAwayRadius;
     Rigidbody2D targetRB;
 
     private bool stop = false;

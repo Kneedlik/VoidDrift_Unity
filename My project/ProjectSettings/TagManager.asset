@@ -43,8 +43,8 @@ TagManager:
   - mapEnemies
   - BigEnemies
   - PostProcessing
-  - 
-  - 
+  - Player
+  - BackGroundEnemy
   - 
   - 
   - 

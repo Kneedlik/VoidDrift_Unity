@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class creepy_eye_ai : simpleAI
 {
-
-    public float alertRadius;
-    public float breakAwayRadius;
-  public  float endOfGridDistance;
+    public  float endOfGridDistance;
     public float dashForce;
     public float dashTime;
     public float dashCoolDown;
