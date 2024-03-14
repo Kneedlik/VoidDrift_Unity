@@ -241,9 +241,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UseForce: 0
-  force: 36
+  force: 33
   MaxSpeed: 0
-  rotSpeed: 65
+  rotSpeed: 60
   damage: 12
   destroyTime: 6
   Enemy: 1

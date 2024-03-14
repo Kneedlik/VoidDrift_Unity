@@ -21,16 +21,20 @@ public class SquidBossPortal : MonoBehaviour
     float timeStamp;
     
     bool finished;
+    bool ready;
 
     int MaxAmount;
     int CurrentIndex;
 
     SpriteRenderer SpriteColor;
+
     [SerializeField] float ColorDecaySpeed;
-     float alpha;
+    float alpha;
+    float alphaTemp;
 
     [SerializeField] float SizeDecaySpeed;
     float size;
+    float sizeTemp;
 
     Transform Player;
 
@@ -39,13 +43,20 @@ public class SquidBossPortal : MonoBehaviour
         Player = GameObject.FindWithTag("Player").GetComponent<Transform>();
         SpriteColor = GetComponent<SpriteRenderer>();
         alpha = SpriteColor.color.a;
+        alphaTemp = 0;
         size = transform.localScale.x;
+        sizeTemp = 0;
+
         SizeDecaySpeed *= transform.localScale.x;
         CurrentIndex = 0;
         finished = false;
         state = Random.Range(0, 2);
         Debug.Log(state);
-        if(state == 0)
+
+        transform.localScale = new Vector3(0,0,1);
+        SpriteColor.color = new Color(SpriteColor.color.r, SpriteColor.color.g, SpriteColor.color.b, 0);
+
+        if (state == 0)
         {
             MaxAmount = EnemyAmount;
         }else if(state == 1)
@@ -62,39 +73,63 @@ public class SquidBossPortal : MonoBehaviour
             timeStamp -= Time.deltaTime;
         }
 
-        if(timeStamp <= 0 && finished == false)
+        if (ready)
         {
-            if (state == 0)
+            if (timeStamp <= 0 && finished == false)
             {
-                
-                GameObject T = Instantiate(EnemyPrefab,transform.position,Quaternion.Euler(0,0,0));
-                KnedlikLib.lookAt2d(T.transform,Player,0);
-                timeStamp = CoolDown0;
-            }
-            else if (state == 1)
-            {
-                int Rand = Random.Range(0, 2);
-                float RandOffset = Random.Range(OffsetMin, OffsetMax);
-
-                if (Rand == 1)
+                if (state == 0)
                 {
-                    RandOffset *= -1;
+
+                    GameObject T = Instantiate(EnemyPrefab, transform.position, Quaternion.Euler(0, 0, 0));
+                    KnedlikLib.lookAt2d(T.transform, Player, 0);
+                    timeStamp = CoolDown0;
+                }
+                else if (state == 1)
+                {
+                    int Rand = Random.Range(0, 2);
+                    float RandOffset = Random.Range(OffsetMin, OffsetMax);
+
+                    if (Rand == 1)
+                    {
+                        RandOffset *= -1;
+                    }
+
+                    timeStamp = CoolDown1;
+                    GameObject T = Instantiate(ProjectilePrefab, transform.position, Quaternion.Euler(0, 0, 0));
+                    KnedlikLib.lookAt2d(T.transform, Player, 270 + RandOffset);
+                    //T.transform.rotation = Quaternion.Euler(0, 0, T.transform.rotation.eulerAngles.z + RandOffset);
+                    //Debug.Log(T.transform.rotation.eulerAngles.z);
                 }
 
-                timeStamp = CoolDown1;
-                GameObject T = Instantiate(ProjectilePrefab,transform.position,Quaternion.Euler(0,0,0));
-                KnedlikLib.lookAt2d(T.transform, Player, 270 + RandOffset);
-                //T.transform.rotation = Quaternion.Euler(0, 0, T.transform.rotation.eulerAngles.z + RandOffset);
-                //Debug.Log(T.transform.rotation.eulerAngles.z);
-            }  
 
-
-            if(KnedlikLib.IncreaseIndex(ref CurrentIndex,MaxAmount) == false)
-            {
-                finished = true;
-                timeStamp = DestroyDelay;
-                Destroy(gameObject,DestroyTime);
+                if (KnedlikLib.IncreaseIndex(ref CurrentIndex, MaxAmount) == false)
+                {
+                    finished = true;
+                    timeStamp = DestroyDelay;
+                    Destroy(gameObject, DestroyTime);
+                }
             }
+        }else
+        {
+            if (alphaTemp < alpha)
+            {
+                alphaTemp += ColorDecaySpeed * Time.deltaTime;
+            }
+            else alphaTemp = 255;
+            SpriteColor.color = new Color(SpriteColor.color.r, SpriteColor.color.g, SpriteColor.color.b, alphaTemp);
+
+            if (sizeTemp < size)
+            {
+                sizeTemp += SizeDecaySpeed * Time.deltaTime;
+            }
+            else size = 1;
+            transform.localScale = new Vector3(sizeTemp, sizeTemp, sizeTemp);
+
+            if (sizeTemp >= size && alphaTemp >= alpha)
+            {
+                ready = true;
+            }
+
         }
 
         if (finished && timeStamp <= 0)

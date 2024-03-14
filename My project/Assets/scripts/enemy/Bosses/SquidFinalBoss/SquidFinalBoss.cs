@@ -9,9 +9,10 @@ public class SquidFinalBoss : MonoBehaviour
     float timeStamp;
     bool finished;
     int OnCoolDown;
-    bool Chaneling;
     [SerializeField] float RandMin;
     [SerializeField] float RandMax;
+    [SerializeField] ParticleSystem Chaneling;
+    [SerializeField] float AttactFatigue;
 
     //Movement
     [SerializeField] float SpeedFast;
@@ -73,7 +74,7 @@ public class SquidFinalBoss : MonoBehaviour
         MainCamera = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
         rbSelf = gameObject.GetComponent<Rigidbody2D>();
 
-        //Attack2();
+        Attack2();
     }
 
     // Update is called once per frame
@@ -95,7 +96,12 @@ public class SquidFinalBoss : MonoBehaviour
         {
             if (TargetingA3)
             {
-              
+                if(Chaneling.isPlaying == false)
+                {
+                    Chaneling.Play();
+                }
+
+
                 if(timeStamp > 0)
                 {
 
@@ -132,7 +138,7 @@ public class SquidFinalBoss : MonoBehaviour
                     LightningBolt bolt = BoltPrefab.GetComponent<LightningBolt>();
 
                     bolt.StartPosition = WarningIndicator.transform.position;
-                    bolt.EndPosition = WarningIndicator.transform.position - new Vector3(0, 1000, 0); 
+                    bolt.EndPosition = WarningIndicator.transform.position - new Vector3(0, 100, 0); 
 
                     RaycastHit2D[] hitInfo = Physics2D.RaycastAll(WarningIndicator.transform.position, new Vector3(0,-1,0));
                     for (int i = 0; i < hitInfo.Length; i++)
@@ -165,6 +171,7 @@ public class SquidFinalBoss : MonoBehaviour
                         float rand = Random.Range(RandMin, RandMax);
                         timeStamp = CoolDownA3 + rand;
                         AttackActiveA3 = false;
+                        Chaneling.Stop();
                     }else
                     {
                         timeStamp = CoolDownShortA3;
@@ -264,6 +271,7 @@ public class SquidFinalBoss : MonoBehaviour
     IEnumerator Attack1Corutine()
     {
         finished = false;
+        Chaneling.Play();
 
         for(int i = 0; i < numberOfBurstsA1; i++) 
         {
@@ -291,6 +299,8 @@ public class SquidFinalBoss : MonoBehaviour
 
             yield return new WaitForSeconds(BurstDelayA1);
         }
+        Chaneling.Stop();
+        yield return new WaitForSeconds(AttactFatigue);
 
         float rand = Random.Range(RandMin, RandMax);
         timeStamp = CollDownA1 + rand;
@@ -306,6 +316,7 @@ public class SquidFinalBoss : MonoBehaviour
     {
         finished = false;
         yield return new WaitForSeconds(1);
+        Chaneling.Play();
 
         List<Vector3> Points = new List<Vector3>();
         for (int i = 0; i < PortalAmountA2; i++)
@@ -322,6 +333,9 @@ public class SquidFinalBoss : MonoBehaviour
         }
 
         yield return new WaitForSeconds(2);
+        Chaneling.Stop();
+        yield return new WaitForSeconds(AttactFatigue);
+
         finished = true;
         float rand = Random.Range(RandMin, RandMax);
         timeStamp = CoolDownA2 + rand;

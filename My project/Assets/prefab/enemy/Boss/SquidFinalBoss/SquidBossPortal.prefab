@@ -108,8 +108,8 @@ MonoBehaviour:
   DestroyDelay: 0.6
   OffsetMax: 30
   OffsetMin: 25
-  ColorDecaySpeed: 0.6
-  SizeDecaySpeed: 1.2
+  ColorDecaySpeed: 1.2
+  SizeDecaySpeed: 2.4
 --- !u!95 &2720283369634193247
 Animator:
   serializedVersion: 4
