@@ -6,8 +6,8 @@ using static UnityEditor.PlayerSettings;
 public class SquidFinalBoss : MonoBehaviour
 {
     Transform Player;
-    float timeStamp;
-    bool finished;
+    public float timeStamp;
+    public bool finished;
     int OnCoolDown;
     [SerializeField] float RandMin;
     [SerializeField] float RandMax;
@@ -41,6 +41,7 @@ public class SquidFinalBoss : MonoBehaviour
     [SerializeField] float BoxMinWidthA2;
     [SerializeField] float BoxMaxWidthA2;
     [SerializeField] float CoolDownA2;
+    [SerializeField] GameObject LightNingBoltPrefabA2;
 
     //Attack3
     [SerializeField] int projectileCountA3;
@@ -60,9 +61,7 @@ public class SquidFinalBoss : MonoBehaviour
     int IndexA3;
     Camera MainCamera;
     GameObject WarningIndicator;
-    Vector3 pos;
- 
-
+    Health health;
 
     // Start is called before the first frame update
     void Start()
@@ -73,23 +72,31 @@ public class SquidFinalBoss : MonoBehaviour
         Player = GameObject.FindWithTag("Player").GetComponent<Transform>();
         MainCamera = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
         rbSelf = gameObject.GetComponent<Rigidbody2D>();
-
-        Attack2();
+        health = gameObject.GetComponent<Health>();
+        timeStamp = 4f;
+        //Attack3();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(health.health <= 0)
+        {
+           rbSelf.velocity = new Vector3(0, 0, 0);
+           Chaneling.Pause();
+           enabled = false;
+        }
+
 
         if (timeStamp > 0)
         {
             timeStamp -= Time.deltaTime;
         }
 
-        if(timeStamp <= 0 && finished == true)
+        if(timeStamp <= 0 && finished)
         {
             //finished = false;
-           // DecideAttacl();
+            DecideAttacl();
         }
 
         if(AttackActiveA3)
@@ -109,7 +116,6 @@ public class SquidFinalBoss : MonoBehaviour
                 {
                     Vector3 velocity = Player.GetComponent<Rigidbody2D>().velocity;
                     timeStamp = FireDelayA3;
-                    pos = Player.position + velocity * FireDelayA3;
 
                     Vector3 TempPos = MainCamera.ScreenToWorldPoint(new Vector3(0, Screen.height, 0));
                     Vector3 TempPos2 = Player.position + velocity * FireDelayA3;
@@ -118,7 +124,6 @@ public class SquidFinalBoss : MonoBehaviour
 
                     LockedA3 = true;
                     TargetingA3 = false;
-
                 }
 
             }
@@ -127,18 +132,19 @@ public class SquidFinalBoss : MonoBehaviour
             if (LockedA3)
             {
                 //Vector3 TempPos = MainCamera.ScreenToWorldPoint(new Vector3(0, Screen.height, 0));
-
                 if (timeStamp > 0)
                 {
-                    //WarningIndicator.transform.position = new Vector3(pos.x, TempPos.y, 0);
+                    Vector3 TempPos = MainCamera.ScreenToWorldPoint(new Vector3(0, Screen.height, 0));
+                    WarningIndicator.transform.position = new Vector3(WarningIndicator.transform.position.x, TempPos.y, 0);
                 }
                 else
                 {
                     GameObject BoltPrefab = Instantiate(LightNingBoltPrefabA3, transform.position, Quaternion.Euler(0, 0, 0));
                     LightningBolt bolt = BoltPrefab.GetComponent<LightningBolt>();
+                    Destroy(BoltPrefab, 0.4f);
 
-                    bolt.StartPosition = WarningIndicator.transform.position;
-                    bolt.EndPosition = WarningIndicator.transform.position - new Vector3(0, 100, 0); 
+                    bolt.StartObject.transform.position = WarningIndicator.transform.position;
+                    bolt.EndObject.transform.position = WarningIndicator.transform.position - new Vector3(0, 100, 0); 
 
                     RaycastHit2D[] hitInfo = Physics2D.RaycastAll(WarningIndicator.transform.position, new Vector3(0,-1,0));
                     for (int i = 0; i < hitInfo.Length; i++)
@@ -171,8 +177,10 @@ public class SquidFinalBoss : MonoBehaviour
                         float rand = Random.Range(RandMin, RandMax);
                         timeStamp = CoolDownA3 + rand;
                         AttackActiveA3 = false;
-                        Chaneling.Stop();
-                    }else
+                        Chaneling.Pause();
+                        Chaneling.Clear();
+                    }
+                    else
                     {
                         timeStamp = CoolDownShortA3;
                         TargetingA3 = true;
@@ -184,10 +192,9 @@ public class SquidFinalBoss : MonoBehaviour
         }
 
     }
-
     private void FixedUpdate()
     {
-        if(finished && timeStamp <= 0)
+        if(finished)
         {
             float Distance = Vector3.Distance(transform.position, Player.position);
             Vector3 dir = Player.position - transform.position;
@@ -209,11 +216,12 @@ public class SquidFinalBoss : MonoBehaviour
     public void DecideAttacl()
     {
         int Rand;
+        rbSelf.velocity = Vector3.zero;
 
         switch(OnCoolDown)
         {
             case 0:
-                Rand = Random.Range(1,3);
+                Rand = Random.Range(1,4);
                 if(Rand == 1)
                 {
                     Attack1();
@@ -229,7 +237,7 @@ public class SquidFinalBoss : MonoBehaviour
                 }
                 break;
             case 1:
-                Rand = Random.Range(1,2);
+                Rand = Random.Range(1,3);
                 if(Rand == 1)
                 {
                     Attack2();
@@ -241,7 +249,7 @@ public class SquidFinalBoss : MonoBehaviour
                 }
                 break;
             case 2:
-                Rand = Random.Range(1, 2);
+                Rand = Random.Range(1, 3);
                 if(Rand == 1)
                 {
                     Attack1();
@@ -253,7 +261,7 @@ public class SquidFinalBoss : MonoBehaviour
                 }
                 break;
             case 3:
-                Rand = Random.Range(1, 2);
+                Rand = Random.Range(1, 3);
                 if(Rand == 1)
                 {
                     Attack1();
@@ -299,7 +307,8 @@ public class SquidFinalBoss : MonoBehaviour
 
             yield return new WaitForSeconds(BurstDelayA1);
         }
-        Chaneling.Stop();
+        Chaneling.Pause();
+        Chaneling.Clear();
         yield return new WaitForSeconds(AttactFatigue);
 
         float rand = Random.Range(RandMin, RandMax);
@@ -315,7 +324,7 @@ public class SquidFinalBoss : MonoBehaviour
     IEnumerator Attack2Corutine()
     {
         finished = false;
-        yield return new WaitForSeconds(1);
+        //yield return new WaitForSeconds(1);
         Chaneling.Play();
 
         List<Vector3> Points = new List<Vector3>();
@@ -327,13 +336,20 @@ public class SquidFinalBoss : MonoBehaviour
             Points.Add(new Vector3(pos.x, pos.y, pos.z));
         }
 
+        GameObject Temp = null;
         for (int i = 0; i < Points.Count; i++)
         {
+            Temp = Instantiate(LightNingBoltPrefabA2, Points[i], Quaternion.Euler(0, 0, 0)); 
+            LightningBolt Bolt = Temp.GetComponent<LightningBolt>();
+            Bolt.StartObject.transform.position = FirePointA1.position;
+            Bolt.EndObject.transform.position = Points[i];
+            Destroy(Temp,2);
             Instantiate(PortalPrefabA2, Points[i], Quaternion.Euler(0, 0, 0));
         }
 
         yield return new WaitForSeconds(2);
-        Chaneling.Stop();
+        Chaneling.Pause();
+        Chaneling.Clear();
         yield return new WaitForSeconds(AttactFatigue);
 
         finished = true;

@@ -1,6 +1,7 @@
 
 using UnityEngine;
 using TMPro;
+using Unity.VisualScripting;
 
 public class timer : MonoBehaviour
 {
@@ -11,13 +12,13 @@ public class timer : MonoBehaviour
    [SerializeField] GameObject VictoryScreen;
     bool gameOver = false;
 
-    [SerializeField] float victoryDelay;
     Health health;
 
     [SerializeField] GameObject XPbar;
     [SerializeField] GameObject minimap;
     [SerializeField] GameObject HealthBar;
     [SerializeField] GameObject Timer;
+    [SerializeField] GameObject FinalBoss;
 
     void Start()
     {
@@ -60,14 +61,26 @@ public class timer : MonoBehaviour
                     }
                 }
 
-                Invoke("victory", victoryDelay);
+                //Invoke("victory", Constants.VictoryDelay);
+                Invoke("SummonFinalBoss", Constants.FinalBossSpawnDelay);
                 gameOver = true;
             }
         }
         
     }
 
-    void victory()
+    public void SummonFinalBoss()
+    {
+        GameObject Player = GameObject.FindWithTag("Player");
+        Instantiate(FinalBoss, Player.transform.transform.position,Quaternion.Euler(0,0,0));
+    }
+
+    public void VictoryDelayed(float Delay)
+    {
+        Invoke("victory", Delay);
+    }
+
+    public void victory()
     {
         VictoryScreen.SetActive(true);
         Time.timeScale = 0;

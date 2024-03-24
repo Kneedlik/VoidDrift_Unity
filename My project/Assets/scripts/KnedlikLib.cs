@@ -5,7 +5,6 @@ using UnityEngine.Rendering.Universal;
 
 public static class KnedlikLib 
 {
-
     public static void scaleParticleSize(GameObject target, GameObject particle, float multiplier)
     {
         float size;
@@ -459,6 +458,46 @@ public static class KnedlikLib
             return true;
         }
        
+    }
+
+    public static bool AlphaFade(SpriteRenderer SpriteColor,float DecaySpeed,ref float CurrentAlpha)
+    {
+        //Debug.Log(CurrentAlpha);
+
+        if(CurrentAlpha > 0)
+        {
+            CurrentAlpha -= DecaySpeed * Time.deltaTime;
+            SpriteColor.color = new Color(SpriteColor.color.r, SpriteColor.color.g, SpriteColor.color.b, CurrentAlpha);
+            Debug.Log(SpriteColor.color.a);
+        }
+
+        if(CurrentAlpha <= 0)
+        {
+            SpriteColor.color = new Color(SpriteColor.color.r, SpriteColor.color.g, SpriteColor.color.b, 0f);
+            return false;
+        }else return true;
+
+    }
+
+    public static StateItem CreateUpgradeList(List<upgradeList> UpgradesTotal)
+    {
+        StateItem data = new StateItem();
+
+        for(int i = 0;i < UpgradesTotal.Count;i++)
+        {
+            for (int j = 0; j < UpgradesTotal[i].list.Count; j++)
+            {
+                if (UpgradesTotal[i].list[j].level > 0)
+                {
+                    UpgradeItemClass item = new UpgradeItemClass();
+                    item.Id = UpgradesTotal[i].list[j].Id; ;
+                    item.Level = UpgradesTotal[i].list[j].level;
+                    data.UpgradeItems.Add(item);
+                }
+            }
+        }
+
+        return data;
     }
 
 }

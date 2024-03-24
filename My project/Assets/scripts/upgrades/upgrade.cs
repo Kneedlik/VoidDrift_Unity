@@ -18,6 +18,7 @@ public enum type
 //[CreateAssetMenu(fileName = "new upgrade", menuName = "upgrades")]
 public abstract class upgrade: MonoBehaviour
 {
+    public int Id;
     public type Type;
     public Color32 color;
     public Sprite icon;

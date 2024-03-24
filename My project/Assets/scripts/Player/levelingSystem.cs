@@ -43,6 +43,8 @@ public class levelingSystem : MonoBehaviour
     [SerializeField] List<Image> BoxImages = new List<Image>();
     [SerializeField] List<Image> BorderImages = new List<Image>();
 
+    [SerializeField] GameObject SaveScreen;
+
     private void Awake()
     {
         red = 0;
@@ -61,7 +63,7 @@ public class levelingSystem : MonoBehaviour
 
     private void Update()
     {
-        if(cheating)
+        if(Constants.Cheating)
         {
             if(Input.GetKeyDown(KeyCode.K))
             {
@@ -78,6 +80,19 @@ public class levelingSystem : MonoBehaviour
             {
                 NonLevelUpgradeSorting Sorting = GameObject.FindWithTag("CorruptedUpgrades").GetComponent<NonLevelUpgradeSorting>();
                 SetUpLevelMenu(true, Sorting);
+            }
+
+            if(Input.GetKeyDown(KeyCode.M))
+            {
+                if(SaveScreen.activeInHierarchy)
+                {
+                    SaveScreen.SetActive(false);
+                    Time.timeScale = 1;
+                }else
+                {
+                    SaveScreen.SetActive(true);
+                    Time.timeScale = 0;
+                }
             }
         }  
     }

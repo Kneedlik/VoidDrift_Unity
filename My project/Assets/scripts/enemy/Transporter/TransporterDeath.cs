@@ -14,13 +14,14 @@ public class TransporterDeath : DeathFunc
         justPatrol Patrol = GetComponent<justPatrol>();
         Patrol.speed = 0;
 
+        Health health = GetComponent<Health>();
+        health.DeathDelay = ExploDelay * ExploPos.Count + ExploDelay;
+
         StartCoroutine(functionCorutine()); 
     }
 
     IEnumerator functionCorutine()
     {
-        Health health = GetComponent<Health>();
-
         yield return new WaitForSeconds(ExploDelay);
 
         for (int i = 0; i < ExploPos.Count; i++)
@@ -29,10 +30,6 @@ public class TransporterDeath : DeathFunc
             Instantiate(ExploParticle, ExploPos[i].position,Quaternion.Euler(-90,0,0));
 
             yield return new WaitForSeconds(ExploDelay);
-        }
-        
-        health.PreDestroy();
-        health.Final();
-
+        }  
     }
 }

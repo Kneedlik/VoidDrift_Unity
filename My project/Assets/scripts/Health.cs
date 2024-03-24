@@ -1,6 +1,7 @@
 
 using UnityEngine;
 using TMPro;
+using System.Collections.Generic;
 
 public class Health : MonoBehaviour
 {
@@ -20,13 +21,15 @@ public class Health : MonoBehaviour
 
     public GameObject ParticleExplosion;
     public GameObject DeathAnim;
-    public DeathFunc DeathFunc;
+    public float DeathDelay = 0;
+    public List<DeathFunc> DeathFunc = new List<DeathFunc>();
+    public List<int> DeathFunc123 = new List<int>();
     FlashColor flashColor;
 
     public bool respawning = false;
      Vector3 location;
     [SerializeField] float respawnTime;
-   [SerializeField] GameObject prefab;
+    [SerializeField] GameObject prefab;
     
     public float randOffset = 30;
 
@@ -35,9 +38,13 @@ public class Health : MonoBehaviour
     public bool AlertOnHit = false;
 
     public bool stop;
-    
+    bool Dead;
     private void Start()
     {
+       // DeathFunc123.Add(2);
+
+
+        Dead = false;
         if(respawning)
         {
             location = transform.position;
@@ -128,7 +135,7 @@ public class Health : MonoBehaviour
             {
                 damagePopUp(damage, Color.white);
             }
-            if (health <= 0)
+            if (health <= 0 && Dead == false)
             {
                 Die();
             }
@@ -205,7 +212,7 @@ public class Health : MonoBehaviour
             {
                 damagePopUp(damage, color);
             }
-            if (health <= 0)
+            if (health <= 0 && Dead == false)
             {
                 Die();
             }
@@ -289,16 +296,17 @@ public class Health : MonoBehaviour
             eventManager.OnKill(gameObject);
         }
 
-        if (DeathFunc != null)
+        if (DeathFunc.Count > 0)
         {
-            DeathFunc.function();
-        }
-        else
-        {
-            PreDestroy();
-            Final();
+            Debug.Log(DeathFunc.Count);
+            for (int i = 0; i < DeathFunc.Count; i++)
+            {
+                DeathFunc[i].function();
+            }
         }
         
+        Invoke("PreDestroy",DeathDelay);
+        Invoke("Final",DeathDelay);   
     }
 
  /*   public void onDamageEffects(int damage)

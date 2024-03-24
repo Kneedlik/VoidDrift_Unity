@@ -51,7 +51,6 @@ public class SquidBossPortal : MonoBehaviour
         CurrentIndex = 0;
         finished = false;
         state = Random.Range(0, 2);
-        Debug.Log(state);
 
         transform.localScale = new Vector3(0,0,1);
         SpriteColor.color = new Color(SpriteColor.color.r, SpriteColor.color.g, SpriteColor.color.b, 0);
