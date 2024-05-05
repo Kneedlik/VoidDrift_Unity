@@ -19,7 +19,8 @@ public class CritChance : upgrade
     {
         if(level == 0)
         {
-            eventManager.OnImpact += CritSystem.instance.Crit;  
+            eventManager.OnCrit += CritSystem.instance.Crit;
+            CritSystem.instance.critChance += amount;
         }
         else
         {

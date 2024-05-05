@@ -36,8 +36,6 @@ public class CameraFollow : MonoBehaviour
        
     }
 
- 
-
     private void FixedUpdate()
     {
         mousepos = cam.ScreenToWorldPoint(Input.mousePosition);
@@ -46,8 +44,6 @@ public class CameraFollow : MonoBehaviour
 
         mousepos.y = mousepos.y - target.position.y;
         mousepos.y = mousepos.y - offset.y;
-
-
 
         if (mousepos.x > Xmin)
         {
@@ -81,7 +77,7 @@ public class CameraFollow : MonoBehaviour
 
         if (distance.y > MaxDistance)
         {
-            distance.y = 5;
+            distance.y = MaxDistance;
         }
 
         if (distance.y < MaxDistance * -1)

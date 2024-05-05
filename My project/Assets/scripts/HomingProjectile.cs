@@ -68,7 +68,7 @@ public class HomingProjectile : MonoBehaviour
             rb.velocity = transform.up * force;
         }
         
-        if(MaxSpeed != 0 && UseForce)
+        if(MaxSpeed != 0)
         {
             KnedlikLib.SetMaxSpeed(MaxSpeed, rb);
         }

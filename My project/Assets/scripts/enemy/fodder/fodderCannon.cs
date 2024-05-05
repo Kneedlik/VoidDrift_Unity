@@ -92,6 +92,7 @@ public class fodderCannon : MonoBehaviour
     {
         for (int i = 0; i < bulletsInABurst; i++)
         {
+            AudioManager.instance.PlayId(7);
             GameObject bullet;
             bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             foddeBullet ee = bullet.GetComponent<foddeBullet>();
@@ -108,15 +109,12 @@ public class fodderCannon : MonoBehaviour
             }
             else
             {
-                rb.velocity = (target.transform.position - firePoint.position).normalized * bulletForce;
-                
+                rb.velocity = (target.transform.position - firePoint.position).normalized * bulletForce;  
             }
-            
             
             //Vector2 dir = (target.position - firePoint.position).normalized;
             //rb.AddForce(dir * bulletForce, ForceMode2D.Impulse);
 
-            
             yield return new WaitForSeconds(rapidFireDelay);
         }
     }

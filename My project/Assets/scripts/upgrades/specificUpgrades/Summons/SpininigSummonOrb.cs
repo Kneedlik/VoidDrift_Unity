@@ -5,6 +5,8 @@ using UnityEngine;
 public class SpininigSummonOrb : MonoBehaviour
 {
     public int damage;
+    public bool stun = true;
+    public float KnockBack;
     void Start()
     {
         
@@ -51,17 +53,32 @@ public class SpininigSummonOrb : MonoBehaviour
                // float time = coolDown;
                // timestamps.Add(time);
 
-            if (eventManager.OnImpact != null)
+            if(stun)
             {
-                eventManager.OnImpact(collision.gameObject, damage, ref Damage);
+                Rigidbody2D rigidbody = collision.GetComponent<Rigidbody2D>();
+                if (rigidbody != null)
+                {
+                    StunOnHit stun = collision.GetComponent<StunOnHit>();
+                    if (stun != null)
+                    {
+                        stun.Stun(true, rigidbody);
+                    }
+                    rigidbody.AddForce(rigidbody.velocity.normalized * KnockBack, ForceMode2D.Impulse);
+                }
+            }
+
+            if (eventManager.SummonOnImpact != null)
+            {
+                eventManager.SummonOnImpact(collision.gameObject, damage, ref Damage);
             }
 
             if (eventManager.PostImpact != null)
             {
                 eventManager.PostImpact(collision.gameObject, Damage, ref Damage);
             }
-               
+
             health.TakeDamage(Damage);
+            
             //}
         }
     }

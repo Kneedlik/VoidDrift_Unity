@@ -253,7 +253,7 @@ public class PlayerMovement : MonoBehaviour
 */
     void moveCharacter(Vector2 lookdir, float speed)
     {
-        rb.AddForce(lookdir * speed * Time.deltaTime, ForceMode2D.Force);
+        rb.AddForce(lookdir * speed, ForceMode2D.Force);
     }
 
     public float GiveSpeed()

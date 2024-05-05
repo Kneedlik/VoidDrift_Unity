@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 3431754926323710527, guid: 043c21fbc80a86444975f11fcd661c3c, type: 3}
-  bulletForce: 45
+  bulletForce: 33
   fireRate: 0.3
   timeBetweenBursts: 1.75
   damage: 8
@@ -118,11 +118,11 @@ PrefabInstance:
       objectReference: {fileID: 8377840066420268506}
     - target: {fileID: 3902809289429083275, guid: 22b0bc3c6d2c7f04abdf19f5f362e5e7, type: 3}
       propertyPath: maxSpeed
-      value: 13
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3902809289429083275, guid: 22b0bc3c6d2c7f04abdf19f5f362e5e7, type: 3}
       propertyPath: alertRadius
-      value: 60
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 3902809289429083275, guid: 22b0bc3c6d2c7f04abdf19f5f362e5e7, type: 3}
       propertyPath: patrolSpeed
@@ -134,7 +134,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3902809289429083275, guid: 22b0bc3c6d2c7f04abdf19f5f362e5e7, type: 3}
       propertyPath: breakAwayRadius
-      value: 80
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 4534321796645629966, guid: 22b0bc3c6d2c7f04abdf19f5f362e5e7, type: 3}
       propertyPath: m_AnchorMax.x
@@ -195,6 +195,10 @@ PrefabInstance:
     - target: {fileID: 7873543696634477138, guid: 22b0bc3c6d2c7f04abdf19f5f362e5e7, type: 3}
       propertyPath: m_Name
       value: GunShip 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7873543696634477138, guid: 22b0bc3c6d2c7f04abdf19f5f362e5e7, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7873543696634477138, guid: 22b0bc3c6d2c7f04abdf19f5f362e5e7, type: 3}
       propertyPath: m_TagString
@@ -322,7 +326,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b012fce8103ed4a4397b4dcf4d66b057, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UsePrefab: 1
   xpValue: 80
+  percentValue: 0.1
+  XpPrefab: {fileID: 2320706730734592644, guid: cabbcd8f3c321f941b937e91cb5f0d6a, type: 3}
+  Point: {fileID: 0}
 --- !u!114 &3398589596958925440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,6 +343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 416d879c6a950ad449830a952d890d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UseConstants: 1
   duration: 0.1
   flashMaterial: {fileID: 2100000, guid: e82836b480647394caf3762c08f71df0, type: 2}
 --- !u!4 &5358453440804838819 stripped

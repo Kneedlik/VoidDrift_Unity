@@ -569,7 +569,7 @@ GameObject:
   - component: {fileID: 8673805780463189674}
   - component: {fileID: 5922266831186717315}
   - component: {fileID: 8809169890675780196}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: transporter_v3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -764,13 +764,17 @@ MonoBehaviour:
   multiplier: 0
   ParticleExplosion: {fileID: 0}
   DeathAnim: {fileID: 0}
-  DeathFunc: {fileID: 5922266831186717315}
+  DeathDelay: 0
+  DeathFunc:
+  - {fileID: 0}
+  DeathFunc123: 
   respawning: 0
   respawnTime: 0
   prefab: {fileID: 0}
   randOffset: 30
   levelScaling: 1
-  stop: 0
+  Boss: 0
+  AlertOnHit: 0
 --- !u!114 &4519268245830362253
 MonoBehaviour:
   m_ObjectHideFlags: 0

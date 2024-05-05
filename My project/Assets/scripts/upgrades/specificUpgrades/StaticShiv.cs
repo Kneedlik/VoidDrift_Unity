@@ -14,14 +14,13 @@ public class StaticShiv : upgrade
         setColor();
     }
 
-    //public override bool requirmentsMet()
-   // {
-    //    if(MoveSpeedIncreaseY.instance.level >= 1)
-    //    {
-    //        return true;
-   //     }else return false;
-   // }
-
+    public override bool requirmentsMet()
+    {
+        if(MoveSpeedIncreaseY.instance.level >= 1 && levelingSystem.instance.level >= 5)
+        {
+            return true;
+        }else return false;
+    }
 
     public override void function()
     {

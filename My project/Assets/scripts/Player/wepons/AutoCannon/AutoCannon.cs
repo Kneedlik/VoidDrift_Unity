@@ -44,6 +44,11 @@ public class AutoCannon : weapeon
 
     private void Start()
     {
+        startingDamage = baseDamage;
+        StartingForce = BaseForce;
+        StartingBulletCooldown = baseBulletCoolDown;
+        StartingSize = baseSize;
+
         PlayerStats.OnLevel += SetAS;
         PlayerStats.OnLevel += SetForce;
 
@@ -59,8 +64,6 @@ public class AutoCannon : weapeon
 
     void Update()
     {
-        
-
         if (timeStamp > 0)
         {
             timeStamp -= Time.deltaTime;
@@ -92,6 +95,7 @@ public class AutoCannon : weapeon
         {
             int pom = extraDamage;
 
+            AudioManager.instance.PlayName("Autocannon4");
             if(eventManager.OnFire != null)
             {
                 eventManager.OnFire(gameObject);

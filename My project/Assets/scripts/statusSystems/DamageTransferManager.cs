@@ -21,29 +21,36 @@ public class DamageTransferManager : MonoBehaviour
             {
                 damage -= health.health;
                 
-
-                if(setClosestTarget(out newTarget) == false)
+                if(KnedlikLib.FindClosestEnemy(gameObject.transform,out newTarget) == false)
                 {
                     newTarget = null;
                 }else
                 {
                     health = newTarget.GetComponent<Health>();
-                    int pom = health.health;
-                    health.TakeDamage(damage);
-                    damage -= pom;
-                }
-
-                while(damage > 0 || target != null)
-                {
-                    if(setClosestTarget(out newTarget) == false)
+                    if (health != null)
                     {
-                        newTarget = null;
-                    }else
-                    {
-                        health = newTarget.GetComponent<Health>();
                         int pom = health.health;
                         health.TakeDamage(damage);
                         damage -= pom;
+                    }
+                }
+
+                while(damage > 0)
+                {
+                    if(KnedlikLib.FindClosestEnemy(gameObject.transform,out newTarget))
+                    {
+                        newTarget = null;
+                        break;
+                    }else
+                    {
+                        health = newTarget.GetComponent<Health>();
+                        if (health != null)
+                        {
+                            int pom = health.health;
+                            health.TakeDamage(damage);
+                            damage -= pom;
+                        }
+                        else break;
                     }
                 }
             }

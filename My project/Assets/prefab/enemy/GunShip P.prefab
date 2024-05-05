@@ -1101,7 +1101,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7873543696634477136}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GunShip P
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -1375,12 +1375,16 @@ MonoBehaviour:
   multiplier: 0
   ParticleExplosion: {fileID: 0}
   DeathAnim: {fileID: 0}
+  DeathDelay: 0
+  DeathFunc: []
+  DeathFunc123: 
   respawning: 0
   respawnTime: 0
   prefab: {fileID: 0}
   randOffset: 30
   levelScaling: 0
-  stop: 0
+  Boss: 0
+  AlertOnHit: 0
 --- !u!114 &3902809289429083275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1396,16 +1400,18 @@ MonoBehaviour:
   waypoints: []
   speed: 3000
   maxSpeed: 0
-  nextWayPointDistance: 3
   rotationSpeed: 5
+  nextWayPointDistance: 3
+  patrol: 1
+  alert: 0
+  alertRadius: 40
+  breakAwayRadius: 70
   currentTarget: {x: 0, y: 0, z: 0}
   reachedEndOfPath: 0
   patrolSpeed: 2000
   currentSpeed: 0
-  alertRadius: 40
   stopRadius: 30
   backRadius: 10
-  breakAwayRadius: 70
   back: 0
   cannon: {fileID: 0}
 --- !u!1 &7873543696989026226

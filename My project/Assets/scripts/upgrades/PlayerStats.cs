@@ -27,26 +27,31 @@ public class PlayerStats : MonoBehaviour
 
     public int revives = 0;
     [SerializeField] Slider slider;
-
     public float TickRate = 1;
-
+    public float HealingOrbDropChance;
+    public GameObject HealingOrbPrefab;
     public List<type> ownedColours = new List<type>();
 
     weapeon gun;
     PlayerMovement speedScript;
-    
+    Transform player;
+    plaerHealth health;
 
     private void Awake()
     {
+        speedScript = GetComponent<PlayerMovement>();
+        player = GetComponent<Transform>();
+        health = GetComponent<plaerHealth>();
         OnLevel = null;
         addRevive(0);
         sharedInstance = this;
         gun = GameObject.FindWithTag("Weapeon").GetComponent<weapeon>();
+
+        //ResetUpgrades();
     }
 
     public void increaseMaxHP(int HP)
     {
-        plaerHealth health = GameObject.FindGameObjectWithTag("Player").GetComponent<plaerHealth>();
         health.setMaxHP(HP + health.maxHealth);
         health.increaseHP(health.health + HP);
     }
@@ -54,7 +59,6 @@ public class PlayerStats : MonoBehaviour
     public void increaseDMG(int dmg)
     {
         damageMultiplier += dmg;
-        gun.updateDamage(damageMultiplier); 
     }
 
     public int scaleDamage(int damage)
@@ -67,23 +71,16 @@ public class PlayerStats : MonoBehaviour
     public void increaseAREA(int area)
     {
         areaMultiplier += area;
-        //Debug.Log("AREA");
-        gun.updateSize(areaMultiplier);
     }
 
     public void IncreaseSpeed(int speed)
     {
-        SpeedMultiplier += speed;
-        //Debug.Log("SPEED");
-        speedScript = GetComponent<PlayerMovement>();
-        speedScript.updateMS(SpeedMultiplier);
+        SpeedMultiplier += speed;   
     }
 
     public void IncreaseAS(int AS)
     {
         ASmultiplier += AS;
-        //Debug.Log("AS");
-        gun.updateAS(ASmultiplier);
     }
 
     public void IncreaseEXP(int exp)
@@ -94,10 +91,9 @@ public class PlayerStats : MonoBehaviour
 
     public void increaseProjectiles(int amount)
     {
-        Transform player = GameObject.FindWithTag("Player").GetComponent<Transform>(); 
         gun.projectileCount += amount;
         bonusProjectiles += amount;
-        
+
         gun.ResetFirePoints();
         player.rotation = Quaternion.Euler(0, 0, 0);
         gun.setFirepoints();
@@ -105,10 +101,8 @@ public class PlayerStats : MonoBehaviour
 
     public void increaseSideProjectiles(int amount)
     {
-        Transform player = GameObject.FindWithTag("Player").GetComponent<Transform>();
         sideProjectiles += amount;
         gun.sideProjectiles = sideProjectiles;
-
         player.rotation = Quaternion.Euler(0, 0, 0);
         gun.setSideFirepoints();
     }
@@ -131,8 +125,11 @@ public class PlayerStats : MonoBehaviour
    
     public void UpdateStats()
     {
-       
         increaseDMG(0);
+        speedScript.updateMS(SpeedMultiplier);
+        gun.updateAS(ASmultiplier);
+        gun.updateSize(areaMultiplier);
+        gun.updateDamage(damageMultiplier);
 
         Summon[] summons = FindObjectsOfType<Summon>();
 
@@ -145,8 +142,7 @@ public class PlayerStats : MonoBehaviour
         if(OnLevel != null)
         {
             OnLevel();
-        }
-        
+        }    
     }
 
     private void OnApplicationQuit()
@@ -154,6 +150,53 @@ public class PlayerStats : MonoBehaviour
         damageMultiplier = 100;
         atackSpeedMultiplier = 100;
         areaMultiplier = 100;
+    }
+
+    public void ResetUpgrades()
+    {
+        damageMultiplier = 100;
+        atackSpeedMultiplier = 100;
+        areaMultiplier = 100;
+        SpeedMultiplier = 100;
+        ASmultiplier = 100;
+        EXPmultiplier = 100;
+        ExtraDamage = 0;
+        bonusProjectiles = 0;
+        sideProjectiles = 0;
+        ProjectileForce = 1;
+        thorns = 0;
+        SummonDamage = 100;
+        revives = 0;
+        TickRate = 1;
+        ownedColours = new List<type>();
+
+        gun.ResetStats();
+        player.rotation = Quaternion.Euler(0, 0, 0);
+        gun.setSideFirepoints();
+        gun.ResetFirePoints();
+        gun.setFirepoints();
+
+        Summon[] summons = FindObjectsOfType<Summon>();
+
+        for (int i = 0; i < summons.Length; i++)
+        {
+            Destroy(summons[i]);
+        }
+
+        UpdateStats();
+
+        upgradeList[] Upgrades = FindObjectsOfType<upgradeList>();
+        for (int i = 0; i < Upgrades.Length; i++)
+        {
+            for (int j = 0; j < Upgrades[i].list.Count; j++)
+            {
+                Upgrades[i].list[j].upgrade.level = 0;
+                Upgrades[i].list[j].upgrade.description = Upgrades[i].list[j].BaseDescription;
+                Upgrades[i].list[j].upgrade.rarity = Upgrades[i].list[j].BaseRarity;
+            }
+        }
+
+        eventManager.ClearAllEffects();
     }
 
 }

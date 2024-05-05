@@ -19,7 +19,7 @@ public class timer : MonoBehaviour
     [SerializeField] GameObject HealthBar;
     [SerializeField] GameObject Timer;
     [SerializeField] GameObject FinalBoss;
-
+    
     void Start()
     {
         gameOver = false;
@@ -61,8 +61,34 @@ public class timer : MonoBehaviour
                     }
                 }
 
+                GameObject[] Enemies = GameObject.FindGameObjectsWithTag("Enemy");
+                for(int i = 0;i < Enemies.Length; i++)
+                {
+                    Health health = Enemies[i].GetComponent<Health>();
+                    if (health != null)
+                    {
+                        dropXP Xp = Enemies[i].GetComponent<dropXP>();
+                        if (Xp != null)
+                        {
+                            Xp.enabled = false;
+                        }
+
+                        DropLootOnDeath[] d = gameObject.GetComponents<DropLootOnDeath>();
+                        if(d != null)
+                        {
+                            for (int j = 0; j < d.Length; j++)
+                            {
+                                d[j].enabled = false;
+                            }
+                        }
+
+                        health.TakeDamage(999999);
+                    }
+                }
+
                 //Invoke("victory", Constants.VictoryDelay);
                 Invoke("SummonFinalBoss", Constants.FinalBossSpawnDelay);
+                //SummonFinalBoss();
                 gameOver = true;
             }
         }
@@ -71,6 +97,7 @@ public class timer : MonoBehaviour
 
     public void SummonFinalBoss()
     {
+        Debug.Log("summoning");
         GameObject Player = GameObject.FindWithTag("Player");
         Instantiate(FinalBoss, Player.transform.transform.position,Quaternion.Euler(0,0,0));
     }

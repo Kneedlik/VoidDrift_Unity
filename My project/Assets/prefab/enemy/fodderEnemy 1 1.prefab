@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 136859910040533399}
   - component: {fileID: 341451533954417647}
   - component: {fileID: 9204286398194762564}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: fodderEnemy 1 1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -355,16 +355,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waypoints: []
   speed: 1300
-  maxSpeed: 12.5
-  nextWayPointDistance: 10
+  maxSpeed: 11.5
   rotationSpeed: 60
+  nextWayPointDistance: 10
+  patrol: 1
+  alert: 0
+  alertRadius: 50
+  breakAwayRadius: 75
   currentTarget: {x: 0, y: 0, z: 0}
   reachedEndOfPath: 0
   cannon: {fileID: 136859910080268783}
   rotSpeed: 2
   perchTime: 2
-  alertRadius: 65
-  breakAwayRadius: 100
   endOfGridDistance: 600
   offsetD: 6
 --- !u!95 &136859910040533398
@@ -400,7 +402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 250
-  maxHealth: 250
+  maxHealth: 310
   baseMaxHealth: 0
   damageN: {fileID: 8636022699047134357, guid: 971665a441a2ea448a247928736ad030, type: 3}
   self: {fileID: 136859910040533358}
@@ -411,12 +413,16 @@ MonoBehaviour:
   multiplier: 0
   ParticleExplosion: {fileID: 3528158295667628061, guid: 6d1756d7ad7932c49a9490abee50e3c2, type: 3}
   DeathAnim: {fileID: 5470796982983684449, guid: c6500ecd7e8a77448b24572641c23e6e, type: 3}
+  DeathDelay: 0
+  DeathFunc: []
+  DeathFunc123: 
   respawning: 0
   respawnTime: 0
   prefab: {fileID: 0}
   randOffset: 30
   levelScaling: 1
-  stop: 0
+  Boss: 0
+  AlertOnHit: 0
 --- !u!114 &341451533954417647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -429,6 +435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 416d879c6a950ad449830a952d890d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UseConstants: 1
   duration: 0.1
   flashMaterial: {fileID: 2100000, guid: e82836b480647394caf3762c08f71df0, type: 2}
 --- !u!114 &9204286398194762564
@@ -443,7 +450,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b012fce8103ed4a4397b4dcf4d66b057, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xpValue: 25
+  UsePrefab: 1
+  xpValue: 30
+  percentValue: 0.055
+  XpPrefab: {fileID: 2320706730734592644, guid: cabbcd8f3c321f941b937e91cb5f0d6a, type: 3}
+  Point: {fileID: 0}
 --- !u!1 &136859910063553123
 GameObject:
   m_ObjectHideFlags: 0
@@ -548,7 +559,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  uniqueID: 1020225007186729276
+  uniqueID: 7072188961963447373
   updateError: 1
   checkTime: 0.2
 --- !u!60 &136859910063553129
@@ -664,7 +675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 8754129979392217720, guid: fb95bf69ddc8be64ebd65f3d0c0da97d, type: 3}
-  bulletForce: 40
+  bulletForce: 23
   bulletsInABurst: 3
   rapidFireDelay: 0.1
   fire: 0
@@ -674,7 +685,7 @@ MonoBehaviour:
   currentBurst: 0
   timeBetweenBursts: 5
   salvoFinished: 0
-  damage: 8
+  damage: 10
 --- !u!1 &2673155819047166554
 GameObject:
   m_ObjectHideFlags: 0

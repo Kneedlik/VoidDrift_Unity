@@ -2,6 +2,8 @@
 using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
+using Unity.VisualScripting;
 
 public class Health : MonoBehaviour
 {
@@ -37,19 +39,10 @@ public class Health : MonoBehaviour
     public bool Boss = false;
     public bool AlertOnHit = false;
 
-    public bool stop;
     bool Dead;
-    private void Start()
+
+    private void Awake()
     {
-       // DeathFunc123.Add(2);
-
-
-        Dead = false;
-        if(respawning)
-        {
-            location = transform.position;
-        }
-
         multiplier = 1;
         if (healthBarGObject != null)
         {
@@ -59,8 +52,17 @@ public class Health : MonoBehaviour
         health = maxHealth;
         flashColor = GetComponent<FlashColor>();
         baseMaxHealth = maxHealth;
+    }
 
-        if(levelScaling)
+    private void Start()
+    {
+        Dead = false;
+        if (respawning)
+        {
+            location = transform.position;
+        }
+
+        if (levelScaling)
         {
             float pom = baseMaxHealth * levelingSystem.instance.healthPerLevel * (levelingSystem.instance.level - 1);
             maxHealth = baseMaxHealth + (int)pom;
@@ -68,153 +70,161 @@ public class Health : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
-        // onDamageEffects(damage);
-
-        // float pom = damageMultiplier * damage ;
-        // damage = (int)pom;
-        float pom = damage * multiplier;
-        damage = (int)pom;
-
-        if(function != null)
+        if (Dead == false)
         {
-            function(gameObject,damage,ref damage);
-        }
+            // onDamageEffects(damage);
+            // float pom = damageMultiplier * damage ;
+            // damage = (int)pom;
+            float pom = damage * multiplier;
+            damage = (int)pom;
 
-        damage -= armor;
-        if (damage < 0)
-        {
-            damage = 0;
-        }
-
-        if(damage > 0)
-        {
-            if(eventManager.OnDamageEnemy != null)
+            if (function != null)
             {
-                eventManager.OnDamageEnemy(damage);
+                function(gameObject, damage, ref damage);
             }
 
-            health -= damage;
-
-            if(healthBarGObject != null)
+            damage -= armor;
+            if (damage < 0)
             {
-                if (healthBarGObject.activeSelf == false)
+                damage = 0;
+            }
+
+            if (damage > 0)
+            {
+                if (eventManager.OnDamageEnemy != null)
                 {
-                    healthBarGObject.SetActive(true);
-                    healthBar.SetMaxHealth(maxHealth);
+                    eventManager.OnDamageEnemy(damage);
                 }
-                healthBar.SetHealth(health);
-            }
 
-            if(Boss)
-            {
-                if(BossBarManager.Instance.health.Contains(this) == false)
+                health -= damage;
+
+                if (healthBarGObject != null)
                 {
-                    BossBarManager.Instance.AddBar(this);
-                }else
+                    if (healthBarGObject.activeSelf == false)
+                    {
+                        healthBarGObject.SetActive(true);
+                        healthBar.SetMaxHealth(maxHealth);
+                    }
+                    healthBar.SetHealth(health);
+                }
+
+                if (Boss)
                 {
-                    BossBarManager.Instance.UpdateBar();
+                    if (BossBarManager.Instance.health.Contains(this) == false)
+                    {
+                        BossBarManager.Instance.AddBar(this);
+                    }
+                    else
+                    {
+                        BossBarManager.Instance.UpdateBar();
+                    }
+                }
+
+                if (AlertOnHit)
+                {
+                    BaseAI AI = gameObject.GetComponent<BaseAI>();
+                    if (AI != null && AI.alert == false)
+                    {
+                        AI.alert = true;
+                        AI.patrol = false;
+                    }
+                }
+
+                if (flashColor != null)
+                {
+                    flashColor.Flash();
+                }
+
+                if (damageN)
+                {
+                    damagePopUp(damage, Color.white);
+                }
+                if (health <= 0)
+                {
+                    Die();
                 }
             }
-
-            if(AlertOnHit)
-            {
-                BaseAI AI = gameObject.GetComponent<BaseAI>();
-                if(AI != null && AI.alert == false)
-                {
-                    AI.alert = true;
-                    AI.patrol = false;
-                }
-            }
-
-            if (flashColor != null)
-            {
-                flashColor.Flash();
-            }
-
-            if (damageN)
-            {
-                damagePopUp(damage, Color.white);
-            }
-            if (health <= 0 && Dead == false)
-            {
-                Die();
-            }
-        }
-
-        
-       if(stop == false)
-        {
-            stop = true;
         }
     }
 
     public void TakeDamage(int damage,Color32 color)
     {
-        damage -= armor;
-        if(damage < 0)
+        if (Dead == false)
         {
-            damage = 0;
-        }
+            float pom = damage * multiplier;
+            damage = (int)pom;
 
-        if (function != null)
-        {
-            function(gameObject, damage, ref damage);
-        }
-
-        if (damage > 0)
-        {
-            if (eventManager.OnDamageEnemy != null)
+            if (function != null)
             {
-                eventManager.OnDamageEnemy(damage);
+                function(gameObject, damage, ref damage);
             }
 
-            health -= damage;
-
-            if(healthBarGObject != null)
+            damage -= armor;
+            if (damage < 0)
             {
-                if (healthBarGObject.activeSelf == false)
-                {
-                    healthBarGObject.SetActive(true);
-                    healthBar.SetMaxHealth(maxHealth);
-                }
-                healthBar.SetHealth(health);
+                damage = 0;
             }
 
-            if (Boss)
+            if (function != null)
             {
-                if (BossBarManager.Instance.health.Contains(this) == false)
+                function(gameObject, damage, ref damage);
+            }
+
+            if (damage > 0)
+            {
+                if (eventManager.OnDamageEnemy != null)
                 {
-                    BossBarManager.Instance.AddBar(this);
-                }
-                else
-                {
-                    BossBarManager.Instance.UpdateBar();
+                    eventManager.OnDamageEnemy(damage);
                 }
 
-            }
+                health -= damage;
 
-            if (AlertOnHit)
-            {
-                BaseAI AI = gameObject.GetComponent<BaseAI>();
-                if (AI != null && AI.alert == false)
+                if (healthBarGObject != null)
                 {
-                    AI.alert = true;
-                    AI.patrol = false;
+                    if (healthBarGObject.activeSelf == false)
+                    {
+                        healthBarGObject.SetActive(true);
+                        healthBar.SetMaxHealth(maxHealth);
+                    }
+                    healthBar.SetHealth(health);
                 }
-            }
 
-            if (flashColor != null )
-            {
-                flashColor.Flash();
-            }
+                if (Boss)
+                {
+                    if (BossBarManager.Instance.health.Contains(this) == false)
+                    {
+                        BossBarManager.Instance.AddBar(this);
+                    }
+                    else
+                    {
+                        BossBarManager.Instance.UpdateBar();
+                    }
 
-            if (damageN)
-            {
-                damagePopUp(damage, color);
-            }
-            if (health <= 0 && Dead == false)
-            {
-                Die();
+                }
+
+                if (AlertOnHit)
+                {
+                    BaseAI AI = gameObject.GetComponent<BaseAI>();
+                    if (AI != null && AI.alert == false)
+                    {
+                        AI.alert = true;
+                        AI.patrol = false;
+                    }
+                }
+
+                if (flashColor != null)
+                {
+                    flashColor.Flash();
+                }
+
+                if (damageN)
+                {
+                    damagePopUp(damage, color);
+                }
+                if (health <= 0)
+                {
+                    Die();
+                }
             }
         }
     }
@@ -286,6 +296,7 @@ public class Health : MonoBehaviour
 
     public void Die()
     {
+        Dead = true;
         if(Boss)
         {
             BossBarManager.Instance.RemoveBar(this);
@@ -296,12 +307,14 @@ public class Health : MonoBehaviour
             eventManager.OnKill(gameObject);
         }
 
-        if (DeathFunc.Count > 0)
+        if (DeathFunc != null && DeathFunc.Count > 0)
         {
-            Debug.Log(DeathFunc.Count);
             for (int i = 0; i < DeathFunc.Count; i++)
             {
-                DeathFunc[i].function();
+                if (DeathFunc[i] != null)
+                {
+                    DeathFunc[i].function();
+                }
             }
         }
         
@@ -326,8 +339,8 @@ public class Health : MonoBehaviour
   public void damagePopUp(int Damage,Color32 color)
     {
         Vector3 pos = transform.position;
-        float offsetX = Random.Range(-randOffset,randOffset);
-        float offsetY = Random.Range(-randOffset,randOffset);
+        float offsetX = Random.Range(-Constants.DamageNumberOffset,Constants.DamageNumberOffset);
+        float offsetY = Random.Range(-Constants.DamageNumberOffset,Constants.DamageNumberOffset);
 
         offsetX = offsetX / 10;
         offsetY = offsetY / 10;
@@ -338,7 +351,71 @@ public class Health : MonoBehaviour
         var go = Instantiate(damageN,pos, Quaternion.identity);
         go.GetComponent<TMP_Text>().text = Damage.ToString();
         go.GetComponent<TMP_Text>().color = color;
-       // go.GetComponent<TextMesh>().text = Damage.ToString();
+        go.GetComponent<TMP_Text>().fontSize = ScaleDamagePopUp(go.GetComponent<TMP_Text>().fontSize,Damage);
+    }
+
+    public float ScaleDamagePopUp(float FontSize,int damage)
+    {
+        int FirstMin = 20;
+        int FirstMax = 140;
+        float FirstPercent = 0.5f;
+
+        int SecondMin = 140;
+        int SecondMax = 400;
+        float SecondPercent = 0.5f;
+
+        int ThirdMin = 400;
+        int ThirdMax = 2200;
+        float ThirdPercent = 0.5f;
+
+        int FourthMin = 2200;
+        int FourthMax = 40000;
+        float FourthPercent = 1f;
+
+        float Fraction;
+        int DamageExceding;
+        int Diff;
+
+        float Scale = 1f;
+        if(damage > FirstMin && damage < FirstMax)
+        {
+            DamageExceding = damage - FirstMin;
+            Diff = FirstMax - FirstMin;
+
+            Fraction = DamageExceding / Diff;
+            Scale = 1f + Fraction * FirstPercent;
+        }else if (damage > SecondMin && damage < SecondMax)
+        {
+            DamageExceding = damage - SecondMin;
+            Diff = SecondMax - SecondMin;
+
+            Fraction = DamageExceding / Diff;
+            Scale = 1f + Fraction * SecondPercent;
+        }
+        else if (damage > ThirdMin && damage < ThirdMax)
+        {
+            DamageExceding = damage - ThirdMin;
+            Diff = ThirdMax - ThirdMin;
+
+            Fraction = DamageExceding / Diff;
+            Scale = 1f + Fraction * ThirdPercent;
+        }
+        else if (damage > FourthMin && damage < FourthMax)
+        {
+            DamageExceding = damage - SecondMin;
+            Diff = FourthMax - FourthMin;
+
+            Fraction = DamageExceding / Diff;
+            Scale = 1f + Fraction * FourthPercent;
+        }
+
+        if(Scale > Constants.DamageNumberMaxScale)
+        {
+            Scale = Constants.DamageNumberMaxScale;
+        }
+
+        FontSize = FontSize * Scale;
+        return FontSize;
     }
 
     public void setUp()
@@ -351,5 +428,4 @@ public class Health : MonoBehaviour
 
         health = maxHealth;
     }
-
 }

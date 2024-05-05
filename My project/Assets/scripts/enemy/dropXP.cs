@@ -6,6 +6,7 @@ public class dropXP : MonoBehaviour
 {
     public bool UsePrefab = false; 
     public int xpValue;
+    public float percentValue = 0;
     [SerializeField] GameObject XpPrefab;
     [SerializeField] Transform Point;
 
@@ -24,6 +25,7 @@ public class dropXP : MonoBehaviour
    public void addXP()
     {
         float pom = xpValue * (PlayerStats.sharedInstance.EXPmultiplier / 100);
+        pom += percentValue * levelingSystem.instance.xpNeeded;
 
         if (UsePrefab == false)
         {
@@ -43,6 +45,8 @@ public class dropXP : MonoBehaviour
                     Obj = Instantiate(XpPrefab, transform.position, Quaternion.Euler(0, 0, 0));
                 }
                 Obj.GetComponent<addXpOnCollison>().xpValue = xpValue;
+                Obj.GetComponent<addXpOnCollison>().PercentValue = percentValue;
+
             }
         }
 

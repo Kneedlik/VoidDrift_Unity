@@ -10,6 +10,7 @@ public class BulletScript : Projectile
     public GameObject impactEffect;
     public GameObject impactParticles;
     Transform target;
+    Color32 Color;
 
     public float MaxBounceDistance;
 
@@ -31,13 +32,21 @@ public class BulletScript : Projectile
             Rigidbody2D rbTarget = collision.GetComponent<Rigidbody2D>();
             Vector2 dir = (collision.transform.position - transform.position).normalized;
 
-            if (rbTarget != null)
-            {
-                rbTarget.AddForce(dir * knockBack, ForceMode2D.Impulse);
-            }
-
             if (health != null)
             {
+                if (rbTarget != null && knockBack > 0)
+                {
+                    StunOnHit stun = collision.GetComponent<StunOnHit>();
+                    if(stun != null)
+                    {
+                        stun.Stun();
+                    }
+
+                    rbTarget.velocity = rbTarget.velocity.normalized;
+                    rbTarget.AddForce(dir * knockBack, ForceMode2D.Impulse);
+                }
+
+            
                 if (eventManager.ImpactGunOnly != null)
                 {
                     eventManager.ImpactGunOnly(collision.gameObject, gameObject);
@@ -48,11 +57,30 @@ public class BulletScript : Projectile
                     eventManager.OnImpact(collision.gameObject,damage,ref damagePlus);
                 }
 
+                if(eventManager.OnCrit != null)
+                {
+                    Color32 TempColor = eventManager.OnCrit(collision.gameObject, damagePlus, ref damagePlus);
+                    Color32 BaseColor = new Color32(0, 0, 0, 0);
+                    if(!TempColor.Equals(BaseColor))
+                    {
+                        Color = TempColor;
+                    }
+                }
+
                 if(eventManager.PostImpact != null)
                 {
                     eventManager.PostImpact(collision.gameObject, damagePlus, ref damagePlus);
                 }
-                health.TakeDamage(damagePlus);
+
+                if(Color.Equals(new Color32(0,0,0,0)))
+                {
+                    health.TakeDamage(damagePlus);
+                }else
+                {
+                    //Debug.Log(Color);
+                    health.TakeDamage(damagePlus,Color);
+                }
+                
             }
 
 

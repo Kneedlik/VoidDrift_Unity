@@ -8,6 +8,9 @@ public class SetUpSettings : MonoBehaviour
 
     private void Awake()
     {
+        QualitySettings.vSyncCount = 1;
+        Application.targetFrameRate = 60;
+
         if(Values != null)
         {
             if(Values.IsFullScreen)

@@ -226,7 +226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 16
-  fireRate: 2.5
+  fireRate: 2.4
   size: 1
   baseDamage: 8
   baseFireRate: 2

@@ -899,14 +899,14 @@ MonoBehaviour:
   firePoint1: {fileID: 3606200321348493834}
   firePoint2: {fileID: 2211918555215532506}
   firePoint3: {fileID: 1566090635183277949}
-  damage: 8
-  bulletForce: 35
-  fireRate: 0.75
-  burstDelay: 2
+  damage: 13
+  bulletForce: 27
+  fireRate: 1.35
+  burstDelay: 2.8
   rotSpeed: 0
-  range: 50
+  range: 60
   bulletPrefab: {fileID: 8623105988310334746, guid: b718ab389b973fa4a8258b0f8abacddc, type: 3}
-  BulletsInBurst: 4
+  BulletsInBurst: 3
 --- !u!1 &4535244317797732481
 GameObject:
   m_ObjectHideFlags: 0
@@ -1032,6 +1032,7 @@ GameObject:
   - component: {fileID: 508778272571653405}
   - component: {fileID: 4925706110532136052}
   - component: {fileID: 2143752235187869052}
+  - component: {fileID: 6655828604110552287}
   m_Layer: 12
   m_Name: TurretBase
   m_TagString: Enemy
@@ -1183,7 +1184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  maxHealth: 400
+  maxHealth: 550
   baseMaxHealth: 0
   damageN: {fileID: 8636022699047134357, guid: 971665a441a2ea448a247928736ad030, type: 3}
   self: {fileID: 4651986903781394071}
@@ -1194,11 +1195,16 @@ MonoBehaviour:
   multiplier: 0
   ParticleExplosion: {fileID: 3528158295667628061, guid: 6d1756d7ad7932c49a9490abee50e3c2, type: 3}
   DeathAnim: {fileID: 5470796982983684449, guid: c6500ecd7e8a77448b24572641c23e6e, type: 3}
+  DeathDelay: 0
+  DeathFunc: []
+  DeathFunc123: 
   respawning: 0
   respawnTime: 0
   prefab: {fileID: 0}
   randOffset: 40
   levelScaling: 1
+  Boss: 0
+  AlertOnHit: 0
 --- !u!114 &4925706110532136052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1223,8 +1229,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 416d879c6a950ad449830a952d890d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UseConstants: 1
   duration: 0.1
   flashMaterial: {fileID: 2100000, guid: e82836b480647394caf3762c08f71df0, type: 2}
+--- !u!114 &6655828604110552287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4651986903781394071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b012fce8103ed4a4397b4dcf4d66b057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UsePrefab: 1
+  xpValue: 30
+  percentValue: 0.05
+  XpPrefab: {fileID: 2320706730734592644, guid: cabbcd8f3c321f941b937e91cb5f0d6a, type: 3}
+  Point: {fileID: 0}
 --- !u!1 &6491415119416687536
 GameObject:
   m_ObjectHideFlags: 0

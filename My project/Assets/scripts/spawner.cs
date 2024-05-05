@@ -38,8 +38,6 @@ public class spawner : MonoBehaviour
 
     private void Update()
     {
-
-
         if(active && counter.EnemyAmount < max)
         {
             if (timeStamp <= 0 || counter.EnemyAmount < min)
@@ -83,24 +81,32 @@ public class spawner : MonoBehaviour
             }else
             {
                 setNewWawe();
+                if (wawes[count].Boss != null)
+                {
+                    if (wawes[count].SpawnedBoss == false)
+                    {
+                        Vector3 pos = KnedlikLib.GenerateRandPosition(transform.position, offsetX, offsetY);
+                        Instantiate(wawes[count].Boss, pos, Quaternion.identity);
+                    }
+                }
             }
         }
     }
 
     public void setNewWawe()
     {
-        count++;
-         if (wawes.Count < count)
+         count++;
+         if (wawes.Count <= count)
          {
              gameObject.SetActive(false);
          }
          else
          {
-         spawnRate = wawes[count].GetSpawnRate();
-          min = wawes[count].min;
-          max = wawes[count].max;
-          spawnN = wawes[count].spawnN;
-          end = wawes[count].end;
+            spawnRate = wawes[count].GetSpawnRate();
+            min = wawes[count].min;
+            max = wawes[count].max;
+            spawnN = wawes[count].spawnN;
+            end = wawes[count].end;
          }
     }
 

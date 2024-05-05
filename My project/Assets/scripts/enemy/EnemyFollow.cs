@@ -11,13 +11,14 @@ public class EnemyFollow : MonoBehaviour
     private float pom = 30;
 
     Health health;
+    StunOnHit Stun;
 
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
         target = GameObject.FindWithTag("Player").transform;
         health = GetComponent<Health>();
-        
+        Stun = GetComponent<StunOnHit>();  
     }
 
     // Update is called once per frame
@@ -35,30 +36,23 @@ public class EnemyFollow : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(health.stop == false)
+        bool StunTemp = false;
+        if(Stun != null)
+        {
+            StunTemp = Stun.stop;
+        }
+
+        if (StunTemp == false)
         {
             Vector3 dir = target.position - transform.position;
-           rb.AddForce(dir.normalized * speed * Time.deltaTime);
-            setMaxSpeed(maxSpeed);
-        }else
-        {
-            health.stop = false;
+            rb.AddForce(dir.normalized * speed);
+            KnedlikLib.SetMaxSpeed(maxSpeed, rb);
         }
-
     }
 
-    void moveCharacter(Vector2 direction)
+    private void LateUpdate()
     {
-        rb.AddForce(direction * speed, ForceMode2D.Force);
-        setMaxSpeed(maxSpeed);
-    }
-
-    private void setMaxSpeed(float maxSpeed)
-    {
-        if (rb.velocity.magnitude > maxSpeed)
-        {
-            rb.velocity = rb.velocity.normalized * maxSpeed;
-        }
+        KnedlikLib.SetMaxSpeed(maxSpeed, rb);
     }
 
     private void OnDrawGizmosSelected()

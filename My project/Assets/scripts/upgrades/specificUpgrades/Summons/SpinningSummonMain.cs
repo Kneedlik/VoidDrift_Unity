@@ -77,7 +77,10 @@ public class SpinningSummonMain :Summon
         pom = pom * (PlayerStats.sharedInstance.damageMultiplier / 100f);
         damage = (int)pom;
 
-        for (int i = 0; i < orbCount; i++)
+        //Debug.Log(orbCount);
+        //Debug.Log(orbs.Count);
+
+        for (int i = 0; i < orbs.Count; i++)
         {
             if (orbs[i] != null)
             {

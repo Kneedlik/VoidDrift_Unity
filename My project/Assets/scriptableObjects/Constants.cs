@@ -14,4 +14,7 @@ public static class Constants
     public static float FlashWhiteDuration = 0.3f;
     public static float ItemPullDistance = 25;
     public static float ItemPullSpeed = 10;
+    public static float DamageNumberOffset = 25;
+    public static float DamageNumberMaxScale = 3.5f;
+    
 }

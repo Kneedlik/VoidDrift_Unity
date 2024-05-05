@@ -9,6 +9,7 @@ public class SummonBullet : Projectile
     private Rigidbody2D rb;
     public GameObject impactEffect;
     public GameObject impactParticles;
+    public bool Crit;
 
     private void Start()
     {
@@ -37,10 +38,20 @@ public class SummonBullet : Projectile
                     eventManager.SummonOnImpact(collision.gameObject, damage, ref damagePlus);
                 }
 
+                if (Crit)
+                {
+                    if (eventManager.OnCrit != null)
+                    {
+                        eventManager.OnCrit(collision.gameObject, damagePlus, ref damagePlus);
+                    }
+                }
+
                 if (eventManager.PostImpact != null)
                 {
                     eventManager.PostImpact(collision.gameObject, damagePlus, ref damagePlus);
                 }
+
+
                 health.TakeDamage(damagePlus);
             }
 

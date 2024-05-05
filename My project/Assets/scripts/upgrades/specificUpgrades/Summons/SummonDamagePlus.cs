@@ -12,8 +12,8 @@ public class SummonDamagePlus : upgrade
     void Start()
     {
         Type = type.purple;
+        setColor();
     }
-
 
     public override bool requirmentsMet()
     {

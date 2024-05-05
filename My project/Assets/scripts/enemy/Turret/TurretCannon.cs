@@ -22,8 +22,6 @@ public class TurretCannon : MonoBehaviour
     Rigidbody2D rb2;
    // Rigidbody2D rb3;
 
-    
-
     void Start()
     {
         target = GameObject.FindWithTag("Player").GetComponent<Transform>();
@@ -32,7 +30,6 @@ public class TurretCannon : MonoBehaviour
         index = 0;
     }
 
-    
     void Update()
     {
         if(timeStamp > 0)
@@ -65,9 +62,11 @@ public class TurretCannon : MonoBehaviour
 
     void shoot()
     {
-      GameObject bulet =  Instantiate(bulletPrefab, firePoint1.position, firePoint1.rotation);
-      Rigidbody2D rb = bulet.GetComponent<Rigidbody2D>();
-      foddeBullet ee = bulet.GetComponent<foddeBullet>();
+        AudioManager.instance.PlayId(8);
+
+        GameObject bulet =  Instantiate(bulletPrefab, firePoint1.position, firePoint1.rotation);
+        Rigidbody2D rb = bulet.GetComponent<Rigidbody2D>();
+        foddeBullet ee = bulet.GetComponent<foddeBullet>();
         ee.damage = damage;
         rb.velocity = firePoint1.up * bulletForce;
 

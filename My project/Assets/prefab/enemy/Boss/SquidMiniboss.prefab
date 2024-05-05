@@ -341,7 +341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  maxHealth: 500
+  maxHealth: 35000
   baseMaxHealth: 0
   damageN: {fileID: 8636022699047134357, guid: 971665a441a2ea448a247928736ad030, type: 3}
   self: {fileID: 0}
@@ -351,8 +351,11 @@ MonoBehaviour:
   armor: 0
   multiplier: 0
   ParticleExplosion: {fileID: 0}
-  DeathAnim: {fileID: 0}
-  DeathFunc: {fileID: 0}
+  DeathAnim: {fileID: 2360855068873841653, guid: 9d024159c29a5ed4dadc422aca7b568f, type: 3}
+  DeathDelay: 0
+  DeathFunc:
+  - {fileID: 0}
+  DeathFunc123: 
   respawning: 0
   respawnTime: 0
   prefab: {fileID: 0}
@@ -360,7 +363,6 @@ MonoBehaviour:
   levelScaling: 0
   Boss: 1
   AlertOnHit: 0
-  stop: 0
 --- !u!114 &8528817913425594225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -414,5 +416,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UsePrefab: 1
   xpValue: 200
+  percentValue: 0
   XpPrefab: {fileID: 2379410571559361398, guid: 471236d52f210654cbb5c0a003284cd1, type: 3}
   Point: {fileID: 0}

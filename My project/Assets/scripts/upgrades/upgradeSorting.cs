@@ -6,13 +6,12 @@ using UnityEngine.UI;
 public class upgradeSorting : MonoBehaviour
 {
     public List<upgradeDisplay> cards = new List<upgradeDisplay>();
-    public List<upgrade> list = new List<upgrade>();
+    public List<UpgradePlus> list = new List<UpgradePlus> ();
     public upgradeList Base;
-    
      
     int rand;
     int total;
-   public int[] pom = new int[100];
+    public int[] pom = new int[100];
     int j;
    
     public void setUpCards()
@@ -33,31 +32,47 @@ public class upgradeSorting : MonoBehaviour
 
             for (int i = 0; i < list.Count; i++)
             {
-                total += list[i].rarity;
+                total += list[i].TrueRarity;
                 pom[i + 1] = total;
             }
 
             rand = Random.Range(0, total);
-          //  Debug.Log(rand);
-          //  Debug.Log(total);
 
             for (int i = 0; i < list.Count; i++)
             {
                 if (rand > pom[i] && rand <= pom[i+1])
                 {
-                    cards[j].Upgrade = list[i];
-                    
+                    cards[j].Upgrade = list[i].upgrade;
+                    int Temp = Base.list.IndexOf(list[i]);
+                    if (Base.list[Temp].ApearedInRow < 3)
+                    {
+                        Base.list[Temp].ApearedInRow++;
+                    }
                     list.Remove(list[i]);
                     //Debug.Log("vyslo");
                 }                                       
             }
-            // cards[j].Upgrade = list[0];
             Button button = cards[j].GetComponent<Button>();
             button.interactable = false;
             button.interactable = true;
             StartCoroutine(DissAbleCards());
 
         }
+
+        //for (int i = 0; i < Base.list.Count; i++)
+        //{
+        //    for (int j = 0; j < list.Count; j++)
+        //    {
+        //        if (Base.list[i].upgrade == list[j].upgrade)
+        //        {
+        //            Base.list[i].ApearedInRow = 0;
+        //           if (Base.list[i].NotApeared < 4)
+        //            {
+        //                Base.list[i].NotApeared += 1;
+        //            }
+        //        }
+        //    }
+        //}
 
     }
 
@@ -91,7 +106,7 @@ public class upgradeSorting : MonoBehaviour
 
         if (levelingSystem.instance.level % 10 == 0)
         {
-            amount = 3;
+            amount = 4;
         }
         else
         {
@@ -107,7 +122,7 @@ public class upgradeSorting : MonoBehaviour
             cards[4].gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(-400, 0, 1);  
         }else
         {
-           cards[0].gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(100, 0, 1);
+            cards[0].gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(100, 0, 1);
             cards[1].gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(-100, 0, 1);
             cards[2].gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(300, 0, 1);
             cards[3].gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(-300, 0, 1);
@@ -117,7 +132,7 @@ public class upgradeSorting : MonoBehaviour
 
     void upgradeFilter()
     {
-        list = new List<upgrade>();
+        list = new List<UpgradePlus>();
         bool coloursfull = true;
         bool colourRequirmentMet;
 
@@ -130,8 +145,9 @@ public class upgradeSorting : MonoBehaviour
         {
             if (levelingSystem.instance.level % 10 == 0)
             {
-                if (Base.list[i].Type == type.special && Base.list[i].requirmentsMet())
+                if (Base.list[i].upgrade.Type == type.special && Base.list[i].upgrade.requirmentsMet())
                 {
+                    Base.list[i].TrueRarity = Base.list[i].upgrade.rarity;
                     list.Add(Base.list[i]);
                 }
             }
@@ -142,7 +158,7 @@ public class upgradeSorting : MonoBehaviour
                 {
                     for (int j = 0; j < PlayerStats.sharedInstance.ownedColours.Count; j++)
                     {
-                        if (Base.list[i].Type == PlayerStats.sharedInstance.ownedColours[j])
+                        if (Base.list[i].upgrade.Type == PlayerStats.sharedInstance.ownedColours[j])
                         {
                             colourRequirmentMet = true;
                         }
@@ -150,14 +166,44 @@ public class upgradeSorting : MonoBehaviour
                 }
                 else colourRequirmentMet = true;
 
-                if (Base.list[i].level < Base.list[i].maxLevel || Base.list[i].maxLevel == 0)
+                if (Base.list[i].upgrade.level < Base.list[i].upgrade.maxLevel || Base.list[i].upgrade.maxLevel == 0)
                 {
-                    if (Base.list[i].requirmentsMet() && colourRequirmentMet && Base.list[i].Type != type.special)
+                    if (Base.list[i].upgrade.requirmentsMet() && colourRequirmentMet && Base.list[i].upgrade.Type != type.special)
                     {
+                        Base.list[i] = KnedlikLib.CalculateTrueRarity(Base.list[i]);
                         list.Add(Base.list[i]);
                     }
                 }
             }
+        }
+    }
+
+    public void PunishNotChoosen(upgrade Upgrade)
+    {
+        for(int i = 0;i < cards.Count; i++)
+        {
+            if (cards[i] != null)
+            {
+                for (int j = 0; j < Base.list.Count; j++)
+                {
+                    if ((cards[i].Upgrade == Base.list[j].upgrade))
+                    {
+                        if (cards[i].Upgrade != Upgrade)
+                        {
+                            if (Base.list[j].NotChoosen < 2)
+                            {
+                                Base.list[j].NotChoosen++;
+                                break;
+                            }
+                        }else
+                        {
+                            Base.list[j].NotChoosen = 0;
+                        }
+                        Base.list[j].NotApeared = 0;
+                    }
+                }
+            }
+              
         }
     }
 }

@@ -11,15 +11,15 @@ public class TransferExessDamage : upgrade
         setColor();
     }
 
-    public override bool requirmentsMet()
-    {
-        if (levelingSystem.instance.level >= 25 && RdamageIncrease.instance.level >= 5)
-        {
-            return true;
-        }
-        else return false;
+    //public override bool requirmentsMet()
+    //{
+     //   if (levelingSystem.instance.level >= 25 && RdamageIncrease.instance.level >= 5)
+     //   {
+     //       return true;
+     //   }
+     //   else return false;
 
-     }  
+    // }  
 
 
 

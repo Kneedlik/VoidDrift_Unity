@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsEnem: 0
-  Damage: 6
+  Damage: 3
   Impact: 1
   PostImpact: 0
   ScaleDamage: 1

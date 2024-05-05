@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dedfece8014d9bb45bfc6073bb3f1874, type: 3}
+  m_Name: BaseAudioLibrary
+  m_EditorClassIdentifier: 
+  clipList:
+  - Id: 0
+    name: 
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    Loop: 0
+    source: {fileID: 0}
+  - Id: 1
+    name: Autocannon1
+    clip: {fileID: 8300000, guid: 99de627458799534ba3099e3937b8e64, type: 3}
+    volume: 0.5
+    pitch: 1
+    Loop: 0
+    source: {fileID: 0}
+  - Id: 2
+    name: Autocannon2
+    clip: {fileID: 8300000, guid: 781d4b88a0737694faaff2846253d832, type: 3}
+    volume: 0.5
+    pitch: 1
+    Loop: 0
+    source: {fileID: 0}
+  - Id: 3
+    name: Autocannon3
+    clip: {fileID: 8300000, guid: 4644c8dc46db77842bd2d85a677a764c, type: 3}
+    volume: 0.5
+    pitch: 1
+    Loop: 0
+    source: {fileID: 0}
+  - Id: 4
+    name: Autocannon4
+    clip: {fileID: 8300000, guid: 2afb312da97da4d4ca649872d7df6629, type: 3}
+    volume: 0.5
+    pitch: 1
+    Loop: 0
+    source: {fileID: 0}
+  - Id: 5
+    name: PlayerDamagedRing
+    clip: {fileID: 8300000, guid: 3b2f8ba987a7d03418414072661992de, type: 3}
+    volume: 0.5
+    pitch: 1
+    Loop: 0
+    source: {fileID: 0}
+  - Id: 6
+    name: PlayerDamagedRing2
+    clip: {fileID: 8300000, guid: 5b39cfb0eb4e1b74091d6acef452bdda, type: 3}
+    volume: 0.5
+    pitch: 1
+    Loop: 0
+    source: {fileID: 0}
+  - Id: 7
+    name: FodderCannon
+    clip: {fileID: 8300000, guid: 282697f206014b84b8a4f35c7cc1ab3f, type: 3}
+    volume: 0.5
+    pitch: 1
+    Loop: 0
+    source: {fileID: 0}
+  - Id: 8
+    name: TurretCannon
+    clip: {fileID: 8300000, guid: b1fe7ec35d0c59847bd4f22578784792, type: 3}
+    volume: 0.5
+    pitch: 1
+    Loop: 0
+    source: {fileID: 0}

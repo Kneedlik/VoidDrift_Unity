@@ -13,6 +13,7 @@ public class TargetMarkerSummonRed : upgrade
     void Start()
     {
         Type = type.red;
+        setColor();
     }
 
     public override bool requirmentsMet()

@@ -8,16 +8,18 @@ using TMPro;
 public class upgradeDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public upgrade Upgrade;
-   public TMP_Text Name;
+    public TMP_Text Name;
     public TMP_Text Description;
     public Image image;
     public Image Insignia;
     public Image SelectedImg;
     Button button;
+    upgradeSorting sorting;
 
     private void Start()
     {
         button = GetComponent<Button>();
+        sorting = GameObject.FindWithTag("MainUpgrades").GetComponent<upgradeSorting>();
     }
 
     public void activate()
@@ -54,9 +56,12 @@ public class upgradeDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitH
                     PlayerStats.sharedInstance.ownedColours.Add(Upgrade.Type);
                 }
 
-            }
+            }   
+        }
 
-            
+        if(sorting != null)
+        {
+            sorting.PunishNotChoosen(Upgrade);
         }
 
         if(Upgrade.Type == type.red)
@@ -92,15 +97,12 @@ public class upgradeDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
         image.color = Color.white;
         SelectedImg.enabled = true;
-        Debug.Log("tam");
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        
         image.color = Upgrade.color;
         SelectedImg.enabled = false;
-        Debug.Log("Ven");
     }
 
     private void OnEnable()

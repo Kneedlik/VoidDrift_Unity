@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class critDamage : upgrade
 {
-    public int amount;
+    public float amount;
+    float BaseMultiplier;
 
     private void Awake()
     {
         Type = type.red;
         setColor();
+    }
+
+    private void Start()
+    {
+        BaseMultiplier = CritSystem.instance.critMultiplier;
     }
 
     public override bool requirmentsMet()
@@ -19,11 +25,14 @@ public class critDamage : upgrade
             return true;
         }
         else return false;
+
     }
 
     public override void function()
     {
-        CritSystem.instance.critMultiplier += amount;
+        float Temp = BaseMultiplier * amount;
+
+        CritSystem.instance.critMultiplier += Temp;
         level++;
     }
 }

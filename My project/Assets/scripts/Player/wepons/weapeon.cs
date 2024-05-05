@@ -12,13 +12,17 @@ public class weapeon : MonoBehaviour
 
     public int damage;
     public int baseDamage;
+    public int startingDamage;
     public int extraDamage = 0;
     public float BaseForce = 10f;
+    public float StartingForce;
     public float ForceMultiplier = 1;
     public float Force;
     public float size;
     public float baseSize = 1;
+    public float StartingSize;
     public float baseBulletCoolDown;
+    public float StartingBulletCooldown;
     public float bulletCoolDown;
     public int pierce = 1;
     public float knockBack;
@@ -75,6 +79,17 @@ public class weapeon : MonoBehaviour
     public virtual GameObject GetProjectile()
     {
         return null;
+    }
+
+    public void ResetStats()
+    {
+        baseDamage = startingDamage;
+        BaseForce = StartingForce;
+        baseSize = StartingSize;
+        baseBulletCoolDown = StartingBulletCooldown;
+        projectileCount = 1;
+        sideProjectiles = 0;
+        pierce = 0;
     }
 
    // public void updateForce(float multiplier)

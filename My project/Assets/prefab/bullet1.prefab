@@ -154,7 +154,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6025737495696429906}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 167.8207, y: -143.6492, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -248,7 +248,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00806427, y: -0.0010223389}
+  m_Offset: {x: -0.005256653, y: -0.0791136}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -259,7 +259,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.49501038, y: 2.1567078}
+  m_Size: {x: 0.6798248, y: 2.8278134}
   m_EdgeRadius: 0
 --- !u!114 &-6836321913355585336
 MonoBehaviour:
@@ -275,14 +275,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damagePlus: 0
   damage: 0
-  destroyTime: 1.5
+  destroyTime: 1.3
   pierce: 0
   Bounce: 0
   knockBack: 0
   impactEffect: {fileID: 907559903438879465, guid: 1ce0060ea82c3b44fbea7c2d7584e88e, type: 3}
   impactParticles: {fileID: 7437022105064872643, guid: 795f94ad9917fbe4b90ec843e9018744, type: 3}
   MaxBounceDistance: 0
-  MaxBounceDistanceOff: 0
 --- !u!114 &6566748590372091241
 MonoBehaviour:
   m_ObjectHideFlags: 0

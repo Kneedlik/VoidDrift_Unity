@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class RespawnManager : MonoBehaviour
 {
-   public static RespawnManager instance;
+    public static RespawnManager instance;
     public float distance;
-   [SerializeField] private Transform cam;
+    [SerializeField] private Transform cam;
     
-
-
     private void Start()
     {
         instance = this;
@@ -17,14 +15,13 @@ public class RespawnManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void respawn(float time,GameObject prefab,Vector3 location, bool destroy)
     {
-        StartCoroutine(respawnRutine(time, prefab, location, destroy));
+        if (prefab != null)
+        {
+            StartCoroutine(respawnRutine(time, prefab, location, destroy));
+        }
     }
 
     
@@ -32,6 +29,11 @@ public class RespawnManager : MonoBehaviour
     IEnumerator respawnRutine(float time,GameObject prefab,Vector3 location,bool destroy)
     {
         Transform pom = transform.parent;
+
+        if (prefab == null)
+        {
+            yield return null;
+        }
 
        if(destroy == false)
         {

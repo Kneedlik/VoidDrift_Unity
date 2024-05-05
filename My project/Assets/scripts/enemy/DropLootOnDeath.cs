@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DropLootOnDeath : MonoBehaviour
 {
-    public GameObject[] itemPool1;
-    public float[] dropChancePool1;
+    public List<GameObject> itemPool1 = new List<GameObject>();
+    public List<float> dropChancePool1 = new List<float>();
     [SerializeField] Transform pos;
    
     
@@ -50,17 +50,17 @@ public class DropLootOnDeath : MonoBehaviour
         float randomNumber1 = Random.Range(0.0f, 100.0f);
        
         float pom = 0;
-        borders = new float[itemPool1.Length + 1];
+        borders = new float[itemPool1.Count + 1];
         borders[0] = 0;
 
-        for (int i = 0; i < itemPool1.Length; i++)
+        for (int i = 0; i < itemPool1.Count; i++)
         {
 
             pom += dropChancePool1[i];
             borders[i + 1] = pom;
         }
 
-        for (int i = 0; i < itemPool1.Length; i++)
+        for (int i = 0; i < itemPool1.Count; i++)
         {
             if (randomNumber1 > borders[i] && randomNumber1 <= borders[i + 1])
             {

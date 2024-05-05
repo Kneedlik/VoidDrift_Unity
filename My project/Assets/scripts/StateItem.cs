@@ -6,9 +6,12 @@ using UnityEngine;
 public class StateItem
 {
     public List<UpgradeItemClass> UpgradeItems;
+    public string Description;
+    public int Level;
 
     public StateItem()
     {
-        UpgradeItems = new List<UpgradeItemClass>();    
+        UpgradeItems = new List<UpgradeItemClass>();  
+        Level = levelingSystem.instance.level;
     }
 }

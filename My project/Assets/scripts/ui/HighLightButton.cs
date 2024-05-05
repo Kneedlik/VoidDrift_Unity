@@ -41,9 +41,4 @@ public class HighLightButton : MonoBehaviour, IPointerEnterHandler, IPointerExit
    //     StartCoroutine(wait());
    //     image.color = baseColor;
    // }
-
-
-
-
-
 }

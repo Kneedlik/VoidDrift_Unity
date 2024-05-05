@@ -14,11 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   end: 780
   min: 3
-  max: 100
+  max: 120
   enemies:
   - {fileID: 1076211932900973745, guid: a967c783e696c41458fd2340fbf04114, type: 3}
   chanses:
   - 100
   spawnRate: 1.4
-  spawnN: 3
-  healthMultiplier: 5
+  spawnN: 4
+  healthMultiplier: 2.4
+  Boss: {fileID: 0}
+  SpawnedBoss: 0

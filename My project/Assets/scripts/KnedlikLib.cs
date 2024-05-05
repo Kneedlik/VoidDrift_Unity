@@ -156,8 +156,11 @@ public static class KnedlikLib
             {
                 if (Vector3.Distance(Enemies[i].transform.position, self.position) < Vector3.Distance(target.position, self.position))
                 {
-                    target = Enemies[i].transform;
-                    j = i;
+                    if (Vector3.Distance(Enemies[i].transform.position, self.position) < 300)
+                    {
+                        target = Enemies[i].transform;
+                        j = i;
+                    }
                 }
             }
         }
@@ -479,7 +482,7 @@ public static class KnedlikLib
 
     }
 
-    public static StateItem CreateUpgradeList(List<upgradeList> UpgradesTotal)
+    public static StateItem CreateUpgradeList(List<upgradeList> UpgradesTotal,string Description)
     {
         StateItem data = new StateItem();
 
@@ -487,17 +490,80 @@ public static class KnedlikLib
         {
             for (int j = 0; j < UpgradesTotal[i].list.Count; j++)
             {
-                if (UpgradesTotal[i].list[j].level > 0)
+                if (UpgradesTotal[i].list[j].upgrade.level > 0)
                 {
                     UpgradeItemClass item = new UpgradeItemClass();
-                    item.Id = UpgradesTotal[i].list[j].Id; ;
-                    item.Level = UpgradesTotal[i].list[j].level;
+                    item.Id = UpgradesTotal[i].list[j].upgrade.level; ;
+                    item.Level = UpgradesTotal[i].list[j].upgrade.level;
                     data.UpgradeItems.Add(item);
                 }
             }
         }
 
+        data.Description = Description;
         return data;
+    }
+
+    public static float ConvertStringTimeToFloat(string timeString)
+    {
+        timeString = timeString.Trim();
+        string[] timeParts = timeString.Split(':');
+
+        Debug.Log(timeParts.Length);
+        if (timeParts.Length == 1)
+        {
+            timeParts[0] = timeParts[0].Substring(0, timeParts[0].Length - 1);
+            float time = float.Parse(timeParts[0]);
+            return time;
+        }
+            
+        timeParts[1] = timeParts[1].Substring(0, 2);
+
+        float hours = float.Parse(timeParts[0]);
+        float minutes = float.Parse(timeParts[1]);
+
+         //Convert hours to minutes and add to the total minutes
+        float totalSeconds = hours * 60 + minutes;
+
+        return totalSeconds;
+
+       //if (!float.TryParse(timeParts[0], out float hours) || !float.TryParse(timeParts[1], out float minutes))
+       // {
+       //     Debug.Log("druhe");
+       // }
+
+        // Convert hours to minutes and add to the total minutes
+    }
+
+    // public static int GetPercent(float Value,float percent,bool is100)
+    // {
+    // float Result;
+    //  if(is100)
+    //  {
+    //      percent = percent / 100;
+    //  }
+    //  Result = Value * percent;
+    //  return Result;
+    //  }
+    public static UpgradePlus CalculateTrueRarity(UpgradePlus upgrade)
+    {
+        UpgradePlus upgradeTemp = upgrade;
+        upgradeTemp.TrueRarity = upgradeTemp.upgrade.rarity;
+        for (int i = 0; i < upgrade.NotChoosen; i++)
+        {
+            upgradeTemp.TrueRarity -= 8;
+        }
+
+        for (int i = 0; i < upgrade.NotApeared; i++)
+        {
+            upgradeTemp.TrueRarity += 11;
+        }
+
+        for (int i = 0; i < upgrade.ApearedInRow - 1; i++)
+        {
+            upgradeTemp.TrueRarity -= 5;
+        }
+        return upgradeTemp;
     }
 
 }

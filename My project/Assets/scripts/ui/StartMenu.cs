@@ -6,6 +6,7 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class StartMenu : MonoBehaviour
 {
@@ -15,12 +16,13 @@ public class StartMenu : MonoBehaviour
     public GameObject Settings;
     public GameObject StartMenuObject;
 
-    public GameObject FullScreenCheckBox;
     [SerializeField] Sprite Checked;
     [SerializeField] Sprite UnChecked;
 
     [SerializeField] Image SettingsButton;
     [SerializeField] Image BackButton;
+
+    [SerializeField] TMP_Text Text;
 
     [SerializeField] GameObject StartPanel;
     [SerializeField] Volume Volume;
@@ -29,6 +31,33 @@ public class StartMenu : MonoBehaviour
 
     private void Start()
     {
+        SettingsValues TempValues = SaveManager.LoadSettings();
+        if(TempValues != null)
+        {
+            Values = TempValues;
+            switch (Values.MasterVolume)
+            {
+                case 1f:
+                    Text.text = "100%";
+                    break;
+                case 0f:
+                    Text.text = "0%";
+                    break;
+                case 0.1f:
+                    Text.text = "10%";
+                    break;
+                case 0.25f:
+                    Text.text = "25%";
+                    break;
+                case 0.5f:
+                    Text.text = "50%";
+                    break;
+                case 0.75f:
+                    Text.text = "75%";
+                    break;
+            }
+        }
+
         Vector2 cursorHotSpot = new Vector2(BaseCursor.width / 2, BaseCursor.height / 2);
         Cursor.SetCursor(BaseCursor, cursorHotSpot, CursorMode.Auto);
     }
@@ -102,7 +131,7 @@ public class StartMenu : MonoBehaviour
 
     public void FullScreenChange(bool isFullScreen)
     {
-        Values.IsFullScreen = isFullScreen;
+       Values.IsFullScreen = isFullScreen;
        Screen.fullScreen = isFullScreen;
        Debug.Log("FullScreen");
     }
@@ -122,8 +151,42 @@ public class StartMenu : MonoBehaviour
        Debug.Log("Vsync");
     }
 
+    public void SetVolume()
+    {
+        switch(Values.MasterVolume)
+        {
+            case 1f:
+                Values.MasterVolume = 0.0f;
+                Text.text = "0%";
+                break;
+            case 0f:
+                Values.MasterVolume = 0.1f;
+                Text.text = "10%";
+                break;
+            case 0.1f:
+                Values.MasterVolume = 0.25f;
+                Text.text = "25%";
+                break;
+            case 0.25f:
+                Values.MasterVolume = 0.5f;
+                Text.text = "50%";
+                break;
+            case 0.5f:
+                Values.MasterVolume = 0.75f;
+                Text.text = "75%";
+                break;
+            case 0.75f:
+                Values.MasterVolume = 1f;
+                Text.text = "100%";
+                break;
+        }
+
+        Debug.Log("Volume Change");
+    }
+
     public void CloseSettings()
     {
+        SaveManager.SaveSettings(Values);
         BackButton.color = new Color32(255, 0, 33, 255);
         StartMenuObject.SetActive(true );
         Settings.SetActive(false);

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BigEyeMiniBossAI : MonoBehaviour
 {
+    public bool MapVariant = false;
     Transform target;
     public float speed;
     public float maxSpeed;
@@ -14,6 +15,10 @@ public class BigEyeMiniBossAI : MonoBehaviour
     float timeStamp;
     Health health;
     public bool Slowed;
+    float distance;
+    bool aggro = false;
+    [SerializeField] float AggroDistance;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -26,12 +31,12 @@ public class BigEyeMiniBossAI : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (health.stop == false)
+        if (MapVariant == false || aggro)
         {
             Vector3 dir = target.position - transform.position;
             rb.AddForce(dir.normalized * speed);
 
-            if(Slowed == false)
+            if (Slowed == false)
             {
                 KnedlikLib.SetMaxSpeed(maxSpeed, rb);
             }
@@ -40,15 +45,16 @@ public class BigEyeMiniBossAI : MonoBehaviour
                 KnedlikLib.SetMaxSpeed(reducedVelocity, rb);
             }
         }
-        else
-        {
-            health.stop = false;
-        }
-
     }
 
     private void Update()
     {
+        distance = Vector3.Distance(rb.position, target.position);
+        if(MapVariant && distance < AggroDistance)
+        {
+            aggro = true;
+        }
+
         if(timeStamp > 0)
         {
             timeStamp -= Time.deltaTime;
@@ -62,9 +68,14 @@ public class BigEyeMiniBossAI : MonoBehaviour
 
     public void SlowDown(GameObject self,int damage,ref int Damage)
     {
-        Debug.Log("Nay");
         timeStamp = SlowDuration;
         Slowed = true;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, AggroDistance);       
     }
 
 }

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class eventManager : MonoBehaviour
 {
-    
     public delegate void ImpactEffect(GameObject target, int damage, ref int scaledDamage);
+    public delegate Color32 ImpactEffectColor(GameObject target, int damage, ref int scaledDamage);
     public delegate void ImpactProjectile(GameObject target, GameObject bullet);
     public delegate void DamageEffect(int amount);
     public delegate void OnFireEffect(GameObject weapeon);
@@ -16,6 +16,7 @@ public class eventManager : MonoBehaviour
     public static ImpactEffect OnImpact;
     public static ImpactEffect SummonOnImpact;
     public static ImpactEffect PostImpact;
+    public static ImpactEffectColor OnCrit;
     public static ImpactProjectile ImpactGunOnly;
 
     public  static OnFireEffect OnFire;
@@ -28,6 +29,12 @@ public class eventManager : MonoBehaviour
     private void Start()
     {
         //  eventManager.OnImpact += poisonSystem.sharedInstance.Poison;
+        ClearAllEffects();
+
+    }
+
+    public static void ClearAllEffects()
+    {
         OnImpact = null;
         SummonOnImpact = null;
         OnFire = null;
@@ -36,6 +43,5 @@ public class eventManager : MonoBehaviour
         OnDamageEnemy = null;
         OnKill = null;
         ImpactGunOnly = null;
-
     }
 }

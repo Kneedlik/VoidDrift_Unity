@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 1602492104293664009}
   - component: {fileID: 1602492104293664006}
   - component: {fileID: 1602492104293664010}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BigEyeMiniBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  maxHealth: 400
+  maxHealth: 10000
   baseMaxHealth: 0
   damageN: {fileID: 8636022699047134357, guid: 971665a441a2ea448a247928736ad030, type: 3}
   self: {fileID: 0}
@@ -152,8 +152,11 @@ MonoBehaviour:
   armor: 0
   multiplier: 0
   ParticleExplosion: {fileID: 0}
-  DeathAnim: {fileID: 0}
-  DeathFunc: {fileID: 0}
+  DeathAnim: {fileID: 2360855068873841653, guid: 9d024159c29a5ed4dadc422aca7b568f, type: 3}
+  DeathDelay: 0
+  DeathFunc:
+  - {fileID: 0}
+  DeathFunc123: 
   respawning: 0
   respawnTime: 0
   prefab: {fileID: 0}
@@ -161,7 +164,6 @@ MonoBehaviour:
   levelScaling: 0
   Boss: 1
   AlertOnHit: 0
-  stop: 0
 --- !u!114 &1602492104293664011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,11 +176,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d11603375e3447844a34203c67d3a620, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MapVariant: 0
   speed: 600
   maxSpeed: 18
   reducedVelocity: 5
   SlowDuration: 1.1
   Slowed: 0
+  AggroDistance: 0
 --- !u!114 &1602492104293664008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,6 +197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UsePrefab: 1
   xpValue: 100
+  percentValue: 0
   XpPrefab: {fileID: 2379410571559361398, guid: 471236d52f210654cbb5c0a003284cd1, type: 3}
   Point: {fileID: 0}
 --- !u!114 &1602492104293664009
@@ -224,7 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45c0708041036e343b357b8f0d399190, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 25
+  damage: 30
   coolDown: 1.5
 --- !u!114 &1602492104293664010
 MonoBehaviour:

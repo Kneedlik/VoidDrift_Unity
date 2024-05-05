@@ -47,6 +47,7 @@ public class AC_Rockets : upgrade
         {
             eventManager.OnFire += FireRockets;
             description = string.Format("Homing missles + 2");
+            //Amount += AmountIncrease;
         }
         Amount += AmountIncrease;
         SetFirePoints();

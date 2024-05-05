@@ -27,10 +27,11 @@ public class RemoveBrittle : upgrade
         {
             LightningSystem.instance.removeBrittle = true;
             LightningSystem.instance.removeBrittleChance = 30;
-            description = string.Format("Chance to remove brittle on lightning hit + 10%");
+            description = string.Format("Chance to remove brittle on lightning hit + 15%");
+            rarity = rarity - 25;
         }else
         {
-            LightningSystem.instance.removeBrittleChance += 10;
+            LightningSystem.instance.removeBrittleChance += 15;
         }
 
         level++;

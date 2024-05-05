@@ -349,8 +349,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damagePlus: 0
   damage: 0
-  destroyTime: 3.5
+  destroyTime: 9.5
   pierce: 0
+  Bounce: 0
   knockBack: 0
   impactEffect: {fileID: 0}
   impactParticles: {fileID: 0}
+  Crit: 0

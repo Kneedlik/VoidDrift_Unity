@@ -27,6 +27,7 @@ TagManager:
   - GlobalVolume
   - IronUpgrades
   - CorruptedUpgrades
+  - MainUpgrades
   layers:
   - Default
   - TransparentFX

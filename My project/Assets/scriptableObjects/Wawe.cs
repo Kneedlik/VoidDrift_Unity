@@ -4,8 +4,6 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Wawe", menuName = "Wawes")]
 
-
-
 public class Wawe : ScriptableObject
 {
     public float end;
@@ -17,6 +15,8 @@ public class Wawe : ScriptableObject
     public int spawnN;
 
     public float healthMultiplier = 1;
+    public GameObject Boss;
+    [HideInInspector] public bool SpawnedBoss = false;
 
    public GameObject decideEnemy()
     {
