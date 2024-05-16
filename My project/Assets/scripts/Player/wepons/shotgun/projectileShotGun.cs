@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -30,6 +31,12 @@ public class projectileShotGun : weapeon
     [HideInInspector] public int RingOfFireCount;
     [HideInInspector] public bool RingOfFireActive;
     Transform Player;
+
+    //Cluster
+    public int ClusterAmount = 0;
+    public int ClusterProjectiles;
+    public float ClusterDamageMultiplier;
+    public float ClusterAliveTime;
 
     void Start()
     {
@@ -103,10 +110,7 @@ public class projectileShotGun : weapeon
             PelletTemp.transform.rotation = CubeList[i].transform.rotation;
 
             BulletScript BulletDamage = PelletTemp.GetComponent<BulletScript>();
-            BulletDamage.setDamage(damage + extraDamage);
-            BulletDamage.setArea(size);
-            BulletDamage.setPierce(pierce);
-            BulletDamage.setKnockBack(knockBack);
+            SetUpProjectile(BulletDamage);
 
             rb.AddForce(PelletTemp.transform.up * Force, ForceMode2D.Impulse); 
         }
@@ -122,10 +126,7 @@ public class projectileShotGun : weapeon
             }
 
             BulletScript BulletDamage = bullet.GetComponent<BulletScript>();
-            BulletDamage.setDamage(damage + extraDamage);
-            BulletDamage.setArea(size);
-            BulletDamage.setPierce(pierce);
-            BulletDamage.setKnockBack(knockBack);
+            SetUpProjectile(BulletDamage);
 
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(SideCubeList[i].transform.up * Force, ForceMode2D.Impulse);
@@ -241,6 +242,8 @@ public class projectileShotGun : weapeon
             offset += pom;
         }
     }
+
+    
 
     private void OnDrawGizmos()
     {

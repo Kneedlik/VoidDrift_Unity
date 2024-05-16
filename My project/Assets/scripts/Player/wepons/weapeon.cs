@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class weapeon : MonoBehaviour
@@ -101,6 +102,14 @@ public class weapeon : MonoBehaviour
         updateDamage(100);
         updateSize(100);
         updateAS(100);
+    }
+
+    public void SetUpProjectile(BulletScript BulletDamage)
+    {
+        BulletDamage.setDamage(damage + extraDamage);
+        BulletDamage.setArea(size);
+        BulletDamage.setPierce(pierce);
+        BulletDamage.setKnockBack(knockBack);
     }
 
    // public void updateForce(float multiplier)
