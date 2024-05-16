@@ -70,7 +70,7 @@ public class poisonOnHit : upgrade
             description = string.Format("Poison max health damage + 0.6%");
         }else if(level == 9)
         {
-            poisonSystem.sharedInstance.maxHealthDMGamount += 0.6f;
+            poisonSystem.sharedInstance.maxHealthDMGamount += 0.06f;
             description = string.Format("Poison damage + {0}", damage);
             rarity -= 25;
         }else

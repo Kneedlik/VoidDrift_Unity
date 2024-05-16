@@ -10,7 +10,7 @@ public class AC_Raiden : upgrade
 
     public override bool requirmentsMet()
     {
-        if (levelingSystem.instance.level >= 30 && AC_Rockets.instance.level >= 1 && AC_multishot.instance.level >= 1 && levelingSystem.instance.FinallForm == false)
+        if (levelingSystem.instance.level >= 40 && AC_Rockets.instance.level >= 1 && AC_multishot.instance.level >= 1 && levelingSystem.instance.FinallForm == false)
         {
             //Debug.Log("je");
             return true;
@@ -39,6 +39,7 @@ public class AC_Raiden : upgrade
         levelingSystem.instance.FinallForm = true;
 
         PlayerStats.sharedInstance.increaseProjectiles(Projectiles);
+        AC_Rockets.instance.SetFirePoints();
         AC.ASmultiplier -= FireRatePenalty;
     }
 

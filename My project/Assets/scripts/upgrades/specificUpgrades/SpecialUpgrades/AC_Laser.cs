@@ -8,7 +8,7 @@ public class AC_Laser : upgrade
 
     public override bool requirmentsMet()
     {
-        if(levelingSystem.instance.level >= 30 && AC_GatlingGun.instance.level >= 1 && levelingSystem.instance.FinallForm == false)
+        if(levelingSystem.instance.level >= 40 && AC_GatlingGun.instance.level >= 2 && levelingSystem.instance.FinallForm == false)
         {
             return true;
         }else return false;

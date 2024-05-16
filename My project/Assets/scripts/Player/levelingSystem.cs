@@ -44,6 +44,8 @@ public class levelingSystem : MonoBehaviour
     [SerializeField] List<Image> BorderImages = new List<Image>();
 
     [SerializeField] GameObject SaveScreen;
+    [SerializeField] GameObject UIVolume; 
+
 
     private void Awake()
     {
@@ -97,6 +99,27 @@ public class levelingSystem : MonoBehaviour
         }  
     }
 
+    public void OpenLevelMenu()
+    {
+        UIVolume.SetActive(true);
+        Volume.profile.TryGet<DepthOfField>(out DepthOfField depthOfField);
+        levelUpMenu.SetActive(true);
+        CursorManager.instance.setCursorPointer();
+        Time.timeScale = 0;
+        depthOfField.active = true;
+    }
+
+    public void CloseLevelMenu()
+    {
+        UIVolume.SetActive(false);
+
+        Volume.profile.TryGet<DepthOfField>(out DepthOfField depthOfField);
+        levelUpMenu.SetActive(false);
+        CursorManager.instance.setCursorCrosshair();
+        Time.timeScale = 1;
+        depthOfField.active = false;
+    }
+
     public void SetUpLevelMenu(bool Activate)
     {
         Volume.profile.TryGet<DepthOfField>(out DepthOfField depthOfField);
@@ -104,12 +127,7 @@ public class levelingSystem : MonoBehaviour
         if (Activate)
         {
             sorting.setUpCards();
-            levelUpMenu.SetActive(true);
-            CursorManager.instance.setCursorPointer();
-            
-            Time.timeScale = 0;
-            depthOfField.active = true;
-            Canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+            OpenLevelMenu();
 
             for (int i = 0; i < DissableObj.Count; i++)
             {
@@ -118,11 +136,8 @@ public class levelingSystem : MonoBehaviour
         }
         else
         {
-            levelUpMenu.SetActive(false);
-            CursorManager.instance.setCursorCrosshair();
-            Time.timeScale = 1;
-            depthOfField.active = false;
-            Canvas.renderMode = RenderMode.ScreenSpaceCamera;
+            CloseLevelMenu();
+            //Canvas.renderMode = RenderMode.ScreenSpaceCamera;
             CheckBoxes();
 
             for (int i = 0; i < DissableObj.Count; i++)
@@ -139,12 +154,8 @@ public class levelingSystem : MonoBehaviour
         if (Activate)
         {
             Sorting.setUpCards();
-            levelUpMenu.SetActive(true);
-            CursorManager.instance.setCursorPointer();
-
-            Time.timeScale = 0;
-            depthOfField.active = true;
-            Canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+            OpenLevelMenu();
+            //Canvas.renderMode = RenderMode.ScreenSpaceOverlay;
 
             for (int i = 0; i < DissableObj.Count; i++)
             {
@@ -153,11 +164,8 @@ public class levelingSystem : MonoBehaviour
         }
         else
         {
-            levelUpMenu.SetActive(false);
-            CursorManager.instance.setCursorCrosshair();
-            Time.timeScale = 1;
-            depthOfField.active = false;
-            Canvas.renderMode = RenderMode.ScreenSpaceCamera;
+            CloseLevelMenu();
+            //Canvas.renderMode = RenderMode.ScreenSpaceCamera;
             CheckBoxes();
 
             for (int i = 0; i < DissableObj.Count; i++)
@@ -174,12 +182,7 @@ public class levelingSystem : MonoBehaviour
         level = 10;
 
         sorting.setUpCards();
-        levelUpMenu.SetActive(true);
-        CursorManager.instance.setCursorPointer();
-
-        Time.timeScale = 0;
-        depthOfField.active = true;
-        Canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+        OpenLevelMenu();
 
         for (int i = 0; i < DissableObj.Count; i++)
         {
@@ -194,13 +197,8 @@ public class levelingSystem : MonoBehaviour
         int Level = level;
         level = 3;
 
-        sorting.setUpCards();
-        levelUpMenu.SetActive(true);
-        CursorManager.instance.setCursorPointer();
-
-        Time.timeScale = 0;
-        depthOfField.active = true;
-        Canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+        OpenLevelMenu();
+        //Canvas.renderMode = RenderMode.ScreenSpaceOverlay;
 
         for (int i = 0; i < DissableObj.Count; i++)
         {

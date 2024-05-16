@@ -66,8 +66,6 @@ public class AC_Splinter2 : upgrade
                 KnedlikLib.ScaleParticleByFloat(Obj, 1, true);
             }
 
-
-
             if (Amnount % 2 == 1)
             {
                 Count++;

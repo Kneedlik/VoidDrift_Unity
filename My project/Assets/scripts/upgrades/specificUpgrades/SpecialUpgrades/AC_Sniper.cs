@@ -23,7 +23,7 @@ public class AC_Sniper : upgrade
         gun.baseDamage += damageAmount;
         gun.ForceMultiplier += ForceAmount;
         gun.pierce += PierceAmount;
-        gun.baseBulletCoolDown -= ASpenalty;
+        gun.baseCoolDown -= ASpenalty;
 
         PlayerStats p = PlayerStats.sharedInstance;
 

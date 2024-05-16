@@ -42,7 +42,7 @@ public class upgradeSorting : MonoBehaviour
             {
                 if (rand > pom[i] && rand <= pom[i+1])
                 {
-                    cards[j].Upgrade = list[i].upgrade;
+                    cards[j].Upgrade = list[i];
                     int Temp = Base.list.IndexOf(list[i]);
                     if (Base.list[Temp].ApearedInRow < 3)
                     {
@@ -186,9 +186,9 @@ public class upgradeSorting : MonoBehaviour
             {
                 for (int j = 0; j < Base.list.Count; j++)
                 {
-                    if ((cards[i].Upgrade == Base.list[j].upgrade))
+                    if ((cards[i].Upgrade.upgrade == Base.list[j].upgrade))
                     {
-                        if (cards[i].Upgrade != Upgrade)
+                        if (cards[i].Upgrade.upgrade != Upgrade)
                         {
                             if (Base.list[j].NotChoosen < 2)
                             {

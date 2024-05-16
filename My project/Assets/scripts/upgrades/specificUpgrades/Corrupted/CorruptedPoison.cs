@@ -20,11 +20,11 @@ public class CorruptedPoison : upgrade
         }else if(level == 1)
         {
             poisonSystem.sharedInstance.CDamage += 25;
-            poisonSystem.sharedInstance.CTrueDamage += 0.1f;
+            poisonSystem.sharedInstance.CTrueDamage += 0.01f;
         }else if(level == 2)
         {
             poisonSystem.sharedInstance.CDamage += 25;
-            poisonSystem.sharedInstance.CTrueDamage += 0.1f;
+            poisonSystem.sharedInstance.CTrueDamage += 0.01f;
 
             rarity = 50;
             description = string.Format("Corrupted poison damage + 20");

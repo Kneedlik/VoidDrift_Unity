@@ -1,81 +1,58 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class projectileShotGun : MonoBehaviour
+public class projectileShotGun : weapeon
 {
-    public Transform firePoint;
-
     public float range;
     public float spread;
-    public int pellets;
-    GameObject[] E;
-    
+    [SerializeField] List<GameObject> CubeList = new List<GameObject>();
+    List<GameObject> SideCubeList = new List<GameObject>();
+
     public GameObject cube;
     public GameObject pellet;
-    GameObject pellet1;
-    public float bulletSpeed;
-    public int pelletDamage;
 
     bool shootCheck = false;
-    public float coolDown;
     float timeStamp;
 
     public int magSize;
     public float reloadSpeed;
     public int currentAmmo;
     float reloadTimeStamp;
+    public float BaseOffset;
+    public float BaseSideOffset;
+    public float MaxSideScaling;
+    public float OffsetScaling;
+    public float SideOffsetScaling;
 
+    //RingOfFire;
+    [HideInInspector] public int RingOfFireCount;
+    [HideInInspector] public bool RingOfFireActive;
+    Transform Player;
 
-    void Awake()
+    void Start()
     {
+        Player = GameObject.FindWithTag("Player").GetComponent<Transform>();
+        SetUpWeapeon();
         timeStamp = 0;
-        ;
 
-        float offset = spread / (pellets - 1);
-        float start = (spread / 2) * -1;
-        Vector2 firePoints;
-
-        E = new GameObject[pellets];
-        
-        // lines = new LineRenderer[pellets];
-
-        for (int i = 0; i < pellets; i++)
-        {
-            //lines[i] = line;
-
-            firePoints.y = start + firePoint.position.y;
-            firePoints.x = 0;
-
-            float distance = Vector2.Distance(firePoint.position, firePoints);
-            
-
-            while (distance < range)
-            {
-                firePoints.x += 0.1f;
-                distance = Vector2.Distance(firePoint.position, firePoints);
-            }
-
-            E[i] = Instantiate(cube);
-            E[i].transform.position = firePoints;
-            E[i].transform.rotation = Quaternion.identity;
-            E[i].transform.parent = gameObject.transform;
-
-            
-
-            start += offset;
-        }
         currentAmmo = magSize;
+        setFirepoints();
+        setSideFirepoints();
     }
 
     void Update()
     {
-
         if (currentAmmo <= 0)
         {
             reloadTimeStamp += Time.deltaTime;
             if (reloadTimeStamp >= reloadSpeed)
             {
+                if(RingOfFireActive)
+                {
+                    RingOfFire();
+                }
                 currentAmmo = magSize;
                 reloadTimeStamp = 0;
             }
@@ -86,37 +63,183 @@ public class projectileShotGun : MonoBehaviour
             timeStamp -= Time.deltaTime;
         }
 
-
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButton("Fire1"))
         {
             shootCheck = true;
+        }
+        else
+        {
+            shootCheck = false;
         }
 
         if (shootCheck && timeStamp <= 0 && currentAmmo > 0)
         {
             Shoot();
             shootCheck = false;
-            timeStamp = coolDown;
+            timeStamp = CoolDown;
             currentAmmo--;
-        }
-
-        
+        }   
     }
 
     void Shoot()
     {
-        for (int i = 0; i < pellets; i++)
+        Debug.Log("shooting");
+        int pom = extraDamage;
+        if (eventManager.OnFire != null)
         {
-            Vector2 dir = (E[i].transform.position - firePoint.position).normalized;
-
-            pellet1 = Instantiate(pellet,transform.position,Quaternion.identity);
-            pellet1.transform.position = firePoint.position;
-            Rigidbody2D rb = pellet1.GetComponent<Rigidbody2D>(); 
-            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90;
-            rb.rotation = angle;
-            rb.AddForce(dir * bulletSpeed, ForceMode2D.Impulse);
+            eventManager.OnFire(gameObject);
         }
 
+        for (int i = 0; i < CubeList.Count; i++)
+        {
+            GameObject PelletTemp = Instantiate(pellet, transform.position, Quaternion.identity);
+            if (eventManager.OnFireAll != null)
+            {
+                eventManager.OnFireAll(gameObject, PelletTemp);
+            }
+
+            PelletTemp.transform.position = firePoint.position;
+            Rigidbody2D rb = PelletTemp.GetComponent<Rigidbody2D>(); 
+            PelletTemp.transform.rotation = CubeList[i].transform.rotation;
+
+            BulletScript BulletDamage = PelletTemp.GetComponent<BulletScript>();
+            BulletDamage.setDamage(damage + extraDamage);
+            BulletDamage.setArea(size);
+            BulletDamage.setPierce(pierce);
+            BulletDamage.setKnockBack(knockBack);
+
+            rb.AddForce(PelletTemp.transform.up * Force, ForceMode2D.Impulse); 
+        }
+
+        for (int i = 0; i < SideCubeList.Count; i++)
+        {
+            GameObject bullet;
+            bullet = Instantiate(pellet, SideCubeList[i].transform.position, SideCubeList[i].transform.rotation);
+
+            if (eventManager.OnFireAll != null)
+            {
+                eventManager.OnFireAll(gameObject, bullet);
+            }
+
+            BulletScript BulletDamage = bullet.GetComponent<BulletScript>();
+            BulletDamage.setDamage(damage + extraDamage);
+            BulletDamage.setArea(size);
+            BulletDamage.setPierce(pierce);
+            BulletDamage.setKnockBack(knockBack);
+
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.AddForce(SideCubeList[i].transform.up * Force, ForceMode2D.Impulse);
+        }
+
+        extraDamage = pom;
+    }
+
+    public override void setFirepoints()
+    {
+        ResetFirePoints();
+        float offset = BaseOffset / projectileCount;
+        offset = offset + projectileCount * OffsetScaling;
+        float pom = offset;
+        int Count = projectileCount;
+        bool Switch = false;
+
+        if(projectileCount % 2 == 1)
+        {
+            GameObject CubeTemp = Instantiate(cube);
+            CubeTemp.transform.position = firePoint.position;
+            CubeTemp.transform.rotation = Quaternion.Euler(0, 0, firePoint.rotation.eulerAngles.z);
+            CubeTemp.transform.parent = gameObject.transform;
+            Count -= 1;
+            CubeList.Add(CubeTemp);
+        }
+        else
+        {
+            offset = offset / 2;
+        }
+
+        for (int i = 0; i < Count; i++)
+        {
+            GameObject CubeTemp = Instantiate(cube);
+            CubeTemp.transform.position = firePoint.position;
+
+            if (Switch)
+            {
+                CubeTemp.transform.rotation = Quaternion.Euler(0, 0, firePoint.rotation.eulerAngles.z + offset);
+                offset += pom;
+                Switch = false;
+            }else
+            {
+                CubeTemp.transform.rotation = Quaternion.Euler(0, 0, firePoint.rotation.eulerAngles.z - offset);
+                Switch = true;
+            }
+            
+            CubeTemp.transform.parent = gameObject.transform;
+            
+            CubeList.Add(CubeTemp);
+        }
+    }
+
+    public override void setSideFirepoints()
+    {
+        ResetFirePoints();
+        float offset = BaseSideOffset / sideProjectiles;
+        offset = offset + (sideProjectiles * SideOffsetScaling);
+        if (offset > MaxSideScaling && MaxSideScaling != 0)
+        {
+            offset = MaxSideScaling;
+        }
+        float offsetA = offset * 2;
+
+        for (int i = 0; i < sideProjectiles * 2;)
+        {
+            GameObject CubeTemp;
+            CubeTemp = Instantiate(cube, firePoint.position, Quaternion.Euler(0, 0, (offsetA * -1) + 270));
+            CubeTemp.transform.parent = gameObject.transform;
+            SideCubeList.Add(CubeTemp);
+            i++;
+            CubeTemp = Instantiate(cube, firePoint.position, Quaternion.Euler(0, 0, offsetA + 270));
+            CubeTemp.transform.parent = gameObject.transform;
+            SideCubeList.Add(CubeTemp);
+            i++;
+            offsetA += offset;
+        }
+    }
+
+    public override void ResetFirePoints()
+    {
+        for (int i = 0; i < CubeList.Count; i++)
+        {
+            Destroy(CubeList[i]);
+        }
+        CubeList.Clear();
+    }
+
+    public void ResetSideFirePoints()
+    {
+        for (int i = 0; i < SideCubeList.Count; i++)
+        {
+            Destroy(SideCubeList[i]);
+        }
+        SideCubeList.Clear();
+    }
+
+    public override GameObject GetProjectile()
+    {
+        return pellet;
+    }
+
+    public void RingOfFire()
+    {
+        float offset = Player.rotation.eulerAngles.z;
+        float pom = 360 / RingOfFireCount;
+
+        for(int i = 0;i < RingOfFireCount ;i++)
+        {
+            GameObject Pellet = Instantiate(pellet, Player.position, Quaternion.Euler(0, 0, offset));
+            Rigidbody2D rigidbody2D = Pellet.GetComponent<Rigidbody2D>();
+            rigidbody2D.AddForce(Pellet.transform.up * Force * 0.75f);
+            offset += pom;
+        }
     }
 
     private void OnDrawGizmos()

@@ -146,6 +146,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f708a74455290145962f13a5d4ec8c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damagePlus: 0
   damage: 10
-  destroyTime: 1
+  destroyTime: 0.35
+  pierce: 0
+  Bounce: 0
+  knockBack: 0
   impactEffect: {fileID: 907559903438879465, guid: 1ce0060ea82c3b44fbea7c2d7584e88e, type: 3}
+  impactParticles: {fileID: 0}
+  MaxBounceDistance: 0

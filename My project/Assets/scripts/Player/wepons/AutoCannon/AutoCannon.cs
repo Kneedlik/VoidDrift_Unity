@@ -5,6 +5,8 @@ using TMPro;
 
 public class AutoCannon : weapeon
 {
+    public Transform SidefirePoint1;
+    public Transform SidefirePoint2;
     public GameObject bulletPrefab;
     
     public float rapidFireDelay;
@@ -30,7 +32,7 @@ public class AutoCannon : weapeon
 
     public bool Laser;
     public bool Raiden;
-   [SerializeField] int RealProjectiles;
+    [SerializeField] int RealProjectiles;
     BulletScript BulletDamage;
    
 
@@ -44,10 +46,7 @@ public class AutoCannon : weapeon
 
     private void Start()
     {
-        startingDamage = baseDamage;
-        StartingForce = BaseForce;
-        StartingBulletCooldown = baseBulletCoolDown;
-        StartingSize = baseSize;
+        SetUpWeapeon();
 
         PlayerStats.OnLevel += SetAS;
         PlayerStats.OnLevel += SetForce;
@@ -55,10 +54,6 @@ public class AutoCannon : weapeon
         cubes = new GameObject[100];
         timeStamp = 0;
         shootCheck = false;
-        Force = BaseForce;
-        updateDamage(100);
-        updateSize(100);
-        updateAS(100);
         setFirepoints();
     }
 
@@ -83,7 +78,7 @@ public class AutoCannon : weapeon
             if (timeStamp <= 0)
             {
                 StartCoroutine(Shoot());
-                timeStamp = bulletCoolDown;
+                timeStamp = CoolDown;
             }
         }
     }
@@ -152,13 +147,13 @@ public class AutoCannon : weapeon
 
     public override void setSideFirepoints()
     {
-       
         float offset = baseSideOffset / sideProjectiles;
         offset = offset + (sideProjectiles * sideScaling) / sideProjectiles;
         if(offset > MaxSideScaling && MaxSideScaling != 0)
         {
             offset = MaxSideScaling;
         }
+        
         float offsetA = offset * 2;
 
         for (int i = 0; i < sideProjectiles * 2; i++)
@@ -179,6 +174,7 @@ public class AutoCannon : weapeon
     }
     public override void setFirepoints()
     {
+        ResetFirePoints();
         Transform Player = GameObject.FindWithTag("Player").GetComponent<Transform>();
          Range1 = range;
 
@@ -496,10 +492,7 @@ public class AutoCannon : weapeon
                 }
 
             }
-
         }
-
-
     }
 
     public override void ResetFirePoints()

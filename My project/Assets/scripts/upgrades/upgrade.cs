@@ -16,7 +16,9 @@ public enum type
 }
 
 //[CreateAssetMenu(fileName = "new upgrade", menuName = "upgrades")]
+[System.Serializable]
 public abstract class upgrade: MonoBehaviour
+
 {
     public int Id;
     public type Type;
@@ -28,6 +30,8 @@ public abstract class upgrade: MonoBehaviour
     public int level;
     public int maxLevel;
     public int rarity;
+    public List<SubserviantUpgrade> SubserviantUpgrades;
+    public bool Final;
 
     public virtual void function()
     {

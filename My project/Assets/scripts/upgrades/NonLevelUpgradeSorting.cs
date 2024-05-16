@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class NonLevelUpgradeSorting : MonoBehaviour
 {
     public List<upgradeDisplay> cards = new List<upgradeDisplay>();
-    public List<upgrade> list = new List<upgrade>();
+    public List<UpgradePlus> list = new List<UpgradePlus>();
 
     int rand;
     int total;
@@ -29,7 +29,7 @@ public class NonLevelUpgradeSorting : MonoBehaviour
 
             for (int i = 0; i < list.Count; i++)
             {
-                total += list[i].rarity;
+                total += list[i].upgrade.rarity;
                 pom[i + 1] = total;
             }
 
@@ -105,14 +105,16 @@ public class NonLevelUpgradeSorting : MonoBehaviour
 
     void upgradeFilter()
     {
-        list = new List<upgrade>();
+        list = new List<UpgradePlus>();
 
         foreach (Transform asset in transform)
         {
-            upgrade Upgrade = asset.GetComponent<upgrade>();
-            if(Upgrade.requirmentsMet())
+            UpgradePlus UpgradeTemp = new UpgradePlus();
+
+            UpgradeTemp.upgrade = asset.GetComponent<upgrade>();
+            if(UpgradeTemp.upgrade.requirmentsMet())
             {
-                list.Add(Upgrade);
+                list.Add(UpgradeTemp);
             }
         }
     }

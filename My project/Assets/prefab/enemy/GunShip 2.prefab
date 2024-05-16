@@ -110,7 +110,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3902809289429083275, guid: 22b0bc3c6d2c7f04abdf19f5f362e5e7, type: 3}
       propertyPath: speed
-      value: 2000
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 3902809289429083275, guid: 22b0bc3c6d2c7f04abdf19f5f362e5e7, type: 3}
       propertyPath: cannon

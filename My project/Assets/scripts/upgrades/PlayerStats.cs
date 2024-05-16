@@ -86,7 +86,6 @@ public class PlayerStats : MonoBehaviour
     public void IncreaseEXP(int exp)
     {
         EXPmultiplier += exp;
-        //Debug.Log("EXP");
     }
 
     public void increaseProjectiles(int amount)
@@ -94,7 +93,7 @@ public class PlayerStats : MonoBehaviour
         gun.projectileCount += amount;
         bonusProjectiles += amount;
 
-        gun.ResetFirePoints();
+        //gun.ResetFirePoints();
         player.rotation = Quaternion.Euler(0, 0, 0);
         gun.setFirepoints();
     }

@@ -4,26 +4,25 @@ using UnityEngine;
 
 public class weapeon : MonoBehaviour
 {
+    public int Id;
+    public List<upgrade> WeapeonUpgrades = new List<upgrade>();
+
     public Transform firePoint;
-    public Transform SidefirePoint1;
-    public Transform SidefirePoint2;
-
     public float ASmultiplier = 1;
-
     public int damage;
     public int baseDamage;
-    public int startingDamage;
+    [HideInInspector] public int startingDamage;
     public int extraDamage = 0;
     public float BaseForce = 10f;
-    public float StartingForce;
+    [HideInInspector] public float StartingForce;
     public float ForceMultiplier = 1;
     public float Force;
     public float size;
     public float baseSize = 1;
-    public float StartingSize;
-    public float baseBulletCoolDown;
-    public float StartingBulletCooldown;
-    public float bulletCoolDown;
+    [HideInInspector] public float StartingSize;
+    public float baseCoolDown;
+    [HideInInspector] public float StartingCooldown;
+    public float CoolDown;
     public int pierce = 1;
     public float knockBack;
     float pomDamage;
@@ -40,9 +39,9 @@ public class weapeon : MonoBehaviour
 
     public void SetAS()
     {
-        bulletCoolDown = baseBulletCoolDown / ASmultiplier;
+        CoolDown = baseCoolDown / ASmultiplier;
         float realMultiplier = (float)PlayerStats.sharedInstance.ASmultiplier / 100f;
-        bulletCoolDown = bulletCoolDown / realMultiplier;      
+        CoolDown = CoolDown / realMultiplier;      
     }
 
     public void SetForce()
@@ -54,7 +53,7 @@ public class weapeon : MonoBehaviour
     public void updateAS(int multiplier)
     {
         float realMultiplier = (float)multiplier / 100f;
-        bulletCoolDown = baseBulletCoolDown / realMultiplier;
+        CoolDown = baseCoolDown / realMultiplier;
     }
 
     public void updateSize(int multiplier)
@@ -86,10 +85,22 @@ public class weapeon : MonoBehaviour
         baseDamage = startingDamage;
         BaseForce = StartingForce;
         baseSize = StartingSize;
-        baseBulletCoolDown = StartingBulletCooldown;
+        baseCoolDown = StartingCooldown;
         projectileCount = 1;
         sideProjectiles = 0;
         pierce = 0;
+    }
+
+    public void SetUpWeapeon()
+    {
+        startingDamage = baseDamage;
+        StartingForce = BaseForce;
+        StartingCooldown = baseCoolDown;
+        StartingSize = baseSize;
+        Force = BaseForce;
+        updateDamage(100);
+        updateSize(100);
+        updateAS(100);
     }
 
    // public void updateForce(float multiplier)

@@ -62,7 +62,7 @@ public class poisonSystem : MonoBehaviour
         yield return new WaitForSeconds(CSpeed);
         int Damage = KnedlikLib.ScaleDamage(CDamage, true, true);
 
-        while (health != null && poisonedEnemies.Contains(target))
+        while (health != null && CpoisonedEnemies.Contains(target))
         {
             if (target.activeInHierarchy)
             {
@@ -96,7 +96,6 @@ public class poisonSystem : MonoBehaviour
 
     public void Poison(GameObject target, int damage, ref int plusDamage)
     {
-    
         float rand = Random.Range(0, 100);
         if(rand <= chance)
         {

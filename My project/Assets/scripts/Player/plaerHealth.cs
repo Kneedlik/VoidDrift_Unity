@@ -93,7 +93,7 @@ public class plaerHealth : MonoBehaviour
             Instantiate(DamageParticle, transform.position, Quaternion.Euler(Rand, 90, 0));
             Instantiate(shockWawe,transform.position,Quaternion.identity);
             timeStamp = iframes;
-            AudioManager.instance.PlayId(5);
+            AudioManager.instance.PlayId(6);
            
         }else if (shield.ready && invencible == false)
         {
