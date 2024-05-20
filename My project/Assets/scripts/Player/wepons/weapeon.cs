@@ -26,6 +26,7 @@ public class weapeon : MonoBehaviour
     public float CoolDown;
     public int pierce = 1;
     public float knockBack;
+    public float knockBackMultiplier = 1;
     float pomDamage;
     public int projectileCount;
     public int sideProjectiles = 0;
@@ -109,7 +110,7 @@ public class weapeon : MonoBehaviour
         BulletDamage.setDamage(damage + extraDamage);
         BulletDamage.setArea(size);
         BulletDamage.setPierce(pierce);
-        BulletDamage.setKnockBack(knockBack);
+        BulletDamage.setKnockBack(knockBack * knockBackMultiplier);
     }
 
    // public void updateForce(float multiplier)

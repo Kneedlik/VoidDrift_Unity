@@ -289,12 +289,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9741afc7616ffcc4599fbc0ee730efbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damagePlus: 0
+  damage: 20
+  destroyTime: 2.5
+  pierce: 0
+  Bounce: 0
+  knockBack: 0
+  impactEffect: {fileID: 0}
+  impactParticles: {fileID: 0}
+  MaxBounceDistance: 0
+  OnImpactGunOnly: 1
+  OnImpact: 1
+  OnCrit: 1
+  PostImpact: 1
   UseForce: 0
   force: 180
   MaxSpeed: 65
   rotSpeed: 500
-  damage: 20
-  destroyTime: 2.5
   Enemy: 0
   Trigger: 1
   ExploPrefab: {fileID: 2978104393020020910, guid: 842e6a304d27b7b44b9b0639dec70714, type: 3}

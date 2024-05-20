@@ -5,16 +5,24 @@ using UnityEngine.UIElements;
 
 public class BulletScript : Projectile
 {
+    public delegate void specialFunction(GameObject target, int damage, ref int scaledDamage);
+    public specialFunction function;
+
     private SpriteRenderer sr;
-    private Rigidbody2D rb;
+    protected Rigidbody2D rb;
     public GameObject impactEffect;
     public GameObject impactParticles;
-    Transform target;
+    protected Transform target;
     Color32 Color;
 
     public float MaxBounceDistance;
+    public bool OnImpactGunOnly;
+    public bool OnImpact;
+    public bool OnCrit;
+    public bool PostImpact;
 
     List<Transform> Enemies = new List<Transform>();
+    [HideInInspector] public List<GameObject> IgnoreTargets = new List<GameObject>();
     
     private void Start()
     {
@@ -26,63 +34,9 @@ public class BulletScript : Projectile
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.tag != "Player" && collision.isTrigger == false)
+        if (collision.transform.tag != "Player" && collision.isTrigger == false && IgnoreTargets.Contains(collision.gameObject) == false)
         {
-            Health health = collision.GetComponent<Health>();
-            Rigidbody2D rbTarget = collision.GetComponent<Rigidbody2D>();
-            Vector2 dir = (collision.transform.position - transform.position).normalized;
-
-            if (health != null)
-            {
-                if (rbTarget != null && knockBack > 0)
-                {
-                    StunOnHit stun = collision.GetComponent<StunOnHit>();
-                    if(stun != null)
-                    {
-                        stun.Stun();
-                    }
-
-                    rbTarget.velocity = rbTarget.velocity.normalized;
-                    rbTarget.AddForce(dir * knockBack, ForceMode2D.Impulse);
-                }
-
-            
-                if (eventManager.ImpactGunOnly != null)
-                {
-                    eventManager.ImpactGunOnly(collision.gameObject, gameObject);
-                }
-
-                if (eventManager.OnImpact != null)
-                {
-                    eventManager.OnImpact(collision.gameObject,damage,ref damagePlus);
-                }
-
-                if(eventManager.OnCrit != null)
-                {
-                    Color32 TempColor = eventManager.OnCrit(collision.gameObject, damagePlus, ref damagePlus);
-                    Color32 BaseColor = new Color32(0, 0, 0, 0);
-                    if(!TempColor.Equals(BaseColor))
-                    {
-                        Color = TempColor;
-                    }
-                }
-
-                if(eventManager.PostImpact != null)
-                {
-                    eventManager.PostImpact(collision.gameObject, damagePlus, ref damagePlus);
-                }
-
-                if(Color.Equals(new Color32(0,0,0,0)))
-                {
-                    health.TakeDamage(damagePlus);
-                }else
-                {
-                    //Debug.Log(Color);
-                    health.TakeDamage(damagePlus,Color);
-                }
-                
-            }
-
+            DealDamageToEmemy(collision);
 
             if (pierce <= 0)
             {
@@ -96,12 +50,11 @@ public class BulletScript : Projectile
                     bool RandomCheck = false;
                     if(KnedlikLib.FindClosestEnemy(gameObject.transform,out target,Enemies))
                     {
-                        rbTarget = target.GetComponent<Rigidbody2D>();
+                        Rigidbody2D rbTarget = target.GetComponent<Rigidbody2D>();
                         if (Vector3.Distance(target.position, transform.position) < MaxBounceDistance)
                         {
                             if (KnedlikLib.InterceptionPoint(target.position, transform.position, rbTarget.velocity, rb.velocity.magnitude, out direction))
                             {
-
                                 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
                                 rb.rotation = angle;
                                 rb.velocity = direction * rb.velocity.magnitude;
@@ -130,6 +83,7 @@ public class BulletScript : Projectile
                         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
                         rb.rotation = angle;
                     }
+                    IgnoreTargets.Add(collision.gameObject);
                 }
                 else
                 {
@@ -148,8 +102,66 @@ public class BulletScript : Projectile
         }
     }
 
-    private void Update()
+    public void DealDamageToEmemy(Collider2D collision)
     {
-       
+        Health health = collision.GetComponent<Health>();
+        Rigidbody2D rbTarget = collision.GetComponent<Rigidbody2D>();
+        Vector2 dir = (collision.transform.position - transform.position).normalized;
+
+        if (health != null)
+        {
+            if (rbTarget != null && knockBack > 0)
+            {
+                StunOnHit stun = collision.GetComponent<StunOnHit>();
+                if (stun != null)
+                {
+                    stun.Stun();
+                }
+
+                rbTarget.velocity = rbTarget.velocity.normalized;
+                rbTarget.AddForce(dir * knockBack, ForceMode2D.Impulse);
+            }
+
+            if(function != null)
+            {
+                function(collision.gameObject, damage, ref damage);
+            }
+
+            if (eventManager.ImpactGunOnly != null && OnImpactGunOnly)
+            {
+                eventManager.ImpactGunOnly(collision.gameObject, gameObject);
+            }
+
+            if (eventManager.OnImpact != null && OnImpact)
+            {
+                eventManager.OnImpact(collision.gameObject, damage, ref damagePlus);
+            }
+
+            if (eventManager.OnCrit != null && OnCrit)
+            {
+                Color32 TempColor = eventManager.OnCrit(collision.gameObject, damagePlus, ref damagePlus);
+                Color32 BaseColor = new Color32(0, 0, 0, 0);
+                if (!TempColor.Equals(BaseColor))
+                {
+                    Color = TempColor;
+                }
+            }
+
+            if (eventManager.PostImpact != null && PostImpact)
+            {
+                eventManager.PostImpact(collision.gameObject, damagePlus, ref damagePlus);
+            }
+
+            if (Color.Equals(new Color32(0, 0, 0, 0)))
+            {
+                health.TakeDamage(damagePlus);
+            }
+            else
+            {
+                //Debug.Log(Color);
+                health.TakeDamage(damagePlus, Color);
+            }
+
+        }
     }
 }

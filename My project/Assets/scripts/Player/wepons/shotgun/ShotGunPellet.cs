@@ -5,8 +5,6 @@ using UnityEngine;
 public class ShotGunPellet : BulletScript
 {
     private SpriteRenderer sr;
-    private Rigidbody2D rb;
-    Transform target;
     Color32 Color;
     List<Transform> Enemies = new List<Transform>();
 

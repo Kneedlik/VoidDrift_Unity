@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class projectileShotGun : weapeon
 {
     public float range;
     public float spread;
-    [SerializeField] List<GameObject> CubeList = new List<GameObject>();
+    List<GameObject> CubeList = new List<GameObject>();
     List<GameObject> SideCubeList = new List<GameObject>();
 
     public GameObject cube;
@@ -19,6 +20,7 @@ public class projectileShotGun : weapeon
 
     public int magSize;
     public float reloadSpeed;
+    public float reloadSpeedMultiplier = 1;
     public int currentAmmo;
     float reloadTimeStamp;
     public float BaseOffset;
@@ -38,6 +40,14 @@ public class projectileShotGun : weapeon
     public float ClusterDamageMultiplier;
     public float ClusterAliveTime;
 
+    [HideInInspector]public bool HomingForm = false;
+    public GameObject HomingProjectileObj;
+
+    [HideInInspector] public bool LaserForm = false;
+    public GameObject LineObj;
+
+
+
     void Start()
     {
         Player = GameObject.FindWithTag("Player").GetComponent<Transform>();
@@ -54,7 +64,7 @@ public class projectileShotGun : weapeon
         if (currentAmmo <= 0)
         {
             reloadTimeStamp += Time.deltaTime;
-            if (reloadTimeStamp >= reloadSpeed)
+            if (reloadTimeStamp >= (reloadSpeed / reloadSpeedMultiplier))
             {
                 if(RingOfFireActive)
                 {
@@ -99,7 +109,16 @@ public class projectileShotGun : weapeon
 
         for (int i = 0; i < CubeList.Count; i++)
         {
-            GameObject PelletTemp = Instantiate(pellet, transform.position, Quaternion.identity);
+            GameObject PelletTemp;
+            if (HomingForm)
+            {
+                 PelletTemp = Instantiate(HomingProjectileObj, transform.position, Quaternion.identity);
+            }
+            else
+            {
+                 PelletTemp = Instantiate(pellet, transform.position, Quaternion.identity);
+            }
+
             if (eventManager.OnFireAll != null)
             {
                 eventManager.OnFireAll(gameObject, PelletTemp);
@@ -109,10 +128,21 @@ public class projectileShotGun : weapeon
             Rigidbody2D rb = PelletTemp.GetComponent<Rigidbody2D>(); 
             PelletTemp.transform.rotation = CubeList[i].transform.rotation;
 
-            BulletScript BulletDamage = PelletTemp.GetComponent<BulletScript>();
-            SetUpProjectile(BulletDamage);
-
-            rb.AddForce(PelletTemp.transform.up * Force, ForceMode2D.Impulse); 
+            if (HomingForm)
+            {
+                HomingProjectile Homing = PelletTemp.GetComponent<HomingProjectile>();
+                SetUpProjectile(Homing);
+                Homing.force = Homing.force * ForceMultiplier;
+                Homing.MaxSpeed = Homing.MaxSpeed * ForceMultiplier;
+                Homing.function += BugetCluster;
+            }
+            else
+            {
+                ShotGunPellet BulletDamage = PelletTemp.GetComponent<ShotGunPellet>();
+                SetUpProjectile(BulletDamage);
+                BulletDamage.ClusterAmount = ClusterAmount;
+                rb.AddForce(PelletTemp.transform.up * Force, ForceMode2D.Impulse);
+            } 
         }
 
         for (int i = 0; i < SideCubeList.Count; i++)
@@ -125,8 +155,9 @@ public class projectileShotGun : weapeon
                 eventManager.OnFireAll(gameObject, bullet);
             }
 
-            BulletScript BulletDamage = bullet.GetComponent<BulletScript>();
+            ShotGunPellet BulletDamage = bullet.GetComponent<ShotGunPellet>();
             SetUpProjectile(BulletDamage);
+            BulletDamage.ClusterAmount = ClusterAmount;
 
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(SideCubeList[i].transform.up * Force, ForceMode2D.Impulse);
@@ -205,7 +236,6 @@ public class projectileShotGun : weapeon
             offsetA += offset;
         }
     }
-
     public override void ResetFirePoints()
     {
         for (int i = 0; i < CubeList.Count; i++)
@@ -243,7 +273,31 @@ public class projectileShotGun : weapeon
         }
     }
 
-    
+    public void BugetCluster(GameObject target, int damage, ref int scaledDamage)
+    {
+        scaledDamage = damage;
+        float offset = 360f / ClusterProjectiles;
+        float pom = offset;
+
+        for (int i = 0; i < ClusterProjectiles; i++)
+        {
+            GameObject Pellet = Instantiate(pellet, transform.position, Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + offset));
+            HomingProjectile HomingScr = Pellet.GetComponent<HomingProjectile>();
+            SetUpProjectile(HomingScr);
+            Pellet.transform.localScale = new Vector3(Pellet.transform.localScale.x * 0.5f, Pellet.transform.localScale.y * 0.5f, Pellet.transform.localScale.z * 0.5f);
+            HomingScr.IgnoreTargets.Add(target);
+            HomingScr.force = HomingScr.force * ForceMultiplier * 0.5f;
+            HomingScr.MaxSpeed = HomingScr.MaxSpeed * ForceMultiplier * 0.5f;
+
+            
+            HomingScr.destroyTime = HomingScr.destroyTime * 0.5f;
+            float damagePom = HomingScr.damage * ClusterDamageMultiplier;
+            HomingScr.damage = (int)damagePom;
+
+            offset += pom;
+        }
+
+    }
 
     private void OnDrawGizmos()
     {

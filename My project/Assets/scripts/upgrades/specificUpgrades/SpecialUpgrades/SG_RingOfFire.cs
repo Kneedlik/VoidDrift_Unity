@@ -20,6 +20,7 @@ public class SG_RingOfFire : upgrade
         {
             ShotGun.RingOfFireCount = 10;
             ShotGun.RingOfFireActive = true;
+            description = string.Format("Ring of fire projectiles + 6");
         }else
         {
             ShotGun.RingOfFireCount += 6;

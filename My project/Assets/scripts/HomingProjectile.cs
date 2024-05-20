@@ -2,19 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HomingProjectile : MonoBehaviour
+public class HomingProjectile : BulletScript
 {
     public bool UseForce = false;
-    Transform target;
     public float force;
     public float MaxSpeed;
     public float rotSpeed;
-    public int damage;
     
-    Rigidbody2D rb;
-    public float destroyTime;
-    // public bool isTrigger = true;
-
     [SerializeField] bool Enemy = true;
     [SerializeField] bool Trigger = false;
     [SerializeField] GameObject ExploPrefab;
@@ -74,24 +68,6 @@ public class HomingProjectile : MonoBehaviour
         }
         
     }
-
-    //  private void OnTriggerEnter2D(Collider2D collision)
-    //  {
-    //
-    //        if (collision.transform.tag != "Enemy" && collision.isTrigger == false)
-    //        {
-    //           if (collision.transform.tag == "Player")
-    //           {
-    //               collision.gameObject.GetComponent<plaerHealth>().TakeDamage(damage);
-    //           }
-    //
-    //            rb.velocity = Vector2.zero;
-    //
-    //           Destroy(gameObject);
-    //        }
-
-    //  }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!Trigger)
@@ -183,15 +159,7 @@ public class HomingProjectile : MonoBehaviour
                 {
                     if (collision.transform.tag != "Player")
                     {
-                        if (damage > 0)
-                        {
-                            Health health = collision.gameObject.GetComponent<Health>();
-                            if (health != null)
-                            {
-                                health.TakeDamage(damage);
-                            }
-
-                        }
+                        DealDamageToEmemy(collision);
 
                         if(ExploPrefab != null)
                         {

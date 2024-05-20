@@ -11,9 +11,6 @@ public class Projectile : MonoBehaviour
     public int Bounce = 0;
     public float knockBack;
 
-    
-   
-    // Update is called once per frame
     public void setDamage(int Damage)
     {
         damagePlus = Damage;

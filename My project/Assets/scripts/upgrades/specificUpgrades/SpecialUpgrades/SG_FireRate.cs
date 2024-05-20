@@ -6,6 +6,7 @@ public class SG_FireRate : upgrade
 {
     public int AmmoAmount;
     public float ASAmount;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,8 @@ public class SG_FireRate : upgrade
         projectileShotGun ShotGun = GameObject.FindWithTag("Weapeon").GetComponent<projectileShotGun>();
         ShotGun.magSize += AmmoAmount;
         ShotGun.ASmultiplier += ASAmount;
+
+        //PlayerStats.sharedInstance.IncreaseAS(0);
 
         level++;
     }
