@@ -45,6 +45,7 @@ public class projectileShotGun : weapeon
 
     [HideInInspector] public bool LaserForm = false;
     public GameObject LineObj;
+    public GameObject LaserDamageObj;
 
 
 
@@ -91,7 +92,13 @@ public class projectileShotGun : weapeon
 
         if (shootCheck && timeStamp <= 0 && currentAmmo > 0)
         {
-            Shoot();
+            if (LaserForm == false)
+            {
+                Shoot();
+            }else
+            {
+                ShootHitScan();
+            }
             shootCheck = false;
             timeStamp = CoolDown;
             currentAmmo--;
@@ -297,6 +304,21 @@ public class projectileShotGun : weapeon
             offset += pom;
         }
 
+    }
+
+    public void ShootHitScan()
+    {
+        for (int i = 0; i < CubeList.Count; i++)
+        {
+            GameObject LineObjTemp;
+            LineObjTemp = Instantiate(LineObj, CubeList[i].transform.position, CubeList[i].transform.rotation);
+            Rigidbody2D RbTemp = LineObjTemp.GetComponent<Rigidbody2D>();
+            RbTemp.AddForce(LineObjTemp.transform.up * 500);
+
+            LineObjTemp = Instantiate(LaserDamageObj, CubeList[i].transform.position, CubeList[i].transform.rotation);
+
+
+        }
     }
 
     private void OnDrawGizmos()
