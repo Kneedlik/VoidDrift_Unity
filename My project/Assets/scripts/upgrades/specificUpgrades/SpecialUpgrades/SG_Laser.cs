@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class SG_Laser : upgrade
 {
+    [SerializeField] int DamageBonus;
+    [SerializeField] float FireRatePenalty;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,7 +16,10 @@ public class SG_Laser : upgrade
 
     public override void function()
     {
+        projectileShotGun ShotGun = GameObject.FindWithTag("Weapeon").GetComponent<projectileShotGun>();
         levelingSystem.instance.FinallForm = true;
+        ShotGun.ASmultiplier -= FireRatePenalty;
+        ShotGun.baseDamage += DamageBonus;
         level++;
     }
 }

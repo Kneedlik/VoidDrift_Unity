@@ -9,8 +9,8 @@ public class projectileShotGun : weapeon
 {
     public float range;
     public float spread;
-    List<GameObject> CubeList = new List<GameObject>();
-    List<GameObject> SideCubeList = new List<GameObject>();
+    [HideInInspector] public List<GameObject> CubeList = new List<GameObject>();
+    [HideInInspector] public List<GameObject> SideCubeList = new List<GameObject>();
 
     public GameObject cube;
     public GameObject pellet;
@@ -43,11 +43,14 @@ public class projectileShotGun : weapeon
     [HideInInspector]public bool HomingForm = false;
     public GameObject HomingProjectileObj;
 
-    [HideInInspector] public bool LaserForm = false;
+    public bool LaserForm = false;
     public GameObject LineObj;
+    public float LineSpeed;
     public GameObject LaserDamageObj;
-
-
+    public GameObject LaserImpactObj;
+    public float LaserImpactDelay;
+    public float LaserDamageDelay;
+    public float LaserRayCastSize;
 
     void Start()
     {
@@ -107,7 +110,6 @@ public class projectileShotGun : weapeon
 
     void Shoot()
     {
-        Debug.Log("shooting");
         int pom = extraDamage;
         if (eventManager.OnFire != null)
         {
@@ -220,7 +222,7 @@ public class projectileShotGun : weapeon
 
     public override void setSideFirepoints()
     {
-        ResetFirePoints();
+        ResetSideFirePoints();
         float offset = BaseSideOffset / sideProjectiles;
         offset = offset + (sideProjectiles * SideOffsetScaling);
         if (offset > MaxSideScaling && MaxSideScaling != 0)
@@ -308,17 +310,25 @@ public class projectileShotGun : weapeon
 
     public void ShootHitScan()
     {
-        for (int i = 0; i < CubeList.Count; i++)
+        int pom = extraDamage;
+        if (eventManager.OnFire != null)
         {
-            GameObject LineObjTemp;
-            LineObjTemp = Instantiate(LineObj, CubeList[i].transform.position, CubeList[i].transform.rotation);
-            Rigidbody2D RbTemp = LineObjTemp.GetComponent<Rigidbody2D>();
-            RbTemp.AddForce(LineObjTemp.transform.up * 500);
-
-            LineObjTemp = Instantiate(LaserDamageObj, CubeList[i].transform.position, CubeList[i].transform.rotation);
-
-
+            eventManager.OnFire(gameObject);
         }
+
+        GameObject ObjTemp;
+        ObjTemp = Instantiate(LaserImpactObj);
+        ObjTemp.GetComponent<ShotgunImapact>().Delay = LaserImpactDelay;
+        ObjTemp.GetComponent<ShotgunImapact>().Size = LaserRayCastSize;
+
+        ObjTemp = Instantiate(LaserDamageObj);
+        ShotgunLaserDamage LaserDamage = ObjTemp.GetComponent<ShotgunLaserDamage>();
+        LaserDamage.DelayBegin = LaserImpactDelay;
+        LaserDamage.DelayDamage = LaserDamageDelay;
+        LaserDamage.Size = LaserRayCastSize;
+        LaserDamage.damage = damage + extraDamage;
+
+        extraDamage = pom;
     }
 
     private void OnDrawGizmos()

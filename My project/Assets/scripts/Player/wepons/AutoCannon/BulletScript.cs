@@ -8,12 +8,12 @@ public class BulletScript : Projectile
     public delegate void specialFunction(GameObject target, int damage, ref int scaledDamage);
     public specialFunction function;
 
-    private SpriteRenderer sr;
+    protected SpriteRenderer sr;
     protected Rigidbody2D rb;
     public GameObject impactEffect;
     public GameObject impactParticles;
     protected Transform target;
-    Color32 Color;
+    protected Color32 Color;
 
     public float MaxBounceDistance;
     public bool OnImpactGunOnly;
@@ -21,7 +21,7 @@ public class BulletScript : Projectile
     public bool OnCrit;
     public bool PostImpact;
 
-    List<Transform> Enemies = new List<Transform>();
+    protected List<Transform> Enemies = new List<Transform>();
     [HideInInspector] public List<GameObject> IgnoreTargets = new List<GameObject>();
     
     private void Start()

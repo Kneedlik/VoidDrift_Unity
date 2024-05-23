@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class ShotGunPellet : BulletScript
 {
-    private SpriteRenderer sr;
-    Color32 Color;
-    List<Transform> Enemies = new List<Transform>();
-
     public int ClusterAmount;
-    public GameObject IgnoreTarget;
-    projectileShotGun ShotGun;
     
-
     private void Start()
     {
         sr = this.GetComponent<SpriteRenderer>();
@@ -23,63 +16,10 @@ public class ShotGunPellet : BulletScript
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.tag != "Player" && collision.isTrigger == false && collision.gameObject != IgnoreTarget)
+        if (collision.transform.tag != "Player" && collision.isTrigger == false && IgnoreTargets.Contains(collision.gameObject) == false)
         {
-            Health health = collision.GetComponent<Health>();
-            Rigidbody2D rbTarget = collision.GetComponent<Rigidbody2D>();
-            Vector2 dir = (collision.transform.position - transform.position).normalized;
-
-            if (health != null)
-            {
-                if (rbTarget != null && knockBack > 0)
-                {
-                    StunOnHit stun = collision.GetComponent<StunOnHit>();
-                    if (stun != null)
-                    {
-                        stun.Stun();
-                    }
-
-                    rbTarget.velocity = rbTarget.velocity.normalized;
-                    rbTarget.AddForce(dir * knockBack, ForceMode2D.Impulse);
-                }
-
-
-                if (eventManager.ImpactGunOnly != null)
-                {
-                    eventManager.ImpactGunOnly(collision.gameObject, gameObject);
-                }
-
-                if (eventManager.OnImpact != null)
-                {
-                    eventManager.OnImpact(collision.gameObject, damage, ref damagePlus);
-                }
-
-                if (eventManager.OnCrit != null)
-                {
-                    Color32 TempColor = eventManager.OnCrit(collision.gameObject, damagePlus, ref damagePlus);
-                    Color32 BaseColor = new Color32(0, 0, 0, 0);
-                    if (!TempColor.Equals(BaseColor))
-                    {
-                        Color = TempColor;
-                    }
-                }
-
-                if (eventManager.PostImpact != null)
-                {
-                    eventManager.PostImpact(collision.gameObject, damagePlus, ref damagePlus);
-                }
-
-                if (Color.Equals(new Color32(0, 0, 0, 0)))
-                {
-                    health.TakeDamage(damagePlus);
-                }
-                else
-                {
-                    //Debug.Log(Color);
-                    health.TakeDamage(damagePlus, Color);
-                }
-
-            }
+            DealDamageToEmemy(collision);
+            Cluster(collision.gameObject);
 
             if (pierce <= 0)
             {
@@ -93,7 +33,7 @@ public class ShotGunPellet : BulletScript
                     bool RandomCheck = false;
                     if (KnedlikLib.FindClosestEnemy(gameObject.transform, out target, Enemies))
                     {
-                        rbTarget = target.GetComponent<Rigidbody2D>();
+                        Rigidbody2D rbTarget = target.GetComponent<Rigidbody2D>();
                         if (Vector3.Distance(target.position, transform.position) < MaxBounceDistance)
                         {
                             if (KnedlikLib.InterceptionPoint(target.position, transform.position, rbTarget.velocity, rb.velocity.magnitude, out direction))
@@ -150,6 +90,7 @@ public class ShotGunPellet : BulletScript
 
     public void Cluster(GameObject Target)
     {
+        projectileShotGun ShotGun = GameObject.FindWithTag("Weapeon").GetComponent<projectileShotGun>();
         float offset = 360f / ShotGun.ClusterProjectiles;
         float pom = offset;
 
@@ -160,7 +101,7 @@ public class ShotGunPellet : BulletScript
             ShotGunPellet PelletScript = Pellet.GetComponent<ShotGunPellet>();
             ShotGun.SetUpProjectile(PelletScript);
             PelletScript.ClusterAmount = ClusterAmount - 1;
-            PelletScript.IgnoreTarget = Target;
+            PelletScript.IgnoreTargets.Add(Target);
             PelletScript.destroyTime = ShotGun.ClusterAliveTime;
             float damagePom = PelletScript.damage * ShotGun.ClusterDamageMultiplier;
             PelletScript.damage = (int)damagePom;

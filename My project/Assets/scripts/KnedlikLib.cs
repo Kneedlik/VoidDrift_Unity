@@ -64,6 +64,18 @@ public static class KnedlikLib
 
         target.transform.localScale = new Vector3(size, size, size);
 
+        TrailRenderer Trail = target.GetComponent<TrailRenderer>();
+        if (Trail != null)
+        {
+            Trail.widthMultiplier = Trail.widthMultiplier * size;
+        }
+
+        LineRenderer Line = target.GetComponent<LineRenderer>();
+        if(Line != null)
+        {
+            Line.widthMultiplier = Line.widthMultiplier * size;
+        }
+
         foreach (Transform item in target.transform)
         {
             ParticleSystem P = item.GetComponent<ParticleSystem>();
