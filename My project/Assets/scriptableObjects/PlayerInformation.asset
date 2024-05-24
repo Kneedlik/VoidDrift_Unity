@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a18ae35618c9d0749aaf9d59f8abb42f, type: 3}
   m_Name: PlayerInformation
   m_EditorClassIdentifier: 
-  WeapeonId: 2
+  WeapeonId: 3

@@ -1,20 +1,15 @@
 
 using UnityEngine;
 
-public class MiningLaser : MonoBehaviour
+public class MiningLaser : weapeon
 {
-    public Transform firePoint;
     public LineRenderer lineRenderer;
-    public int damage = 5;
-    public float fireRate = 10;
-
-
-    private float nextTimeToFire;
-
+    float timeStamp;
 
     private void Start()
     {
-        nextTimeToFire = 0f;
+        SetUpWeapeon();
+        timeStamp = 0;
     }
 
     // Update is called once per frame
@@ -29,41 +24,90 @@ public class MiningLaser : MonoBehaviour
             lineRenderer.enabled = false;
         }
 
-        if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
+        if (Input.GetButton("Fire1") && timeStamp <= 0)
         {
-            nextTimeToFire = Time.time + 1f / fireRate;
+            timeStamp = CoolDown;
             DealDamage();
+        }
+
+        if(timeStamp >= 0)
+        {
+            timeStamp -= Time.deltaTime;
         }
     }
 
     void Shoot()
     {
-       RaycastHit2D hitInfo = Physics2D.Raycast(firePoint.position, firePoint.up);
-        if(hitInfo)
+        int PierceTemp = pierce;
+        bool Infinite = true;
+        RaycastHit2D[] hitInfo = Physics2D.RaycastAll(firePoint.position, firePoint.up);
+
+        for (int i = 0; i < hitInfo.Length; i++)
         {
-            lineRenderer.SetPosition(0, firePoint.position);
-            lineRenderer.SetPosition(1, hitInfo.point);
+            if (hitInfo[i].transform.GetComponent<Health>() != null)
+            {
+                if(PierceTemp == 0)
+                {
+                    Infinite = false;
+                    break;
+                }else
+                {
+                    PierceTemp -= 1;
+                }
+            }
+
+        }
+
+        PierceTemp = pierce;
+        if(Infinite == false)
+        {
+            int Index = 0;
+            for (int i = 0; i < hitInfo.Length;i++)
+            {
+                if (hitInfo[i].transform.GetComponent<Health>() != null)
+                {
+                    Index = i;
+                    if(PierceTemp <= 0)
+                    {
+                        break;
+                    }else
+                    {
+                        PierceTemp -= 1;
+                    }
+                }
+            }
+
+            lineRenderer.SetPosition(0  , firePoint.position);
+            lineRenderer.SetPosition(1, hitInfo[Index].point);
         }
         else
         {
             lineRenderer.SetPosition(0, firePoint.position);
             lineRenderer.SetPosition(1, firePoint.position + firePoint.up * 100);
-
         }
     }
 
     void DealDamage()
     {
-        RaycastHit2D hitInfo1 = Physics2D.Raycast(firePoint.position, firePoint.up);
+        int PierceTemp = pierce;
+        RaycastHit2D[] hitInfo = Physics2D.RaycastAll(firePoint.position, firePoint.up);
 
-        if (hitInfo1 && hitInfo1.transform.GetComponent<Health>() != null)
+        for (int i = 0;i < hitInfo.Length;i++)
         {
-           Health health = hitInfo1.transform.GetComponent<Health>();
-            if(health != null)
+            Health health = hitInfo[i].transform.GetComponent<Health>();
+            if (health != null)
             {
                 health.TakeDamage(damage);
+                if(PierceTemp <= 0)
+                {
+                    break;
+                }else
+                {
+                    PierceTemp -= 1;
+                }
             }
         }
+
 
        // if(hitInfo1.transform.tag == "Enemy")
        // {
