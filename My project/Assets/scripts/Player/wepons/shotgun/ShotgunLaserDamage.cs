@@ -49,7 +49,7 @@ public class ShotgunLaserDamage : MonoBehaviour
     {
         for (int i = 0; i < PosTemp.Count; i++)
         {
-            RaycastHit2D[] hitInfo = Physics2D.BoxCastAll(OreginTemp[i], new Vector2(Size * PlayerStats.sharedInstance.areaMultiplier / 100f, Size * PlayerStats.sharedInstance.areaMultiplier / 100f), AngleTemp[i], PosTemp[i].normalized,70f);
+            RaycastHit2D[] hitInfo = Physics2D.BoxCastAll(OreginTemp[i], new Vector2(Size, Size), AngleTemp[i], PosTemp[i].normalized,70f);
 
             for (int j = 0; j < hitInfo.Length; j++)
             {

@@ -58,7 +58,7 @@ public class weapeon : MonoBehaviour
         CoolDown = baseCoolDown / realMultiplier;
     }
 
-    public void updateSize(int multiplier)
+    public virtual void updateSize(int multiplier)
     {
         size = (float)multiplier / 100f * baseSize;
     }
