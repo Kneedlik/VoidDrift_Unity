@@ -30,7 +30,10 @@ public class weapeon : MonoBehaviour
     float pomDamage;
     public int projectileCount;
     public int sideProjectiles = 0;
-    
+
+     public List<GameObject> CubeList = new List<GameObject>();
+     public List<GameObject> SideCubeList = new List<GameObject>();
+
 
     public void updateDamage(int multiplier)
     {
@@ -70,10 +73,22 @@ public class weapeon : MonoBehaviour
 
     public virtual void setSideFirepoints()
     {
-
+        for (int i = 0; i < CubeList.Count; i++)
+        {
+            Destroy(CubeList[i]);
+        }
+        CubeList.Clear();
     }
 
     public virtual void ResetFirePoints()
+    {
+        for (int i = 0; i < SideCubeList.Count; i++)
+        {
+            Destroy(SideCubeList[i]);
+        }
+        SideCubeList.Clear();
+    }
+    public virtual void ResetSideFirePoints()
     {
 
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters;
 using System;
 using UnityEngine;
+using System.Drawing;
 
 public class Hovl_Laser : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class Hovl_Laser : MonoBehaviour
     public bool useLaserRotation = false;
 
     public float MaxLength;
-    private LineRenderer Laser;
+    [HideInInspector] public LineRenderer Laser;
 
     public float MainTextureLength = 1f;
     public float NoiseTextureLength = 1f;
@@ -31,7 +32,7 @@ public class Hovl_Laser : MonoBehaviour
     bool Endless;
     bool Enabled = false;
 
-    void Start ()
+    void Awake()
     {
         //Get LineRender and ParticleSystem components from current prefab;  
         Laser = GetComponent<LineRenderer>();
@@ -104,6 +105,12 @@ public class Hovl_Laser : MonoBehaviour
         StartPos = StartPosition;
         EndPos = EndPosition;
         Endless = EndlessTemp;
+    }
+
+    public void SetSize(float Width,float HitArea)
+    {
+        HitEffect.transform.localScale = new Vector3(HitArea,HitArea,HitArea);
+        Laser.widthMultiplier = Width;
     }
 
     public void EnablePrepare()

@@ -22,6 +22,8 @@ public class explosion : MonoBehaviour
     
     void Start()
     {
+
+        Debug.Log("420");
       //  if (destroyTime != 0)
       //  {
             Destroy(gameObject, destroyTime);

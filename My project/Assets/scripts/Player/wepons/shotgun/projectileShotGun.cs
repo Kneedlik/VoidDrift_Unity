@@ -9,8 +9,6 @@ public class projectileShotGun : weapeon
 {
     public float range;
     public float spread;
-    [HideInInspector] public List<GameObject> CubeList = new List<GameObject>();
-    [HideInInspector] public List<GameObject> SideCubeList = new List<GameObject>();
 
     public GameObject cube;
     public GameObject pellet;
@@ -244,23 +242,6 @@ public class projectileShotGun : weapeon
             i++;
             offsetA += offset;
         }
-    }
-    public override void ResetFirePoints()
-    {
-        for (int i = 0; i < CubeList.Count; i++)
-        {
-            Destroy(CubeList[i]);
-        }
-        CubeList.Clear();
-    }
-
-    public void ResetSideFirePoints()
-    {
-        for (int i = 0; i < SideCubeList.Count; i++)
-        {
-            Destroy(SideCubeList[i]);
-        }
-        SideCubeList.Clear();
     }
 
     public override GameObject GetProjectile()

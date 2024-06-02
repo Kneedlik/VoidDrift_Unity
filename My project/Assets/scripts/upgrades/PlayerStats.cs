@@ -125,7 +125,6 @@ public class PlayerStats : MonoBehaviour
        
     }
 
-   
     public void UpdateStats()
     {
         increaseDMG(0);

@@ -27,9 +27,7 @@ public class BulletScript : Projectile
     private void Start()
     {
         sr = this.GetComponent<SpriteRenderer>();
-        rb = this.GetComponent<Rigidbody2D>();
-       damage = damagePlus ;
-        Destroy(gameObject, destroyTime);
+        SetUpProjectile();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -90,15 +88,31 @@ public class BulletScript : Projectile
                     sr.enabled = false;
                     rb.velocity = Vector2.zero;
 
-                    Instantiate(impactEffect, transform.position, transform.rotation);
-                    if (impactParticles != null)
-                    {
-                        Instantiate(impactParticles, transform.position, Quaternion.Euler(-90, 0, 0));
-                    }
+                    SpawnEffects();
                     Destroy(gameObject);
                 }
             }
 
+        }
+    }
+
+    public void SetUpProjectile()
+    {
+        rb = this.GetComponent<Rigidbody2D>();
+        damage = damagePlus;
+        Destroy(gameObject, destroyTime);
+    }
+
+    public void SpawnEffects()
+    {
+        if(impactEffect != null)
+        {
+            Instantiate(impactEffect, transform.position, transform.rotation);
+        }
+        
+        if (impactParticles != null)
+        {
+            Instantiate(impactParticles, transform.position, Quaternion.Euler(-90, 0, 0));
         }
     }
 
