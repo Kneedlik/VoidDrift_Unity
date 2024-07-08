@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
+
 public class SpiritFlameSystem : MonoBehaviour
 {
     public static SpiritFlameSystem instance;
@@ -22,9 +23,7 @@ public class SpiritFlameSystem : MonoBehaviour
 
     [SerializeField] GameObject Fire;
    
-
     public bool active;
-
 
     void Start()
     {
@@ -76,8 +75,6 @@ public class SpiritFlameSystem : MonoBehaviour
                     stacks.Add(1);
                     timers.Add(duration);
                 }
-
-
                 
                 int i = enemies.IndexOf(target);
 
@@ -89,14 +86,8 @@ public class SpiritFlameSystem : MonoBehaviour
                 int index = enemies.IndexOf(target);
                 StartCoroutine(endSpiritFlame(i,F));
                
-            }
-           
-                
-            
-            
-        }
-
-        
+            }  
+        }   
     }
 
     public void ChangeColor(GameObject weapeon,GameObject bullet)

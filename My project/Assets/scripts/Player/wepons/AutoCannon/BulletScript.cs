@@ -34,7 +34,7 @@ public class BulletScript : Projectile
     {
         if (collision.transform.tag != "Player" && collision.isTrigger == false && IgnoreTargets.Contains(collision.gameObject) == false)
         {
-            DealDamageToEmemy(collision);
+            DealDamageToEmemy(collision, damage);
 
             if (pierce <= 0)
             {
@@ -103,20 +103,40 @@ public class BulletScript : Projectile
         Destroy(gameObject, destroyTime);
     }
 
-    public void SpawnEffects()
+    public void SpawnEffects(Vector3 Pos = new Vector3(),bool ChangeParticleRotation = false,Vector3 ParticleRotation = new Vector3())
     {
         if(impactEffect != null)
         {
-            Instantiate(impactEffect, transform.position, transform.rotation);
+            if(Pos != Vector3.zero)
+            {
+                Instantiate(impactEffect, Pos, transform.rotation);
+            }
+            else Instantiate(impactEffect, transform.position, transform.rotation);
         }
         
         if (impactParticles != null)
         {
-            Instantiate(impactParticles, transform.position, Quaternion.Euler(-90, 0, 0));
+            if (Pos != Vector3.zero)
+            {
+                if (ChangeParticleRotation)
+                {
+                    Instantiate(impactParticles, Pos, Quaternion.Euler(ParticleRotation));
+                }
+                else Instantiate(impactParticles, Pos, Quaternion.Euler(-90, 0, 0));
+            }
+            else
+            {
+                if (ChangeParticleRotation)
+                {
+                    Instantiate(impactParticles, transform.position, Quaternion.Euler(ParticleRotation));
+                }
+                else Instantiate(impactParticles, transform.position, Quaternion.Euler(-90, 0, 0));
+            }
+            
         }
     }
 
-    public void DealDamageToEmemy(Collider2D collision)
+    public void DealDamageToEmemy(Collider2D collision,int Damage)
     {
         Health health = collision.GetComponent<Health>();
         Rigidbody2D rbTarget = collision.GetComponent<Rigidbody2D>();
@@ -138,7 +158,7 @@ public class BulletScript : Projectile
 
             if(function != null)
             {
-                function(collision.gameObject, damage, ref damage);
+                function(collision.gameObject, Damage, ref Damage);
             }
 
             if (eventManager.ImpactGunOnly != null && OnImpactGunOnly)
@@ -148,7 +168,7 @@ public class BulletScript : Projectile
 
             if (eventManager.OnImpact != null && OnImpact)
             {
-                eventManager.OnImpact(collision.gameObject, damage, ref damagePlus);
+                eventManager.OnImpact(collision.gameObject, Damage, ref damagePlus);
             }
 
             if (eventManager.OnCrit != null && OnCrit)

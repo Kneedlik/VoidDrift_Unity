@@ -18,6 +18,7 @@ public class eventManager : MonoBehaviour
     public static ImpactEffect PostImpact;
     public static ImpactEffectColor OnCrit;
     public static ImpactProjectile ImpactGunOnly;
+    public static ImpactEffect ImpactGunOnlyHitScan;
 
     public  static OnFireEffect OnFire;
     public static OnFireAllEffect OnFireAll;

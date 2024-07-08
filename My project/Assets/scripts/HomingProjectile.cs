@@ -28,6 +28,7 @@ public class HomingProjectile : BulletScript
         rb = GetComponent<Rigidbody2D>();
         TimeStamp = Delay;
         Destroy(gameObject, destroyTime);
+        SetUpProjectile();
     }
 
     // Update is called once per frame
@@ -159,7 +160,7 @@ public class HomingProjectile : BulletScript
                 {
                     if (collision.transform.tag != "Player")
                     {
-                        DealDamageToEmemy(collision);
+                        DealDamageToEmemy(collision,damage);
 
                         if(ExploPrefab != null)
                         {

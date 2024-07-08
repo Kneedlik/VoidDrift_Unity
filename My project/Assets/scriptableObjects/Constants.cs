@@ -16,5 +16,6 @@ public static class Constants
     public static float ItemPullSpeed = 10;
     public static float DamageNumberOffset = 25;
     public static float DamageNumberMaxScale = 3.5f;
+    public static int FinalUpgradeLevel = 50;
     
 }

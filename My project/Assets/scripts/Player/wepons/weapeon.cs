@@ -12,6 +12,7 @@ public class weapeon : MonoBehaviour
     public float ASmultiplier = 1;
     public int damage;
     public int baseDamage;
+    public float damageMultiplier = 1f;
     [HideInInspector] public int startingDamage;
     public int extraDamage = 0;
     public float BaseForce = 10f;
@@ -27,7 +28,6 @@ public class weapeon : MonoBehaviour
     public int pierce = 1;
     public float knockBack;
     public float knockBackMultiplier = 1;
-    float pomDamage;
     public int projectileCount;
     public int sideProjectiles = 0;
 
@@ -38,7 +38,8 @@ public class weapeon : MonoBehaviour
     public void updateDamage(int multiplier)
     {
         float realMultiplier = (float)multiplier / 100f;
-        pomDamage = (float)baseDamage * realMultiplier;
+        float pomDamage = (float)baseDamage * damageMultiplier;
+        pomDamage = pomDamage * realMultiplier;
         damage = (int)pomDamage;
     }
 
@@ -82,15 +83,19 @@ public class weapeon : MonoBehaviour
 
     public virtual void ResetFirePoints()
     {
+        for (int i = 0; i < CubeList.Count; i++)
+        {
+            Destroy(CubeList[i]);
+        }
+        CubeList.Clear();
+    }
+    public virtual void ResetSideFirePoints()
+    {
         for (int i = 0; i < SideCubeList.Count; i++)
         {
             Destroy(SideCubeList[i]);
         }
         SideCubeList.Clear();
-    }
-    public virtual void ResetSideFirePoints()
-    {
-
     }
     public virtual GameObject GetProjectile()
     {

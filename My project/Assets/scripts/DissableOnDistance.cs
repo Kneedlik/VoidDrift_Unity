@@ -6,33 +6,38 @@ public class DissableOnDistance : MonoBehaviour
 {
     [SerializeField] Transform player;
     [SerializeField] float distance;
-
-    void Start()
-    {
-        
-    }
-
-    
+    [SerializeField] float UpdateTime = 0.2f;
+    float timeStamp;
+ 
     void Update()
     {
-        foreach (Transform e in transform)
+        if(timeStamp > 0)
         {
-            if(e.gameObject.activeSelf)
-            {
-                if(Vector3.Distance(player.position,e.position) > distance)
-                {
-                    e.gameObject.SetActive(false);
-                }
+            timeStamp -= Time.deltaTime;
+        }
 
-            }else if(e.gameObject.activeSelf == false)
+        if (timeStamp <= 0)
+        {
+            timeStamp = UpdateTime;
+            foreach (Transform e in transform)
             {
-                if(Vector3.Distance(player.position,e.position) < distance)
+                if (e.gameObject.activeSelf)
                 {
-                    e.gameObject.SetActive(true);
-                    Health health = e.gameObject.GetComponent<Health>();
-                    if(health != null)
+                    if (Vector3.Distance(player.position, e.position) > distance)
                     {
-                        health.setUp();
+                        e.gameObject.SetActive(false);
+                    }
+
+                } else if (e.gameObject.activeSelf == false)
+                {
+                    if (Vector3.Distance(player.position, e.position) < distance)
+                    {
+                        e.gameObject.SetActive(true);
+                        Health health = e.gameObject.GetComponent<Health>();
+                        if (health != null)
+                        {
+                            health.setUp();
+                        }
                     }
                 }
             }

@@ -12,13 +12,14 @@ public class ShotGunPellet : BulletScript
         rb = this.GetComponent<Rigidbody2D>();
         damage = damagePlus;
         Destroy(gameObject, destroyTime);
+        SetUpProjectile();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.tag != "Player" && collision.isTrigger == false && IgnoreTargets.Contains(collision.gameObject) == false)
         {
-            DealDamageToEmemy(collision);
+            DealDamageToEmemy(collision, damage);
             Cluster(collision.gameObject);
 
             if (pierce <= 0)

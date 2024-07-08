@@ -102,8 +102,14 @@ public class Hovl_Laser : MonoBehaviour
 
     public void SetUp(Vector3 StartPosition,Vector3 EndPosition,bool EndlessTemp)
     {
-        StartPos = StartPosition;
-        EndPos = EndPosition;
+        if (StartPosition != Vector3.zero)
+        {
+            StartPos = StartPosition;
+        }
+        if (EndPosition != Vector3.zero)
+        {
+            EndPos = EndPosition;
+        }
         Endless = EndlessTemp;
     }
 

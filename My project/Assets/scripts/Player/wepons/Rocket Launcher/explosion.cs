@@ -19,11 +19,10 @@ public class explosion : MonoBehaviour
     [SerializeField] bool ScaleArea;
     [SerializeField] bool Impact;
     [SerializeField] bool PostImpact;
+
     
     void Start()
     {
-
-        Debug.Log("420");
       //  if (destroyTime != 0)
       //  {
             Destroy(gameObject, destroyTime);
@@ -115,5 +114,4 @@ public class explosion : MonoBehaviour
             }
         }
     }
-
 }

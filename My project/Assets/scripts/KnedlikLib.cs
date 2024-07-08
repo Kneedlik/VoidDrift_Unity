@@ -280,6 +280,44 @@ public static class KnedlikLib
         }
     }
 
+    public static bool FindClosestEnemyToCursor(Camera camera, out Transform target)
+    {
+        target = null;
+        GameObject[] Enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        List<GameObject> Enemies2 = new List<GameObject>();
+        List<Renderer> renderers = new List<Renderer>();
+
+        for (int i = 0; i < Enemies.Length; i++)
+        {
+            renderers.Add(Enemies[i].GetComponent<Renderer>());
+        }
+
+        for (int i = 0; i < renderers.Count; i++)
+        {
+            if (renderers[i].isVisible)
+            {
+                Enemies2.Add(Enemies[i]);
+            }
+        }
+
+        Vector3 MousePos = camera.ScreenToWorldPoint(Input.mousePosition);
+        if (Enemies2.Count > 0)
+        {
+            for (int i = 0; i < Enemies2.Count; i++)
+            {
+                if (target == null)
+                {
+                    target = Enemies2[i].transform;
+                }
+                else if (Vector3.Distance(target.position, MousePos) > Vector3.Distance(Enemies2[i].transform.position, MousePos))
+                {
+                    target = Enemies2[i].transform;
+                }
+            }
+            return true;
+        }else return false;
+    }
+
     public static bool FindRandomEnemy(out Transform target)
     {
         GameObject[] Enemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -578,4 +616,14 @@ public static class KnedlikLib
         return upgradeTemp;
     }
 
+    public static void PlayDead(GameObject target)
+    {
+        target.GetComponent<SpriteRenderer>().enabled = false;
+        target.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+        foreach(GameObject G in target.transform)
+        {
+            Debug.Log("Yep");
+            G.gameObject.SetActive(false);
+        }
+    }
 }

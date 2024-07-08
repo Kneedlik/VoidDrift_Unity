@@ -80,6 +80,14 @@ public abstract class upgrade: MonoBehaviour
         }   
     }
 
+    public bool FinalConditionsMet()
+    {
+        if(levelingSystem.instance.level >= Constants.FinalUpgradeLevel && levelingSystem.instance.FinallForm == false)
+        {
+            return true;
+        }else return false;
+    }
+
 }
 
 

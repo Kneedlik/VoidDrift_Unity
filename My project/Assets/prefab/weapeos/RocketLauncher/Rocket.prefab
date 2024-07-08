@@ -112,14 +112,15 @@ MonoBehaviour:
   impactParticles: {fileID: 0}
   MaxBounceDistance: 0
   OnImpactGunOnly: 0
-  OnImpact: 1
-  OnCrit: 1
-  PostImpact: 1
+  OnImpact: 0
+  OnCrit: 0
+  PostImpact: 0
   IgnoreTargets: []
   rocketSpeed: 70
-  explosion: {fileID: 2978104393020020910, guid: 842e6a304d27b7b44b9b0639dec70714, type: 3}
+  explosion: {fileID: 7262436819839762217, guid: 31d2077c9507b644380fdda1e727cc53, type: 3}
   speedGrowth: 4
   maxSpeed: 250
+  Delay: 0
 --- !u!50 &8842196154649221229
 Rigidbody2D:
   serializedVersion: 4
