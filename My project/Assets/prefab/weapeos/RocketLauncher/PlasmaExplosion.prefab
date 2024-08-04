@@ -72,3 +72,4 @@ MonoBehaviour:
   ScaleArea: 1
   Impact: 1
   PostImpact: 1
+  Stun: 1

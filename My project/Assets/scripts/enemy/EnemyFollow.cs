@@ -7,6 +7,7 @@ public class EnemyFollow : MonoBehaviour
     Transform target;
     public float speed;
     public float maxSpeed;
+    public float Multiplier = 1f;
     private Rigidbody2D rb; 
     private float pom = 30;
 
@@ -45,8 +46,8 @@ public class EnemyFollow : MonoBehaviour
         if (StunTemp == false)
         {
             Vector3 dir = target.position - transform.position;
-            rb.AddForce(dir.normalized * speed);
-            KnedlikLib.SetMaxSpeed(maxSpeed, rb);
+            rb.AddForce(dir.normalized * speed * Multiplier);
+            KnedlikLib.SetMaxSpeed(maxSpeed * Multiplier, rb);
         }
     }
 

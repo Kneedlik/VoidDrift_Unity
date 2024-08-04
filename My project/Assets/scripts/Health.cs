@@ -17,9 +17,8 @@ public class Health : MonoBehaviour
     public GameObject self;
     public GameObject healthBarGObject;
     public healthBar healthBar;
-    public float damageMultiplier = 1;
     public int armor = 0;
-    public float multiplier;
+    public float multiplier = 1;
 
     public GameObject ParticleExplosion;
     public GameObject DeathAnim;
@@ -43,7 +42,11 @@ public class Health : MonoBehaviour
 
     private void Awake()
     {
-        multiplier = 1;
+        if (multiplier == 0)
+        {
+            multiplier = 1;
+        }
+
         if (healthBarGObject != null)
         {
             healthBar = healthBarGObject.GetComponent<healthBar>();

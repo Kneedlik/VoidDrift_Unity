@@ -620,10 +620,21 @@ public static class KnedlikLib
     {
         target.GetComponent<SpriteRenderer>().enabled = false;
         target.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-        foreach(GameObject G in target.transform)
+        foreach(Transform item in target.transform)
         {
-            Debug.Log("Yep");
-            G.gameObject.SetActive(false);
+            item.gameObject.SetActive(false);
+        }
+    }
+
+    public static void TryStun(GameObject Target)
+    {
+        if (Target != null)
+        {
+            StunOnHit stun = Target.GetComponent<StunOnHit>();
+            if (stun != null)
+            {
+                stun.Stun();
+            }
         }
     }
 }

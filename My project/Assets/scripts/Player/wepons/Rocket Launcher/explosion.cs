@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class explosion : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class explosion : MonoBehaviour
     public specialFunction function;
 
     public int damage;
-    public int reducedDamage;
+    public int PlayerDamage;
     public float TrueDamage;
     public float destroyTime;
     public float force;
@@ -19,6 +20,7 @@ public class explosion : MonoBehaviour
     [SerializeField] bool ScaleArea;
     [SerializeField] bool Impact;
     [SerializeField] bool PostImpact;
+    public bool Stun;
 
     
     void Start()
@@ -46,14 +48,24 @@ public class explosion : MonoBehaviour
     {
         if (!collision.isTrigger)
         {
-            Vector2 dir = (collision.transform.position - transform.position).normalized;
+            Vector3 dir = (collision.transform.position - transform.position).normalized;
 
             if (force > 0)
             {
                 if (collision.isTrigger == false)
                 {
-                    Rigidbody2D rb = collision.GetComponent<Rigidbody2D>();
-                    rb.AddForce(dir * force, ForceMode2D.Impulse);
+                    if (isEnemy || collision.tag != "Player")
+                    {
+                        if (Stun)
+                        {
+                            KnedlikLib.TryStun(collision.gameObject);
+                        }
+                        Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
+                        Debug.Log(dir);
+                        Debug.Log(force);
+                        rb.velocity = rb.velocity.normalized;
+                        rb.AddForce(dir * force, ForceMode2D.Impulse);
+                    }
                 }
             }
 
@@ -69,15 +81,15 @@ public class explosion : MonoBehaviour
             {
                 if (pHealth != null)
                 {
-                    pHealth.TakeDamage(damage);
+                    pHealth.TakeDamage(PlayerDamage);
                 }
 
                 if (health != null)
                 {
-                    int pom = reducedDamage;
+                    int pom = damage;
                     if (LevelScaling)
                     {
-                        pom = KnedlikLib.ScaleByLevel(reducedDamage);
+                        pom = KnedlikLib.ScaleByLevel(damage);
                     }
 
                     if (TrueDamage > 0)
@@ -92,9 +104,9 @@ public class explosion : MonoBehaviour
             {
                 if (pHealth != null)
                 {
-                    if (reducedDamage > 0)
+                    if (PlayerDamage > 0)
                     {
-                        pHealth.TakeDamage(reducedDamage);
+                        pHealth.TakeDamage(PlayerDamage);
                     }
                 }
                 if (health != null)

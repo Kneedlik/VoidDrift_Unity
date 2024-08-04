@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class touchDamage : MonoBehaviour
 {
-
     public int damage;
     public float coolDown;
     private float coolDownTime;
+    [SerializeField] bool Trigger = false;
 
     void Start()
     {
@@ -37,6 +37,11 @@ public class touchDamage : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        if(Trigger == false)
+        {
+            return;
+        }
+
         if (collision.gameObject.tag == "Player")
         {
             if (coolDownTime <= 0)

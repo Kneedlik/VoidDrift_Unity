@@ -52,7 +52,7 @@ public class rocket : BulletScript
             }
 
             Dead = true;
-            DeadPos = collision.transform.position;
+            DeadPos = transform.position;
             //DealDamageToEmemy(collision);
             KnedlikLib.PlayDead(gameObject);
             if (Delay == 0)

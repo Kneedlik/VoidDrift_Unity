@@ -36,13 +36,13 @@ public class plaerHealth : MonoBehaviour
 
     //revive
     [SerializeField] GameObject reviveParticle;
-    [SerializeField] Slider slider;
+    [SerializeField] Slider ReviveSlider;
 
      public GameObject shockWawe;
 
     [SerializeField] float healthBarFlashDuration;
-    public Image fill;
-   public Coroutine flash;
+    public Image PlayerHfill;
+    public Coroutine flash;
     public bool half = false;
 
     private void Start()
@@ -59,6 +59,11 @@ public class plaerHealth : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
+        if (damage == 0)
+        {
+            return;
+        }
+
         bool ready = false;
         if(shield.isActiveAndEnabled)
         {
@@ -143,7 +148,7 @@ public class plaerHealth : MonoBehaviour
         yield return new WaitForSeconds(deathDelay / 1.5f);
 
         PlayerStats.sharedInstance.revives -= 1;
-        slider.value -= 1;
+        ReviveSlider.value -= 1;
         health = maxHealth;
         healthBar.SetHealth(health);
         timeStamp = 1.5f;
@@ -248,21 +253,21 @@ public class plaerHealth : MonoBehaviour
 
    void flashHealthBar()
     {
-        Color color = fill.color;
+        Color color = PlayerHfill.color;
 
         if(flash != null)
         {
             StopCoroutine(flash);
-            fill.color = color;
+            PlayerHfill.color = color;
         }
         flash = StartCoroutine(flashHealthBarRutine(color));
     }
 
     IEnumerator flashHealthBarRutine(Color c)
     {
-        fill.color = Color.white;
+        PlayerHfill.color = Color.white;
         yield return new WaitForSeconds(healthBarFlashDuration);
-        fill.color = c;
+        PlayerHfill.color = c;
         
     }
 

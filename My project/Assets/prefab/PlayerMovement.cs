@@ -7,14 +7,14 @@ public class PlayerMovement : MonoBehaviour
     //mouse
     private Rigidbody2D rb;
     private Vector2 mousePos;
-    public Camera cam;
+    Camera cam;
 
     //combat movement
     private Vector2 movement;
     public float baseMoveSpeed;
     public float baseMaxSpeed;
-   public float moveSpeed;
-   public float maxSpeed;
+    public float moveSpeed;
+    public float maxSpeed;
 
     //travel movement
     public float moveSpeed_1;
@@ -60,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
         pom = rb.mass;
        // spaceDownTime = 0;
         updateMS(100);
+        cam = Camera.main;
     }
     void Update()
     {

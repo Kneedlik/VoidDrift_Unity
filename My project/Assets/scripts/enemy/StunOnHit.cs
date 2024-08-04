@@ -8,6 +8,12 @@ public class StunOnHit : MonoBehaviour
     public bool stop;
     public float StunDuration;
     float timeStamp;
+    Rigidbody2D Rb;
+
+    private void Start()
+    {
+        Rb = GetComponent<Rigidbody2D>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -23,15 +29,16 @@ public class StunOnHit : MonoBehaviour
         }
     }
 
-    public void Stun(bool ZeroVelocity = false,Rigidbody2D rbTarget = null)
+    public void Stun()
     {
-        stop = true;
+        
         timeStamp = StunDuration;
 
-        if (ZeroVelocity && rbTarget != null)
+        if (Rb != null && stop == false)
         {
-            rbTarget.velocity = rbTarget.velocity.normalized;
+            Rb.velocity = Rb.velocity.normalized;
         }
+        stop = true;
     }
 
    

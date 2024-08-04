@@ -261,7 +261,6 @@ MonoBehaviour:
   self: {fileID: 9134502682905301589}
   healthBarGObject: {fileID: 0}
   healthBar: {fileID: 0}
-  damageMultiplier: 1
   armor: 5
   multiplier: 0
   ParticleExplosion: {fileID: 0}
@@ -288,7 +287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45c0708041036e343b357b8f0d399190, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 15
+  damage: 20
   coolDown: 1
 --- !u!114 &56373245907405246
 MonoBehaviour:
@@ -320,7 +319,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 55
-  maxSpeed: 7.4
+  maxSpeed: 7.3
+  Multiplier: 1
 --- !u!114 &4267888923654197807
 MonoBehaviour:
   m_ObjectHideFlags: 0

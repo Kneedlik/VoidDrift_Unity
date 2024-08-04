@@ -8,20 +8,19 @@ public class spawner : MonoBehaviour
 
     public float offsetX;
     public float offsetY;
-     float spawnRate;
-     int spawnN;
+    float spawnRate;
+    int spawnN;
    
     public bool active = true;
     public bool Endless = false;
 
-   
     public Transform parent;
 
-     int max;
-     int min;
+    int max;
+    int min;
 
     float end;
-   public int count;
+    public int count;
     public Counter counter;
 
     float timeStamp;

@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class Rotate : MonoBehaviour
 {
-    public float Rot;
+    [HideInInspector] public float Rot;
     public float Speed;
- 
-
     void Update()
     {
         Rot += Time.deltaTime * Speed;

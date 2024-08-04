@@ -136,13 +136,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33f843fd8fe2bde42b51a19585a96014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 15
-  reducedDamage: 10
+  damage: 40
+  PlayerDamage: 20
   TrueDamage: 0
   destroyTime: 0.3
   force: 7.5
   isEnemy: 1
   LevelScaling: 0
+  ScaleDmg: 0
+  ScaleArea: 0
+  Impact: 0
+  PostImpact: 0
+  Stun: 0
 --- !u!1 &6504948478918992659
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,17 +18,22 @@ public class parallaxBackground : MonoBehaviour
         cameraTransform = Camera.main.transform;
         lastCameraPosition = cameraTransform.position;
         Sprite sprite = GetComponent<SpriteRenderer>().sprite;
-        Texture2D texture = sprite.texture;
-        textureUnitSizeX = (texture.width / sprite.pixelsPerUnit) * sizeMultiplier;
-        textureUnitSizeY = (texture.height / sprite.pixelsPerUnit) * sizeMultiplier;
+        if (sprite != null)
+        {
+            Texture2D texture = sprite.texture;
+            textureUnitSizeX = (texture.width / sprite.pixelsPerUnit) * sizeMultiplier;
+            textureUnitSizeY = (texture.height / sprite.pixelsPerUnit) * sizeMultiplier;
+        }
+        
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
+        //Debug.Log(Camera.main.transform.position);
         Vector3 deltaMovement = cameraTransform.position - lastCameraPosition;
         transform.position += deltaMovement * parallaxMultiplier;
-       lastCameraPosition = cameraTransform.position;
+        lastCameraPosition = cameraTransform.position;
 
         if(Mathf.Abs(cameraTransform.position.x - transform.position.x) >= textureUnitSizeX)
         {

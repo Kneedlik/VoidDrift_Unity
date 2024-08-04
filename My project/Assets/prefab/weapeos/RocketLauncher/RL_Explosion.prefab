@@ -250,10 +250,11 @@ MonoBehaviour:
   reducedDamage: 0
   TrueDamage: 0
   destroyTime: 0.3
-  force: 0
+  force: 8.5
   isEnemy: 0
   LevelScaling: 0
   ScaleDmg: 0
   ScaleArea: 1
   Impact: 1
   PostImpact: 1
+  Stun: 1

@@ -27,7 +27,7 @@ public class DoubleHp : upgrade
         {
             plaerHealth.Instance.StopCoroutine(plaerHealth.Instance.flash);
         }
-        plaerHealth.Instance.fill.color = new Color32(0, 255, 45, 255);
+        plaerHealth.Instance.PlayerHfill.color = new Color32(0, 255, 45, 255);
 
         plaerHealth.Instance.half = true;
 

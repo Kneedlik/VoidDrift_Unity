@@ -61,7 +61,7 @@ public class SpininigSummonOrb : MonoBehaviour
                     StunOnHit stun = collision.GetComponent<StunOnHit>();
                     if (stun != null)
                     {
-                        stun.Stun(true, rigidbody);
+                        stun.Stun();
                     }
                     rigidbody.AddForce(rigidbody.velocity.normalized * KnockBack, ForceMode2D.Impulse);
                 }

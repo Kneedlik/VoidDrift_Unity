@@ -73,6 +73,7 @@ MonoBehaviour:
   ScaleArea: 0
   Impact: 1
   PostImpact: 1
+  Stun: 1
 --- !u!1 &6822802596355272271
 GameObject:
   m_ObjectHideFlags: 0
