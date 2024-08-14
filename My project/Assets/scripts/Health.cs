@@ -24,7 +24,7 @@ public class Health : MonoBehaviour
     public GameObject DeathAnim;
     public float DeathDelay = 0;
     public List<DeathFunc> DeathFunc = new List<DeathFunc>();
-    public List<int> DeathFunc123 = new List<int>();
+    //public List<int> DeathFunc123 = new List<int>();
     FlashColor flashColor;
 
     public bool respawning = false;

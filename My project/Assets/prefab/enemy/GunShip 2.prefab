@@ -205,8 +205,20 @@ PrefabInstance:
       value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7873543696930858668, guid: 22b0bc3c6d2c7f04abdf19f5f362e5e7, type: 3}
+      propertyPath: prefab
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7873543696930858668, guid: 22b0bc3c6d2c7f04abdf19f5f362e5e7, type: 3}
       propertyPath: maxHealth
       value: 650
+      objectReference: {fileID: 0}
+    - target: {fileID: 7873543696930858668, guid: 22b0bc3c6d2c7f04abdf19f5f362e5e7, type: 3}
+      propertyPath: respawning
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7873543696930858668, guid: 22b0bc3c6d2c7f04abdf19f5f362e5e7, type: 3}
+      propertyPath: respawnTime
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 7873543696930858668, guid: 22b0bc3c6d2c7f04abdf19f5f362e5e7, type: 3}
       propertyPath: levelScaling

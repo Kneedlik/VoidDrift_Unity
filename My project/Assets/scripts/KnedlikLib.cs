@@ -139,7 +139,7 @@ public static class KnedlikLib
         return angle;
     }
 
-    public static void lookAt2d(Transform self,Transform target,float offset)
+    public static void lookAt2d(Transform self,Vector3 target,float offset)
     {
         self.LookAt(target);
         self.rotation = Quaternion.Euler(0, 0, self.rotation.eulerAngles.y < 180 ? 270 - self.rotation.eulerAngles.x : self.rotation.eulerAngles.x - offset);

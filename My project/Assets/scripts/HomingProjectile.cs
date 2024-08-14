@@ -10,11 +10,15 @@ public class HomingProjectile : BulletScript
     public float rotSpeed;
     
     [SerializeField] bool Enemy = true;
+    [SerializeField] bool PlayerOnly = false;
     [SerializeField] bool Trigger = false;
     [SerializeField] GameObject ExploPrefab;
 
     [SerializeField] float Delay = 0;
+    [SerializeField] float StopAfter;
     float TimeStamp;
+    float TimeStamp2;
+    bool Locked;
 
     void Start()
     {
@@ -27,6 +31,7 @@ public class HomingProjectile : BulletScript
         }
         rb = GetComponent<Rigidbody2D>();
         TimeStamp = Delay;
+        TimeStamp2 = StopAfter;
         Destroy(gameObject, destroyTime);
         SetUpProjectile();
     }
@@ -34,6 +39,22 @@ public class HomingProjectile : BulletScript
     // Update is called once per frame
     void Update()
     {
+        if (StopAfter != 0)
+        {
+            if (TimeStamp2 > 0)
+            {
+                TimeStamp2 -= Time.deltaTime;
+            }else
+            {
+                Locked = true;
+            }
+        }
+
+        if (Locked)
+        {
+            return;
+        }
+
         if (TimeStamp <= 0)
         {
             if (target != null)
@@ -55,12 +76,16 @@ public class HomingProjectile : BulletScript
 
     private void FixedUpdate()
     {
-        if(UseForce)
+        if (force != 0)
         {
-            rb.AddForce(transform.up * force, ForceMode2D.Force);
-        }else
-        {
-            rb.velocity = transform.up * force;
+            if (UseForce)
+            {
+                rb.AddForce(transform.up * force, ForceMode2D.Force);
+            }
+            else
+            {
+                rb.velocity = transform.up * force;
+            }
         }
         
         if(MaxSpeed != 0)
@@ -130,30 +155,40 @@ public class HomingProjectile : BulletScript
             {
                 if (Enemy)
                 {
+                    Debug.Log(111);
                     if (collision.transform.tag != "Enemy")
                     {
+                        Debug.Log(222);
+                        bool TargetFound = false;
+
                         if (collision.transform.tag == "Player")
                         {
+                            Debug.Log(333);
                             if (damage > 0)
                             {
+                                Debug.Log(444);
                                 collision.gameObject.GetComponent<plaerHealth>().TakeDamage(damage);
+                                TargetFound = true;
                             }
-                        }else
+                        }else if(PlayerOnly == false)
                         {
                             Health health = collision.gameObject.GetComponent<Health>();
                             if(health != null && damage > 0)
                             {
                                 health.TakeDamage(damage);
+                                TargetFound = true;
                             }
                         }
 
-                        rb.velocity = Vector2.zero;
-
-                        if (ExploPrefab != null)
+                        if (TargetFound)
                         {
-                            Instantiate(ExploPrefab, transform.position, Quaternion.identity);
+                            rb.velocity = Vector2.zero;
+                            if (ExploPrefab != null)
+                            {
+                                Instantiate(ExploPrefab, transform.position, Quaternion.identity);
+                            }
+                            Destroy(gameObject);
                         }
-                        Destroy(gameObject);
                     }
                 }
                 else

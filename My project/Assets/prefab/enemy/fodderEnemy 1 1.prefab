@@ -408,7 +408,6 @@ MonoBehaviour:
   self: {fileID: 136859910040533358}
   healthBarGObject: {fileID: 6079314685912920945}
   healthBar: {fileID: 0}
-  damageMultiplier: 1
   armor: 0
   multiplier: 0
   ParticleExplosion: {fileID: 3528158295667628061, guid: 6d1756d7ad7932c49a9490abee50e3c2, type: 3}
@@ -416,9 +415,9 @@ MonoBehaviour:
   DeathDelay: 0
   DeathFunc: []
   DeathFunc123: 
-  respawning: 0
-  respawnTime: 0
-  prefab: {fileID: 0}
+  respawning: 1
+  respawnTime: 300
+  prefab: {fileID: 136859910040533358}
   randOffset: 30
   levelScaling: 1
   Boss: 0

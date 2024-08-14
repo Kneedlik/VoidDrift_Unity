@@ -80,7 +80,7 @@ public class SquidBossPortal : MonoBehaviour
                 {
 
                     GameObject T = Instantiate(EnemyPrefab, transform.position, Quaternion.Euler(0, 0, 0));
-                    KnedlikLib.lookAt2d(T.transform, Player, 0);
+                    KnedlikLib.lookAt2d(T.transform, Player.position, 0);
                     timeStamp = CoolDown0;
                 }
                 else if (state == 1)
@@ -95,7 +95,7 @@ public class SquidBossPortal : MonoBehaviour
 
                     timeStamp = CoolDown1;
                     GameObject T = Instantiate(ProjectilePrefab, transform.position, Quaternion.Euler(0, 0, 0));
-                    KnedlikLib.lookAt2d(T.transform, Player, 270 + RandOffset);
+                    KnedlikLib.lookAt2d(T.transform, Player.position, 270 + RandOffset);
                     //T.transform.rotation = Quaternion.Euler(0, 0, T.transform.rotation.eulerAngles.z + RandOffset);
                     //Debug.Log(T.transform.rotation.eulerAngles.z);
                 }

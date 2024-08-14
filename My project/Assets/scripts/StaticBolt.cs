@@ -31,8 +31,7 @@ public class StaticBolt : Projectile
             rb.velocity = dir * speed;
         }
 
-        KnedlikLib.lookAt2d(transform, target, 0);
-
+        KnedlikLib.lookAt2d(transform, target.position, 0);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

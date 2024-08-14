@@ -4,35 +4,27 @@ using UnityEngine;
 
 public class EnemyFollow : MonoBehaviour
 {
-    Transform target;
+    protected Transform target;
     public float speed;
     public float maxSpeed;
     public float Multiplier = 1f;
-    private Rigidbody2D rb; 
-    private float pom = 30;
+    protected Rigidbody2D rb; 
 
-    Health health;
-    StunOnHit Stun;
+    protected Health health;
+    protected StunOnHit Stun;
 
     void Start()
     {
-        rb = this.GetComponent<Rigidbody2D>();
-        target = GameObject.FindWithTag("Player").transform;
-        health = GetComponent<Health>();
-        Stun = GetComponent<StunOnHit>();  
+       SetVars();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetVars()
     {
-       // Vector3 direction = player.position - transform.position;
-      //  float distance = Vector3.Distance(player.position, transform.position);
-      //  float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg -90f;
-  
-       // direction.Normalize();
-      //  movement = direction;
+        rb = GetComponent<Rigidbody2D>();
+        target = GameObject.FindWithTag("Player").transform;
+        health = GetComponent<Health>();
+        Stun = GetComponent<StunOnHit>();
 
-        
     }
 
     private void FixedUpdate()
@@ -53,12 +45,6 @@ public class EnemyFollow : MonoBehaviour
 
     private void LateUpdate()
     {
-        KnedlikLib.SetMaxSpeed(maxSpeed, rb);
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.white;
-        Gizmos.DrawWireSphere(transform.position, pom);
+        KnedlikLib.SetMaxSpeed(maxSpeed * Multiplier, rb);
     }
 }
