@@ -15,7 +15,7 @@ public class foddeBullet : MonoBehaviour
     private void Start()
     {
         sr = this.GetComponent<SpriteRenderer>();
-       rb = this.GetComponent<Rigidbody2D>();
+        rb = this.GetComponent<Rigidbody2D>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -36,7 +36,11 @@ public class foddeBullet : MonoBehaviour
 
             if(pierce <= 0)
             {
-                sr.enabled = false;
+                if (sr != null)
+                {
+                    sr.enabled = false;
+                }
+
                 rb.velocity = Vector2.zero;
 
                 if(impactEffect != null)

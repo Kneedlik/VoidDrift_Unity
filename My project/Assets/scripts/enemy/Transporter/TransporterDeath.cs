@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TransporterDeath : DeathFunc
+public class TransporterDeath : SimpleVirtual
 {
     [SerializeField] List<Transform> ExploPos;
     [SerializeField] GameObject ExploObj;

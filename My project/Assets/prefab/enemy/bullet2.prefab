@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd8caf5161b979c4bba245c1292f6086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 4
+  damage: 8
   destroyTime: 3.5
   impactEffect: {fileID: 907559903438879465, guid: 1ce0060ea82c3b44fbea7c2d7584e88e, type: 3}
   impactParticles: {fileID: 7437022105064872643, guid: 795f94ad9917fbe4b90ec843e9018744, type: 3}

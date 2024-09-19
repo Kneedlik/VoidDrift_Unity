@@ -10,6 +10,7 @@ public class gunShipCannon : MonoBehaviour
     public float fireRate;
     public float timeBetweenBursts;
     [SerializeField] int damage;
+    [SerializeField] gunShipAI Ship;
 
     public int bulletsInABurst = 2;
     int currentBurst;
@@ -35,6 +36,11 @@ public class gunShipCannon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Ship.Ready == false)
+        {
+            return;
+        }
+
         if (timer > 0)
         {
             timer -= Time.deltaTime;

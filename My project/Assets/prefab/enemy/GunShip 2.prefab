@@ -82,6 +82,7 @@ MonoBehaviour:
   fireRate: 0.3
   timeBetweenBursts: 1.75
   damage: 8
+  Ship: {fileID: 1238752799868341915}
   bulletsInABurst: 2
   firePoint1: {fileID: 3197964600823150741}
   firePoint2: {fileID: 5980945965763484163}
@@ -126,7 +127,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3902809289429083275, guid: 22b0bc3c6d2c7f04abdf19f5f362e5e7, type: 3}
       propertyPath: patrolSpeed
-      value: 1500
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 3902809289429083275, guid: 22b0bc3c6d2c7f04abdf19f5f362e5e7, type: 3}
       propertyPath: rotationSpeed
@@ -203,6 +204,10 @@ PrefabInstance:
     - target: {fileID: 7873543696634477138, guid: 22b0bc3c6d2c7f04abdf19f5f362e5e7, type: 3}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 7873543696930858666, guid: 22b0bc3c6d2c7f04abdf19f5f362e5e7, type: 3}
+      propertyPath: m_Mass
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 7873543696930858668, guid: 22b0bc3c6d2c7f04abdf19f5f362e5e7, type: 3}
       propertyPath: prefab
@@ -284,6 +289,17 @@ PrefabInstance:
     - {fileID: 7873543696930858667, guid: 22b0bc3c6d2c7f04abdf19f5f362e5e7, type: 3}
     - {fileID: 7873543697168816965, guid: 22b0bc3c6d2c7f04abdf19f5f362e5e7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 22b0bc3c6d2c7f04abdf19f5f362e5e7, type: 3}
+--- !u!114 &1238752799868341915 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3902809289429083275, guid: 22b0bc3c6d2c7f04abdf19f5f362e5e7, type: 3}
+  m_PrefabInstance: {fileID: 2817422977605282320}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5358453440747654310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 960940397fcf0084f818b110bcb79ae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &3197964600823150741 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 826424383805969029, guid: 22b0bc3c6d2c7f04abdf19f5f362e5e7, type: 3}

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BigEyeMiniBossAI : MonoBehaviour
+public class BigEyeMiniBossAI : SimpleVirtual
 {
     public bool MapVariant = false;
     Transform target;
@@ -26,7 +26,7 @@ public class BigEyeMiniBossAI : MonoBehaviour
         rb = this.GetComponent<Rigidbody2D>();
         target = GameObject.FindWithTag("Player").transform;
         health = GetComponent<Health>();
-        health.function += SlowDown;
+        health.OnDamageFunc.Add(this);
         Slowed = false;
     }
     private void FixedUpdate()
@@ -66,7 +66,7 @@ public class BigEyeMiniBossAI : MonoBehaviour
         }
     }
 
-    public void SlowDown(GameObject self,int damage,ref int Damage)
+    public void SlowDown()
     {
         timeStamp = SlowDuration;
         Slowed = true;

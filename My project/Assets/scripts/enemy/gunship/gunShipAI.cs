@@ -14,13 +14,12 @@ public class gunShipAI : simpleAI
 
     private bool stop = false;
     public bool back = false;
-
-    [SerializeField] gunShipCannon cannon;
+    public bool Ready;
   
     protected override void Start()
     {
-       base.Start();
-        cannon.enabled = false;
+        base.Start();
+        Ready = false;
         
         wayPointIndex = 0;
         targetRB = target.GetComponent<Rigidbody2D>();
@@ -29,15 +28,13 @@ public class gunShipAI : simpleAI
         wayPointIndex = 0;
     }
 
-    
-
     protected override void Update()
     {
         distance = Vector3.Distance(target.position, transform.position);
 
         if (distance <= alertRadius)
         {
-            cannon.enabled = true;
+            Ready = true;
             alert = true;
             patrol = false;
             currentTarget = target.position;
@@ -57,7 +54,6 @@ public class gunShipAI : simpleAI
 
         if (alert && distance >= breakAwayRadius)
         {
-            cannon.enabled = false;
             alert = false;
             patrol = true;
             currentTarget = waypoints[wayPointIndex].position;
@@ -70,6 +66,11 @@ public class gunShipAI : simpleAI
         
         if (path == null)
         { return; }
+
+        if (Active == false)
+        {
+            return;
+        }
 
         if (currentWatPoint >= path.vectorPath.Count)
         {
@@ -115,7 +116,6 @@ public class gunShipAI : simpleAI
 
             if (stop)
             {
-
                 if (rb.velocity.magnitude < targetRB.velocity.magnitude)
                 {
                     currentSpeed += 30;
@@ -142,7 +142,7 @@ public class gunShipAI : simpleAI
             {
                 //  Vector2 direction = ((Vector2)path.vectorPath[currentWatPoint] - rb.position).normalized;
                 Vector2 direction = ((Vector2)currentTarget - rb.position).normalized;
-                Vector2 force = direction * speed * Time.deltaTime;
+                Vector2 force = direction * speed;
                 force.x = force.x * -1;
                 force.y = force.y * -1;
                 rb.AddForce(force, ForceMode2D.Force);
@@ -162,6 +162,7 @@ public class gunShipAI : simpleAI
 
             lookAt(lookDir);
         }
+        KnedlikLib.SetMaxSpeed(maxSpeed,rb);
     }
 
 

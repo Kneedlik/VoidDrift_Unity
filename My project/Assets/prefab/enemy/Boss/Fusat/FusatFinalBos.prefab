@@ -1594,7 +1594,6 @@ MonoBehaviour:
   DeathAnim: {fileID: 0}
   DeathDelay: 0
   DeathFunc: []
-  DeathFunc123: 
   respawning: 0
   respawnTime: 0
   prefab: {fileID: 0}
@@ -1630,7 +1629,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7210052493719424695}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed43b4d82c0b4c7409571e9a5f8d38d4, type: 3}
   m_Name: 

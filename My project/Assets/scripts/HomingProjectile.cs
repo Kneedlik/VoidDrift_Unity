@@ -16,8 +16,10 @@ public class HomingProjectile : BulletScript
 
     [SerializeField] float Delay = 0;
     [SerializeField] float StopAfter;
+    [SerializeField] float StartForceAfter;
     float TimeStamp;
     float TimeStamp2;
+    float TimeStamp3;
     bool Locked;
 
     void Start()
@@ -32,6 +34,7 @@ public class HomingProjectile : BulletScript
         rb = GetComponent<Rigidbody2D>();
         TimeStamp = Delay;
         TimeStamp2 = StopAfter;
+        TimeStamp3 = StartForceAfter;
         Destroy(gameObject, destroyTime);
         SetUpProjectile();
     }
@@ -47,6 +50,14 @@ public class HomingProjectile : BulletScript
             }else
             {
                 Locked = true;
+            }
+        }
+
+        if (StartForceAfter != 0)
+        {
+            if(TimeStamp3 > 0)
+            {
+                TimeStamp3 -= Time.deltaTime;
             }
         }
 
@@ -76,6 +87,11 @@ public class HomingProjectile : BulletScript
 
     private void FixedUpdate()
     {
+        if(TimeStamp3 > 0)
+        {
+            return;
+        }
+
         if (force != 0)
         {
             if (UseForce)
@@ -204,8 +220,6 @@ public class HomingProjectile : BulletScript
                         
                         Destroy(gameObject);
                     }
-
-
                 }
             }
         }

@@ -16,7 +16,7 @@ public class simpleAI : BaseAI
     public bool reachedEndOfPath = false;
 
     protected Rigidbody2D rb;
-
+    public bool Active = true;
 
     protected virtual void Start()
     {
@@ -63,10 +63,8 @@ public class simpleAI : BaseAI
 
     protected void moveCharacter(float Speed)
     {
-       
-
         Vector2 direction = ((Vector2)path.vectorPath[currentWatPoint] - rb.position).normalized;
-        Vector2 force = direction * Speed * Time.deltaTime;
+        Vector2 force = direction * Speed;
         rb.AddForce(force, ForceMode2D.Force);
 
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWatPoint]);

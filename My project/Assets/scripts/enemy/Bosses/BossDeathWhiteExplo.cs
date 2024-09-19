@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossDeathWhiteExplo : DeathFunc
+public class BossDeathWhiteExplo : SimpleVirtual
 {
     [SerializeField] List<Transform> ExploPos = new List<Transform>();
     [SerializeField] float ExploDelay;

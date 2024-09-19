@@ -7,8 +7,8 @@ using Unity.VisualScripting;
 
 public class Health : MonoBehaviour
 {
-    public delegate void specialFunction(GameObject target, int damage, ref int scaledDamage);
-    public specialFunction function;
+    //public delegate void specialFunction(GameObject target, int damage, ref int scaledDamage);
+    //public specialFunction OnDamageFunction;
 
     public int health = 100;
     public int maxHealth;
@@ -23,7 +23,8 @@ public class Health : MonoBehaviour
     public GameObject ParticleExplosion;
     public GameObject DeathAnim;
     public float DeathDelay = 0;
-    public List<DeathFunc> DeathFunc = new List<DeathFunc>();
+    public List<SimpleVirtual> DeathFunc = new List<SimpleVirtual>();
+    public List<SimpleVirtual> OnDamageFunc = new List<SimpleVirtual>();
     //public List<int> DeathFunc123 = new List<int>();
     FlashColor flashColor;
 
@@ -71,7 +72,7 @@ public class Health : MonoBehaviour
             maxHealth = baseMaxHealth + (int)pom;
         }
     }
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage,Color32 color = default(Color32))
     {
         if (Dead == false)
         {
@@ -81,9 +82,19 @@ public class Health : MonoBehaviour
             float pom = damage * multiplier;
             damage = (int)pom;
 
-            if (function != null)
+            //Debug.Log("1");
+            if (OnDamageFunc != null && OnDamageFunc.Count > 0)
             {
-                function(gameObject, damage, ref damage);
+                //Debug.Log("2");
+                for (int i = 0; i < OnDamageFunc.Count; i++)
+                {
+                    //Debug.Log("3");
+                    if (OnDamageFunc[i] != null)
+                    {
+                        //Debug.Log("Activating");
+                        OnDamageFunc[i].function();
+                    }
+                }
             }
 
             damage -= armor;
@@ -140,7 +151,15 @@ public class Health : MonoBehaviour
 
                 if (damageN)
                 {
-                    damagePopUp(damage, Color.white);
+                    if(color == default(Color))
+                    {
+                        damagePopUp(damage, Color.white);
+                        //Debug.Log("Default");
+                    }else
+                    {
+                        damagePopUp(damage, color);
+                    }
+                    
                 }
                 if (health <= 0)
                 {
@@ -150,16 +169,16 @@ public class Health : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage,Color32 color)
+   /* public void TakeDamage(int damage,Color32 color)
     {
         if (Dead == false)
         {
             float pom = damage * multiplier;
             damage = (int)pom;
 
-            if (function != null)
+            if (OnDamageFunction != null)
             {
-                function(gameObject, damage, ref damage);
+                OnDamageFunction(gameObject, damage, ref damage);
             }
 
             damage -= armor;
@@ -168,9 +187,9 @@ public class Health : MonoBehaviour
                 damage = 0;
             }
 
-            if (function != null)
+            if (OnDamageFunction != null)
             {
-                function(gameObject, damage, ref damage);
+                OnDamageFunction(gameObject, damage, ref damage);
             }
 
             if (damage > 0)
@@ -230,7 +249,7 @@ public class Health : MonoBehaviour
                 }
             }
         }
-    }
+    } */
 
     public void PreDestroy()
     {

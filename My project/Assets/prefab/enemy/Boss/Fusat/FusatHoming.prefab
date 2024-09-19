@@ -71,6 +71,7 @@ MonoBehaviour:
   ExploPrefab: {fileID: 0}
   Delay: 0.25
   StopAfter: 2.2
+  StartForceAfter: 0
 --- !u!50 &2298722460716394083
 Rigidbody2D:
   serializedVersion: 4

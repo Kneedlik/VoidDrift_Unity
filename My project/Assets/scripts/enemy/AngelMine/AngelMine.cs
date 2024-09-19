@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AngelMine : DeathFunc
+public class AngelMine : SimpleVirtual
 {
     [SerializeField] float KillDistance;
     [SerializeField] GameObject Explosion;
+    [SerializeField] LineRenderer Line;
     Transform Player;
     Health health;
 
@@ -15,6 +16,7 @@ public class AngelMine : DeathFunc
         Player = GameObject.FindWithTag("Player").GetComponent<Transform>();
         health = GetComponent<Health>();
         health.DeathFunc.Add(this);
+        KnedlikLib.DrawCircle(Line, KillDistance, 200);
     }
 
     // Update is called once per frame
@@ -29,6 +31,12 @@ public class AngelMine : DeathFunc
     public override void function()
     {
         Instantiate(Explosion, transform.position, Quaternion.Euler(0, 0, 0));
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position,KillDistance);
     }
 
 }
