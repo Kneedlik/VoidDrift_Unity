@@ -101,7 +101,7 @@ MonoBehaviour:
   damage: 0
   fireRate: 0
   size: 1
-  baseDamage: 40
+  baseDamage: 30
   baseFireRate: 1.2
   baseSize: 1
   id: 11

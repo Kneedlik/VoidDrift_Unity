@@ -17,13 +17,13 @@ public static class KnedlikLib
 
             Collider2D C = target.GetComponent<Collider2D>();
             pom = S.bounds.size;
-            Debug.Log(pom);
+            //Debug.Log(pom);
             size = pom.x * pom.y;
 
             float temp = particle.transform.localScale.x;
             size *= multiplier / 15;
 
-            Debug.Log(size);
+            //Debug.Log(size);
 
             if(size > temp * 4)
             {

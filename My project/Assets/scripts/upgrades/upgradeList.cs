@@ -39,38 +39,47 @@ public class upgradeList : MonoBehaviour
 
     public void addUpgrades()
     {
+        //Debug.Log("Starting");
+
         foreach(Transform asset in transform)
         {
+            upgrade AssetUpgrade = asset.GetComponent<upgrade>();
             UpgradePlus upgradeTemp = new UpgradePlus();
-            upgradeTemp.upgrade = asset.GetComponent<upgrade>();
-            upgradeTemp.BaseDescription = asset.GetComponent<upgrade>().description;
-            upgradeTemp.BaseRarity = asset.GetComponent<upgrade>().rarity;
-           /* if(upgradeTemp.upgrade.Type == type.special)
+            upgradeTemp.upgrade = AssetUpgrade;
+            upgradeTemp.BaseDescription = AssetUpgrade.description;
+            upgradeTemp.BaseRarity = AssetUpgrade.rarity;
+            //upgradeTemp.subserviantUpgrades = AssetUpgrade.SubserviantUpgrades;
+            //Debug.Log(AssetUpgrade.Type);
+            if(AssetUpgrade.Type == type.special)
             {
+                //Debug.Log("IsSpecial");
                 foreach (Transform asset1 in transform)
                 {
                     upgrade UpgradeTemp1 = asset1.GetComponent<upgrade>();
                     if (UpgradeTemp1 != null)
                     {
-                        if (UpgradeTemp1.Type == type.special && UpgradeTemp1.SubserviantUpgrades != null)
+                        if (UpgradeTemp1.Type == type.special && UpgradeTemp1.SubserviantUpgrades.Count > 0)
                         {
+                            //Debug.Log("Found");
                             for (int i = 0;i < UpgradeTemp1.SubserviantUpgrades.Count; i++)
                             {
                                 if (UpgradeTemp1.SubserviantUpgrades[i].Upgrade == upgradeTemp.upgrade)
                                 {
+                                    //Debug.Log("Adding");
                                     upgradeTemp.SuperiorUpgrade = UpgradeTemp1;
-                                    upgradeTemp.subserviantUpgrades = UpgradeTemp1.SubserviantUpgrades;
+                                    //upgradeTemp.subserviantUpgrades = UpgradeTemp1.SubserviantUpgrades;
                                     break;
                                 }
                             }
                         }
                     }
                 }
-            }     */
+            }     
 
            list.Add(upgradeTemp);
         }
 
+        //Adding special upgrades
         weapeon Weapeon = GameObject.FindWithTag("Weapeon").GetComponent<weapeon>();
         for (int i = 0;i < Weapeon.WeapeonUpgrades.Count;i++)
         {
@@ -81,11 +90,17 @@ public class upgradeList : MonoBehaviour
             for (int j = 0; j < Weapeon.WeapeonUpgrades.Count; j++)
             {
                 upgrade UpgradeTemp1 = Weapeon.WeapeonUpgrades[j];
-                if (UpgradeTemp1.SubserviantUpgrades != null)
+                if (UpgradeTemp1.SubserviantUpgrades.Count > 0)
                 {
-                    upgradeTemp.SuperiorUpgrade = UpgradeTemp1;
-                    upgradeTemp.subserviantUpgrades = UpgradeTemp1.SubserviantUpgrades;
-                    break;
+                    for (int k = 0; k < UpgradeTemp1.SubserviantUpgrades.Count; k++)
+                    {
+                        if (UpgradeTemp1.SubserviantUpgrades[k].Upgrade == upgradeTemp.upgrade)
+                        {
+                            upgradeTemp.SuperiorUpgrade = UpgradeTemp1;
+                            upgradeTemp.subserviantUpgrades = UpgradeTemp1.SubserviantUpgrades;
+                            break;
+                        }
+                    }
                 }
             }
 

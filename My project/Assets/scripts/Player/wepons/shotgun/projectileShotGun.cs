@@ -108,6 +108,7 @@ public class projectileShotGun : weapeon
 
     void Shoot()
     {
+        //Debug.Log("Shooting");
         int pom = extraDamage;
         if (eventManager.OnFire != null)
         {

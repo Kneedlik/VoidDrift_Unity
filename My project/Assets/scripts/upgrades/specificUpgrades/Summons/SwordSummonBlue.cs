@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class SwordSummonBlue : upgrade
 {
-   [SerializeField] GameObject summon;
+    [SerializeField] GameObject summon;
     GameObject pom;
     SwordSummon drone;
     float fireRate;
+
+    [SerializeField] int Damage1 = 10;
+    [SerializeField] int Damage2 = 8;
 
     
     void Start()
@@ -37,23 +40,23 @@ public class SwordSummonBlue : upgrade
                 }
                 rarity -= 10;
                 fireRate = drone.baseFireRate;
-                description = string.Format("Drone base damage + 4");
+                description = string.Format("Drone base damage + {0}",Damage1);
             }
         }else if(level == 1)
         {
-            drone.baseDamage += 4;
-            description = string.Format("Every fourth slash of Shapeless is critical");
+            drone.baseDamage += Damage1;
+            description = string.Format("Every third slash of Shapeless is critical Drone base damage + {0}",Damage2);
         }else if(level == 2)
         {
-            float pom = fireRate * 0.2f;
-            drone.baseFireRate -= pom;
+            //float pom = fireRate * 0.2f;
+            //drone.baseFireRate -= pom;
+            drone.baseDamage += Damage2;
+            drone.Crit = true;
 
-           // drone.Crit = true;
-
-            description = string.Format("Drone cooldown - 25% damage + 4");
+            description = string.Format("Drone cooldown - 40%");
         }else if(level == 3)
         {
-            float pom = fireRate * 0.15f;
+            float pom = fireRate * 0.4f;
             drone.baseFireRate -= pom;
 
             description = string.Format("Number of slashes + 1");
@@ -62,7 +65,7 @@ public class SwordSummonBlue : upgrade
             drone.slashAmount += 1;
         }
 
-
+        drone.PrintPowerLevel();
         level++;
     }
 

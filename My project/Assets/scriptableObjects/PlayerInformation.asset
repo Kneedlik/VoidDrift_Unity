@@ -13,3 +13,12 @@ MonoBehaviour:
   m_Name: PlayerInformation
   m_EditorClassIdentifier: 
   WeapeonId: 1
+  DamageMultiplier: 1.2
+  AsMultiplier: 1.2
+  HealthBonus: 20
+  MsMultiplier: 1
+  XpMultiplier: 1
+  SizeMultiplier: 1.1
+  ReviveBonus: 0
+  ProjectileBonus: 0
+  SummonDamageMultiplier: 1

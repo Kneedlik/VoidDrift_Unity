@@ -19,7 +19,7 @@ public class BonusHealthDamageG : upgrade
 
     public override bool requirmentsMet()
     {
-       if(GmaxHealthIncrease.sharedInstance.level >= 1)
+       if(GmaxHealthIncrease.sharedInstance.level >= 1 || BigHealth.Instance.level >= 1)
         {
             return true;
         }else return false;

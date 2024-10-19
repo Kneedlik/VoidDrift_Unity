@@ -15,6 +15,7 @@ public class Wawe : ScriptableObject
     public int spawnN;
 
     public float healthMultiplier = 1;
+    public float XpMultiplier = 1;
     public GameObject Boss;
     [HideInInspector] public bool SpawnedBoss = false;
 

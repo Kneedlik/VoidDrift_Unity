@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class BeamSummonBlue : upgrade
 {
-   [SerializeField] GameObject summon;
+    [SerializeField] GameObject summon;
     GameObject pom;
     BeamSummon beam;
+
+    [SerializeField] int Damage1 = 6;
+    [SerializeField] int Damage2 = 8;
 
     float fireRate;
 
@@ -36,25 +39,25 @@ public class BeamSummonBlue : upgrade
                     cloneSelf();
                 }
                 rarity -= 10;
-                fireRate = beam.fireRate;
-                description = string.Format("Iris drone damage + 2 cooldown - 15%");
+                fireRate = beam.baseFireRate;
+                description = string.Format("Iris drone damage + {0} cooldown - 20%",Damage1);
             }
         }else if(level == 1)
         {
-            beam.baseDamage += 2;
-            beam.fireRate -= fireRate * 0.15f;
+            beam.baseDamage += Damage1;
+            beam.baseFireRate -= fireRate * 0.2f;
             description = string.Format("Iris drone s beam now lasts longer dealing damage more times");
 
         }else if(level == 2)
         {
             beam.ticks += 2;
             beam.beamDuration += beam.tickDelay * 2;
-            description = string.Format("Iris drone damage + 3 cooldown - 15%");
+            description = string.Format("Iris drone damage + {0} cooldown - 25%",Damage2);
         }else if(level == 3)
         {
-            beam.baseDamage += 3;
-            beam.fireRate -= fireRate * 0.15f;
-            description = string.Format("Iris drone now deals damage in a wider area");
+            beam.baseDamage += Damage2;
+            beam.baseFireRate -= fireRate * 0.25f;
+            description = string.Format("Iris drone now deals damage in a wider area, Ticks + 1");
         }else if(level == 4)
         {
             beam.Aoe = true;
@@ -62,6 +65,7 @@ public class BeamSummonBlue : upgrade
             beam.beamDuration += beam.tickDelay;
         }
 
+        beam.PrintPowerLevel();
         level++;
     }
 }

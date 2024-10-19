@@ -6,18 +6,18 @@ public class DroneManager : MonoBehaviour
 {
     [SerializeField] List<LaserDrone> DroneList = new List<LaserDrone>();
     public float BaseCoolDown;
-    float CoolDown;
-    MiningLaser Laser;
+    [SerializeField] float CoolDown;
     float TimeStamp;
     int CurrentIndex;
     // Start is called before the first frame update
-    void Start()
-    {
-        Laser = GameObject.FindWithTag("Weapeon").GetComponent<MiningLaser>();
-    }
 
     private void Update()
     {
+        if(DroneList.Count == 0)
+        {
+            return;
+        }
+
         if (TimeStamp > 0)
         {
             TimeStamp -= Time.deltaTime;
@@ -25,6 +25,7 @@ public class DroneManager : MonoBehaviour
 
         if (TimeStamp <= 0)
         {
+            //Debug.Log("Shooting");
             if (DroneList[CurrentIndex].Shoot())
             {
                 TimeStamp = CoolDown;
@@ -33,8 +34,9 @@ public class DroneManager : MonoBehaviour
         }
     }
 
-    public void ResetDrones()
+    public void ResetDrones(float AsMultiplier)
     {
+        Debug.Log("Reseting Drones");
         DroneList.Clear();
         foreach(Transform e in transform)
         {
@@ -45,8 +47,12 @@ public class DroneManager : MonoBehaviour
                 DroneList.Add(LaserDroneTemp);
             }
         }
-        CoolDown = BaseCoolDown / Laser.ASmultiplier;
-        CoolDown = CoolDown / DroneList.Count;
+
+        if (DroneList.Count != 0)
+        {
+            CoolDown = BaseCoolDown / AsMultiplier;
+            CoolDown = CoolDown / DroneList.Count;
+        }
     }
 
     

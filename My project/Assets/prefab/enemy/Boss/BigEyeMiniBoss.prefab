@@ -142,13 +142,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  maxHealth: 10000
+  maxHealth: 25000
   baseMaxHealth: 0
   damageN: {fileID: 8636022699047134357, guid: 971665a441a2ea448a247928736ad030, type: 3}
   self: {fileID: 0}
   healthBarGObject: {fileID: 0}
   healthBar: {fileID: 0}
-  damageMultiplier: 1
   armor: 0
   multiplier: 0
   ParticleExplosion: {fileID: 0}
@@ -156,7 +155,7 @@ MonoBehaviour:
   DeathDelay: 0
   DeathFunc:
   - {fileID: 0}
-  DeathFunc123: 
+  OnDamageFunc: []
   respawning: 0
   respawnTime: 0
   prefab: {fileID: 0}
@@ -178,7 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MapVariant: 0
   speed: 600
-  maxSpeed: 18
+  maxSpeed: 16
   reducedVelocity: 5
   SlowDuration: 1.1
   Slowed: 0
@@ -196,7 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UsePrefab: 1
-  xpValue: 100
+  xpValue: 1500
   percentValue: 0
   XpPrefab: {fileID: 2379410571559361398, guid: 471236d52f210654cbb5c0a003284cd1, type: 3}
   Point: {fileID: 0}
@@ -231,6 +230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 30
   coolDown: 1.5
+  Trigger: 0
 --- !u!114 &1602492104293664010
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class DamageTransferManager : MonoBehaviour
 {
-   public static DamageTransferManager instance;
+    public static DamageTransferManager instance;
+    int i;
+
     void Start()
     {
         instance = this;
@@ -35,13 +37,10 @@ public class DamageTransferManager : MonoBehaviour
                     }
                 }
 
-                while(damage > 0)
+                i = 0;
+                while(damage > 0 && i < 100)
                 {
                     if(KnedlikLib.FindClosestEnemy(gameObject.transform,out newTarget))
-                    {
-                        newTarget = null;
-                        break;
-                    }else
                     {
                         health = newTarget.GetComponent<Health>();
                         if (health != null)
@@ -51,7 +50,12 @@ public class DamageTransferManager : MonoBehaviour
                             damage -= pom;
                         }
                         else break;
+                    }else
+                    {
+                        newTarget = null;
+                        break;
                     }
+                    i++;
                 }
             }
         }

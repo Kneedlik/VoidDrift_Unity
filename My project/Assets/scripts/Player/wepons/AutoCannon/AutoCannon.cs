@@ -87,7 +87,6 @@ public class AutoCannon : weapeon
 
     IEnumerator Shoot()
     {
-        
         for (int i = 0; i < bulletsInABurst; i++)
         {
             int pom = extraDamage;

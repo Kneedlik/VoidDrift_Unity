@@ -58,6 +58,11 @@ public class upgradeDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             Upgrade.upgrade.function();
         }
 
+        if(Upgrade.upgrade.Type == type.currupted || Upgrade.upgrade.Type == type.iron || Upgrade.upgrade.Type == type.special)
+        {
+            return;
+        }
+
         if (PlayerStats.sharedInstance.ownedColours.Count < 3)
         {
             if(PlayerStats.sharedInstance.ownedColours.Count == 0)
@@ -107,7 +112,13 @@ public class upgradeDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     private void Update()
     {
-        Name.text = Upgrade.upgrade.name;
+        if (Upgrade.upgrade.level > 0)
+        {
+            Name.text = Upgrade.upgrade.name + string.Format(" {0}", Upgrade.upgrade.level + 1);
+        } else
+        {
+            Name.text = Upgrade.upgrade.name;
+        }
         Description.text = Upgrade.upgrade.description;
         image.sprite = Upgrade.upgrade.icon;
         ColorBlock cb = button.colors;
@@ -129,6 +140,7 @@ public class upgradeDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
         if (Upgrade.SuperiorUpgrade != null)
         {
+            //Debug.Log(Upgrade.SuperiorUpgrade.name);
             ShowHint();
         }
     }

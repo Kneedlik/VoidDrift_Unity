@@ -131,16 +131,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d67fd7380cc1b5d40bb3a93312c3f39d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 4
-  fireRate: 2.5
+  damage: 5
+  fireRate: 2.35
   size: 1
-  baseDamage: 4
-  baseFireRate: 2.5
+  baseDamage: 12
+  baseFireRate: 1.45
   baseSize: 1
   id: 1
-  force: 40
+  force: 60
+  BaseForce: 60
   bulletsInBurst: 3
-  burstDelay: 0.25
+  burstDelay: 0.21
   BulletPrefab: {fileID: 2869364906211231382, guid: 85a4b3842cf9ff44889907b151cdf2ea, type: 3}
   firePoint: {fileID: 4298245246375471364}
   Pierce: 0

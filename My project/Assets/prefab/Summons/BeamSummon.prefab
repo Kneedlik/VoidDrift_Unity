@@ -98,11 +98,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fa8fa585a9fdf94087375f98a03212b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 4
   fireRate: 2
   size: 1
-  baseDamage: 5
-  baseFireRate: 0
+  baseDamage: 9
+  baseFireRate: 1.9
   baseSize: 1
   id: 9
   Line: {fileID: 7059526789082523097, guid: 018a80464463f0f44993b09d7261574e, type: 3}
@@ -111,7 +111,7 @@ MonoBehaviour:
   Aoe: 0
   beamDuration: 1
   ticks: 3
-  tickDelay: 0.5
+  tickDelay: 0.4
 --- !u!114 &8909545730458285657
 MonoBehaviour:
   m_ObjectHideFlags: 0

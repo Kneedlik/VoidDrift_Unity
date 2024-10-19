@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
@@ -15,6 +16,8 @@ public class levelingSystem : MonoBehaviour
     public int currentXp;
     public int xpNeeded;
     public int xpInccrease;
+    public float xpFlatInccrease;
+    public float FlatXpPlus;
     public float xpInccreaseMultiplier = 1;
     public GameObject levelUpMenu;
     public upgradeSorting sorting;
@@ -197,6 +200,7 @@ public class levelingSystem : MonoBehaviour
         int Level = level;
         level = 3;
 
+        sorting.setUpCards();
         OpenLevelMenu();
         //Canvas.renderMode = RenderMode.ScreenSpaceOverlay;
 
@@ -222,6 +226,7 @@ public class levelingSystem : MonoBehaviour
             if (level % 10 != 0)
             {
                 float pom = xpInccrease * xpInccreaseMultiplier;
+                pom = pom + xpFlatInccrease;
                 xpInccrease = (int)pom;
                 xpNeeded += xpInccrease;
                 //Debug.Log(xpNeeded);
@@ -229,16 +234,19 @@ public class levelingSystem : MonoBehaviour
             }
             else
             {
-                float pom = (xpInccreaseMultiplier - 1f) * 4f;
+                float pom = (xpInccreaseMultiplier - 1f) * 2.25f;
                 pom += 1f;
                 pom = pom * xpInccrease;
+                pom = pom + (xpFlatInccrease * 2);
                 xpInccrease = (int)pom;
                 xpNeeded += xpInccrease;
                // Debug.Log(xpNeeded);
                 //Debug.Log(xpInccrease);
             }
+            xpFlatInccrease += FlatXpPlus;
 
-            ScaleByLevel();
+            ScaleByLevel("Enemy");
+            ScaleByLevel("Enviroment");
             bar.displayedLevel(level);
             SetUpLevelMenu(true); 
         }
@@ -246,6 +254,7 @@ public class levelingSystem : MonoBehaviour
 
     public void levelUp()
     {
+        //Debug.Log("Level up");
         bar.displayedLevel(level);
         bar.setMaxXp(xpNeeded);
         bar.setXP(currentXp);
@@ -254,7 +263,8 @@ public class levelingSystem : MonoBehaviour
         if (currentXp >= xpNeeded)
         {
             level++;
-            ScaleByLevel();
+            ScaleByLevel("Enemy");
+            ScaleByLevel("Enviroment");
             SetUpLevelMenu(true);
         }
     }
@@ -350,17 +360,16 @@ public class levelingSystem : MonoBehaviour
                 }
             }
         }
-        
-
     }
 
-    public void ScaleByLevel()
+    public void ScaleByLevel(string Tag)
     {
-        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag(Tag);
 
         healths = new Health[gameObjects.Length];
+        //Debug.Log(tag + " " + healths.Length);
 
-        for (int i = 0; i < gameObjects.Length; i++)
+        for (int i = 0; i < healths.Length; i++)
         {
             healths[i] = gameObjects[i].GetComponent<Health>();
             if (healths[i] != null)
@@ -368,20 +377,32 @@ public class levelingSystem : MonoBehaviour
                 if (healths[i].levelScaling)
                 {
                     float diff = healths[i].maxHealth;
-                    float pom = healths[i].baseMaxHealth * healthPerLevel * (level - 1);
+                    healths[i].maxHealth = ScaleHpByLevel(healths[i].baseMaxHealth);
                     
-                    healths[i].maxHealth = healths[i].baseMaxHealth + (int)pom;
                     diff = healths[i].maxHealth - diff;
                     healths[i].health += (int)diff;
                     if (healths[i].healthBar != null)
                     {
                         healths[i].healthBar.SetMaxHealth(healths[i].maxHealth);
                         healths[i].healthBar.SetHealth(healths[i].health);
-                    }
-                    
+                    }   
                 }
             }
         }
+    }
+
+    public float CalculateXpMultiplier()
+    {
+        float multiplier = (float)PlayerStats.sharedInstance.EXPmultiplier / 100f;
+        multiplier = multiplier * MasterManager.Instance.PlayerInformation.XpMultiplier;
+        return multiplier;
+    }
+
+    public int ScaleHpByLevel(int health)
+    {
+        float pom = health * healthPerLevel * (level - 1);
+        pom = pom + health;
+        return (int)pom;
     }
 
 }

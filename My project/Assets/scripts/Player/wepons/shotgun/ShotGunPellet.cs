@@ -10,6 +10,8 @@ public class ShotGunPellet : BulletScript
     {
         sr = this.GetComponent<SpriteRenderer>();
         rb = this.GetComponent<Rigidbody2D>();
+        Debug.Log("destroyTime" + destroyTime);
+        Debug.Log("Pierce" + pierce);
         damage = damagePlus;
         Destroy(gameObject, destroyTime);
         SetUpProjectile();
@@ -20,7 +22,7 @@ public class ShotGunPellet : BulletScript
         if (collision.transform.tag != "Player" && collision.isTrigger == false && IgnoreTargets.Contains(collision.gameObject) == false)
         {
             DealDamageToEmemy(collision, damage);
-            Cluster(collision.gameObject);
+            //Cluster();
 
             if (pierce <= 0)
             {
@@ -73,10 +75,11 @@ public class ShotGunPellet : BulletScript
                 }
                 else
                 {
+                    Debug.Log("Destroying");
                     sr.enabled = false;
                     rb.velocity = Vector2.zero;
 
-                    Cluster(collision.gameObject);
+                    Cluster();
                     Instantiate(impactEffect, transform.position, transform.rotation);
                     if (impactParticles != null)
                     {
@@ -89,8 +92,9 @@ public class ShotGunPellet : BulletScript
         }
     }
 
-    public void Cluster(GameObject Target)
+    public void Cluster()
     {
+        Debug.Log("Clustering");
         projectileShotGun ShotGun = GameObject.FindWithTag("Weapeon").GetComponent<projectileShotGun>();
         float offset = 360f / ShotGun.ClusterProjectiles;
         float pom = offset;
@@ -102,13 +106,15 @@ public class ShotGunPellet : BulletScript
             ShotGunPellet PelletScript = Pellet.GetComponent<ShotGunPellet>();
             ShotGun.SetUpProjectile(PelletScript);
             PelletScript.ClusterAmount = ClusterAmount - 1;
-            PelletScript.IgnoreTargets.Add(Target);
+            //PelletScript.IgnoreTargets.Add(Target);
+            PelletScript.pierce = ShotGun.pierce + 1;
             PelletScript.destroyTime = ShotGun.ClusterAliveTime;
-            float damagePom = PelletScript.damage * ShotGun.ClusterDamageMultiplier;
-            PelletScript.damage = (int)damagePom;
+            float damagePom = ShotGun.damage * ShotGun.ClusterDamageMultiplier;
+            PelletScript.setDamage((int)damagePom + ShotGun.extraDamage);
+            PelletScript.setArea(ShotGun.size);
             
             Rigidbody2D rigidbody2D = Pellet.GetComponent<Rigidbody2D>();
-            rigidbody2D.AddForce(Pellet.transform.up * ShotGun.Force);
+            rigidbody2D.AddForce(Pellet.transform.up * ShotGun.Force,ForceMode2D.Impulse);
             offset += pom;
         }
         

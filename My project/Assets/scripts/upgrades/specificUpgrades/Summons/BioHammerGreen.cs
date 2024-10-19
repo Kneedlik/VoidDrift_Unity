@@ -9,6 +9,9 @@ public class BioHammerGreen : upgrade
     BioHammer hammer;
     float fireRate;
 
+    [SerializeField] int Damage1 = 10;
+    [SerializeField] int Damage2 = 20;
+
 
     void Start()
     {
@@ -43,36 +46,35 @@ public class BioHammerGreen : upgrade
                     cloneSelf();
                 }
                 rarity -= 10;
-                fireRate = hammer.fireRate;
+                fireRate = hammer.baseFireRate;
             }
 
             description = string.Format("BioHammer cooldown - 30%");
         }else if(level == 1)
         {
-            float pom = fireRate * 1.3f;
-            pom = pom - fireRate;
-            hammer.fireRate -= pom; 
+            float pom = fireRate * 0.3f;
+            hammer.baseFireRate -= pom; 
 
-            description = string.Format("Biohammer firerate + 20% Biohammer base damage + 12");
+            description = string.Format("Biohammer cooldown - 20% Biohammer base damage + {0}",Damage1);
         }else if(level == 2)
         {
-            float pom = fireRate * 1.2f;
-            pom = pom - fireRate;
-            hammer.fireRate -= pom;
+            float pom = fireRate * 0.2f;
+            hammer.baseFireRate -= pom;
+            hammer.baseDamage += Damage1;
 
-            hammer.damage += 5;
-
-            description = string.Format("Bio Hammer base damage + 20");
+            description = string.Format("Bio Hammer base damage + {0}",Damage2);
         }else if(level == 3)
         {
-            hammer.damage += 12;
+            hammer.baseDamage += Damage2;
 
             description = string.Format("Bio Hammer now deals 1% max Health Damage Bio hammer bonus health damage + 30%");
         }else if(level == 4)
         {
             hammer.healthScaling += 0.3f;
+            hammer.TrueDamage = 0.01f;
         }
 
+        hammer.PrintPowerLevel();
         level++;
     }
 }

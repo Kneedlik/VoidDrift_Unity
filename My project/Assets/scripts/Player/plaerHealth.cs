@@ -17,7 +17,7 @@ public class plaerHealth : MonoBehaviour
     bool healCheck;
 
     public float iframes;
-    bool invencible;
+    bool invincible;
     public DivineShieldSystem shield;
     float timeStamp;
     [SerializeField] GameObject DamageParticle;
@@ -45,9 +45,14 @@ public class plaerHealth : MonoBehaviour
     public Coroutine flash;
     public bool half = false;
 
-    private void Start()
+    private void Awake()
     {
         Instance = this;
+    }
+
+    private void Start()
+    {
+        baseHealth += MasterManager.Instance.PlayerInformation.HealthBonus;
         health = baseHealth;
         maxHealth = baseHealth;
         healthBar.SetMaxHealth(baseHealth);
@@ -73,7 +78,7 @@ public class plaerHealth : MonoBehaviour
             }
         }
        
-        if(invencible == false && ready == false)
+        if(invincible == false && ready == false)
         {
             if(eventManager.OnDamage != null)
             {
@@ -100,7 +105,7 @@ public class plaerHealth : MonoBehaviour
             timeStamp = iframes;
             AudioManager.instance.PlayId(6);
            
-        }else if (shield.ready && invencible == false)
+        }else if (shield.ready && invincible == false)
         {
             Instantiate(shockWawe, transform.position, Quaternion.identity);
             CameraFollow.instance.startShake(1, 1);
@@ -138,8 +143,8 @@ public class plaerHealth : MonoBehaviour
         }
         if(timeStamp > 0)
         {
-            invencible = true;
-        }else invencible = false;
+            invincible = true;
+        }else invincible = false;
 
     }
 
@@ -267,8 +272,7 @@ public class plaerHealth : MonoBehaviour
     {
         PlayerHfill.color = Color.white;
         yield return new WaitForSeconds(healthBarFlashDuration);
-        PlayerHfill.color = c;
-        
+        PlayerHfill.color = c; 
     }
 
     

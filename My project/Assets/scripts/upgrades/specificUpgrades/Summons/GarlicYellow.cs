@@ -9,6 +9,10 @@ public class GarlicYellow : upgrade
     GarlicMain main;
     Garlic sum;
 
+    [SerializeField] int Damage1 = 6;
+    [SerializeField] int Damage2 = 6;
+    [SerializeField] int Damage3 = 10;
+
     float fireRate;
     float size;
    
@@ -45,29 +49,28 @@ public class GarlicYellow : upgrade
                 fireRate = main.baseFireRate;
                 size = main.baseSize;
 
-                description = string.Format("Serpent base damage + 3 area + 30%");
+                description = string.Format("Serpent base damage + {0} area + 30%",Damage1);
             }
         }
         else if (level == 1)
         {
-            main.baseDamage += 3;
+            main.baseDamage += Damage1;
             float pom = size * 0.30f;
             main.baseSize += pom;
 
-            description = string.Format("Serpent firerate + 25% damage + 2");
+            description = string.Format("Serpent cooldown - 25% damage + {0}",Damage2);
 
         }else if(level == 2)
         {
-            main.baseDamage += 2;
+            main.baseDamage += Damage2;
             float pom = fireRate * 0.25f;
-            main.fireRate -= pom;
+            main.baseFireRate -= pom;
 
-            description = string.Format("Serpent base damage + 6");
-
+            description = string.Format("Serpent base damage + {0}",Damage3);
 
         }else if(level == 3)
         {
-            main.baseDamage += 6;
+            main.baseDamage += Damage3;
 
             description = string.Format("Serpent area + 40% cooldown - 30%");
         }else if(level == 4)
@@ -78,7 +81,8 @@ public class GarlicYellow : upgrade
             main.baseSize += pom;
 
         }
-            level++;
+        main.PrintPowerLevel();
+        level++;
     }
 }
 

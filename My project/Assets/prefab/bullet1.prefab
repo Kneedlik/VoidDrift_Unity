@@ -125,6 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 0.2
   speed: 10
+  RandomDelayMax: 0.35
 --- !u!1 &6025737495696429906
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,6 +283,11 @@ MonoBehaviour:
   impactEffect: {fileID: 907559903438879465, guid: 1ce0060ea82c3b44fbea7c2d7584e88e, type: 3}
   impactParticles: {fileID: 7437022105064872643, guid: 795f94ad9917fbe4b90ec843e9018744, type: 3}
   MaxBounceDistance: 0
+  OnImpactGunOnly: 1
+  OnImpact: 1
+  OnCrit: 1
+  PostImpact: 1
+  IgnoreTargets: []
 --- !u!114 &6566748590372091241
 MonoBehaviour:
   m_ObjectHideFlags: 0

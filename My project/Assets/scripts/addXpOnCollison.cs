@@ -19,10 +19,10 @@ public class addXpOnCollison : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            float realMultiplier = (float)playerStats.EXPmultiplier / 100f;
+            float Multiplier = levelingSystem.instance.CalculateXpMultiplier();
             float pomDamage = PercentValue * levelingSystem.instance.xpNeeded;
             pomDamage += xpValue;
-            pomDamage = pomDamage * realMultiplier;
+            pomDamage = pomDamage * Multiplier;
             xpValue = (int)pomDamage;
 
             collision.GetComponent<levelingSystem>().addXp(xpValue);

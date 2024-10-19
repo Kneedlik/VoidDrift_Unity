@@ -9,14 +9,14 @@ public class BioHammer : Summon
  
     Transform target;
     public float healthScaling = 1;
+    public float TrueDamage;
 
     [SerializeField] GameObject DamageEffect;
 
     private void Start()
     {
-        scaleSize();
-        scaleSummonDamage();
-        PlayerStats.OnLevel += scaleSummonDamage;
+        ScaleSummonStats();
+        PlayerStats.OnLevel += ScaleSummonStats;
     }
 
     // Update is called once per frame
@@ -65,21 +65,23 @@ public class BioHammer : Summon
                 // {
                 //     eventManager.PostImpact(target.gameObject, plusDamage, ref plusDamage);
                 // }
-                health.TakeDamage(damage);
+
+                float Temp = health.maxHealth * TrueDamage;
+                health.TakeDamage(plusDamage + (int)Temp);
             }
         }
     }
 
    public override void scaleSummonDamage()
-    {
+   {
        plaerHealth health = GameObject.FindWithTag("Player").GetComponent<plaerHealth>();
-       int diff = health.health - health.baseHealth;
+       int diff = health.maxHealth - health.baseHealth;
         float pom = diff * healthScaling;
         pom = baseDamage + pom;
 
-         pom = pom * (PlayerStats.sharedInstance.SummonDamage / 100);
-        pom = pom * (PlayerStats.sharedInstance.damageMultiplier / 100);
+        pom = pom * (PlayerStats.sharedInstance.SummonDamage / 100) * MasterManager.Instance.PlayerInformation.SummonDamageMultiplier;
+        pom = pom * (PlayerStats.sharedInstance.damageMultiplier / 100)  * MasterManager.Instance.PlayerInformation.DamageMultiplier;
         damage = (int)pom;
 
-    }
+   }
 }

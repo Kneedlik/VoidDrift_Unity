@@ -115,8 +115,8 @@ MonoBehaviour:
   damage: 0
   fireRate: 0
   size: 1
-  baseDamage: 14
-  baseFireRate: 0
+  baseDamage: 12
+  baseFireRate: 3.5
   baseSize: 1
   id: 0
   Line: {fileID: 1103141219784353394}

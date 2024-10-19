@@ -8,6 +8,7 @@ public class BulletHellSummon : Summon
     float timeStamp;
     public int projectileAmount;
     public float bulletForce;
+    public float BaseForce;
     public int bursts;
     int burstIndex;
     bool flip;
@@ -18,7 +19,8 @@ public class BulletHellSummon : Summon
     {
         burstIndex = 0;
         flip = false;
-        scaleSummonDamage();
+        ScaleSummonStats();
+        PlayerStats.OnLevel += ScaleSummonStats;
     }
 
     // Update is called once per frame
@@ -32,23 +34,21 @@ public class BulletHellSummon : Summon
         if(timeStamp <= 0)
         {
             shoot();
-            
         }
     }
 
    void shoot()
     {
-        
         float angle = 360 / projectileAmount;
         float pom = angle;
 
+        if (flip)
+        {
+            angle += 45f;
+        }
+
         for (int i = 0; i < projectileAmount; i++)
         {
-            if(flip)
-            {
-                angle += 90f;
-            }
-
             GameObject B = Instantiate(bullet,transform.position,Quaternion.Euler(0,0,angle));
             B.transform.localScale = new Vector3(size, size, 1);
 
@@ -82,9 +82,29 @@ public class BulletHellSummon : Summon
 
             timeStamp = burstDelay;
         } 
+   }
+    public override void scaleForce()
+    {
+        bulletForce = BaseForce * PlayerStats.sharedInstance.ProjectileForce;
     }
-     
-    
+
+    public override int PrintPowerLevel()
+    {
+        float PowerLevel = 0;
+        float TimeSpend = 0;
+
+        for (int i = 0; i < bursts - 1; i++)
+        {
+            PowerLevel += baseDamage;
+            TimeSpend += burstDelay;
+        }
+        PowerLevel += baseDamage;
+        PowerLevel = PowerLevel * projectileAmount;
+        TimeSpend += baseFireRate;
+        PowerLevel = PowerLevel / TimeSpend;
+        Debug.Log(string.Format("Power level: {0}", (int)PowerLevel));
+        return (int)PowerLevel;
+    }
 
 
 }

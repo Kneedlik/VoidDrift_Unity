@@ -40,6 +40,7 @@ public class Health : MonoBehaviour
     public bool AlertOnHit = false;
 
     bool Dead;
+    DamageNumberMaster DmMaster;
 
     private void Awake()
     {
@@ -55,11 +56,23 @@ public class Health : MonoBehaviour
         }
         health = maxHealth;
         flashColor = GetComponent<FlashColor>();
-        baseMaxHealth = maxHealth;
+
+        if (baseMaxHealth == 0)
+        {
+            baseMaxHealth = maxHealth;
+        }
     }
 
     private void Start()
     {
+        DmMaster = GameObject.FindWithTag("DamageNumberMaster").GetComponent<DamageNumberMaster>();
+
+        if(baseMaxHealth == 0)
+        {
+            baseMaxHealth = maxHealth;
+        }
+        health = maxHealth;
+        
         Dead = false;
         if (respawning)
         {
@@ -68,8 +81,7 @@ public class Health : MonoBehaviour
 
         if (levelScaling)
         {
-            float pom = baseMaxHealth * levelingSystem.instance.healthPerLevel * (levelingSystem.instance.level - 1);
-            maxHealth = baseMaxHealth + (int)pom;
+            maxHealth = levelingSystem.instance.ScaleHpByLevel(baseMaxHealth);
         }
     }
     public void TakeDamage(int damage,Color32 color = default(Color32))
@@ -358,8 +370,13 @@ public class Health : MonoBehaviour
         }
     }*/
 
-  public void damagePopUp(int Damage,Color32 color)
+    public void damagePopUp(int Damage,Color32 color)
     {
+        if(DmMaster.Full)
+        {
+            return;
+        }
+
         Vector3 pos = transform.position;
         float offsetX = Random.Range(-Constants.DamageNumberOffset,Constants.DamageNumberOffset);
         float offsetY = Random.Range(-Constants.DamageNumberOffset,Constants.DamageNumberOffset);
@@ -371,6 +388,7 @@ public class Health : MonoBehaviour
         pos.y = pos.y + offsetY;
 
         var go = Instantiate(damageN,pos, Quaternion.identity);
+        go.transform.SetParent(DmMaster.transform);
         go.GetComponent<TMP_Text>().text = Damage.ToString();
         go.GetComponent<TMP_Text>().color = color;
         go.GetComponent<TMP_Text>().fontSize = ScaleDamagePopUp(go.GetComponent<TMP_Text>().fontSize,Damage);
@@ -442,12 +460,15 @@ public class Health : MonoBehaviour
 
     public void setUp()
     {
-        if (levelScaling)
+        if (levelScaling && levelingSystem.instance != null)
         {
-            float pom = 1 * levelingSystem.instance.healthPerLevel * (levelingSystem.instance.level - 1);
-            maxHealth = 1 + (int)pom;
+            maxHealth = levelingSystem.instance.ScaleHpByLevel(baseMaxHealth);
         }
-
         health = maxHealth;
+    }
+
+    private void OnEnable()
+    {
+        setUp();
     }
 }

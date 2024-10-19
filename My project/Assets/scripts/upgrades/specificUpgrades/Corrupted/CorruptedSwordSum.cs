@@ -6,6 +6,7 @@ public class CorruptedSwordSum : upgrade
 {
     [SerializeField] GameObject summon;
     GameObject pom;
+    SwordSummon drone;
 
     void Start()
     {
@@ -32,8 +33,11 @@ public class CorruptedSwordSum : upgrade
                 {
                     cloneSelf();
                 }
+                drone = pom.GetComponent<SwordSummon>();
+                drone.PrintPowerLevel();
             }
             level++;
+
         }
     }
 }

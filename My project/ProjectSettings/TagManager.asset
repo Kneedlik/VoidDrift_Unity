@@ -28,6 +28,8 @@ TagManager:
   - IronUpgrades
   - CorruptedUpgrades
   - MainUpgrades
+  - Master
+  - DamageNumberMaster
   layers:
   - Default
   - TransparentFX

@@ -19,13 +19,13 @@ public class SG_Cluster : upgrade
         if (level == 0)
         {
             ShotGun.ClusterAmount = 1;
-            ShotGun.ClusterProjectiles = 5;
-            ShotGun.ClusterDamageMultiplier = 0.35f;
+            //ShotGun.ClusterProjectiles = 5;
+            //ShotGun.ClusterDamageMultiplier = 0.35f;
             description = string.Format("Cluster amount + 1 Cluster damage multiplier + 15%");
-        }else if (level == 1)
+        }else if (level <= 3)
         {
-            ShotGun.ClusterProjectiles = 6;
-            ShotGun.ClusterDamageMultiplier = 0.5f;
+            ShotGun.ClusterProjectiles += 1;
+            ShotGun.ClusterDamageMultiplier = 0.15f;
             description = string.Format(" Cluster damage multiplier + 15%");
         }else
         {

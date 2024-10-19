@@ -17,8 +17,8 @@ public class GarlicMain : Summon
 
     void Start()
     {
-        scaleSummonDamage();
-        scaleSize();
+        ScaleSummonStats();
+        PlayerStats.OnLevel += ScaleSummonStats;
 
         player = GameObject.FindWithTag("Player").GetComponent<Transform>();
         transform.SetParent(player);
@@ -66,11 +66,11 @@ public class GarlicMain : Summon
             Health health = collision.GetComponent<Health>();
             if(health != null)
             {
-               GameObject G = Instantiate(LightningObject,transform.position,Quaternion.Euler(0,0,0));
+                GameObject G = Instantiate(LightningObject,transform.position,Quaternion.Euler(0,0,0));
                 LightningBolt bolt = G.GetComponent<LightningBolt>();
 
                 bolt.StartObject = player.gameObject;
-                bolt.EndObject = collision.gameObject;
+                bolt.EndObject.transform.position = collision.gameObject.transform.position;
 
               //  bolt.StartPosition = player.position;
               //  bolt.EndPosition = collision.transform.position;
@@ -92,7 +92,7 @@ public class GarlicMain : Summon
 
     public override void scaleSize()
     {
-        size = baseSize * (PlayerStats.sharedInstance.areaMultiplier / 100);
+        size = baseSize * (PlayerStats.sharedInstance.areaMultiplier / 100) * MasterManager.Instance.PlayerInformation.SizeMultiplier;
         transform.localScale = new Vector3(size, size, 1);
     }
 }

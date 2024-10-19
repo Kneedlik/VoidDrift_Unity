@@ -30,6 +30,7 @@ public abstract class upgrade: MonoBehaviour
     public int level;
     public int maxLevel;
     public int rarity;
+    public bool CanBeDoubled;
     public List<SubserviantUpgrade> SubserviantUpgrades;
     public bool Final;
 

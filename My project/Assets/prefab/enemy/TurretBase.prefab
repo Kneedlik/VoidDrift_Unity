@@ -1190,14 +1190,13 @@ MonoBehaviour:
   self: {fileID: 4651986903781394071}
   healthBarGObject: {fileID: 6587579081134434897}
   healthBar: {fileID: 0}
-  damageMultiplier: 1
   armor: 0
   multiplier: 0
   ParticleExplosion: {fileID: 3528158295667628061, guid: 6d1756d7ad7932c49a9490abee50e3c2, type: 3}
   DeathAnim: {fileID: 5470796982983684449, guid: c6500ecd7e8a77448b24572641c23e6e, type: 3}
   DeathDelay: 0
   DeathFunc: []
-  DeathFunc123: 
+  OnDamageFunc: []
   respawning: 0
   respawnTime: 0
   prefab: {fileID: 0}
@@ -1246,7 +1245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UsePrefab: 1
   xpValue: 30
-  percentValue: 0.05
+  percentValue: 0.045
   XpPrefab: {fileID: 2320706730734592644, guid: cabbcd8f3c321f941b937e91cb5f0d6a, type: 3}
   Point: {fileID: 0}
 --- !u!1 &6491415119416687536

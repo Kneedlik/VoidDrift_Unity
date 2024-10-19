@@ -8,6 +8,9 @@ public class LightningSummonYellow : upgrade
     GameObject pom;
     LightningSummon sum;
 
+    [SerializeField] int Damage1 = 8;
+    [SerializeField] int Damage2 = 12;
+
     float fireRate;
 
     void Start()
@@ -18,7 +21,7 @@ public class LightningSummonYellow : upgrade
 
     public override bool requirmentsMet()
     {
-        if (LightningOnHit.instance.level >= 1 && KnedlikLib.CheckSummon(this))
+        if (KnedlikLib.CheckSummon(this))
         {
             return true;
         }
@@ -40,22 +43,22 @@ public class LightningSummonYellow : upgrade
                 }
                 rarity -= 10;
                 fireRate = sum.baseFireRate;
-                description = string.Format("Sky beam damage + 5, CoolDown - 25%");
+                description = string.Format("Sky beam damage + {0}, CoolDown - 25%",Damage1);
             }
         }else if(level == 1)
         {
-            sum.baseDamage += 5;
-            sum.fireRate -= fireRate * 0.25f;
+            sum.baseDamage += Damage1;
+            sum.baseFireRate -= fireRate * 0.25f;
             description = string.Format("Sky beam now deals damage in an area Projectiles + 1");
         }else if(level == 2)
         {
             sum.Aoe = true;
             sum.projectiles += 1;
-            description = string.Format("Sky beam damage + 6 CoolDown - 25%");
+            description = string.Format("Sky beam damage + {0} CoolDown - 25%",Damage2);
         }else if(level == 3)
         {
-            sum.damage += 6;
-            sum.fireRate -= fireRate * 0.25f;
+            sum.baseDamage += Damage2;
+            sum.baseFireRate -= fireRate * 0.25f;
             description = string.Format("Sky beam now also spawns 5 projectiles that shock enemies, Projectiles + 1");
         }else if(level == 4)
         {
@@ -64,6 +67,7 @@ public class LightningSummonYellow : upgrade
             sum.projectiles += 1;
         }
 
+        sum.PrintPowerLevel();
         level++;
     }
 

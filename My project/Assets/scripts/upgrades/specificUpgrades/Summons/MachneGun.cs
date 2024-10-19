@@ -1,15 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MachneGun : Summon
 { 
     public float force;
+    public float BaseForce;
     public int bulletsInBurst;
     public float burstDelay;
     public GameObject BulletPrefab;
     [SerializeField] Transform firePoint;
-    [SerializeField] int Pierce;
+    public int Pierce;
 
     Transform target;
    
@@ -17,8 +19,8 @@ public class MachneGun : Summon
   
     void Start()
     {
-        scaleSummonDamage();
-        scaleSize();
+        ScaleSummonStats();
+        PlayerStats.OnLevel += ScaleSummonStats;
     }
 
     void Update()
@@ -48,7 +50,6 @@ public class MachneGun : Summon
 
     IEnumerator shoot()
     {
-      
         for (int i = 0; i < bulletsInBurst; i++)
         {
             if (target != null)
@@ -63,7 +64,7 @@ public class MachneGun : Summon
                 {
                     float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
                     rb.rotation = angle;
-                    rb.velocity = direction * force;
+                    rb.velocity = direction.normalized * force;
                 }
                 else
                 {
@@ -79,8 +80,28 @@ public class MachneGun : Summon
         }
     }
 
-    
+    public override int PrintPowerLevel()
+    {
+        float PowerLevel = 0;
+        float TimeSpend = 0;
 
-   
+        for (int i = 0; i < bulletsInBurst - 1; i++)
+        {
+            PowerLevel += baseDamage;
+            TimeSpend += burstDelay;
+        }
+        PowerLevel += baseDamage;
+        TimeSpend += baseFireRate;
+        PowerLevel = PowerLevel / TimeSpend;
+        Debug.Log(string.Format("Power level: {0}", (int)PowerLevel));
+        return (int)PowerLevel;
+    }
+
+    public override void scaleForce()
+    {
+        force = BaseForce * PlayerStats.sharedInstance.ProjectileForce;
+    }
+
+
 
 }

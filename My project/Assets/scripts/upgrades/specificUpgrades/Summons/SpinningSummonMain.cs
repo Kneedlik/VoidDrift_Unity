@@ -36,7 +36,9 @@ public class SpinningSummonMain :Summon
       //  increaseOrbCount(2);
         setDistance();
       //  Invoke("scaleSize", 3);
-      scaleSize();
+        scaleSize();
+        PlayerStats.OnLevel += scaleSummonDamage;
+        PlayerStats.OnLevel += scaleSize;
     }
 
     private void Update()
@@ -140,7 +142,7 @@ public class SpinningSummonMain :Summon
 
     public override void scaleSize()
     {
-        size = baseSize * (PlayerStats.sharedInstance.areaMultiplier / 100);
+        size = baseSize * (PlayerStats.sharedInstance.areaMultiplier / 100) * MasterManager.Instance.PlayerInformation.SizeMultiplier;
 
         for (int i = 0; i < orbs.Count; i++)
         {
@@ -149,7 +151,6 @@ public class SpinningSummonMain :Summon
             trail.startWidth = pom;
 
             orbs[i].transform.localScale = new Vector3(size, size, 1);
-
         }
     }
 

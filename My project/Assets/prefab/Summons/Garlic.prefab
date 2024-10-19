@@ -125,6 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 0
   speed: 10
+  RandomDelayMax: 0.35
 --- !u!1 &4080224760074611602
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,11 +334,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32755af1dfdc7d64ba900b0a16aea6e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 4
+  damage: 6
   fireRate: 0.8
   size: 1
-  baseDamage: 3
-  baseFireRate: 0.8
+  baseDamage: 9
+  baseFireRate: 0.65
   baseSize: 1
   id: 7
   area: 1

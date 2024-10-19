@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5058579936815197382}
   - component: {fileID: 5058579936815197385}
   - component: {fileID: 5058579936815197384}
-  - component: {fileID: 3786566886923028305}
   - component: {fileID: 1858477212480631012}
   m_Layer: 0
   m_Name: pellet
@@ -135,32 +134,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.39796987, y: 1.3452744}
   m_EdgeRadius: 0
---- !u!114 &3786566886923028305
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5058579936815197387}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f708a74455290145962f13a5d4ec8c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damagePlus: 0
-  damage: 10
-  destroyTime: 0.35
-  pierce: 0
-  Bounce: 0
-  knockBack: 0
-  impactEffect: {fileID: 907559903438879465, guid: 1ce0060ea82c3b44fbea7c2d7584e88e, type: 3}
-  impactParticles: {fileID: 0}
-  MaxBounceDistance: 0
-  OnImpactGunOnly: 0
-  OnImpact: 0
-  OnCrit: 0
-  PostImpact: 0
-  IgnoreTargets: []
 --- !u!114 &1858477212480631012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,4 +161,3 @@ MonoBehaviour:
   PostImpact: 0
   IgnoreTargets: []
   ClusterAmount: 0
-  IgnoreTarget: {fileID: 0}

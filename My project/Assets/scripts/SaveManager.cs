@@ -8,6 +8,20 @@ public static class SaveManager
 {
     //C:\Users\kryst\AppData\LocalLow\DefaultCompany\My project
 
+    public static void SaveLog(string Name, List<string> StringList)
+    {
+        string path = Application.persistentDataPath + "/" + Name + ".json";
+
+        if (File.Exists(path))
+        {
+            File.Delete(path);
+        }
+        using FileStream stream = File.Create(path);
+        stream.Close();
+
+        File.WriteAllText(path, JsonConvert.SerializeObject(StringList));
+    }
+
     public static void SaveState(string Name, StateItem State, bool Encrypt)
     {
         Debug.Log("saving");

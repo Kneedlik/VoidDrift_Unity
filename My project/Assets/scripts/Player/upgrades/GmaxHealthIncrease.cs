@@ -8,8 +8,9 @@ public class GmaxHealthIncrease : upgrade
     public static GmaxHealthIncrease sharedInstance;
 
     GameObject player;
-     plaerHealth health;
-    public int ammount = 30;
+    plaerHealth health;
+    public int HealthAmount = 15;
+    public int DamageAmount = 10;
 
 
     private void Awake()
@@ -21,16 +22,17 @@ public class GmaxHealthIncrease : upgrade
 
   public  void increaseHP()
     {
-        health.setMaxHP(health.maxHealth + ammount);
-        health.increaseHP(health.health + ammount);
+        health.setMaxHP(health.maxHealth + HealthAmount);
+        health.increaseHP(health.health + HealthAmount);
     }
 
     public override void function()
     {
         player = GameObject.FindWithTag("Player");
         health = player.GetComponent<plaerHealth>();
-        health.setMaxHP(health.maxHealth + ammount);
-        health.increaseHP(health.health + ammount);
+        health.setMaxHP(health.maxHealth + HealthAmount);
+        health.increaseHP(health.health + HealthAmount);
+        PlayerStats.sharedInstance.increaseDMG(DamageAmount);
         level++;
     }
 

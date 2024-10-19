@@ -65,7 +65,7 @@ public class simpleAI : BaseAI
     {
         Vector2 direction = ((Vector2)path.vectorPath[currentWatPoint] - rb.position).normalized;
         Vector2 force = direction * Speed;
-        rb.AddForce(force, ForceMode2D.Force);
+        rb.AddForce(force * SpeedMultiplier, ForceMode2D.Force);
 
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWatPoint]);
 
@@ -110,9 +110,9 @@ public class simpleAI : BaseAI
 
     protected void setMaxSpeed(float speed)
     {
-        if (rb.velocity.magnitude > speed)
+        if (rb.velocity.magnitude > (speed * SpeedMultiplier))
         {
-            rb.velocity = rb.velocity.normalized * speed;
+            rb.velocity = rb.velocity.normalized * (speed * SpeedMultiplier);
         }
     }
 

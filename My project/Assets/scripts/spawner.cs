@@ -23,9 +23,13 @@ public class spawner : MonoBehaviour
     public int count;
     public Counter counter;
 
+    [SerializeField] string PrintPrefix;
+    [SerializeField] string FileName;
+
     float timeStamp;
     void Start()
     {
+        PrintWawePowerLevel();
         count = 0;
         // StartCoroutine(spawnEnemy());
         spawnRate = wawes[count].spawnRate;
@@ -41,7 +45,6 @@ public class spawner : MonoBehaviour
         {
             if (timeStamp <= 0 || counter.EnemyAmount < min)
             {
-
                 for (int i = 0; i < spawnN; i++)
                 {
                     GameObject E;
@@ -57,7 +60,9 @@ public class spawner : MonoBehaviour
                     float pom = health.maxHealth * wawes[count].healthMultiplier;
                     health.maxHealth = (int)pom;
 
-                     
+                    dropXP XP = E.GetComponent<dropXP>();
+                    pom = XP.xpValue * wawes[count].XpMultiplier;
+                    XP.xpValue = (int)pom;
                 }
                 timeStamp = spawnRate;
             }
@@ -134,6 +139,38 @@ public class spawner : MonoBehaviour
             
         }
         
+    }
+
+    void PrintWawePowerLevel()
+    {
+        int PowerLevel = 0;
+        float Temp;
+        List<string> StringList = new List<string>();
+        string FullLine;
+
+        StringList.Add(FileName + "                    ");
+        for(int i = 0;i < wawes.Count;i++)
+        {
+            for(int j = 0;j < wawes[i].enemies.Count;j++)
+            {
+                Health health = wawes[i].enemies[j].GetComponent<Health>();
+                float TrueChance = (float)wawes[i].chanses[j] / 100f;
+                Temp = health.maxHealth * wawes[i].healthMultiplier * TrueChance * wawes[i].spawnN;
+                Temp = Temp / wawes[i].spawnRate;
+                PowerLevel += (int)Temp;
+            }
+
+            if (wawes[i].Boss == null)
+            {
+                FullLine = string.Format("{0}, Wawe: {1}, Power level: {2}                 ",PrintPrefix, i, PowerLevel);
+            }else
+            {
+                FullLine = string.Format("{0}, Wawe: {1}, Power level: {2}, Boss round     ",PrintPrefix, i, PowerLevel);
+            }
+            //Debug.Log(FullLine);
+            StringList.Add(FullLine);
+        }
+        SaveManager.SaveLog(FileName,StringList);
     }
 
     private void OnDrawGizmos()

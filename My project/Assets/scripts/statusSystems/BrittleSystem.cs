@@ -11,14 +11,15 @@ public class BrittleSystem : MonoBehaviour
     public float speedDecrease;
     public List<GameObject> BrittleEnemies = new List<GameObject>();
     [SerializeField] GameObject particles;
+    [SerializeField] Color32 BrittleColor;
 
     public bool explode;
     public int explodeDamage;
     [SerializeField] GameObject explosionPrefab;
     public float explodeRadius;
 
-   public bool freeze;
-   public float freezeDuration;
+    public bool freeze;
+    public float freezeDuration;
     public bool secondExplosion;
     [SerializeField] GameObject FreezeObject;
     
@@ -37,13 +38,13 @@ public class BrittleSystem : MonoBehaviour
                 BrittleEnemies.Add(target);
 
                 GameObject P = Instantiate(particles, target.transform.position, Quaternion.Euler(0, 0, 0));
-                KnedlikLib.scaleParticleSize(target, P, 1);
+                //KnedlikLib.scaleParticleSize(target, P, 1);
                 P.transform.SetParent(target.transform);
 
                 StartCoroutine(StartBrittle(target));
                 if (explode)
                 {
-                   GameObject E = Instantiate(explosionPrefab, target.transform.position, Quaternion.Euler(0, 0, 0));
+                    GameObject E = Instantiate(explosionPrefab, target.transform.position, Quaternion.Euler(0, 0, 0));
                     explosion exp = E.GetComponent<explosion>();
                     int pom = KnedlikLib.ScaleDamage(explodeDamage, true, true);
 
@@ -61,9 +62,8 @@ public class BrittleSystem : MonoBehaviour
         }
     }
 
-    public void RemoveBrittle(GameObject target)
+    public void RemoveBrittle(GameObject target,Color32 TargetColor,SpriteRenderer TargetSpriteRenderer)
     {
-        float Speed = 0;
         Health health = target.GetComponent<Health>();
         health.multiplier -= armorPierce;
         simpleAI ai1 = target.GetComponent<simpleAI>();
@@ -71,19 +71,14 @@ public class BrittleSystem : MonoBehaviour
 
         if (ai1 != null)
         {
-            Speed = ai1.speed;
-            ai1.speed = ai1.speed / (1 - speedDecrease);
+            ai1.SpeedMultiplier += speedDecrease;
         }
-        else
+        else if (ai2 != null)
         {
-            if (ai2 != null)
-            {
-                Speed = ai2.speed;
-                ai2.speed = ai2.speed / (1 - speedDecrease);
-            }
+            ai2.Multiplier += speedDecrease;
         }
 
-        foreach(Transform child in target.transform)
+        foreach (Transform child in target.transform)
         {
             if(child.tag.Contains("Brittle"))
             {
@@ -91,13 +86,12 @@ public class BrittleSystem : MonoBehaviour
             }
         }
 
+        TargetSpriteRenderer.color = TargetColor;
         BrittleEnemies.Remove(target);
     }
 
     IEnumerator StartBrittle(GameObject target)
     {
-        float Speed = 0;
-        float multiplier;
         simpleAI ai1 = target.GetComponent<simpleAI>();
         EnemyFollow ai2 = target.GetComponent<EnemyFollow>();
         Health health = target.GetComponent<Health>();
@@ -109,35 +103,26 @@ public class BrittleSystem : MonoBehaviour
 
         if (ai1 != null)
         {
-            Speed = ai1.speed;
-            ai1.speed = ai1.speed * (1 - speedDecrease);
+            ai1.SpeedMultiplier -= speedDecrease;
         } else
         {
             if (ai2 != null)
             {
-                Speed = ai2.speed;
-                ai2.speed = ai2.speed * (1 - speedDecrease);
+                ai2.Multiplier -= speedDecrease;
             }
         }
 
-        multiplier = health.multiplier;
         health.multiplier += armorPierce;
+
+        SpriteRenderer S = target.GetComponent<SpriteRenderer>();
+        Color32 C;
+        C = S.color;
+        S.color = BrittleColor;
 
         yield return new WaitForSeconds(duration);
         if (target != null)
         {
-
-            if (ai1 != null)
-            {
-                ai1.speed = Speed;
-            }
-            else if (ai2 != null)
-            {
-                ai2.speed = Speed;
-            }
-
-            health.multiplier = multiplier;
-            RemoveBrittle(target);
+            RemoveBrittle(target,C,S);
         }
     }
 
@@ -146,8 +131,8 @@ public class BrittleSystem : MonoBehaviour
         Rigidbody2D rb = target.GetComponent<Rigidbody2D>();
         rb.velocity = Vector3.zero;
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
-       GameObject F = Instantiate(FreezeObject, target.transform.position, Quaternion.Euler(0, 0, 0));
-        KnedlikLib.scaleParticleSize(target, F, 0.9f);
+        GameObject F = Instantiate(FreezeObject, target.transform.position, Quaternion.Euler(0, 0, 0));
+        //KnedlikLib.scaleParticleSize(target, F, 0.9f);
         F.transform.SetParent(target.transform);
 
         yield return new WaitForSeconds(freezeDuration);
@@ -159,6 +144,7 @@ public class BrittleSystem : MonoBehaviour
             int pom = KnedlikLib.ScaleDamage(explodeDamage, true, true);
         }
 
+        Destroy(F);
         rb.constraints = RigidbodyConstraints2D.None;
     }
 

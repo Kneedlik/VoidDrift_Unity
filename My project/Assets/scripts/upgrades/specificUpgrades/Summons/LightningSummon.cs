@@ -14,7 +14,6 @@ public class LightningSummon : Summon
 
     [SerializeField] GameObject impactParticle;
     
-
     public bool Aoe;
     [SerializeField] GameObject explosionObject;
     [SerializeField] GameObject lightningBoltObject;
@@ -30,6 +29,8 @@ public class LightningSummon : Summon
     {
         fireRate = baseFireRate;
         timestamp = 0;
+        ScaleSummonStats();
+        PlayerStats.OnLevel += ScaleSummonStats;
     }
 
     // Update is called once per frame
@@ -92,12 +93,9 @@ public class LightningSummon : Summon
     
     public void Shoot()
     {
-        scaleSummonDamage();
-        scaleSize();
-
         if(Aoe)
         {
-           GameObject E = Instantiate(explosionObject, target.position, Quaternion.Euler(0, 0, 0));
+            GameObject E = Instantiate(explosionObject, target.position, Quaternion.Euler(0, 0, 0));
             explosion Explosion = E.GetComponent<explosion>();
             Explosion.destroyTime = 0.8f;
             Explosion.damage = damage;
@@ -115,7 +113,6 @@ public class LightningSummon : Summon
         }
 
         SkyBeam();
-       
     }
 
     public void explosionGraphics(GameObject Target,int damage,ref int Damage)
@@ -146,7 +143,7 @@ public class LightningSummon : Summon
 
         pom = Instantiate(impactParticle,target.position,Quaternion.Euler(90,0,0));
         pom.transform.localScale = new Vector3(3,3,3);
-        pom.transform.localPosition *= size;
+        //pom.transform.localPosition *= size;
     }
 
     public override bool setRandomTarget(out Transform target)
@@ -201,6 +198,23 @@ public class LightningSummon : Summon
             
         }
         return true;
+    }
+
+    public override int PrintPowerLevel()
+    {
+        float PowerLevel = 0;
+        float TimeSpend = 0;
+
+        for (int i = 0; i < projectiles - 1; i++)
+        {
+            PowerLevel += baseDamage;
+            TimeSpend += delay;
+        }
+        PowerLevel += baseDamage;
+        TimeSpend += baseFireRate;
+        PowerLevel = PowerLevel / TimeSpend;
+        Debug.Log(string.Format("Power level: {0}", (int)PowerLevel));
+        return (int)PowerLevel;
     }
 
 

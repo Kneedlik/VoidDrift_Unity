@@ -190,6 +190,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5386182139941555314, guid: 7c01c5653c476594ba2504eda0bc3de7, type: 3}
+      propertyPath: baseDamage
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5386182139941555314, guid: 7c01c5653c476594ba2504eda0bc3de7, type: 3}
       propertyPath: orbDistance
       value: 1.25
       objectReference: {fileID: 0}

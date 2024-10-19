@@ -212,8 +212,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 709511165
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: dbceb0d2d980b1f4f9cbc4afd934a582, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -255,19 +255,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 105
-  maxHealth: 90
+  maxHealth: 56
   baseMaxHealth: 0
   damageN: {fileID: 8636022699047134357, guid: 971665a441a2ea448a247928736ad030, type: 3}
   self: {fileID: 9134502682905301589}
   healthBarGObject: {fileID: 0}
   healthBar: {fileID: 0}
-  armor: 5
+  armor: 3
   multiplier: 0
   ParticleExplosion: {fileID: 0}
   DeathAnim: {fileID: 2360855068873841653, guid: 9d024159c29a5ed4dadc422aca7b568f, type: 3}
   DeathDelay: 0
   DeathFunc: []
-  DeathFunc123: 
+  OnDamageFunc: []
   respawning: 0
   respawnTime: 0
   prefab: {fileID: 0}
@@ -287,8 +287,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45c0708041036e343b357b8f0d399190, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 25
   coolDown: 1
+  Trigger: 0
 --- !u!114 &56373245907405246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,7 +303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UsePrefab: 0
-  xpValue: 10
+  xpValue: 12
   percentValue: 0
   XpPrefab: {fileID: 0}
   Point: {fileID: 0}
@@ -318,8 +319,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc05fc48713b8604795a3503e0c65176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 55
-  maxSpeed: 7.3
+  speed: 40
+  maxSpeed: 4.1
   Multiplier: 1
 --- !u!114 &4267888923654197807
 MonoBehaviour:

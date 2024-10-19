@@ -354,18 +354,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypoints: []
-  speed: 1300
-  maxSpeed: 11.5
+  speed: 100
+  maxSpeed: 10.4
+  SpeedMultiplier: 1
   rotationSpeed: 60
   nextWayPointDistance: 10
   patrol: 1
   alert: 0
-  alertRadius: 50
-  breakAwayRadius: 75
+  alertRadius: 28
+  breakAwayRadius: 42.5
   currentTarget: {x: 0, y: 0, z: 0}
   reachedEndOfPath: 0
+  Active: 1
   cannon: {fileID: 136859910080268783}
-  rotSpeed: 2
+  rotSpeed: 2.3
   perchTime: 2
   endOfGridDistance: 600
   offsetD: 6
@@ -414,7 +416,7 @@ MonoBehaviour:
   DeathAnim: {fileID: 5470796982983684449, guid: c6500ecd7e8a77448b24572641c23e6e, type: 3}
   DeathDelay: 0
   DeathFunc: []
-  DeathFunc123: 
+  OnDamageFunc: []
   respawning: 1
   respawnTime: 300
   prefab: {fileID: 136859910040533358}
@@ -450,8 +452,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UsePrefab: 1
-  xpValue: 30
-  percentValue: 0.055
+  xpValue: 40
+  percentValue: 0.045
   XpPrefab: {fileID: 2320706730734592644, guid: cabbcd8f3c321f941b937e91cb5f0d6a, type: 3}
   Point: {fileID: 0}
 --- !u!1 &136859910063553123
@@ -558,7 +560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  uniqueID: 7072188961963447373
+  uniqueID: 1012701831409140202
   updateError: 1
   checkTime: 0.2
 --- !u!60 &136859910063553129
@@ -674,7 +676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 8754129979392217720, guid: fb95bf69ddc8be64ebd65f3d0c0da97d, type: 3}
-  bulletForce: 23
+  bulletForce: 16
   bulletsInABurst: 3
   rapidFireDelay: 0.1
   fire: 0
@@ -1080,7 +1082,7 @@ PrefabInstance:
       objectReference: {fileID: 136859910040533358}
     - target: {fileID: 8676788652427263838, guid: 0a91deee963f41e478a2a2a59e83fe48, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a91deee963f41e478a2a2a59e83fe48, type: 3}

@@ -6,9 +6,8 @@ using UnityEngine;
 public class RdamageIncrease : upgrade
 {
     public int amount;
-   public static RdamageIncrease instance;
+    public static RdamageIncrease instance;
    
-
     private void Awake()
     {
         instance = this;

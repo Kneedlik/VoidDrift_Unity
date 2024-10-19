@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 public class SwordSummon : Summon
 {
@@ -10,10 +11,7 @@ public class SwordSummon : Summon
     bool Switch;
     [SerializeField] GameObject SlashObjectT;
     [SerializeField] GameObject SlashObjectF;
-
-
     public bool Crit = false;
-    public int CritDamage;
 
     public int slashAmount = 1;
     public float slashDelay;
@@ -31,7 +29,8 @@ public class SwordSummon : Summon
     void Start()
     {
         CurrentTick = 0;
-        scaleSummonDamage();
+        ScaleSummonStats();
+        PlayerStats.OnLevel += ScaleSummonStats;
 
         eventManager.OnImpact += strike;
     }
@@ -51,28 +50,28 @@ public class SwordSummon : Summon
 
     public void strike(GameObject target,int damage, ref int bonusDamage)
     {
-      /*  bool Contains = false;
-        Sort();
-        for (int i = 0; i < Targets.Count; i++)
-        {
-            if (Targets[i].target == target)
-            {
-                Contains = true;
-                break;
-            }
-        }
+        /*  bool Contains = false;
+          Sort();
+          for (int i = 0; i < Targets.Count; i++)
+          {
+              if (Targets[i].target == target)
+              {
+                  Contains = true;
+                  break;
+              }
+          }
 
-        if(Contains == false)
-        {
-            ShapeLessTarget Temp = new ShapeLessTarget();
-            Temp.target = target;
-            Temp.TiksStack = slashAmount;
-            Temp.TiksStack = 0;
-            
-            Targets.Add(Temp);
-            StartCoroutine(slash(target));
-        }
-      */
+          if(Contains == false)
+          {
+              ShapeLessTarget Temp = new ShapeLessTarget();
+              Temp.target = target;
+              Temp.TiksStack = slashAmount;
+              Temp.TiksStack = 0;
+
+              Targets.Add(Temp);
+              StartCoroutine(slash(target));
+          }
+        */
         if (ready)
         {
             StartCoroutine(slash(target));
@@ -80,14 +79,11 @@ public class SwordSummon : Summon
             timeStamp = fireRate;
             ready = false;
         }
-
-
     }
 
     IEnumerator slash(GameObject target)
     {
         Health health = target.GetComponent<Health>();
-
 
         for (int i = 0; i < slashAmount; i++)
         {
@@ -127,6 +123,19 @@ public class SwordSummon : Summon
                 yield return new WaitForSeconds(slashDelay);
             }
         }
+    }
+
+    public override int PrintPowerLevel()
+    {
+        float PowerLevel = 0;
+        float TimeSpend = 0;
+
+        PowerLevel += baseDamage;
+        TimeSpend += baseFireRate;
+        PowerLevel = PowerLevel * slashAmount;
+        PowerLevel = PowerLevel / TimeSpend;
+        Debug.Log(string.Format("Power level: {0}", (int)PowerLevel));
+        return (int)PowerLevel;
     }
 
     void Sort()

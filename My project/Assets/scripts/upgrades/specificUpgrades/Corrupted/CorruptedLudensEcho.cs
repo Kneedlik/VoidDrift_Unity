@@ -17,7 +17,12 @@ public class CorruptedLudensEcho : upgrade
         {
             eventManager.OnImpact += LudensEchoSystem.sharedInstance.CorruptedEchoProc;
             eventManager.SummonOnImpact += LudensEchoSystem.sharedInstance.CorruptedEchoProc;
-            description = string.Format("");
+            description = string.Format("Corrupted Ludens echo Damage + 50 True Damage + 2.5%");
+            rarity -= Constants.CorruptedRarityDecrease;
+        }else
+        {
+            LudensEchoSystem.sharedInstance.CFlatDamage += 50;
+            LudensEchoSystem.sharedInstance.CTrueDamage += 0.025f;
         }
 
 

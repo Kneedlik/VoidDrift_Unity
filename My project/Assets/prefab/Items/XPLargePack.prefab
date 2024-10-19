@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26f8fbbd49523cb4bb9c408262fa0d3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UseConstants: 0
   pullRadius: 10
   speed: 25
 --- !u!58 &3839375654054845067
@@ -130,4 +131,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xpValue: 0
-  PercentValue: 0.45
+  PercentValue: 0.2

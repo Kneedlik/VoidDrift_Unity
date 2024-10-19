@@ -101,12 +101,12 @@ MonoBehaviour:
   damage: 0
   fireRate: 0
   size: 1
-  baseDamage: 8
-  baseFireRate: 1.8
+  baseDamage: 18
+  baseFireRate: 1.35
   baseSize: 1
   id: 10
   projectiles: 1
-  delay: 0.65
+  delay: 0.35
   impactParticle: {fileID: 4794043405585894037, guid: 37138c0c33167b04fa1fb90b7f5a794f, type: 3}
   Aoe: 0
   explosionObject: {fileID: 4341890367394053359, guid: e8ba1753fc00d074d8d16e10f3edbbb4, type: 3}

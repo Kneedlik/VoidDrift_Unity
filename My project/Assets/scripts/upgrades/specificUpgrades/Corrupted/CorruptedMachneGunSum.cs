@@ -7,6 +7,7 @@ public class CorruptedMachneGunSum : upgrade
 {
     [SerializeField] GameObject summon;
     GameObject pom;
+    MachneGun drone;
 
     void Start()
     {
@@ -32,9 +33,11 @@ public class CorruptedMachneGunSum : upgrade
                 if (SummonsManager.instance.summonCount < SummonsManager.instance.maxSummons)
                 {
                     cloneSelf();
-                } 
+                }
+                drone = pom.GetComponent<MachneGun>();
             }
             level++;
+            drone.PrintPowerLevel();
         }
     }
 }

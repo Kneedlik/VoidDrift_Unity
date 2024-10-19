@@ -132,15 +132,13 @@ public class fodderAI : simpleAI
         }
 
        // lookDir = path.vectorPath[currentWatPoint+3] ;
-        setMaxSpeed(maxSpeed);
-
         if (alert)
         {
 
             if (cannon.salvoFinished == false)
             {
                 moveCharacter(speed);
-                //rb.AddForce(transform.up * speed * Time.deltaTime, ForceMode2D.Force);
+                //rb.AddForce(transform.up * speed, ForceMode2D.Force);
                 lookAt(currentTarget);
                 rand = -1;
                 ready = true;
@@ -148,7 +146,7 @@ public class fodderAI : simpleAI
             else
             {
                
-                rb.AddForce(transform.up * speed * Time.deltaTime, ForceMode2D.Force);
+                rb.AddForce(transform.up * speed * SpeedMultiplier, ForceMode2D.Force);
                 if (rand == -1)
                 {
                     rand = Random.Range(0, 2);
@@ -197,7 +195,12 @@ public class fodderAI : simpleAI
                 }
             }
         }
+        setMaxSpeed(maxSpeed);
+    }
 
+    private void LateUpdate()
+    {
+        setMaxSpeed(maxSpeed);
     }
 
     private void OnDrawGizmos()

@@ -12,7 +12,7 @@ public class AC_BounceFinal : upgrade
 
     public override bool requirmentsMet()
     {
-        if(FinalConditionsMet() && AC_Bounce.instance.level >= 2 )
+        if(FinalConditionsMet() && AC_Bounce.instance.level >= 2)
         {
             return true;
         }else return false;

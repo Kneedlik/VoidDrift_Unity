@@ -125,6 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 0.5
   speed: 15
+  RandomDelayMax: 0.35
 --- !u!1 &5202527886860771328
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,15 +229,16 @@ MonoBehaviour:
   damage: 16
   fireRate: 2.4
   size: 1
-  baseDamage: 8
-  baseFireRate: 2
+  baseDamage: 22
+  baseFireRate: 1.7
   baseSize: 1
   id: 5
   bullet: {fileID: 862567238636943838, guid: 275baa65de00dc743bae12545fe26909, type: 3}
   projectileAmount: 8
-  bulletForce: 20
+  bulletForce: 30
+  BaseForce: 30
   bursts: 1
-  burstDelay: 0.5
+  burstDelay: 0.55
   pierce: 0
 --- !u!95 &8256046931734830708
 Animator:

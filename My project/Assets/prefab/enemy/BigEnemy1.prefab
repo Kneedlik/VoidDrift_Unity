@@ -238,8 +238,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc05fc48713b8604795a3503e0c65176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 160
-  maxSpeed: 3.2
+  speed: 120
+  maxSpeed: 1.65
+  Multiplier: 1
 --- !u!114 &3583491748023876004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,6 +255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 50
   coolDown: 1
+  Trigger: 0
 --- !u!114 &935807342844462360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,20 +269,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 2500
+  maxHealth: 1250
   baseMaxHealth: 0
   damageN: {fileID: 8636022699047134357, guid: 971665a441a2ea448a247928736ad030, type: 3}
   self: {fileID: 2117187936650203918}
   healthBarGObject: {fileID: 0}
   healthBar: {fileID: 0}
-  damageMultiplier: 1
   armor: 3
   multiplier: 0
   ParticleExplosion: {fileID: 0}
   DeathAnim: {fileID: 2360855068873841653, guid: 9d024159c29a5ed4dadc422aca7b568f, type: 3}
   DeathDelay: 0
   DeathFunc: []
-  DeathFunc123: 
+  OnDamageFunc: []
   respawning: 0
   respawnTime: 0
   prefab: {fileID: 0}

@@ -153,8 +153,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7d64b668833e1f4bbbb72ba0800c937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xpValue: 35
-  PercentValue: 0.085
+  xpValue: 30
+  PercentValue: 0.055
 --- !u!58 &4362483652719170630
 CircleCollider2D:
   m_ObjectHideFlags: 0

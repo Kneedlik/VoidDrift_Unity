@@ -38,7 +38,7 @@ public class weapeon : MonoBehaviour
     public void updateDamage(int multiplier)
     {
         float realMultiplier = (float)multiplier / 100f;
-        float pomDamage = (float)baseDamage * damageMultiplier;
+        float pomDamage = (float)baseDamage * damageMultiplier * MasterManager.Instance.PlayerInformation.DamageMultiplier;
         pomDamage = pomDamage * realMultiplier;
         damage = (int)pomDamage;
     }
@@ -59,12 +59,14 @@ public class weapeon : MonoBehaviour
     public void updateAS(int multiplier)
     {
         float realMultiplier = (float)multiplier / 100f;
+        realMultiplier = realMultiplier * ASmultiplier * MasterManager.Instance.PlayerInformation.AsMultiplier;
         CoolDown = baseCoolDown / realMultiplier;
     }
 
     public virtual void updateSize(int multiplier)
     {
-        size = (float)multiplier / 100f * baseSize;
+        size = (float)multiplier / 100f;
+        size = size * baseSize * MasterManager.Instance.PlayerInformation.SizeMultiplier;
     }
 
     public virtual void setFirepoints()

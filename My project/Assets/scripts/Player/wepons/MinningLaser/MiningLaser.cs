@@ -427,7 +427,6 @@ public class MiningLaser : weapeon
             Obj.transform.SetParent(Dronemanager.transform);
             Temp += Offset;
         }
-        Dronemanager.ResetDrones();
-        
+        Dronemanager.ResetDrones(ASmultiplier); 
     }
 }

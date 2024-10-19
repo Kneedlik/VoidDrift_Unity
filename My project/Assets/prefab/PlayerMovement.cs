@@ -266,7 +266,7 @@ public class PlayerMovement : MonoBehaviour
     {
         float realMultiplier = (float)multiplier / 100f ;
         
-        moveSpeed = baseMoveSpeed * realMultiplier;
-        maxSpeed = baseMaxSpeed * realMultiplier;
+        moveSpeed = baseMoveSpeed * realMultiplier * MasterManager.Instance.PlayerInformation.MsMultiplier;
+        maxSpeed = baseMaxSpeed * realMultiplier * MasterManager.Instance.PlayerInformation.MsMultiplier;
     }
 }

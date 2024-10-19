@@ -8,12 +8,13 @@ public class AC_Sniper : upgrade
     public float ForceMultiplier;
     public int PierceAmount;
     public float ASpenalty;
+    public static AC_Sniper instance;
 
     void Start()
     {
         Type = type.special;
         setColor();
-
+        instance = this;
     }
 
     public override void function()

@@ -111,7 +111,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3902809289429083275, guid: 22b0bc3c6d2c7f04abdf19f5f362e5e7, type: 3}
       propertyPath: speed
-      value: 300
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 3902809289429083275, guid: 22b0bc3c6d2c7f04abdf19f5f362e5e7, type: 3}
       propertyPath: cannon
@@ -119,15 +119,19 @@ PrefabInstance:
       objectReference: {fileID: 8377840066420268506}
     - target: {fileID: 3902809289429083275, guid: 22b0bc3c6d2c7f04abdf19f5f362e5e7, type: 3}
       propertyPath: maxSpeed
-      value: 10
+      value: 8.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3902809289429083275, guid: 22b0bc3c6d2c7f04abdf19f5f362e5e7, type: 3}
+      propertyPath: stopRadius
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 3902809289429083275, guid: 22b0bc3c6d2c7f04abdf19f5f362e5e7, type: 3}
       propertyPath: alertRadius
-      value: 55
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 3902809289429083275, guid: 22b0bc3c6d2c7f04abdf19f5f362e5e7, type: 3}
       propertyPath: patrolSpeed
-      value: 250
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 3902809289429083275, guid: 22b0bc3c6d2c7f04abdf19f5f362e5e7, type: 3}
       propertyPath: rotationSpeed
@@ -135,7 +139,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3902809289429083275, guid: 22b0bc3c6d2c7f04abdf19f5f362e5e7, type: 3}
       propertyPath: breakAwayRadius
-      value: 65
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 4534321796645629966, guid: 22b0bc3c6d2c7f04abdf19f5f362e5e7, type: 3}
       propertyPath: m_AnchorMax.x
@@ -155,11 +159,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7873543696634477136, guid: 22b0bc3c6d2c7f04abdf19f5f362e5e7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -39.665634
       objectReference: {fileID: 0}
     - target: {fileID: 7873543696634477136, guid: 22b0bc3c6d2c7f04abdf19f5f362e5e7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -14.190205
       objectReference: {fileID: 0}
     - target: {fileID: 7873543696634477136, guid: 22b0bc3c6d2c7f04abdf19f5f362e5e7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -356,7 +360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UsePrefab: 1
   xpValue: 80
-  percentValue: 0.1
+  percentValue: 0.06
   XpPrefab: {fileID: 2320706730734592644, guid: cabbcd8f3c321f941b937e91cb5f0d6a, type: 3}
   Point: {fileID: 0}
 --- !u!114 &3398589596958925440

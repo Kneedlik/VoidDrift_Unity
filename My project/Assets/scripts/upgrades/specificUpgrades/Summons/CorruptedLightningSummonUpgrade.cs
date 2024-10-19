@@ -16,6 +16,15 @@ public class CorruptedLightningSummonUpgrade : upgrade
         setColor();
     }
 
+    public override bool requirmentsMet()
+    {
+        if (KnedlikLib.CheckSummon(this))
+        {
+            return true;
+        }
+        else return false;
+    }
+
     public override void function()
     {
         if (SummonsManager.instance.addSummon(summon, out pom))
@@ -24,7 +33,8 @@ public class CorruptedLightningSummonUpgrade : upgrade
             if (SummonsManager.instance.summonCount < SummonsManager.instance.maxSummons)
             {
                 cloneSelf();
-            }   
+            }  
+            sum.PrintPowerLevel();
         }
 
         level++;

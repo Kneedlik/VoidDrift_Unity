@@ -164,9 +164,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49729baeda6eb2e48949cb9c38c49589, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartObject: {fileID: 0}
+  StartObject: {fileID: 3529384583362982569}
   StartPosition: {x: 0, y: 0, z: 0}
-  EndObject: {fileID: 0}
+  EndObject: {fileID: 3529384583363023671}
   EndPosition: {x: 0, y: 0, z: 0}
   Generations: 6
   Duration: 0.05

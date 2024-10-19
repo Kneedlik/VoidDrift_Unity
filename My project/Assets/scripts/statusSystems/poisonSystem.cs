@@ -48,7 +48,7 @@ public class poisonSystem : MonoBehaviour
                 CpoisonedEnemies.Add(target);
 
                 GameObject P = Instantiate(CParticles, target.transform.position, Quaternion.Euler(0, 0, 0));
-                KnedlikLib.scaleParticleSize(target, P, 1f);
+                //KnedlikLib.scaleParticleSize(target, P, 1f);
                 P.transform.SetParent(target.transform);
                 StartCoroutine(CStartPoison(health, target));
                 StartCoroutine(stopPoison(target,P,true));
@@ -77,7 +77,7 @@ public class poisonSystem : MonoBehaviour
                 if (pom != null)
                 {
                     int z = 0;
-                    Poison(pom, 0, ref z);
+                    CorruptedPoison(pom, 0, ref z);
                 }
                 
                 yield return new WaitForSeconds(CSpeed * PlayerStats.sharedInstance.TickRate);
@@ -108,12 +108,12 @@ public class poisonSystem : MonoBehaviour
                     if (health != null)
                     {
                         GameObject P = Instantiate(particles, target.transform.position, Quaternion.Euler(0, 0, 0));
-                        KnedlikLib.scaleParticleSize(target, P, 1f);
+                        //KnedlikLib.scaleParticleSize(target, P, 1f);
                         P.transform.SetParent(target.transform);
 
                         SpriteRenderer S = target.GetComponent<SpriteRenderer>();
                         Color32 C = S.color;
-                        S.color = color;
+                        //S.color = color;
 
                         poisonedEnemies.Add(target);
 
@@ -222,7 +222,7 @@ public class poisonSystem : MonoBehaviour
             SpriteRenderer S = target.GetComponent<SpriteRenderer>();
             if (S != null)
             {
-                S.color = C;
+               // S.color = C;
             }
         }
 

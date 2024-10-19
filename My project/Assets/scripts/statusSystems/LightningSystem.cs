@@ -27,6 +27,15 @@ public class LightningSystem : MonoBehaviour
     GameObject Begin;
     GameObject End;
 
+    //Corrupted
+    public int Cdamage;
+    public int Cchance;
+    [SerializeField] GameObject ClightningObject;
+    [SerializeField] GameObject CimpactEffect;
+    public int Cchain;
+    GameObject Cbegin;
+    GameObject Cend;
+
     void Start()
     {
         instance = this;
@@ -82,13 +91,20 @@ public class LightningSystem : MonoBehaviour
                         }
 
                         End = currentTarget.gameObject;
-                       StartCoroutine(lightningGraphics(Begin, End));
+                        StartCoroutine(lightningGraphics(Begin, End,lightningObject));
                         Begin = currentTarget.gameObject;
-                        h.TakeDamage(damage1);
+                        if (h != null)
+                        {
+                            h.TakeDamage(damage1);
+                        }
                     }
                 }
             }
-            health.TakeDamage(damage1);
+
+            if (health != null)
+            {
+                health.TakeDamage(damage1);
+            }
         }
     }
 
@@ -114,9 +130,9 @@ public class LightningSystem : MonoBehaviour
         }
     }
 
-    IEnumerator lightningGraphics(GameObject begin, GameObject ending)
+    IEnumerator lightningGraphics(GameObject begin, GameObject ending,GameObject Lobject)
     {
-        GameObject pom = Instantiate(lightningObject,transform);
+        GameObject pom = Instantiate(Lobject,transform);
         //Debug.Log("EEE");
         LightningBolt script = pom.GetComponent<LightningBolt>();
         script.StartObject.transform.position = begin.transform.position;
@@ -151,18 +167,68 @@ public class LightningSystem : MonoBehaviour
         Destroy(pom);
     }
 
+    public void CorruptedlightningProc(GameObject target, int damage, ref int Damage)
+    {
+        int rand = Random.Range(0, 100);
+
+        if (rand <= Cchance)
+        {
+            Health health = target.GetComponent<Health>();
+            Instantiate(CimpactEffect, target.transform.position, Quaternion.Euler(90, 0, 0));
+
+            Transform currentTarget = target.transform;
+            List<Transform> Enemies = new List<Transform>();
+            Enemies.Add(target.transform);
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            Cbegin = target;
+
+            if (health != null)
+            {
+                health.TakeDamage(Cdamage);
+            }
+
+            for (int i = 0; i < Cchain; i++)
+            {
+                if (KnedlikLib.FindClosestEnemy(Cbegin.transform, out currentTarget, Enemies))
+                {
+                    if (Vector3.Distance(Cbegin.transform.position, currentTarget.position) <= distance)
+                    {
+                        Health h = currentTarget.GetComponent<Health>();
+                        Enemies.Add(currentTarget);
+                        Instantiate(ImpactEffect, currentTarget.position, Quaternion.Euler(90, 0, 0));
+
+                        Cend = currentTarget.gameObject;
+                        StartCoroutine(lightningGraphics(Cbegin, Cend, ClightningObject));
+                        Cbegin = currentTarget.gameObject;
+                        if (h != null)
+                        {
+                            h.TakeDamage(damage1);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     public void RemoveBrittle(GameObject target,Health health)
     {
         if (removeBrittle)
         {
             if (BrittleSystem.Instance.BrittleEnemies.Contains(target))
             {
-                BrittleSystem.Instance.RemoveBrittle(target);
+                SpriteRenderer S = target.GetComponent<SpriteRenderer>();
+                BrittleSystem.Instance.RemoveBrittle(target,new Color32(255,255,255,255),S);
                 health.TakeDamage(removeBrittleDamage);
             }
         }
     }
 
-    
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.blue;
+        //Gizmos.DrawWireSphere(transform.position, distance);
+    }
+
+
 
 }

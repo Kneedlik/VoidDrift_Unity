@@ -33,15 +33,23 @@ public class LudensEchoSystem : MonoBehaviour
     {
         if (CEffectedEnemies.Contains(target) == false)
         {
-            CEffectedEnemies.Add(target);
-            int damage = KnedlikLib.ScaleDamage(CFlatDamage,transform,false);
+            Health health = target.GetComponent<Health>();
+            if (health != null)
+            {
+                CEffectedEnemies.Add(target);
+                int damage = KnedlikLib.ScaleDamage(CFlatDamage, transform, false);
+                float pom = health.maxHealth * CTrueDamage;
+                damage = damage + (int)pom;
 
-            explosion EX =  Instantiate(CExplosion,target.transform.position,Quaternion.Euler(0,0,0)).GetComponent<explosion>();
-            EX.damage = damage;
-            EX.TrueDamage = CTrueDamage;
+                health.TakeDamage(damage);
 
-            int Rand = Random.Range(0, 180);
-            Instantiate(CImpact, target.transform.position, Quaternion.Euler(0, 0, Rand));
+                //explosion EX = Instantiate(CExplosion, target.transform.position, Quaternion.Euler(0, 0, 0)).GetComponent<explosion>();
+                //EX.damage = damage;
+                //EX.TrueDamage = CTrueDamage;
+
+                int Rand = Random.Range(0, 180);
+                Instantiate(CImpact, target.transform.position, Quaternion.Euler(0, 0, Rand));
+            }
 
         }   
     }

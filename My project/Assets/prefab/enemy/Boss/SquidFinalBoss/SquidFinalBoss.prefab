@@ -143,20 +143,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  maxHealth: 100000
+  maxHealth: 18000000
   baseMaxHealth: 0
   damageN: {fileID: 8636022699047134357, guid: 971665a441a2ea448a247928736ad030, type: 3}
   self: {fileID: 0}
   healthBarGObject: {fileID: 0}
   healthBar: {fileID: 0}
-  damageMultiplier: 1
   armor: 0
   multiplier: 0
   ParticleExplosion: {fileID: 0}
   DeathAnim: {fileID: 0}
   DeathDelay: 0
   DeathFunc: []
-  DeathFunc123: 
+  OnDamageFunc: []
   respawning: 0
   respawnTime: 0
   prefab: {fileID: 0}
@@ -1130,6 +1129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 0.2
   speed: 10
+  RandomDelayMax: 0.35
 --- !u!1 &1882368835911163823
 GameObject:
   m_ObjectHideFlags: 0
@@ -1255,6 +1255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 0.25
   speed: 10
+  RandomDelayMax: 0.35
 --- !u!1 &1882368836680517428
 GameObject:
   m_ObjectHideFlags: 0

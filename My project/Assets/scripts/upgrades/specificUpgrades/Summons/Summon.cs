@@ -120,10 +120,9 @@ public class Summon : MonoBehaviour
 
     public virtual void scaleSummonDamage()
     {
-        float pom = baseDamage * (PlayerStats.sharedInstance.SummonDamage / 100f);
-        pom = pom * (PlayerStats.sharedInstance.damageMultiplier / 100f);
+        float pom = baseDamage * (PlayerStats.sharedInstance.SummonDamage / 100f) * MasterManager.Instance.PlayerInformation.SummonDamageMultiplier;
+        pom = pom * (PlayerStats.sharedInstance.damageMultiplier / 100f) * MasterManager.Instance.PlayerInformation.DamageMultiplier;
         damage = (int)pom;
-   
     }
 
     public void faceEnemy(Transform target)
@@ -139,9 +138,32 @@ public class Summon : MonoBehaviour
 
     public virtual void scaleSize()
     {
-        size = baseSize * (PlayerStats.sharedInstance.areaMultiplier / 100f);  
- 
+        size = baseSize * (PlayerStats.sharedInstance.areaMultiplier / 100f);
+        size = size * MasterManager.Instance.PlayerInformation.SizeMultiplier;
     }
 
-    
+    public virtual void scaleFireRate()
+    {
+        fireRate = baseFireRate;
+    }
+
+    public virtual void scaleForce()
+    {
+
+    }
+
+    public void ScaleSummonStats()
+    {
+        scaleSummonDamage();
+        scaleSize();
+        scaleFireRate();
+        scaleForce();
+    }
+
+    public virtual int PrintPowerLevel()
+    {
+        float PowerLevel = baseDamage / baseFireRate;
+        Debug.Log(string.Format("Power level: {0}",(int)PowerLevel));
+        return (int)PowerLevel;
+    }
 }

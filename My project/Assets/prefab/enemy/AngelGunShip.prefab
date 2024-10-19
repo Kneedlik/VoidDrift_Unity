@@ -189,6 +189,7 @@ GameObject:
   - component: {fileID: 1708551267828833817}
   - component: {fileID: 2116844584515988420}
   - component: {fileID: 5962728816011435747}
+  - component: {fileID: 4377537919435577292}
   m_Layer: 12
   m_Name: AngelGunShip
   m_TagString: Enemy
@@ -469,6 +470,23 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
+--- !u!114 &4377537919435577292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708551267828833822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b012fce8103ed4a4397b4dcf4d66b057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UsePrefab: 1
+  xpValue: 120
+  percentValue: 1.5
+  XpPrefab: {fileID: 2320706730734592644, guid: cabbcd8f3c321f941b937e91cb5f0d6a, type: 3}
+  Point: {fileID: 0}
 --- !u!1 &4229040738682110817
 GameObject:
   m_ObjectHideFlags: 0

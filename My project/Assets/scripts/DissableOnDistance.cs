@@ -33,11 +33,11 @@ public class DissableOnDistance : MonoBehaviour
                     if (Vector3.Distance(player.position, e.position) < distance)
                     {
                         e.gameObject.SetActive(true);
-                        Health health = e.gameObject.GetComponent<Health>();
-                        if (health != null)
-                        {
-                            health.setUp();
-                        }
+                        //Health health = e.gameObject.GetComponent<Health>();
+                        //if (health != null)
+                        //{
+                        //    health.setUp();
+                        //}
                     }
                 }
             }

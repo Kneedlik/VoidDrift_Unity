@@ -17,6 +17,7 @@ public class LaserDrone : Summon
         damage = baseDamage;
         fireRate = baseFireRate;
         scaleSummonDamage();
+        PlayerStats.OnLevel += scaleSummonDamage;
     }
     
     public bool Shoot()

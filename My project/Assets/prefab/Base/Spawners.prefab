@@ -54,6 +54,7 @@ MonoBehaviour:
   parent: {fileID: 4353153680516291602}
   count: 0
   counter: {fileID: 4353153680516291603}
+  PrintPrefix: Big
 --- !u!1 &4353153679375785429
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,6 +108,7 @@ MonoBehaviour:
   parent: {fileID: 4353153680516291602}
   count: 0
   counter: {fileID: 4353153680516291603}
+  PrintPrefix: Classic
 --- !u!114 &4353153679375785433
 MonoBehaviour:
   m_ObjectHideFlags: 0

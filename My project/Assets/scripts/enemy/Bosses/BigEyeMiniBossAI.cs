@@ -66,7 +66,7 @@ public class BigEyeMiniBossAI : SimpleVirtual
         }
     }
 
-    public void SlowDown()
+    public override void function()
     {
         timeStamp = SlowDuration;
         Slowed = true;

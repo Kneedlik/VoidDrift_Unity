@@ -16,6 +16,12 @@ public class BeamSummon : Summon
     public int ticks;
     public float tickDelay;
 
+    private void Start()
+    {
+        ScaleSummonStats();
+        PlayerStats.OnLevel += ScaleSummonStats;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -55,13 +61,11 @@ public class BeamSummon : Summon
 
         if(Aoe)
         {
-            scaleSize();
             Invoke("SpawnCone", 0.3f);
             GameObject P = Instantiate(ConeParticle, transform.position, Quaternion.Euler(0, -90, 0));
             KnedlikLib.ScaleParticleByFloat(P, size, false);
             P.transform.LookAt(target);
             P.transform.rotation = Quaternion.Euler(P.transform.rotation.eulerAngles.y < 180 ? 270 - P.transform.rotation.eulerAngles.x : P.transform.rotation.eulerAngles.x, -90,0);
-
         }
 
         yield return new WaitForSeconds(beamDuration);
@@ -107,7 +111,6 @@ public class BeamSummon : Summon
                             int D = 0;
                             BrittleSystem.Instance.ApplyBrittle(hit[j].transform.gameObject, 0, ref D);
 
-                            scaleSummonDamage();
                             health.TakeDamage(damage);
                         }
                     }
@@ -115,5 +118,13 @@ public class BeamSummon : Summon
                 yield return new WaitForSeconds(beamDuration / (ticks + 1));
             }
         }
+    }
+
+    public override int PrintPowerLevel()
+    {
+        float PowerLevel = baseDamage * ticks;
+        PowerLevel = PowerLevel / baseFireRate;
+        Debug.Log(string.Format("Power level: {0}", (int)PowerLevel));
+        return (int)PowerLevel;
     }
 }

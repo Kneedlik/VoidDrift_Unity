@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4225643017632790622
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5662157004347922478, guid: e6570932e6921ad4bb7a48145f57b3d1, type: 3}
+      propertyPath: m_Name
+      value: asteroid_sheet_2_2_Septrom_Blue
+      objectReference: {fileID: 0}
+    - target: {fileID: 5662157004347922479, guid: e6570932e6921ad4bb7a48145f57b3d1, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5662157004347922479, guid: e6570932e6921ad4bb7a48145f57b3d1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5662157004347922479, guid: e6570932e6921ad4bb7a48145f57b3d1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5662157004347922479, guid: e6570932e6921ad4bb7a48145f57b3d1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5662157004347922479, guid: e6570932e6921ad4bb7a48145f57b3d1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5662157004347922479, guid: e6570932e6921ad4bb7a48145f57b3d1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5662157004347922479, guid: e6570932e6921ad4bb7a48145f57b3d1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5662157004347922479, guid: e6570932e6921ad4bb7a48145f57b3d1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5662157004347922479, guid: e6570932e6921ad4bb7a48145f57b3d1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5662157004347922479, guid: e6570932e6921ad4bb7a48145f57b3d1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5662157004347922479, guid: e6570932e6921ad4bb7a48145f57b3d1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5662157004347923408, guid: e6570932e6921ad4bb7a48145f57b3d1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1717912650, guid: 11b74f499930d0345bb78319e4065f77, type: 3}
+    - target: {fileID: 5662157004347923408, guid: e6570932e6921ad4bb7a48145f57b3d1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 79d59a91faa75f84596431dd6b3291b2, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e6570932e6921ad4bb7a48145f57b3d1, type: 3}

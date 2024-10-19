@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class WeapeonSelection : MonoBehaviour
 {
-    [SerializeField] PlayerInformation playerInformation;
+    MasterManager Master;
 
     private void Awake()
     {
+        Master = GameObject.FindWithTag("Master").GetComponent<MasterManager>();
+
         foreach (Transform Weapeon in transform)
         {
             weapeon WeapeonTemp = Weapeon.GetComponent<weapeon>();
             if (WeapeonTemp == null) continue;
 
-            if(WeapeonTemp.Id == playerInformation.WeapeonId)
+            if(WeapeonTemp.Id == Master.PlayerInformation.WeapeonId)
             {
                 WeapeonTemp.gameObject.SetActive(true);
             }else WeapeonTemp.gameObject.SetActive(false);  
