@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class MiningLaser : weapeon
