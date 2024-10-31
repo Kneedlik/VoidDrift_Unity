@@ -212,6 +212,39 @@ public class levelingSystem : MonoBehaviour
         level = Level;
     }
 
+    public void ScaleXp()
+    {
+        if (level % 10 != 0)
+        {
+            float pom = xpInccrease * xpInccreaseMultiplier;
+            pom = pom + xpFlatInccrease;
+            xpInccrease = (int)pom;
+            xpNeeded += xpInccrease;
+            //Debug.Log(xpNeeded);
+            //Debug.Log(xpInccrease);
+        }
+        else
+        {
+            float pom = (xpInccreaseMultiplier - 1f) * 2.25f;
+            pom += 1f;
+            pom = pom * xpInccrease;
+            pom = pom + (xpFlatInccrease * 2);
+            xpInccrease = (int)pom;
+            xpNeeded += xpInccrease;
+            // Debug.Log(xpNeeded);
+            //Debug.Log(xpInccrease);
+        }
+        xpFlatInccrease += FlatXpPlus;
+    }
+
+    public void IncreaseLevel()
+    {
+        level++;
+        bar.displayedLevel(level);
+        ScaleByLevel("Enemy");
+        ScaleByLevel("Enviroment");
+    }
+
     public void addXp(int xp)
     {
         currentXp += xp;
@@ -221,33 +254,9 @@ public class levelingSystem : MonoBehaviour
         if (currentXp >= xpNeeded)
         {
             currentXp -= xpNeeded;
-            level++;
+            IncreaseLevel();
+            ScaleXp();
 
-            if (level % 10 != 0)
-            {
-                float pom = xpInccrease * xpInccreaseMultiplier;
-                pom = pom + xpFlatInccrease;
-                xpInccrease = (int)pom;
-                xpNeeded += xpInccrease;
-                //Debug.Log(xpNeeded);
-                //Debug.Log(xpInccrease);
-            }
-            else
-            {
-                float pom = (xpInccreaseMultiplier - 1f) * 2.25f;
-                pom += 1f;
-                pom = pom * xpInccrease;
-                pom = pom + (xpFlatInccrease * 2);
-                xpInccrease = (int)pom;
-                xpNeeded += xpInccrease;
-               // Debug.Log(xpNeeded);
-                //Debug.Log(xpInccrease);
-            }
-            xpFlatInccrease += FlatXpPlus;
-
-            ScaleByLevel("Enemy");
-            ScaleByLevel("Enviroment");
-            bar.displayedLevel(level);
             SetUpLevelMenu(true); 
         }
     }

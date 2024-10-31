@@ -4985,6 +4985,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DroneList: []
   BaseCoolDown: 1.5
+  CoolDown: 0
 --- !u!1 &344245386
 GameObject:
   m_ObjectHideFlags: 0
@@ -11213,7 +11214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseMoveSpeed: 150
-  baseMaxSpeed: 11
+  baseMaxSpeed: 9.5
   moveSpeed: 0
   maxSpeed: 0
   moveSpeed_1: 800
@@ -11270,14 +11271,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 1
   currentXp: 0
-  xpNeeded: 40
-  xpInccrease: 15
-  xpInccreaseMultiplier: 1.11
+  xpNeeded: 120
+  xpInccrease: 45
+  xpFlatInccrease: 8
+  FlatXpPlus: 3.4
+  xpInccreaseMultiplier: 1.023
   levelUpMenu: {fileID: 0}
   sorting: {fileID: 0}
   totalXP: 0
   bar: {fileID: 0}
-  healthPerLevel: 0.12
+  healthPerLevel: 0.2
   red: 0
   green: 0
   blue: 0
@@ -11328,7 +11331,7 @@ MonoBehaviour:
   revives: 1
   slider: {fileID: 0}
   TickRate: 1
-  HealingOrbDropChance: 0.5
+  HealingOrbDropChance: 0.35
   HealingOrbPrefab: {fileID: 6255875214124632419, guid: 6c27fa9bae4513444a8f57ed58c0c332, type: 3}
   ownedColours: 
 --- !u!1 &2249976208118168590
@@ -11410,7 +11413,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d393b37e47bfbc542bceda6b4f138b61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInformation: {fileID: 11400000, guid: 6fe1b5e96d7dd2f47a58d5bd1e7c2a5c, type: 2}
 --- !u!1001 &2046646428783455728
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11496,7 +11498,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 242811088275023567, guid: db9efca1f9895844da26c0e12df2c959, type: 3}
       propertyPath: Plasma
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 242811088275023567, guid: db9efca1f9895844da26c0e12df2c959, type: 3}
       propertyPath: RangeX
@@ -11528,7 +11530,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 242811088275023567, guid: db9efca1f9895844da26c0e12df2c959, type: 3}
       propertyPath: baseDamage
-      value: 5
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 242811088275023567, guid: db9efca1f9895844da26c0e12df2c959, type: 3}
       propertyPath: AtomicForce
@@ -11552,7 +11554,7 @@ PrefabInstance:
       objectReference: {fileID: 5136177071639563969, guid: 74efeb613a6eff84aa5256b7c5828926, type: 3}
     - target: {fileID: 242811088275023567, guid: db9efca1f9895844da26c0e12df2c959, type: 3}
       propertyPath: baseCoolDown
-      value: 0.85
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 242811088275023567, guid: db9efca1f9895844da26c0e12df2c959, type: 3}
       propertyPath: OffsetScaling
@@ -11682,7 +11684,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 85072393607905457, guid: 57a931b9e02fa8d428a92f24910367a4, type: 3}
       propertyPath: LaserForm
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 85072393607905457, guid: 57a931b9e02fa8d428a92f24910367a4, type: 3}
       propertyPath: LineSpeed
@@ -11702,15 +11704,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 85072393607905457, guid: 57a931b9e02fa8d428a92f24910367a4, type: 3}
       propertyPath: baseDamage
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 85072393607905457, guid: 57a931b9e02fa8d428a92f24910367a4, type: 3}
       propertyPath: reloadSpeed
-      value: 0.85
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 85072393607905457, guid: 57a931b9e02fa8d428a92f24910367a4, type: 3}
       propertyPath: baseCoolDown
-      value: 0.4
+      value: 0.46
       objectReference: {fileID: 0}
     - target: {fileID: 85072393607905457, guid: 57a931b9e02fa8d428a92f24910367a4, type: 3}
       propertyPath: OffsetScaling
@@ -11738,7 +11740,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 85072393607905457, guid: 57a931b9e02fa8d428a92f24910367a4, type: 3}
       propertyPath: sideProjectiles
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 85072393607905457, guid: 57a931b9e02fa8d428a92f24910367a4, type: 3}
+      propertyPath: ClusterAliveTime
+      value: 0.16
       objectReference: {fileID: 0}
     - target: {fileID: 85072393607905457, guid: 57a931b9e02fa8d428a92f24910367a4, type: 3}
       propertyPath: LaserDamageDelay
@@ -11761,9 +11767,17 @@ PrefabInstance:
       value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 85072393607905457, guid: 57a931b9e02fa8d428a92f24910367a4, type: 3}
+      propertyPath: ClusterProjectiles
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 85072393607905457, guid: 57a931b9e02fa8d428a92f24910367a4, type: 3}
       propertyPath: HomingProjectileObj
       value: 
       objectReference: {fileID: 7285005029110257944, guid: 9a91a434a7325c64e86569bf08648440, type: 3}
+    - target: {fileID: 85072393607905457, guid: 57a931b9e02fa8d428a92f24910367a4, type: 3}
+      propertyPath: ClusterDamageMultiplier
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 85072393607905457, guid: 57a931b9e02fa8d428a92f24910367a4, type: 3}
       propertyPath: WeapeonUpgrades.Array.size
       value: 9
@@ -12153,7 +12167,7 @@ PrefabInstance:
       objectReference: {fileID: 5165149255182086180, guid: dab50b73ed8448540b35cce588658b55, type: 3}
     - target: {fileID: 2776333528265854994, guid: 317437082b94dc04194b22cf4db2fc4c, type: 3}
       propertyPath: damage
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2776333528265854994, guid: 317437082b94dc04194b22cf4db2fc4c, type: 3}
       propertyPath: pierce
@@ -12177,11 +12191,11 @@ PrefabInstance:
       objectReference: {fileID: 2249976208118168591}
     - target: {fileID: 2776333528265854994, guid: 317437082b94dc04194b22cf4db2fc4c, type: 3}
       propertyPath: baseDamage
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2776333528265854994, guid: 317437082b94dc04194b22cf4db2fc4c, type: 3}
       propertyPath: DroneAmount
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2776333528265854994, guid: 317437082b94dc04194b22cf4db2fc4c, type: 3}
       propertyPath: DronePrefab
@@ -12193,7 +12207,7 @@ PrefabInstance:
       objectReference: {fileID: 231911933}
     - target: {fileID: 2776333528265854994, guid: 317437082b94dc04194b22cf4db2fc4c, type: 3}
       propertyPath: baseCoolDown
-      value: 0.25
+      value: 0.36
       objectReference: {fileID: 0}
     - target: {fileID: 2776333528265854994, guid: 317437082b94dc04194b22cf4db2fc4c, type: 3}
       propertyPath: DroneDistance
@@ -12208,8 +12222,12 @@ PrefabInstance:
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2776333528265854994, guid: 317437082b94dc04194b22cf4db2fc4c, type: 3}
+      propertyPath: WidthMultiplier
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 2776333528265854994, guid: 317437082b94dc04194b22cf4db2fc4c, type: 3}
       propertyPath: sideProjectiles
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2776333528265854994, guid: 317437082b94dc04194b22cf4db2fc4c, type: 3}
       propertyPath: damageMultiplier
@@ -12218,6 +12236,10 @@ PrefabInstance:
     - target: {fileID: 2776333528265854994, guid: 317437082b94dc04194b22cf4db2fc4c, type: 3}
       propertyPath: SideOffsetScaling
       value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 2776333528265854994, guid: 317437082b94dc04194b22cf4db2fc4c, type: 3}
+      propertyPath: ProjectileCountMultiplier
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 2776333528265854994, guid: 317437082b94dc04194b22cf4db2fc4c, type: 3}
       propertyPath: WeapeonUpgrades.Array.size
@@ -12415,11 +12437,11 @@ PrefabInstance:
       objectReference: {fileID: 2249976208118168591}
     - target: {fileID: 5484302304179064425, guid: 923c7e1a628de7a47a2e529da8a9d74b, type: 3}
       propertyPath: knockBack
-      value: 5.1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5484302304179064425, guid: 923c7e1a628de7a47a2e529da8a9d74b, type: 3}
       propertyPath: baseDamage
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5484302304179064425, guid: 923c7e1a628de7a47a2e529da8a9d74b, type: 3}
       propertyPath: baseOffset
@@ -12439,7 +12461,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5484302304179064425, guid: 923c7e1a628de7a47a2e529da8a9d74b, type: 3}
       propertyPath: baseCoolDown
-      value: 0.4
+      value: 0.44
       objectReference: {fileID: 0}
     - target: {fileID: 5484302304179064425, guid: 923c7e1a628de7a47a2e529da8a9d74b, type: 3}
       propertyPath: OffsetScaling

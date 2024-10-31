@@ -35,7 +35,6 @@ public class AutoCannon : weapeon
     [SerializeField] int RealProjectiles;
     BulletScript BulletDamage;
    
-
     public GameObject[] cubes = new GameObject[100];
     GameObject[] sideCubes = new GameObject[100];
     public GameObject cubePrefab;
@@ -43,8 +42,6 @@ public class AutoCannon : weapeon
     public int Bounce;
     public float BounceDistance;
     public bool BounceDistanceOff = false;
-
-
 
     private void Start()
     {

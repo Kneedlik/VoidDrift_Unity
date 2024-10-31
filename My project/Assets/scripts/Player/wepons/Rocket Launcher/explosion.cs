@@ -21,8 +21,8 @@ public class explosion : MonoBehaviour
     [SerializeField] bool Impact;
     [SerializeField] bool PostImpact;
     public bool Stun;
+    public Color32 Colour = new Color32(255,255,255,255);
 
-    
     void Start()
     {
       //  if (destroyTime != 0)
@@ -97,7 +97,7 @@ public class explosion : MonoBehaviour
                         float pom2 = KnedlikLib.GetPercencHP(collision.gameObject, TrueDamage);
                         pom += (int)pom2;
                     }
-                    health.TakeDamage(pom);
+                    health.TakeDamage(pom,Colour);
                 }
             }
             else
@@ -121,7 +121,8 @@ public class explosion : MonoBehaviour
                     {
                         eventManager.PostImpact(collision.gameObject, damagePlus, ref damagePlus);
                     }
-                    health.TakeDamage(damagePlus);
+
+                    health.TakeDamage(damagePlus, Colour);
                 }
             }
         }

@@ -49,6 +49,7 @@ public static class SaveManager
             return null;
         }
 
+        Debug.Log("File exists");
         StateItem data = JsonConvert.DeserializeObject<StateItem>(File.ReadAllText(path));
         return data;
     }

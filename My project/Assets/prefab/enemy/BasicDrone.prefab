@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 2271946819796174774}
   - component: {fileID: 6432589168808349254}
   - component: {fileID: 411111404}
+  - component: {fileID: 4614465525930179972}
   m_Layer: 11
   m_Name: BasicDrone
   m_TagString: Enemy
@@ -157,6 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 16
   coolDown: 1
+  Trigger: 0
 --- !u!50 &3275799785512524504
 Rigidbody2D:
   serializedVersion: 4
@@ -205,8 +207,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc05fc48713b8604795a3503e0c65176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
-  maxSpeed: 7.8
+  speed: 40
+  maxSpeed: 5.8
   Multiplier: 1
 --- !u!114 &2271946819796174774
 MonoBehaviour:
@@ -247,7 +249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  maxHealth: 40
+  maxHealth: 35
   baseMaxHealth: 0
   damageN: {fileID: 8636022699047134357, guid: 971665a441a2ea448a247928736ad030, type: 3}
   self: {fileID: 0}
@@ -259,7 +261,7 @@ MonoBehaviour:
   DeathAnim: {fileID: 0}
   DeathDelay: 0
   DeathFunc: []
-  DeathFunc123: 
+  OnDamageFunc: []
   respawning: 0
   respawnTime: 0
   prefab: {fileID: 0}
@@ -267,6 +269,23 @@ MonoBehaviour:
   levelScaling: 0
   Boss: 0
   AlertOnHit: 0
+--- !u!114 &4614465525930179972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3275799785512524511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b012fce8103ed4a4397b4dcf4d66b057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UsePrefab: 0
+  xpValue: 8
+  percentValue: 0
+  XpPrefab: {fileID: 0}
+  Point: {fileID: 0}
 --- !u!1 &6202092704124537340
 GameObject:
   m_ObjectHideFlags: 0

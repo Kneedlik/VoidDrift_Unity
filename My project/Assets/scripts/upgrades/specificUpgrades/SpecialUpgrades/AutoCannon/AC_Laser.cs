@@ -29,6 +29,7 @@ public class AC_Laser : upgrade
             Gun.Laser = true;
             Gun.ASmultiplier += FireRate;
             levelingSystem.instance.FinallForm = true;
+            Gun.setFirepoints();
         }
 
         level++;

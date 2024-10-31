@@ -16,15 +16,15 @@ public class CorruptedPoison : upgrade
         if(level == 0)
         {
             eventManager.OnImpact += poisonSystem.sharedInstance.CorruptedPoison;
-            description = string.Format("Corrupted poison damage + 25 max health damage + 0.1%");
+            description = string.Format("Corrupted poison damage + 20 max health damage + 0.1%");
             rarity -= Constants.CorruptedRarityDecrease;
         }else if(level == 1)
         {
-            poisonSystem.sharedInstance.CDamage += 25;
+            poisonSystem.sharedInstance.CDamage += 20;
             poisonSystem.sharedInstance.CTrueDamage += 0.01f;
         }else if(level == 2)
         {
-            poisonSystem.sharedInstance.CDamage += 25;
+            poisonSystem.sharedInstance.CDamage += 20;
             poisonSystem.sharedInstance.CTrueDamage += 0.01f;
 
             rarity = 50;

@@ -31,6 +31,7 @@ public class UpgradePlus
 public class upgradeList : MonoBehaviour
 {  
     public List<UpgradePlus> list = new List<UpgradePlus>();
+    [SerializeField] bool IncludeSpecial;
 
     private void Start()
     {
@@ -80,6 +81,12 @@ public class upgradeList : MonoBehaviour
         }
 
         //Adding special upgrades
+
+        if(IncludeSpecial == false)
+        {
+            return;
+        }
+
         weapeon Weapeon = GameObject.FindWithTag("Weapeon").GetComponent<weapeon>();
         for (int i = 0;i < Weapeon.WeapeonUpgrades.Count;i++)
         {

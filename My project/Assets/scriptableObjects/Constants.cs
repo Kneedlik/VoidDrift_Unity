@@ -18,5 +18,8 @@ public static class Constants
     public static float DamageNumberMaxScale = 3.5f;
     public static int FinalUpgradeLevel = 40;
     public static int CorruptedRarityDecrease = 30;
-    
+    public static Color32 CorruptedColor = new Color32(255, 0, 85, 255);
+    public static Color32 GreenColor = new Color32(0, 255, 45, 255);
+
+
 }

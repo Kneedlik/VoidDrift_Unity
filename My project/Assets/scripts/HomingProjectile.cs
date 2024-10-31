@@ -21,6 +21,7 @@ public class HomingProjectile : BulletScript
     float TimeStamp2;
     float TimeStamp3;
     bool Locked;
+    float ExploArea = 1;
 
     void Start()
     {
@@ -112,6 +113,11 @@ public class HomingProjectile : BulletScript
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if(ExploArea == 0)
+        {
+            ExploArea = 1;
+        }
+
         if (!Trigger)
         {
             if (Enemy)
@@ -223,6 +229,15 @@ public class HomingProjectile : BulletScript
                 }
             }
         }
+    }
+
+    public void SetTotalArea(float Size, bool IncludeParent)
+    {
+        if(IncludeParent)
+        {
+            setArea(Size);
+        }
+        ExploArea = Size;
     }
 
 }

@@ -80,10 +80,16 @@ public class Hovl_Laser : MonoBehaviour
                     //var EndPos = transform.position + transform.forward * MaxLength;
                     Laser.SetPosition(1, EndPos);
                     HitEffect.transform.position = EndPos;
-                    foreach (var AllPs in Hit)
+                    //foreach (var AllPs in Hit)
+                    //{
+                    //    if (AllPs.isPlaying) AllPs.Stop();
+                    //}
+
+                    foreach (var AllPs in Effects)
                     {
-                        if (AllPs.isPlaying) AllPs.Stop();
+                        if (!AllPs.isPlaying) AllPs.Play();
                     }
+
                     //Texture tiling
                     Length[0] = MainTextureLength * (Vector3.Distance(StartPos, EndPos));
                     Length[2] = NoiseTextureLength * (Vector3.Distance(StartPos, EndPos));
@@ -115,7 +121,7 @@ public class Hovl_Laser : MonoBehaviour
 
     public void SetSize(float Width,float HitArea)
     {
-        HitEffect.transform.localScale = new Vector3(HitArea,HitArea,HitArea);
+        //HitEffect.transform.localScale = new Vector3(HitArea,HitArea,HitArea);
         Laser.widthMultiplier = Width;
     }
 

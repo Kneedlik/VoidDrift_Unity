@@ -51,7 +51,7 @@ public class spawner : MonoBehaviour
                     GameObject En = new GameObject();
                     Vector3 pos = KnedlikLib.GenerateRandPosition(transform.position,offsetX,offsetY);
 
-                    En =  wawes[count].decideEnemy();
+                    En = wawes[count].decideEnemy();
                    
                     E = Instantiate(En, pos, Quaternion.identity);
                     E.transform.SetParent(parent);
@@ -162,10 +162,10 @@ public class spawner : MonoBehaviour
 
             if (wawes[i].Boss == null)
             {
-                FullLine = string.Format("{0}, Wawe: {1}, Power level: {2}                 ",PrintPrefix, i, PowerLevel);
+                FullLine = string.Format("{0}, Wawe: {1}, Power level: {2}, Spawn Rate: {3}, Spawn number: {4}, Health: {5}                 ",PrintPrefix, i, PowerLevel, wawes[i].spawnRate, wawes[i].spawnN, wawes[i].healthMultiplier);
             }else
             {
-                FullLine = string.Format("{0}, Wawe: {1}, Power level: {2}, Boss round     ",PrintPrefix, i, PowerLevel);
+                FullLine = string.Format("{0}, Wawe: {1}, Power level: {2}, Spawn Rate: {3}, Spawn nubber: {4}, Health: {5}      Boss round ",PrintPrefix, i, PowerLevel, wawes[i].spawnRate, wawes[i].spawnN, wawes[i].healthMultiplier);
             }
             //Debug.Log(FullLine);
             StringList.Add(FullLine);

@@ -631,6 +631,7 @@ GameObject:
   - component: {fileID: 1610839003617001476}
   - component: {fileID: 1285785712}
   - component: {fileID: 1285785713}
+  - component: {fileID: 7443212988443757286}
   m_Layer: 12
   m_Name: suicideDrone
   m_TagString: Enemy
@@ -808,7 +809,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 120
-  maxSpeed: 20
+  maxSpeed: 18
   Multiplier: 1
 --- !u!114 &3590360479638116533
 MonoBehaviour:
@@ -863,7 +864,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  maxHealth: 35
+  maxHealth: 38
   baseMaxHealth: 0
   damageN: {fileID: 8636022699047134357, guid: 971665a441a2ea448a247928736ad030, type: 3}
   self: {fileID: 0}
@@ -875,7 +876,7 @@ MonoBehaviour:
   DeathAnim: {fileID: 0}
   DeathDelay: 0
   DeathFunc: []
-  DeathFunc123: 
+  OnDamageFunc: []
   respawning: 0
   respawnTime: 0
   prefab: {fileID: 0}
@@ -898,6 +899,23 @@ MonoBehaviour:
   Object: {fileID: 7867158609963092091, guid: 8a1e590bbe8bb2d4db16a69abdffb118, type: 3}
   PlayerOnly: 1
   destroy: 1
+--- !u!114 &7443212988443757286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7408578348077365763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b012fce8103ed4a4397b4dcf4d66b057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UsePrefab: 0
+  xpValue: 10
+  percentValue: 0
+  XpPrefab: {fileID: 0}
+  Point: {fileID: 0}
 --- !u!1 &7572356199646089459
 GameObject:
   m_ObjectHideFlags: 0

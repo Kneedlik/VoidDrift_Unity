@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   end: 1500
   min: 10
-  max: 200
+  max: 120
   enemies:
   - {fileID: 1076211932900973745, guid: a967c783e696c41458fd2340fbf04114, type: 3}
   - {fileID: 9134502682905301589, guid: a5e73291dab67dc45a9d612a32ab9112, type: 3}
@@ -25,9 +25,10 @@ MonoBehaviour:
   - 20
   - 10
   - 15
-  spawnRate: 0.4
-  spawnN: 19
-  healthMultiplier: 60
-  XpMultiplier: 30
+  spawnRate: 0.45
+  spawnN: 16
+  healthMultiplier: 145
+  XpMultiplier: 18
   Boss: {fileID: 0}
+  BossAmount: 1
   SpawnedBoss: 0

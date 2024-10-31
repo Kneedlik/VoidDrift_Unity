@@ -16,4 +16,5 @@ public class PlayerInformation : ScriptableObject
     public int ReviveBonus;
     public int ProjectileBonus;
     public float SummonDamageMultiplier;
+    public float Rerols;
 }

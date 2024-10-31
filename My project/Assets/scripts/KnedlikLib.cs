@@ -5,7 +5,7 @@ using UnityEngine.Rendering.Universal;
 
 public static class KnedlikLib 
 {
-    public static void scaleParticleSize(GameObject target, GameObject particle, float multiplier)
+    public static void scaleParticleSize(GameObject target, GameObject particle, float multiplier,bool ScaleForTargetSize = false)
     {
         float size;
         Vector3 pom;
@@ -13,25 +13,30 @@ public static class KnedlikLib
         if (target != null)
         {
             SpriteRenderer S = target.GetComponent<SpriteRenderer>();
-            
+            size = particle.transform.localScale.x * multiplier;
 
-            Collider2D C = target.GetComponent<Collider2D>();
-            pom = S.bounds.size;
-            //Debug.Log(pom);
-            size = pom.x * pom.y;
-
-            float temp = particle.transform.localScale.x;
-            size *= multiplier / 15;
-
-            //Debug.Log(size);
-
-            if(size > temp * 4)
+            if (ScaleForTargetSize)
             {
-                size = temp * 3;
-            }else if(size < temp)
-            {
-                size = temp;
+                Collider2D C = target.GetComponent<Collider2D>();
+                pom = S.bounds.size;
+                //Debug.Log(pom);
+                size = pom.x * pom.y;
+
+                float temp = particle.transform.localScale.x;
+                size *= multiplier / 15;
+
+                //Debug.Log(size);
+
+                if (size > temp * 4)
+                {
+                    size = temp * 3;
+                }
+                else if (size < temp)
+                {
+                    size = temp;
+                }
             }
+        
  
             particle.transform.localScale = new Vector3(size, size, size);
 
@@ -543,7 +548,7 @@ public static class KnedlikLib
                 if (UpgradesTotal[i].list[j].upgrade.level > 0)
                 {
                     UpgradeItemClass item = new UpgradeItemClass();
-                    item.Id = UpgradesTotal[i].list[j].upgrade.level; ;
+                    item.Id = UpgradesTotal[i].list[j].upgrade.Id; ;
                     item.Level = UpgradesTotal[i].list[j].upgrade.level;
                     data.UpgradeItems.Add(item);
                 }

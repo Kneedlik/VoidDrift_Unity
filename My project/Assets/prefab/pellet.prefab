@@ -155,9 +155,9 @@ MonoBehaviour:
   impactEffect: {fileID: 907559903438879465, guid: 1ce0060ea82c3b44fbea7c2d7584e88e, type: 3}
   impactParticles: {fileID: 0}
   MaxBounceDistance: 0
-  OnImpactGunOnly: 0
-  OnImpact: 0
-  OnCrit: 0
-  PostImpact: 0
+  OnImpactGunOnly: 1
+  OnImpact: 1
+  OnCrit: 1
+  PostImpact: 1
   IgnoreTargets: []
   ClusterAmount: 0

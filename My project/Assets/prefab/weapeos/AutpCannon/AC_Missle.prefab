@@ -290,7 +290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damagePlus: 0
-  damage: 20
+  damage: 15
   destroyTime: 2.5
   pierce: 0
   Bounce: 0
@@ -302,14 +302,18 @@ MonoBehaviour:
   OnImpact: 1
   OnCrit: 1
   PostImpact: 1
+  IgnoreTargets: []
   UseForce: 0
   force: 180
   MaxSpeed: 65
-  rotSpeed: 500
+  rotSpeed: 600
   Enemy: 0
+  PlayerOnly: 0
   Trigger: 1
   ExploPrefab: {fileID: 2978104393020020910, guid: 842e6a304d27b7b44b9b0639dec70714, type: 3}
   Delay: 0.2
+  StopAfter: 0
+  StartForceAfter: 0
 --- !u!95 &3394118136842694693
 Animator:
   serializedVersion: 4

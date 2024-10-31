@@ -91,23 +91,37 @@ public class SaveState : MonoBehaviour
         }
 
         StateItem ChoosenProfile = SaveManager.LoadState(id,false);
+        if ( ChoosenProfile == null )
+        {
+            Debug.Log("Nefacha");
+            return;
+        }
         
         PlayerStats.sharedInstance.ResetUpgrades();
 
         upgradeList[] Upgrades = FindObjectsOfType<upgradeList>();
+        List<int> UsedUpgrades = new List<int>();
         for (int i = 0; i < Upgrades.Length; i++)
         {
+            //Debug.Log("1");
             for (int j = 0; j < Upgrades[i].list.Count; j++)
             {
-                for(int k = 0; k < ChoosenProfile.UpgradeItems.Count; k++)
+                //Debug.Log("2");
+                for (int k = 0; k < ChoosenProfile.UpgradeItems.Count; k++)
                 {
-                    if (Upgrades[i].list[j].upgrade.Id == ChoosenProfile.UpgradeItems[k].Id)
+                    //Debug.Log("3");
+                    if (Upgrades[i].list[j].upgrade.Id == ChoosenProfile.UpgradeItems[k].Id && UsedUpgrades.Contains(Upgrades[i].list[j].upgrade.Id) == false)
                     {
                         for (int l = 0; l < ChoosenProfile.UpgradeItems[k].Level; l++)
                         {
+                            Debug.Log(Upgrades[i].list[j].upgrade.Id);
+                            levelingSystem.instance.IncreaseLevel();
+                            levelingSystem.instance.ScaleXp();
                             Upgrades[i].list[j].upgrade.function();
+                            PlayerStats.sharedInstance.UpdateStats();
                         }
                         ChoosenProfile.UpgradeItems.RemoveAt(k);
+                        UsedUpgrades.Add(Upgrades[i].list[j].upgrade.Id);
                         break;
                     }
                 }

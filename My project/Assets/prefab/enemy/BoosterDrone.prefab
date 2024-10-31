@@ -208,7 +208,7 @@ MonoBehaviour:
   DeathAnim: {fileID: 0}
   DeathDelay: 0
   DeathFunc: []
-  DeathFunc123: 
+  OnDamageFunc: []
   respawning: 0
   respawnTime: 0
   prefab: {fileID: 0}
@@ -245,6 +245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 15
   coolDown: 1
+  Trigger: 0
 --- !u!1 &7929140046088094577
 GameObject:
   m_ObjectHideFlags: 0
@@ -761,6 +762,8 @@ GameObject:
   - component: {fileID: 7929140047886012444}
   - component: {fileID: 7929140047886012447}
   - component: {fileID: 7929140047886012437}
+  - component: {fileID: 8004373750479627352}
+  - component: {fileID: 2954801987567291019}
   m_Layer: 0
   m_Name: BoosterDrone
   m_TagString: Untagged
@@ -810,3 +813,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ef91c96ff1ba9d459c77b0119ac429c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8004373750479627352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7929140047886012436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f5ebb4d06b97cb44a7655a6cc30f5f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  maxHealth: 50
+  baseMaxHealth: 0
+  damageN: {fileID: 0}
+  self: {fileID: 0}
+  healthBarGObject: {fileID: 0}
+  healthBar: {fileID: 0}
+  armor: 0
+  multiplier: 1
+  ParticleExplosion: {fileID: 0}
+  DeathAnim: {fileID: 0}
+  DeathDelay: 0
+  DeathFunc: []
+  OnDamageFunc: []
+  respawning: 0
+  respawnTime: 0
+  prefab: {fileID: 0}
+  randOffset: 30
+  levelScaling: 0
+  Boss: 0
+  AlertOnHit: 0
+--- !u!114 &2954801987567291019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7929140047886012436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b012fce8103ed4a4397b4dcf4d66b057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UsePrefab: 0
+  xpValue: 14
+  percentValue: 0
+  XpPrefab: {fileID: 0}
+  Point: {fileID: 0}

@@ -13,12 +13,20 @@ MonoBehaviour:
   m_Name: L2Wawe15
   m_EditorClassIdentifier: 
   end: 900
-  min: 0
-  max: 0
-  enemies: []
-  chanses: []
-  spawnRate: 0
-  spawnN: 0
-  healthMultiplier: 1
+  min: 4
+  max: 120
+  enemies:
+  - {fileID: 3275799785512524511, guid: 2c33c835ad4029a4f94e3707caa9cd35, type: 3}
+  - {fileID: 4769829029796524462, guid: ca9badfee81beac4e878e91c48b0ce90, type: 3}
+  - {fileID: 7929140047886012436, guid: ead87bf1c5c771f418472e61db66f1a8, type: 3}
+  chanses:
+  - 30
+  - 60
+  - 10
+  spawnRate: 0.75
+  spawnN: 8
+  healthMultiplier: 18
+  XpMultiplier: 10
   Boss: {fileID: 0}
+  BossAmount: 1
   SpawnedBoss: 0

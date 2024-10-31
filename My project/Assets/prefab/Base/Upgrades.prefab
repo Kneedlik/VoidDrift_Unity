@@ -1,5 +1,185 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &94593564
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 94593565}
+  - component: {fileID: 94593566}
+  m_Layer: 0
+  m_Name: BigHealth
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &94593565
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94593564}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7339895228260985913}
+  m_RootOrder: 65
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &94593566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94593564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c7b3e5aef4ae804aa1f6f63433101cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 67
+  Type: 0
+  color:
+    serializedVersion: 2
+    rgba: 0
+  icon: {fileID: 0}
+  name: Vitality
+  description: Max Health + 35
+  level: 0
+  maxLevel: 0
+  rarity: 55
+  CanBeDoubled: 0
+  SubserviantUpgrades: []
+  Final: 0
+  HealthAmount: 35
+--- !u!1 &1528374069
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1528374070}
+  - component: {fileID: 1528374071}
+  m_Layer: 0
+  m_Name: StatMix
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1528374070
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528374069}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7339895228260985913}
+  m_RootOrder: 64
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1528374071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528374069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 345b873ba842fe441923fe2b740f7bc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 66
+  Type: 0
+  color:
+    serializedVersion: 2
+    rgba: 0
+  icon: {fileID: 0}
+  name: Cosmic Anomaly
+  description: 'Damage + 5% Summon Damage + 4% Attack speed + 5%
+
+'
+  level: 0
+  maxLevel: 0
+  rarity: 60
+  CanBeDoubled: 0
+  SubserviantUpgrades: []
+  Final: 0
+  DamageAmount: 5
+  SummonDamageAmount: 4
+  AsAmount: 5
+--- !u!1 &2041488069
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2041488070}
+  - component: {fileID: 2041488071}
+  m_Layer: 0
+  m_Name: CorruptedLightningOnHit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2041488070
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041488069}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7339895227322777492}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2041488071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041488069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfd603b7b7c84dd40ab797ab36f0f28b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 3006
+  Type: 0
+  color:
+    serializedVersion: 2
+    rgba: 0
+  icon: {fileID: 0}
+  name: 
+  description: Projectiles have 50% chance to trigger red chain lightning
+  level: 0
+  maxLevel: 3
+  rarity: 100
+  CanBeDoubled: 0
+  SubserviantUpgrades: []
+  Final: 0
 --- !u!1 &7339895226768260069
 GameObject:
   m_ObjectHideFlags: 0
@@ -51,13 +231,14 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: 15c828a8a8b5781418bd5bca9df06755, type: 3}
   name: Iron Vigor
-  description: Max health + 50
+  description: Max health + 40
   level: 0
   maxLevel: 0
   rarity: 100
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
-  amount: 50
+  amount: 40
 --- !u!1 &7339895226812186411
 GameObject:
   m_ObjectHideFlags: 0
@@ -113,6 +294,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 1
   rarity: 20
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   amount: 10
@@ -172,6 +354,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 0
   rarity: 100
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   Amount: 2
@@ -230,6 +413,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 1
   rarity: 100
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   summon: {fileID: 3089789153198010307, guid: ddbf0923ed9243146b743f8c440aff26, type: 3}
@@ -287,7 +471,8 @@ MonoBehaviour:
   description: Every third attack deals + 14 extra damage
   level: 0
   maxLevel: 0
-  rarity: 80
+  rarity: 75
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   amount: 14
@@ -346,6 +531,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 0
   rarity: 80
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   amount: 75
@@ -405,6 +591,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 1
   rarity: 60
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   PoisonTrailObject: {fileID: 5240060747186604111, guid: 43020e44820bbfe46a0f61eced37587b, type: 3}
@@ -459,13 +646,14 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: 4330dd1f5b7731f4bbfab40e34404a4c, type: 3}
   name: Iron Heavy Caliber
-  description: Damage + 35%
+  description: Damage + 25%
   level: 0
   maxLevel: 0
   rarity: 100
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
-  amount: 35
+  amount: 25
 --- !u!1 &7339895227027590879
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,6 +711,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 0
   rarity: 100
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   DamageMultiplier: 0.3
@@ -585,6 +774,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 0
   rarity: 100
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   drillSystem: {fileID: 0}
@@ -643,6 +833,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 2
   rarity: 50
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   amount: 3
@@ -701,6 +892,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 1
   rarity: 20
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   amount: 10
@@ -760,6 +952,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 0
   rarity: 100
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   SpeedMultiplier: 0.3
@@ -816,11 +1009,12 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: 83099ed5dffb0264d9eb893bc8105d1a, type: 3}
   name: Corrupted Ludens echo
-  description: First time you damage an enemy deal 150 bonus damage and 10% max health
+  description: First time you damage an enemy deal 100 bonus damage and 10% max health
     damage
   level: 0
   maxLevel: 3
   rarity: 100
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
 --- !u!1 &7339895227244443429
@@ -878,6 +1072,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 0
   rarity: 60
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   amount: 0.25
@@ -936,6 +1131,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 5
   rarity: 65
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   summon: {fileID: 618941534808215217, guid: 780597a595ed91146a7bb6c02ea42bb5, type: 3}
@@ -995,6 +1191,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 1
   rarity: 80
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
 --- !u!1 &7339895227250428468
@@ -1052,6 +1249,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 3
   rarity: 60
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
 --- !u!1 &7339895227264869711
@@ -1109,6 +1307,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 2
   rarity: 65
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
 --- !u!1 &7339895227300238475
@@ -1164,17 +1363,17 @@ MonoBehaviour:
   name: Bullet riccochet
   description: 'Bounce + 1
 
-    Base damage + 4
+    Base damage + 15%
 
 '
   level: 0
   maxLevel: 0
   rarity: 100
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   Amount: 1
-  DamageAmount: 4
-  ProjectileSpeed: 0
+  DamageMultiplier: 0.15
 --- !u!1 &7339895227307598331
 GameObject:
   m_ObjectHideFlags: 0
@@ -1230,6 +1429,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 0
   rarity: 60
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   amount: 15
@@ -1271,6 +1471,7 @@ Transform:
   - {fileID: 7339895228027585928}
   - {fileID: 7339895228888465849}
   - {fileID: 7339895226870565081}
+  - {fileID: 2041488070}
   m_Father: {fileID: 7339895228486298395}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1308,6 +1509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   list: []
+  IncludeSpecial: 0
 --- !u!1 &7339895227324245445
 GameObject:
   m_ObjectHideFlags: 0
@@ -1363,6 +1565,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 1
   rarity: 90
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   amount: 8
@@ -1422,13 +1625,14 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: 4d3f9b857dfa14040ba165001ae1694d, type: 3}
   name: Pure Rod
-  description: Summon Damage + 50%
+  description: Summon Damage + 35%
   level: 0
   maxLevel: 1
-  rarity: 160
+  rarity: 150
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
-  amount: 50
+  amount: 35
 --- !u!1 &7339895227465300385
 GameObject:
   m_ObjectHideFlags: 0
@@ -1484,6 +1688,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 1
   rarity: 300
+  CanBeDoubled: 0
   SubserviantUpgrades:
   - Upgrade: {fileID: 7339895227540304071}
     LevelNeeded: 1
@@ -1545,9 +1750,12 @@ MonoBehaviour:
   level: 0
   maxLevel: 5
   rarity: 65
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   summon: {fileID: 4556972382933838620, guid: 279c2bc2b88cf6741b4214752dda2e96, type: 3}
+  Damage1: 10
+  Damage2: 20
 --- !u!1 &7339895227540304069
 GameObject:
   m_ObjectHideFlags: 0
@@ -1603,6 +1811,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 0
   rarity: 100
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   DamageAmount: 0.25
@@ -1663,6 +1872,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 0
   rarity: 80
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   damage: 10
@@ -1724,6 +1934,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 1
   rarity: 300
+  CanBeDoubled: 0
   SubserviantUpgrades:
   - Upgrade: {fileID: 7339895227679717034}
     LevelNeeded: 2
@@ -1740,7 +1951,7 @@ GameObject:
   - component: {fileID: 7339895227558292405}
   m_Layer: 0
   m_Name: BeamSummon
-  m_TagString: Untagged
+  m_TagString: SummonUpgrade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1783,9 +1994,12 @@ MonoBehaviour:
   level: 0
   maxLevel: 5
   rarity: 65
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   summon: {fileID: 8909545730458285654, guid: d773224bc91711b4384d264bcb136bc5, type: 3}
+  Damage1: 6
+  Damage2: 8
 --- !u!1 &7339895227588377231
 GameObject:
   m_ObjectHideFlags: 0
@@ -1837,16 +2051,17 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: 1c0491dcefccf6e4aaed80a924808852, type: 3}
   name: Amplifing Core
-  description: 'Projectile size + 15%
+  description: 'Projectile size + 12.5%
 
-    Damage + 10%'
+    Damage + 8%'
   level: 0
   maxLevel: 0
-  rarity: 80
+  rarity: 75
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
-  area: 15
-  damage: 10
+  area: 12
+  damage: 8
 --- !u!1 &7339895227596640620
 GameObject:
   m_ObjectHideFlags: 0
@@ -1902,6 +2117,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 0
   rarity: 100
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   Prefab: {fileID: 5614711869421546837, guid: 699de027eeef3224baa640d2b67d8e3e, type: 3}
@@ -1972,6 +2188,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 0
   rarity: 100
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   AreaMultiplier: 0.3
@@ -2049,6 +2266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   list: []
+  IncludeSpecial: 0
 --- !u!1 &7339895227638993268
 GameObject:
   m_ObjectHideFlags: 0
@@ -2104,6 +2322,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 1
   rarity: 100
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
 --- !u!1 &7339895227674964274
@@ -2161,6 +2380,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 0
   rarity: 60
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   amount: 1
@@ -2215,10 +2435,11 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 0}
   name: Ckuster amunition
-  description: Pellets explode into 5 more
+  description: Pellets explode into 3 more
   level: 0
   maxLevel: 0
   rarity: 100
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
 --- !u!1 &7339895227685053105
@@ -2277,6 +2498,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 0
   rarity: 80
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   damageAmount: 30
@@ -2336,7 +2558,8 @@ MonoBehaviour:
   description: Crit chance + 15%
   level: 0
   maxLevel: 6
-  rarity: 80
+  rarity: 65
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   amount: 15
@@ -2460,6 +2683,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 1
   rarity: 100
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   Increase: 0
@@ -2520,9 +2744,12 @@ MonoBehaviour:
   level: 0
   maxLevel: 1
   rarity: 300
+  CanBeDoubled: 0
   SubserviantUpgrades:
   - Upgrade: {fileID: 7339895227300238485}
-    LevelNeeded: 2
+    LevelNeeded: 1
+  - Upgrade: {fileID: 7339895228688028657}
+    LevelNeeded: 1
   Final: 1
   Bounce: 3
   Damage: 0
@@ -2584,6 +2811,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 0
   rarity: 300
+  CanBeDoubled: 0
   SubserviantUpgrades:
   - Upgrade: {fileID: 7339895228126908570}
     LevelNeeded: 2
@@ -2644,6 +2872,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 1
   rarity: 20
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   amount: 10
@@ -2703,6 +2932,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 5
   rarity: 70
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   devineShield: {fileID: 0}
@@ -2762,6 +2992,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 0
   rarity: 60
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   Value: 0.3
@@ -2820,6 +3051,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 1
   rarity: 300
+  CanBeDoubled: 0
   SubserviantUpgrades:
   - Upgrade: {fileID: 7339895226829830622}
     LevelNeeded: 2
@@ -2880,6 +3112,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 1
   rarity: 160
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   Amount: 0.1
@@ -2938,6 +3171,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 5
   rarity: 60
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   amount: 30
@@ -2997,6 +3231,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 1
   rarity: 80
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   amount: 18
@@ -3055,6 +3290,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 5
   rarity: 65
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   summon: {fileID: 3095118525630452413, guid: 81ccfb36e63f9a146a76855cb0eee820, type: 3}
@@ -3113,6 +3349,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 0
   rarity: 100
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   ExplosionObj: {fileID: 0}
@@ -3171,6 +3408,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 1
   rarity: 80
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
 --- !u!1 &7339895227957741278
@@ -3224,13 +3462,14 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: d1ca97520fa81964c8967c1419744287, type: 3}
   name: Amplifiing Rod
-  description: Summon Damage + 25%
+  description: Summon Damage + 20%
   level: 0
   maxLevel: 0
   rarity: 100
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
-  amount: 25
+  amount: 20
 --- !u!1 &7339895227979265058
 GameObject:
   m_ObjectHideFlags: 0
@@ -3286,6 +3525,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 0
   rarity: 100
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   ASamount: 20
@@ -3345,6 +3585,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 1
   rarity: 100
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   summon: {fileID: 2543018737411639306, guid: 4e6bb2887636bfd4ca38aa2ea4f4b1e0, type: 3}
@@ -3403,6 +3644,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 0
   rarity: 100
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   AmmoAmount: 2
@@ -3462,6 +3704,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 3
   rarity: 65
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
 --- !u!1 &7339895228027585929
@@ -3520,6 +3763,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 3
   rarity: 100
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
 --- !u!1 &7339895228030414930
@@ -3576,7 +3820,8 @@ MonoBehaviour:
   description: Extra Damage + 4
   level: 0
   maxLevel: 0
-  rarity: 80
+  rarity: 70
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   amount: 4
@@ -3635,6 +3880,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 0
   rarity: 0
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   AsAmount: 0.25
@@ -3694,6 +3940,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 3
   rarity: 70
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
 --- !u!1 &7339895228067070110
@@ -3751,6 +3998,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 0
   rarity: 70
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   amount: 1
@@ -3767,7 +4015,7 @@ GameObject:
   - component: {fileID: 7339895228102317132}
   m_Layer: 0
   m_Name: GarlicSummon
-  m_TagString: Untagged
+  m_TagString: SummonUpgrade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3810,9 +4058,13 @@ MonoBehaviour:
   level: 0
   maxLevel: 5
   rarity: 65
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   summon: {fileID: 5625183162843050144, guid: 7442a8b7269606c4da15f9428534ce07, type: 3}
+  Damage1: 6
+  Damage2: 6
+  Damage3: 10
 --- !u!1 &7339895228104492260
 GameObject:
   m_ObjectHideFlags: 0
@@ -3868,6 +4120,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 0
   rarity: 100
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   ReloadSpeedIncrease: 0.5
@@ -3884,7 +4137,7 @@ GameObject:
   - component: {fileID: 7339895228113523263}
   m_Layer: 0
   m_Name: SwordSummon
-  m_TagString: Untagged
+  m_TagString: SummonUpgrade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3927,9 +4180,12 @@ MonoBehaviour:
   level: 0
   maxLevel: 5
   rarity: 65
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   summon: {fileID: 5459016640301027787, guid: 84ad9b7fa731512489fdbbba84b9d43a, type: 3}
+  Damage1: 10
+  Damage2: 8
 --- !u!1 &7339895228119566745
 GameObject:
   m_ObjectHideFlags: 0
@@ -3986,7 +4242,8 @@ MonoBehaviour:
     FireRate + 12%'
   level: 0
   maxLevel: 0
-  rarity: 60
+  rarity: 65
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   ForceAmount: 0.075
@@ -4046,6 +4303,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 0
   rarity: 100
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   Amount: 2
@@ -4104,6 +4362,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 1
   rarity: 300
+  CanBeDoubled: 0
   SubserviantUpgrades:
   - Upgrade: {fileID: 7339895227027590873}
     LevelNeeded: 2
@@ -4165,6 +4424,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 0
   rarity: 100
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
 --- !u!1 &7339895228237251962
@@ -4222,6 +4482,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 1
   rarity: 80
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
 --- !u!1 &7339895228238755933
@@ -4281,6 +4542,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 0
   rarity: 100
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   multishotAmount: 2
@@ -4340,6 +4602,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 1
   rarity: 20
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   ammount: 15
@@ -4395,13 +4658,15 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: 15c828a8a8b5781418bd5bca9df06755, type: 3}
   name: Vigor
-  description: Max health + 30
+  description: Max health + 10 Damage + 10%
   level: 0
   maxLevel: 10
-  rarity: 60
+  rarity: 75
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
-  ammount: 30
+  HealthAmount: 10
+  DamageAmount: 10
 --- !u!1 &7339895228260985916
 GameObject:
   m_ObjectHideFlags: 0
@@ -4496,6 +4761,8 @@ Transform:
   - {fileID: 7339895227892901957}
   - {fileID: 7339895227855491151}
   - {fileID: 7339895228455175774}
+  - {fileID: 1528374070}
+  - {fileID: 94593565}
   m_Father: {fileID: 7339895228486298395}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4512,6 +4779,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   list: []
+  IncludeSpecial: 1
 --- !u!114 &7339895228260985912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4588,6 +4856,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 0
   rarity: 40
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
 --- !u!1 &7339895228275282218
@@ -4602,7 +4871,7 @@ GameObject:
   - component: {fileID: 7339895228275282228}
   m_Layer: 0
   m_Name: LightningSummon
-  m_TagString: Untagged
+  m_TagString: SummonUpgrade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4643,11 +4912,14 @@ MonoBehaviour:
   name: Sky beam
   description: Summons an artifack that shoots lightning at nearby targets
   level: 0
-  maxLevel: 0
+  maxLevel: 5
   rarity: 65
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   summon: {fileID: 1432115837677902165, guid: 1db7c2f5d5ba05d4b97d2c4ecc8a9809, type: 3}
+  Damage1: 8
+  Damage2: 12
 --- !u!1 &7339895228277265090
 GameObject:
   m_ObjectHideFlags: 0
@@ -4701,14 +4973,15 @@ MonoBehaviour:
   name: Minigun
   description: 'Base Fire rate + 45%
 
-    Base damage - 15%'
+    Base damage - 10%'
   level: 0
   maxLevel: 3
   rarity: 100
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   ASamount: 0.45
-  DamagePenaltyMultiplier: 0.15
+  DamagePenaltyMultiplier: 0.1
 --- !u!1 &7339895228283678003
 GameObject:
   m_ObjectHideFlags: 0
@@ -4760,13 +5033,14 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: 4330dd1f5b7731f4bbfab40e34404a4c, type: 3}
   name: Heavy caliber
-  description: Damage + 20%
+  description: Damage + 15%
   level: 0
   maxLevel: 0
-  rarity: 80
+  rarity: 75
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
-  amount: 20
+  amount: 15
 --- !u!1 &7339895228288739954
 GameObject:
   m_ObjectHideFlags: 0
@@ -4822,6 +5096,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 1
   rarity: 300
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 1
   StatusSystem: {fileID: 0}
@@ -4881,6 +5156,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 0
   rarity: 100
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   amount: 12
@@ -4939,6 +5215,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 1
   rarity: 100
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
 --- !u!1 &7339895228365500236
@@ -5005,6 +5282,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 1
   rarity: 300
+  CanBeDoubled: 0
   SubserviantUpgrades:
   - Upgrade: {fileID: 7339895228238755935}
     LevelNeeded: 1
@@ -5070,6 +5348,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 0
   rarity: 80
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   amount: 0.1
@@ -5133,6 +5412,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 1
   rarity: 300
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
 --- !u!1 &7339895228455175775
@@ -5186,16 +5466,17 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: 3c5349bc2a0ec9449b30803d5766552e, type: 3}
   name: Goliath
-  description: 'Max health + 60 Damage + 40%
+  description: 'Max health + 50 Damage + 35%
 
 '
   level: 0
   maxLevel: 1
   rarity: 140
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
-  HealthValue: 60
-  DamageValue: 40
+  HealthValue: 50
+  DamageValue: 35
 --- !u!1 &7339895228455609800
 GameObject:
   m_ObjectHideFlags: 0
@@ -5251,6 +5532,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 1
   rarity: 300
+  CanBeDoubled: 0
   SubserviantUpgrades:
   - Upgrade: {fileID: 7339895228885902718}
     LevelNeeded: 1
@@ -5316,6 +5598,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 0
   rarity: 60
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   amount: 1
@@ -5376,6 +5659,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 1
   rarity: 300
+  CanBeDoubled: 0
   SubserviantUpgrades:
   - Upgrade: {fileID: 7339895228464188001}
     LevelNeeded: 1
@@ -5441,6 +5725,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 0
   rarity: 100
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   Damage: 25
@@ -5505,6 +5790,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 1
   rarity: 300
+  CanBeDoubled: 0
   SubserviantUpgrades:
   - Upgrade: {fileID: 7339895228018338372}
     LevelNeeded: 1
@@ -5569,6 +5855,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 5
   rarity: 60
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   summon: {fileID: 8597536834272814938, guid: 8b6f8b71a437e55408074c4ae5f39aee, type: 3}
@@ -5665,6 +5952,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 1
   rarity: 300
+  CanBeDoubled: 0
   SubserviantUpgrades:
   - Upgrade: {fileID: 7339895228277265100}
     LevelNeeded: 2
@@ -5682,7 +5970,7 @@ GameObject:
   - component: {fileID: 7339895228490502642}
   m_Layer: 0
   m_Name: BulletHellSummon
-  m_TagString: Untagged
+  m_TagString: SummonUpgrade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5725,6 +6013,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 5
   rarity: 65
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   summon: {fileID: 5202527886860771328, guid: 10fcd28a8540aa94f87f40c6889aa52d, type: 3}
@@ -5782,7 +6071,8 @@ MonoBehaviour:
   description: "Movement speed + 10% \n    Attack speed + 10% "
   level: 0
   maxLevel: 0
-  rarity: 80
+  rarity: 75
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   ASamount: 10
@@ -5838,13 +6128,14 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: d1ca97520fa81964c8967c1419744287, type: 3}
   name: Amplifiing Rod
-  description: Summon Damage + 20%
+  description: Summon Damage + 15%
   level: 0
   maxLevel: 3
-  rarity: 100
+  rarity: 80
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
-  amount: 20
+  amount: 15
 --- !u!1 &7339895228541658468
 GameObject:
   m_ObjectHideFlags: 0
@@ -5903,6 +6194,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 0
   rarity: 45
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   amount: 80
@@ -5961,9 +6253,13 @@ MonoBehaviour:
   level: 0
   maxLevel: 5
   rarity: 65
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   summon: {fileID: 3906934220119455522, guid: 225e0dded2cae9948bc36aff33d61c6f, type: 3}
+  Damage1: 8
+  Damage2: 6
+  Damage3: 12
 --- !u!1 &7339895228554903544
 GameObject:
   m_ObjectHideFlags: 0
@@ -6019,6 +6315,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 1
   rarity: 100
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
 --- !u!1 &7339895228567161419
@@ -6076,6 +6373,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 3
   rarity: 60
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   amount: 0.1
@@ -6134,6 +6432,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 0
   rarity: 80
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   damageAmount: 6
@@ -6194,6 +6493,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 0
   rarity: 0
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   PierceAmount: 2
@@ -6253,6 +6553,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 0
   rarity: 100
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   Prefab: {fileID: 2758356059344963085, guid: e6c4f0e42b74760428bf2f52f21539ed, type: 3}
@@ -6422,6 +6723,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 1
   rarity: 70
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
 --- !u!1 &7339895228687240746
@@ -6479,6 +6781,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 1
   rarity: 160
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
 --- !u!1 &7339895228688028663
@@ -6534,7 +6837,7 @@ MonoBehaviour:
   name: Railgun
   description: 'Base damage + 40%
 
-    Base projectile speed + 10%
+    Base projectile speed + 15%
 
     Pierce +
     1
@@ -6543,10 +6846,11 @@ MonoBehaviour:
   level: 0
   maxLevel: 0
   rarity: 100
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   DamageMultiplier: 0.4
-  ForceMultiplier: 0.1
+  ForceMultiplier: 0.15
   PierceAmount: 1
   ASpenalty: 0.04
 --- !u!1 &7339895228804509351
@@ -6604,6 +6908,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 5
   rarity: 50
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   increaseAmount: 25
@@ -6672,6 +6977,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 1
   rarity: 120
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   amount: 20
@@ -6730,6 +7036,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 0
   rarity: 100
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   amount: 2
@@ -6788,6 +7095,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 3
   rarity: 60
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   amount: 8
@@ -6846,6 +7154,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 0
   rarity: 0
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   DamageMultiplier: 0.4
@@ -6904,6 +7213,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 1
   rarity: 100
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   summon: {fileID: 4416045798595578746, guid: 47c0a3732254be94ca5a03e7568df09e, type: 3}
@@ -6962,6 +7272,7 @@ MonoBehaviour:
   level: 0
   maxLevel: 2
   rarity: 60
+  CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   amount: 1

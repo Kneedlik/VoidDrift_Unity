@@ -13,12 +13,16 @@ MonoBehaviour:
   m_Name: L2Wawe22
   m_EditorClassIdentifier: 
   end: 1320
-  min: 0
-  max: 0
-  enemies: []
-  chanses: []
-  spawnRate: 0
-  spawnN: 0
-  healthMultiplier: 1
-  Boss: {fileID: 0}
+  min: 8
+  max: 120
+  enemies:
+  - {fileID: 4769829029796524462, guid: ca9badfee81beac4e878e91c48b0ce90, type: 3}
+  chanses:
+  - 100
+  spawnRate: 0.65
+  spawnN: 10
+  healthMultiplier: 120
+  XpMultiplier: 18
+  Boss: {fileID: 2664196073113781367, guid: 5c72fef6941dea84c86ed09666ea4872, type: 3}
+  BossAmount: 3
   SpawnedBoss: 0

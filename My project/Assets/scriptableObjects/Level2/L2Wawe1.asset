@@ -14,11 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   end: 60
   min: 0
-  max: 0
-  enemies: []
-  chanses: []
-  spawnRate: 0
-  spawnN: 0
+  max: 30
+  enemies:
+  - {fileID: 3275799785512524511, guid: 2c33c835ad4029a4f94e3707caa9cd35, type: 3}
+  chanses:
+  - 100
+  spawnRate: 2.5
+  spawnN: 2
   healthMultiplier: 1
+  XpMultiplier: 1
   Boss: {fileID: 0}
+  BossAmount: 1
   SpawnedBoss: 0

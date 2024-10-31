@@ -6,7 +6,7 @@ using UnityEngine;
 public class AC_Rockets : upgrade
 {
     public static AC_Rockets instance;
-
+    AutoCannon AC;
 
     public GameObject Prefab;
     public int Amount;
@@ -39,6 +39,7 @@ public class AC_Rockets : upgrade
         instance = this;
         Type = type.special;
         setColor();
+        AC = GameObject.FindWithTag("Weapeon").GetComponent<AutoCannon>();
     }
 
     public override void function()
@@ -67,6 +68,13 @@ public class AC_Rockets : upgrade
                 GameObject Rocket;
                
                 Rocket = Instantiate(Prefab, Cubes[i].transform.position, Cubes[i].transform.rotation);
+                HomingProjectile Bullet = Rocket.GetComponent<HomingProjectile>();
+                float pom = Bullet.damage * (PlayerStats.sharedInstance.damageMultiplier / 100f);
+                Bullet.setDamage((int)pom + PlayerStats.sharedInstance.ExtraDamage);
+
+                pom = (PlayerStats.sharedInstance.areaMultiplier / 100f);
+                Bullet.SetTotalArea(pom, false);
+
                 Rigidbody2D rb = Rocket.GetComponent<Rigidbody2D>();
                 rb.AddForce(Cubes[i].transform.up * Force);
             }

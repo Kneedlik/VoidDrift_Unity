@@ -182,7 +182,7 @@ MonoBehaviour:
   self: {fileID: 0}
   healthBarGObject: {fileID: 0}
   healthBar: {fileID: 0}
-  armor: 6
+  armor: 3
   multiplier: 0
   ParticleExplosion: {fileID: 0}
   DeathAnim: {fileID: 2360855068873841653, guid: 9d024159c29a5ed4dadc422aca7b568f, type: 3}
@@ -256,7 +256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 55
-  maxSpeed: 9.6
+  maxSpeed: 9
   Multiplier: 1
 --- !u!114 &1076211932900973751
 MonoBehaviour:

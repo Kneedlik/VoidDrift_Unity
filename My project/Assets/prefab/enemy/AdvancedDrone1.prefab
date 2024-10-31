@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 4769829029796524448}
   - component: {fileID: -7066333306832082077}
   - component: {fileID: 1269613586839714195}
+  - component: {fileID: 7124082400006253234}
   m_Layer: 12
   m_Name: AdvancedDrone1
   m_TagString: Enemy
@@ -197,8 +198,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc05fc48713b8604795a3503e0c65176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 60
-  maxSpeed: 7.6
+  speed: 55
+  maxSpeed: 5.8
   Multiplier: 1
 --- !u!114 &4769829029796524448
 MonoBehaviour:
@@ -213,7 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  maxHealth: 85
+  maxHealth: 60
   baseMaxHealth: 0
   damageN: {fileID: 8636022699047134357, guid: 971665a441a2ea448a247928736ad030, type: 3}
   self: {fileID: 0}
@@ -268,6 +269,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7124082400006253234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4769829029796524462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b012fce8103ed4a4397b4dcf4d66b057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UsePrefab: 0
+  xpValue: 14
+  percentValue: 0
+  XpPrefab: {fileID: 0}
+  Point: {fileID: 0}
 --- !u!1 &4769829030574521265
 GameObject:
   m_ObjectHideFlags: 0

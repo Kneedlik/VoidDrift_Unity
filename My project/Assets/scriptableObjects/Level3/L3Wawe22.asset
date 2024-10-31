@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf42e33f53b12204baebb4f405c37fe8, type: 3}
+  m_Name: L3Wawe22
+  m_EditorClassIdentifier: 
+  end: 1320
+  min: 8
+  max: 120
+  enemies:
+  - {fileID: 2117187936650203918, guid: ec48568e9dc2a9a4aa1d1b0bb7a5e6d3, type: 3}
+  - {fileID: 6796515708585979782, guid: 707e4402cfe9c1f47a7cdee5a24ab68e, type: 3}
+  - {fileID: 9134502682905301589, guid: a5e73291dab67dc45a9d612a32ab9112, type: 3}
+  chanses:
+  - 8
+  - 30
+  - 62
+  spawnRate: 0.5
+  spawnN: 14
+  healthMultiplier: 85
+  XpMultiplier: 18
+  Boss: {fileID: 0}
+  BossAmount: 1
+  SpawnedBoss: 0

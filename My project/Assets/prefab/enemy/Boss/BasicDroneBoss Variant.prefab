@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2218223849796302665
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3275799785512524503, guid: 2c33c835ad4029a4f94e3707caa9cd35, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275799785512524503, guid: 2c33c835ad4029a4f94e3707caa9cd35, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275799785512524503, guid: 2c33c835ad4029a4f94e3707caa9cd35, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275799785512524503, guid: 2c33c835ad4029a4f94e3707caa9cd35, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275799785512524503, guid: 2c33c835ad4029a4f94e3707caa9cd35, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -24.044437
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275799785512524503, guid: 2c33c835ad4029a4f94e3707caa9cd35, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.148075
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275799785512524503, guid: 2c33c835ad4029a4f94e3707caa9cd35, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275799785512524503, guid: 2c33c835ad4029a4f94e3707caa9cd35, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275799785512524503, guid: 2c33c835ad4029a4f94e3707caa9cd35, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275799785512524503, guid: 2c33c835ad4029a4f94e3707caa9cd35, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275799785512524503, guid: 2c33c835ad4029a4f94e3707caa9cd35, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275799785512524503, guid: 2c33c835ad4029a4f94e3707caa9cd35, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275799785512524503, guid: 2c33c835ad4029a4f94e3707caa9cd35, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275799785512524503, guid: 2c33c835ad4029a4f94e3707caa9cd35, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275799785512524504, guid: 2c33c835ad4029a4f94e3707caa9cd35, type: 3}
+      propertyPath: m_Mass
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275799785512524511, guid: 2c33c835ad4029a4f94e3707caa9cd35, type: 3}
+      propertyPath: m_Name
+      value: BasicDroneBoss Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2c33c835ad4029a4f94e3707caa9cd35, type: 3}
+--- !u!1 &3728220016998231446 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3275799785512524511, guid: 2c33c835ad4029a4f94e3707caa9cd35, type: 3}
+  m_PrefabInstance: {fileID: 2218223849796302665}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-3673169631321431370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3728220016998231446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 599b41622875a6749b7d10012ed19326, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemPool1:
+  - {fileID: 7674282569647781966, guid: f80c732bbcca3de40b5eb15d54ebf07d, type: 3}
+  dropChancePool1:
+  - 100
+  pos: {fileID: 0}

@@ -41,7 +41,8 @@ public class LudensEchoSystem : MonoBehaviour
                 float pom = health.maxHealth * CTrueDamage;
                 damage = damage + (int)pom;
 
-                health.TakeDamage(damage);
+                Color32 c = Constants.CorruptedColor;
+                health.TakeDamage(damage,c);
 
                 //explosion EX = Instantiate(CExplosion, target.transform.position, Quaternion.Euler(0, 0, 0)).GetComponent<explosion>();
                 //EX.damage = damage;
@@ -64,8 +65,8 @@ public class LudensEchoSystem : MonoBehaviour
             float pom2;
             float realDamage = 100 + damage;
             realDamage = (float)realDamage / 100f;
-            pom += flatDamage;
             pom2 = pom * realDamage;
+            pom2 += flatDamage;
             pom = (int)pom2;
             pom -= Damage;
 
@@ -91,9 +92,10 @@ public class LudensEchoSystem : MonoBehaviour
                 }
             }else if(Aoe)
             {
-               GameObject E = Instantiate(explosionObject, target.transform.position,Quaternion.Euler(0,0,0));
+                GameObject E = Instantiate(explosionObject, target.transform.position,Quaternion.Euler(0,0,0));
                 explosion ex = E.GetComponent<explosion>();
                 ex.damage = pom;
+                ex.Colour = new Color32(140, 0, 255, 255);
                 KnedlikLib.ScaleParticleByFloat(E, 1, true);
 
                 if(burn)
@@ -102,7 +104,6 @@ public class LudensEchoSystem : MonoBehaviour
                     {
                         ex.function += SpiritFlameSystem.instance.SpiritFlame;
                     }
-
                 }
             }
 

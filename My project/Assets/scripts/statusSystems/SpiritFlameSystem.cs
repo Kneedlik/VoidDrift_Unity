@@ -79,7 +79,7 @@ public class SpiritFlameSystem : MonoBehaviour
                 int i = enemies.IndexOf(target);
 
                 GameObject F = Instantiate(Fire, target.transform.position, Quaternion.Euler(0, 0, 0));
-                KnedlikLib.scaleParticleSize(target, F, 1);
+                //KnedlikLib.scaleParticleSize(target, F, 1);
                 F.transform.SetParent(target.transform);
 
                 StartCoroutine(startSpiritFlame(target));

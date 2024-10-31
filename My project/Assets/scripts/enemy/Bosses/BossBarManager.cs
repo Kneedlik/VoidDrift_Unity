@@ -11,10 +11,25 @@ public class BossBarManager : MonoBehaviour
     public List<Health> health;
     [SerializeField] List<GameObject> healthG;
     [SerializeField] List<TextMeshProUGUI> textMeshProUGUI;
+    [SerializeField] List<float> TimeStamps;
+    [SerializeField] float RemoveTime;
 
     void Start()
     {
         Instance = this;
+    }
+    private void Update()
+    {
+        for (int i = 0; i < TimeStamps.Count; i++)
+        {
+            if (TimeStamps[i] > 0)
+            {
+                TimeStamps[i] -= Time.deltaTime;
+            }else if (healthG[i].activeSelf && health[i] != null)
+            {
+                RemoveBar(health[i]);
+            }
+        }
     }
 
     public void AddBar(Health healthT)
@@ -31,6 +46,7 @@ public class BossBarManager : MonoBehaviour
             {
                 health[i] = healthT;
                 healthG[i].SetActive(true);
+                TimeStamps[i] = RemoveTime;
                 slider = healthG[i].GetComponent<Slider>();
                 slider.maxValue = healthT.maxHealth;
                 slider.value = healthT.health;
@@ -38,9 +54,7 @@ public class BossBarManager : MonoBehaviour
                 textMeshProUGUI[i].text = string.Format("{0} / {1}", health[i].health, health[i].maxHealth);
                 return;
             }
-        
-        }
-        
+        }    
     }
 
     public void RemoveBar(Health healthT)
@@ -75,6 +89,7 @@ public class BossBarManager : MonoBehaviour
                     slider.value = health[i].health;
                     slider.maxValue = health[i].maxHealth;
                     textMeshProUGUI[i].text = string.Format("{0} / {1}", health[i].health, health[i].maxHealth);
+                    TimeStamps[i] = RemoveTime;
                 }
             }
         }

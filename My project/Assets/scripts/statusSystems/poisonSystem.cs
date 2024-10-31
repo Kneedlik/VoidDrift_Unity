@@ -70,8 +70,9 @@ public class poisonSystem : MonoBehaviour
 
                 float pomH = health.maxHealth * CTrueDamage;
                 extra = (int)pomH;
-               
-                health.TakeDamage(Damage + extra);
+
+                Color32 C = Constants.CorruptedColor;
+                health.TakeDamage(Damage + extra,C);
 
                 GameObject pom = findWithinDistance(target,CInfectDistance);
                 if (pom != null)
@@ -148,7 +149,8 @@ public class poisonSystem : MonoBehaviour
                     extra = (int)pom;
                 }
 
-                health.TakeDamage(Damage + extra);
+                Color32 C = Constants.GreenColor;
+                health.TakeDamage(Damage + extra,C);
 
                 if (infect)
                 {

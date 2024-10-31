@@ -20,6 +20,8 @@ public class MiningLaser : weapeon
     public float FlashBaseSize;
     public float HitBaseSize;
     public float LineBaseSize;
+    public float ProjectileCountMultiplier;
+    public float WidthMultiplier;
 
     //Circle
     public bool Circle;
@@ -93,7 +95,12 @@ public class MiningLaser : weapeon
         {
             int PierceTemp = pierce;
             bool Infinite = true;
-            RaycastHit2D[] hitInfo = Physics2D.RaycastAll(firePoint.position, firePoint.up);
+
+            float SizeTrue = size + (size * projectileCount);
+            SizeTrue = SizeTrue * WidthMultiplier;
+
+            //RaycastHit2D[] hitInfo = Physics2D.RaycastAll(firePoint.position, firePoint.up);
+            RaycastHit2D[] hitInfo = Physics2D.CapsuleCastAll(firePoint.position, new Vector2(SizeTrue, SizeTrue), CapsuleDirection2D.Vertical, firePoint.rotation.eulerAngles.z, firePoint.up, MaxLength);
 
             for (int i = 0; i < hitInfo.Length; i++)
             {
@@ -158,7 +165,9 @@ public class MiningLaser : weapeon
         int PierceTemp = pierce;
         bool Infinite = true;
 
-        RaycastHit2D[] hitInfo = Physics2D.RaycastAll(point.position, point.up);
+        //RaycastHit2D[] hitInfo = Physics2D.RaycastAll(point.position, point.up);
+        float SizeTrue = size * WidthMultiplier;
+        RaycastHit2D[] hitInfo = Physics2D.CapsuleCastAll(point.position, new Vector2(SizeTrue, SizeTrue), CapsuleDirection2D.Vertical, point.rotation.eulerAngles.z, point.up, MaxLength);
 
         for (int j = 0; j < hitInfo.Length; j++)
         {
@@ -217,8 +226,10 @@ public class MiningLaser : weapeon
         if (Circle == false)
         {
             int PierceTemp = pierce;
-            //RaycastHit2D[] hitInfo = Physics2D.RaycastAll(FirePoint.position, FirePoint.up);
-            RaycastHit2D[] hitInfo = Physics2D.CapsuleCastAll(firePoint.position, new Vector2(size, size), CapsuleDirection2D.Vertical, firePoint.rotation.eulerAngles.z, firePoint.up, MaxLength);
+            float SizeTrue = size + (size * projectileCount);
+            SizeTrue = SizeTrue * WidthMultiplier;
+            
+            RaycastHit2D[] hitInfo = Physics2D.CapsuleCastAll(firePoint.position, new Vector2(SizeTrue, SizeTrue), CapsuleDirection2D.Vertical, firePoint.rotation.eulerAngles.z, firePoint.up, MaxLength);
 
             if (eventManager.OnFire != null)
             {
@@ -235,10 +246,11 @@ public class MiningLaser : weapeon
                         eventManager.OnFireAll(gameObject,null );
                     }
 
-                    int DamagePlus = damage;
+                    float pom = damage + (damage * projectileCount * ProjectileCountMultiplier);
+                    int DamagePlus = (int)pom + extraDamage;
                     if(eventManager.ImpactGunOnlyHitScan != null)
                     {
-                        eventManager.ImpactGunOnlyHitScan(hitInfo[i].transform.gameObject,damage, ref damage);
+                        eventManager.ImpactGunOnlyHitScan(hitInfo[i].transform.gameObject,DamagePlus, ref DamagePlus);
                     }
 
                     if(eventManager.OnImpact != null)
@@ -247,6 +259,7 @@ public class MiningLaser : weapeon
                     }
 
                     health.TakeDamage(DamagePlus);
+
                     if (PierceTemp <= 0)
                     {
                         break;
@@ -260,23 +273,26 @@ public class MiningLaser : weapeon
 
             for (int i = 0; i < SideCubeList.Count; i++)
             {
-                DealDamageToPoint(SideCubeList[i].transform);
+                DealDamageToPoint(SideCubeList[i].transform,damage);
             }
         }else if(Circle)
         {
             for (int i = 0;i < CubeList.Count;i++)
             {
-                DealDamageToPoint(CubeList[i].transform);
+                float pom = damage + (damage * projectileCount * ProjectileCountMultiplier);
+                int DamagePlus = (int)pom;
+                DealDamageToPoint(CubeList[i].transform,DamagePlus);
             }
         }
 
 
     }
 
-    void DealDamageToPoint(Transform point)
+    void DealDamageToPoint(Transform point,int Damage)
     {
         int PierceTemp = pierce;
-        RaycastHit2D[] hitInfo = Physics2D.CapsuleCastAll(point.position, new Vector2(size, size), CapsuleDirection2D.Vertical, point.rotation.eulerAngles.z, point.up, MaxLength);
+        float SizeTrue = size * WidthMultiplier;
+        RaycastHit2D[] hitInfo = Physics2D.CapsuleCastAll(point.position, new Vector2(SizeTrue, SizeTrue), CapsuleDirection2D.Vertical, point.rotation.eulerAngles.z, point.up, MaxLength);
 
         for (int j = 0; j < hitInfo.Length; j++)
         {
@@ -285,21 +301,21 @@ public class MiningLaser : weapeon
                 eventManager.OnFireAll(gameObject, null);
             }
 
-            int DamagePlus = damage;
+            int DamagePlus = Damage + extraDamage;
             if (eventManager.ImpactGunOnlyHitScan != null)
             {
-                eventManager.ImpactGunOnlyHitScan(hitInfo[j].transform.gameObject, damage, ref damage);
+                eventManager.ImpactGunOnlyHitScan(hitInfo[j].transform.gameObject, DamagePlus, ref DamagePlus);
             }
 
             if (eventManager.OnImpact != null)
             {
-                eventManager.OnImpact(hitInfo[j].transform.gameObject, damage, ref DamagePlus);
+                eventManager.OnImpact(hitInfo[j].transform.gameObject, DamagePlus, ref DamagePlus);
             }
 
             Health health = hitInfo[j].transform.GetComponent<Health>();
             if (health != null)
             {
-                health.TakeDamage(damage);
+                health.TakeDamage(DamagePlus);
                 if (PierceTemp <= 0)
                 {
                     break;
@@ -338,7 +354,9 @@ public class MiningLaser : weapeon
             Sizetemp = Sizetemp * (projectileCount + 1);
             FlashSizeTemp = FlashSizeTemp * (projectileCount + 1);
             MainLine.SetSize(LineSize, Sizetemp);
-            FlashObj.transform.localScale = new Vector3(FlashSizeTemp, FlashSizeTemp, FlashSizeTemp);
+
+            float FlashSizeMultiplier = 0.4f;
+            FlashObj.transform.localScale = new Vector3(FlashSizeTemp * FlashSizeMultiplier, FlashSizeTemp * FlashSizeMultiplier, FlashSizeTemp * FlashSizeMultiplier);
         }else
         {
             LineSize = size * (projectileCount + sideProjectiles + 1);
