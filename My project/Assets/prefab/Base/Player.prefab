@@ -11241,7 +11241,7 @@ MonoBehaviour:
   iframes: 0.6
   shield: {fileID: 633558903}
   DamageParticle: {fileID: 6418731716618493352, guid: ae6a7cd82740eec418e3048224d159da, type: 3}
-  godMode: 1
+  godMode: 0
   deathDelay: 2
   ParticleExplosion: {fileID: 2474492865396701593, guid: 4ab685516835c7743a50d3b1b8d32d1b, type: 3}
   Smoke: {fileID: 684212094}
