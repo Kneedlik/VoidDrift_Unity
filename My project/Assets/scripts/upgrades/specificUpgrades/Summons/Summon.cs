@@ -120,8 +120,11 @@ public class Summon : MonoBehaviour
 
     public virtual void scaleSummonDamage()
     {
-        float pom = baseDamage * (PlayerStats.sharedInstance.SummonDamage / 100f) * MasterManager.Instance.PlayerInformation.SummonDamageMultiplier;
-        pom = pom * (PlayerStats.sharedInstance.damageMultiplier / 100f) * MasterManager.Instance.PlayerInformation.DamageMultiplier;
+        float pom = baseDamage * (PlayerStats.sharedInstance.SummonDamage / 100f);
+        pom = pom * (PlayerStats.sharedInstance.damageMultiplier / 100f);
+        pom += PlayerStats.sharedInstance.ExtraDamage;
+        pom = pom * MasterManager.Instance.PlayerInformation.SummonDamageMultiplier;
+        pom = pom * MasterManager.Instance.PlayerInformation.DamageMultiplier;
         damage = (int)pom;
     }
 

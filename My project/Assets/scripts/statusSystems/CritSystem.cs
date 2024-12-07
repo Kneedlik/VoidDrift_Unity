@@ -18,8 +18,8 @@ public class CritSystem : MonoBehaviour
         if (critChance != 0)
         {
             int rand = Random.Range(0, 100);
-            Debug.Log(critChance);
-            Debug.Log(rand);
+            //Debug.Log(critChance);
+            //Debug.Log(rand);
             if (rand <= critChance)
             {
                 float pom = damage * critMultiplier;

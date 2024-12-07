@@ -247,9 +247,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
-  reducedDamage: 0
+  PlayerDamage: 0
   TrueDamage: 0
-  destroyTime: 0.3
+  destroyTime: 0.22
   force: 8.5
   isEnemy: 0
   LevelScaling: 0
@@ -257,4 +257,10 @@ MonoBehaviour:
   ScaleArea: 1
   Impact: 1
   PostImpact: 1
+  OnCrit: 1
+  OnImpactGunOnly: 1
   Stun: 1
+  Colour:
+    serializedVersion: 2
+    rgba: 4294967295
+  IgnoreTargets: []

@@ -5,9 +5,11 @@ using UnityEngine;
 public class RL_BugetHoming : upgrade
 {
     public int Amount;
+    public static RL_BugetHoming instance;
     // Start is called before the first frame update
     void Start()
     {
+        instance = this;
         Type = type.special;
         setColor();
     }
@@ -16,6 +18,7 @@ public class RL_BugetHoming : upgrade
     {
         rocketLauncher RocketLauncher = GameObject.FindWithTag("Weapeon").GetComponent<rocketLauncher>();
         RocketLauncher.HomingAmount += Amount;
+        RocketLauncher.setFirepoints();
 
         if(level > 0)
         {

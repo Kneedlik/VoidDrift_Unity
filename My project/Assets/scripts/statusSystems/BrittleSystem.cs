@@ -95,6 +95,10 @@ public class BrittleSystem : MonoBehaviour
         simpleAI ai1 = target.GetComponent<simpleAI>();
         EnemyFollow ai2 = target.GetComponent<EnemyFollow>();
         Health health = target.GetComponent<Health>();
+        if(health == null)
+        {
+            yield break;
+        }
 
         if (speedDecrease > 1)
         {

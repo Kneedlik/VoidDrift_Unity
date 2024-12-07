@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class RL_StatStick : upgrade
 {
+    public static RL_StatStick instance;
     [SerializeField] float DamageAmount;
     [SerializeField] float AsAmount;
     // Start is called before the first frame update
     void Start()
     {
+        instance = this;
         Type = type.special;
         setColor();
     }

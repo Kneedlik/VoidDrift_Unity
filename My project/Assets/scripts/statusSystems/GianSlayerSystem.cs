@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class GianSlayerSystem : MonoBehaviour
 {
-   public int tickNeeded;
+    public int tickNeeded;
+    public int MaxDamage;
     public static GianSlayerSystem instance;
 
     List<GameObject> objects = new List<GameObject>();
@@ -34,6 +35,11 @@ public class GianSlayerSystem : MonoBehaviour
         if(objects.Contains(target))
         {
             int i = objects.IndexOf(target);
+            if (Damage[i] > MaxDamage)
+            {
+                return;
+            }
+
             index[i]++;
 
             if (index[i] >= tickNeeded)

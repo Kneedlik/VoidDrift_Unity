@@ -18,12 +18,14 @@ MonoBehaviour:
   enemies:
   - {fileID: 3275799785512524511, guid: 2c33c835ad4029a4f94e3707caa9cd35, type: 3}
   - {fileID: 4769829029796524462, guid: ca9badfee81beac4e878e91c48b0ce90, type: 3}
+  - {fileID: 5378140761206221858, guid: 6490cbf611595d84193ce906b5590145, type: 3}
   chanses:
-  - 60
   - 40
+  - 30
+  - 30
   spawnRate: 1.1
   spawnN: 6
-  healthMultiplier: 5.5
+  healthMultiplier: 5.1
   XpMultiplier: 4.4
   Boss: {fileID: 0}
   BossAmount: 1

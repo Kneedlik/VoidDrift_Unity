@@ -21,14 +21,15 @@ public class krakenSlayer : upgrade
             KrakenSlayerSystem.sharedInstance.damage += amount;
         }else if(level == 2)
         {
-            description = string.Format("Repeated triggers of Golden halo on the same enemy deal increased damage up to three times normal damage");
+            KrakenSlayerSystem.sharedInstance.damage += amount;
+            //description = string.Format("Repeated triggers of Golden halo on the same enemy deal increased damage up to three times normal damage");
         }
         else if(level == 3)
         {
-            KrakenSlayerSystem.sharedInstance.increaseDamage = true;
-            KrakenSlayerSystem.sharedInstance.max = 3;
+            KrakenSlayerSystem.sharedInstance.damage += amount;
+           // KrakenSlayerSystem.sharedInstance.increaseDamage = true;
+            //KrakenSlayerSystem.sharedInstance.max = 3;
         }
-        
         else
         {
             KrakenSlayerSystem.sharedInstance.damage += amount;

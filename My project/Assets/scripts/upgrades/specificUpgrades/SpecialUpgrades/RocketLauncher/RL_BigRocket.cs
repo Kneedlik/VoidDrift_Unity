@@ -5,6 +5,7 @@ using UnityEngine;
 public class RL_BigRocket : upgrade
 {
     // Start is called before the first frame update
+    public static RL_BigRocket instance;
     [SerializeField] int Damage;
     [SerializeField] float MultiplierAmount;
     [SerializeField] int CurrentShot;
@@ -17,6 +18,7 @@ public class RL_BigRocket : upgrade
 
     void Start()
     {
+        instance = this;
         RocketLauncher = GameObject.FindWithTag("Weapeon").GetComponent<rocketLauncher>();
         Type = type.special;
         setColor();

@@ -9,10 +9,12 @@ public class StunOnHit : MonoBehaviour
     public float StunDuration;
     float timeStamp;
     Rigidbody2D Rb;
+    Tenacity tenacity;
 
     private void Start()
     {
         Rb = GetComponent<Rigidbody2D>();
+        tenacity = GetComponent<Tenacity>();
     }
 
     // Update is called once per frame
@@ -31,7 +33,10 @@ public class StunOnHit : MonoBehaviour
 
     public void Stun()
     {
-        
+        if(tenacity != null)
+        {
+            timeStamp = tenacity.CalculateDuration(StunDuration);
+        }
         timeStamp = StunDuration;
 
         if (Rb != null && stop == false)

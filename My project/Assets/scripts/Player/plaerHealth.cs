@@ -42,6 +42,7 @@ public class plaerHealth : MonoBehaviour
 
     [SerializeField] float healthBarFlashDuration;
     public Image PlayerHfill;
+    Color32 BaseBarColor;
     public Coroutine flash;
     public bool half = false;
 
@@ -60,7 +61,7 @@ public class plaerHealth : MonoBehaviour
        // InvokeRepeating("Regeneration",0.0f, 1.0f / regenTime);
        
         timer = 0.0f;
-       
+        BaseBarColor = PlayerHfill.color;
     }
     public void TakeDamage(int damage)
     {
@@ -257,16 +258,14 @@ public class plaerHealth : MonoBehaviour
     }
 
    void flashHealthBar()
-    {
-        Color color = PlayerHfill.color;
-
+   {
         if(flash != null)
         {
             StopCoroutine(flash);
-            PlayerHfill.color = color;
+            PlayerHfill.color = BaseBarColor;
         }
-        flash = StartCoroutine(flashHealthBarRutine(color));
-    }
+        flash = StartCoroutine(flashHealthBarRutine(BaseBarColor));
+   }
 
     IEnumerator flashHealthBarRutine(Color c)
     {

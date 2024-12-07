@@ -65,6 +65,7 @@ public static class KnedlikLib
         if(areaMultiplier)
         {
             size = size * (PlayerStats.sharedInstance.areaMultiplier / 100f);
+            size = size * MasterManager.Instance.PlayerInformation.SizeMultiplier;
         }
 
         target.transform.localScale = new Vector3(size, size, size);
@@ -110,6 +111,11 @@ public static class KnedlikLib
         if(extra)
         {
             Damage += PlayerStats.sharedInstance.ExtraDamage;
+        }
+
+        if(multiplier)
+        {
+            Damage = Damage * MasterManager.Instance.PlayerInformation.DamageMultiplier;
         }
 
         int pom = (int)Damage;
@@ -526,7 +532,7 @@ public static class KnedlikLib
         {
             CurrentAlpha -= DecaySpeed * Time.deltaTime;
             SpriteColor.color = new Color(SpriteColor.color.r, SpriteColor.color.g, SpriteColor.color.b, CurrentAlpha);
-            Debug.Log(SpriteColor.color.a);
+            //Debug.Log(SpriteColor.color.a);
         }
 
         if(CurrentAlpha <= 0)

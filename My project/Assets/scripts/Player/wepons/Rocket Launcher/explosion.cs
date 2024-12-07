@@ -20,8 +20,12 @@ public class explosion : MonoBehaviour
     [SerializeField] bool ScaleArea;
     [SerializeField] bool Impact;
     [SerializeField] bool PostImpact;
+    [SerializeField] bool OnCrit;
+    [SerializeField] bool OnImpactGunOnly;
     public bool Stun;
     public Color32 Colour = new Color32(255,255,255,255);
+
+    public List<GameObject> IgnoreTargets = new List<GameObject>();
 
     void Start()
     {
@@ -61,10 +65,17 @@ public class explosion : MonoBehaviour
                             KnedlikLib.TryStun(collision.gameObject);
                         }
                         Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
-                        Debug.Log(dir);
-                        Debug.Log(force);
+                        //Debug.Log(dir);
+                        //Debug.Log(force);
                         rb.velocity = rb.velocity.normalized;
-                        rb.AddForce(dir * force, ForceMode2D.Impulse);
+                        Tenacity tenacity = collision.GetComponent<Tenacity>();
+                        float knockBackTemp = force;
+                        if (tenacity != null)
+                        {
+                            knockBackTemp = tenacity.CalculateForce(knockBackTemp);
+                        }
+
+                        rb.AddForce(dir * knockBackTemp, ForceMode2D.Impulse);
                     }
                 }
             }
@@ -112,9 +123,25 @@ public class explosion : MonoBehaviour
                 if (health != null)
                 {
                     int damagePlus = damage;
+
+                    if (eventManager.ImpactGunOnly != null && OnImpactGunOnly)
+                    {
+                        eventManager.ImpactGunOnly(collision.gameObject, gameObject);
+                    }
+
                     if (Impact && eventManager.OnImpact != null)
                     {
                         eventManager.OnImpact(collision.gameObject, damage, ref damagePlus);
+                    }
+
+                    if (eventManager.OnCrit != null && OnCrit)
+                    {
+                        Color32 TempColor = eventManager.OnCrit(collision.gameObject, damagePlus, ref damagePlus);
+                        Color32 BaseColor = new Color32(0, 0, 0, 0);
+                        if (!TempColor.Equals(BaseColor))
+                        {
+                            Colour = TempColor;
+                        }
                     }
 
                     if (PostImpact && eventManager.PostImpact != null)
@@ -123,6 +150,7 @@ public class explosion : MonoBehaviour
                     }
 
                     health.TakeDamage(damagePlus, Colour);
+                    Colour = new Color32(255, 255, 255, 255);
                 }
             }
         }

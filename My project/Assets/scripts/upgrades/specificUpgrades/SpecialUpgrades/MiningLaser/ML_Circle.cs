@@ -28,6 +28,8 @@ public class ML_Circle : upgrade
         Laser.Circle = true;
         Laser.damageMultiplier += DamageMultiplier;
         PlayerStats.sharedInstance.increaseProjectiles(ProjectileAmount);
+        Laser.setSideFirepoints();
+        Laser.setFirepoints();
         level++;
     }
 }

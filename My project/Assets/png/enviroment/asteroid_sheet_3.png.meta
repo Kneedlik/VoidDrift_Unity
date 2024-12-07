@@ -101,7 +101,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -130,8 +130,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2bcf488d83ef2af429d0ca60e984cae8
-      internalID: -511237210
+      spriteID: e211a03ffd68eba4e8760fadbd77781d
+      internalID: -2097500700
       vertices: []
       indices: 
       edges: []
@@ -151,8 +151,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad2bcdc426f79be469fc787f32a56542
-      internalID: -725163059
+      spriteID: ec72327723a0b09429db735fa2c22e7c
+      internalID: -1081355132
       vertices: []
       indices: 
       edges: []
@@ -172,8 +172,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4eca7aabfbc25b24b8feeaa14a23da07
-      internalID: -881330832
+      spriteID: fdd5dc4802041b043a268724a694008c
+      internalID: 385464974
       vertices: []
       indices: 
       edges: []
@@ -193,8 +193,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4613484ddd4a4ad4b9e31a8f216f407d
-      internalID: 524146244
+      spriteID: 9243fa81fb3d5264fb604e855a7e6293
+      internalID: -442607140
       vertices: []
       indices: 
       edges: []
@@ -210,10 +210,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      asteroid_sheet_3_1: -725163059
-      asteroid_sheet_3_2: -881330832
-      asteroid_sheet_3_3: 524146244
-      asteroid_sheet_3_0: -511237210
+      asteroid_sheet_3_1: -1081355132
+      asteroid_sheet_3_2: 385464974
+      asteroid_sheet_3_3: -442607140
+      asteroid_sheet_3_0: -2097500700
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

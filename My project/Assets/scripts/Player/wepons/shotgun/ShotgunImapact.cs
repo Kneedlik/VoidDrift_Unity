@@ -12,32 +12,50 @@ public class ShotgunImapact : MonoBehaviour
     List<float> AngleTemp = new List<float>();
     projectileShotGun ShotGun;
     public float Size;
+    public bool Cone;
+    Transform Player;
     void Start()
     {
         ShotGun = GameObject.FindWithTag("Weapeon").GetComponent<projectileShotGun>();
-        for (int i = 0; i < ShotGun.CubeList.Count; i++)
-        {
-            Vector3 Temp = new Vector3(0, 0, 0);
-            Temp = ShotGun.CubeList[i].transform.up;
-            PosTemp.Add(Temp);
-            OreginTemp.Add(new Vector3(ShotGun.CubeList[i].transform.position.x, ShotGun.CubeList[i].transform.position.y, ShotGun.CubeList[i].transform.position.x));
-            AngleTemp.Add(ShotGun.CubeList[i].transform.rotation.eulerAngles.z);
-        }
+        Player = GameObject.FindWithTag("Player").GetComponent<Transform>();
 
-        for (int i = 0;i < ShotGun.SideCubeList.Count; i++)
+        if (Cone)
         {
-            Vector3 Temp = new Vector3(0, 0, 0);
-            Temp = ShotGun.SideCubeList[i].transform.up;
-            PosTemp.Add(Temp);
-            OreginTemp.Add(new Vector3(ShotGun.SideCubeList[i].transform.position.x, ShotGun.SideCubeList[i].transform.position.y, ShotGun.SideCubeList[i].transform.position.z));
-            AngleTemp.Add(ShotGun.SideCubeList[i].transform.rotation.eulerAngles.z);
+            float offset = 0;
+            float pom = 360 / ShotGun.RingOfFireCount;
+
+            for (int i = 0; i < ShotGun.RingOfFireCount; i++)
+            {
+                PosTemp.Add(new Vector3(Mathf.Sin(offset * Mathf.Deg2Rad), Mathf.Cos(offset * Mathf.Deg2Rad), 0));
+                OreginTemp.Add(Player.position);
+                AngleTemp.Add(offset);
+                offset += pom;
+            }
+        }
+        else
+        {
+            for (int i = 0; i < ShotGun.CubeList.Count; i++)
+            {
+                Vector3 Temp = new Vector3(0, 0, 0);
+                Temp = ShotGun.CubeList[i].transform.up;
+                PosTemp.Add(Temp);
+                OreginTemp.Add(new Vector3(ShotGun.CubeList[i].transform.position.x, ShotGun.CubeList[i].transform.position.y, 0));
+                AngleTemp.Add(ShotGun.CubeList[i].transform.rotation.eulerAngles.z);
+            }
+
+            for (int i = 0; i < ShotGun.SideCubeList.Count; i++)
+            {
+                Vector3 Temp = new Vector3(0, 0, 0);
+                Temp = ShotGun.SideCubeList[i].transform.up;
+                PosTemp.Add(Temp);
+                OreginTemp.Add(new Vector3(ShotGun.SideCubeList[i].transform.position.x, ShotGun.SideCubeList[i].transform.position.y, 0));
+                AngleTemp.Add(ShotGun.SideCubeList[i].transform.rotation.eulerAngles.z);
+            }
         }
 
         SpawnLine();
         Invoke("SpawnLine", 0.06f);
-        Invoke("Execute", Delay);
-        
-        
+        Invoke("Execute", Delay);  
     }
 
     public void Execute()

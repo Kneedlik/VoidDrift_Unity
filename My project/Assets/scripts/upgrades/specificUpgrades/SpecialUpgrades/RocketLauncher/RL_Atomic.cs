@@ -15,6 +15,15 @@ public class RL_Atomic : upgrade
         setColor();
     }
 
+    public override bool requirmentsMet()
+    {
+        if (FinalConditionsMet() && RL_BigRocket.instance.level >= 1 && RL_Speed.instance.level >= 1)
+        {
+            return true;
+        }
+        else return false;
+    }
+
 
     public override void function()
     {
@@ -22,7 +31,7 @@ public class RL_Atomic : upgrade
         RocketLauncher.Atomic = true;
         RocketLauncher.damageMultiplier += DamageAmountMultiplier;
         RocketLauncher.ASmultiplier -= AsPenaltyMultiplier;
-        PlayerStats.sharedInstance.increaseProjectiles(-99);
+        //PlayerStats.sharedInstance.increaseProjectiles(-99);
         level++;
     }
 }

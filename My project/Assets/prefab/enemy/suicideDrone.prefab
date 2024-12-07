@@ -632,6 +632,7 @@ GameObject:
   - component: {fileID: 1285785712}
   - component: {fileID: 1285785713}
   - component: {fileID: 7443212988443757286}
+  - component: {fileID: 6108378297826598712}
   m_Layer: 12
   m_Name: suicideDrone
   m_TagString: Enemy
@@ -916,6 +917,20 @@ MonoBehaviour:
   percentValue: 0
   XpPrefab: {fileID: 0}
   Point: {fileID: 0}
+--- !u!114 &6108378297826598712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7408578348077365763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85883de9423e5554d82e1afb8f257258, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tenacity: 1
+  Decrease: 1
 --- !u!1 &7572356199646089459
 GameObject:
   m_ObjectHideFlags: 0

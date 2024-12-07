@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 8596260882829645834}
   - component: {fileID: 2299868557143420085}
   - component: {fileID: 8559458431428153003}
+  - component: {fileID: 877769651489879643}
   m_Layer: 11
   m_Name: lesserEye
   m_TagString: Enemy
@@ -398,3 +399,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f89481aad90fa34dbc542dc21b5c751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &877769651489879643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6796515708585979782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85883de9423e5554d82e1afb8f257258, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tenacity: 1
+  Decrease: 1

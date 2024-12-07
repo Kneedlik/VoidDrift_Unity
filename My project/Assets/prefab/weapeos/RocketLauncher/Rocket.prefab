@@ -116,11 +116,16 @@ MonoBehaviour:
   OnCrit: 0
   PostImpact: 0
   IgnoreTargets: []
+  ImpactDamage: 0
   rocketSpeed: 70
   explosion: {fileID: 7262436819839762217, guid: 31d2077c9507b644380fdda1e727cc53, type: 3}
   speedGrowth: 4
-  maxSpeed: 250
+  maxSpeed: 120
   Delay: 0
+  AditionalExloAmount: 0
+  AditionalExploDelay: 0
+  RotateParticle: 0
+  ParticleRotation: {x: 0, y: 0, z: 0}
 --- !u!50 &8842196154649221229
 Rigidbody2D:
   serializedVersion: 4

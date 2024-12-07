@@ -27,6 +27,8 @@ public class ML_DronesFinal : upgrade
         MiningLaser Laser = GameObject.FindWithTag("Weapeon").GetComponent<MiningLaser>();
         Laser.DronesFinal = true;
         Laser.DroneAmount += DroneAmount;
+        Laser.SetUpDrones();
+        Laser.setSideFirepoints();
         level++;
     }
 }

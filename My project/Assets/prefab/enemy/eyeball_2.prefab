@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 5015811452045571311}
   - component: {fileID: 491196765021058153}
   - component: {fileID: 7458495620811046306}
+  - component: {fileID: 1830491211721632206}
   m_Layer: 11
   m_Name: eyeball_2
   m_TagString: Enemy
@@ -388,3 +389,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stop: 0
   StunDuration: 0.28
+--- !u!114 &1830491211721632206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9134502682905301589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85883de9423e5554d82e1afb8f257258, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tenacity: 1
+  Decrease: 1

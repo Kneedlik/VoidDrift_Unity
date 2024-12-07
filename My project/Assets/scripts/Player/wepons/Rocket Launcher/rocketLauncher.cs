@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Sockets;
 using UnityEngine;
 
 public class rocketLauncher : weapeon
@@ -8,7 +9,7 @@ public class rocketLauncher : weapeon
     public int HomingAmount;
     public bool HomingFinal;
     [SerializeField] GameObject HomingPrefab;
-    List<GameObject> HomingCubeList = new List<GameObject>();
+    [SerializeField] List<GameObject> HomingCubeList = new List<GameObject>();
     //[SerializeField] float HomingPointDistance;
 
     //Atomic
@@ -42,6 +43,7 @@ public class rocketLauncher : weapeon
     void Start()
     {
         SetUpWeapeon();
+        PlayerStats.OnLevel += SetForce;
         setFirepoints();
         setSideFirepoints();
         setHomingFirePoints();
@@ -110,9 +112,9 @@ public class rocketLauncher : weapeon
                     currentPoint = true;
                     if (Plasma == false)
                     {
-                        SpawnRocket(firePoint1, rocket);
+                        SpawnRocket(firePoint2, rocket);
                     }
-                    else SpawnRocket(firePoint1, PlasmaPrefab); 
+                    else SpawnRocket(firePoint2, PlasmaPrefab); 
                 }
             }
             else
@@ -150,17 +152,20 @@ public class rocketLauncher : weapeon
         {
             eventManager.OnFireAll(gameObject, Rocket);
         }
+
         rocket Bullet = Rocket.GetComponent<rocket>();
         SetUpProjectile(Bullet);
         Rigidbody2D rb = Rocket.GetComponent<Rigidbody2D>();
         Bullet.SetSpeed(SpeedMultiplier);
         float ImpactDamageTemp = ImpactDamage * damageMultiplier;
         Bullet.ImpactDamage = KnedlikLib.ScaleDamage((int)ImpactDamageTemp, true, true);
+        float SpeedTemp = PlayerStats.sharedInstance.ProjectileForce * ForceMultiplier;
+        Bullet.SetSpeed(SpeedTemp);
 
         if(Atomic)
         {
             rb.AddForce(Pos.up * AtomicForce, ForceMode2D.Force);
-            float TempDamage = Bullet.damagePlus + ((projectileCount + sideProjectiles) * (damage * 0.6f));
+            float TempDamage = Bullet.damagePlus + ((projectileCount + sideProjectiles) * (damage * 0.4f));
             Bullet.setDamage((int)TempDamage);
         }else rb.AddForce(Pos.up * Force, ForceMode2D.Force);
         return Rocket;
@@ -170,9 +175,14 @@ public class rocketLauncher : weapeon
     {
         for (int i = 0; i < HomingCubeList.Count; i++)
         {
-            GameObject Obj = SpawnRocket(HomingCubeList[i].transform, HomingPrefab);
+            //GameObject Obj = SpawnRocket(HomingCubeList[i].transform, HomingPrefab);
+            GameObject Obj = Instantiate(HomingPrefab, HomingCubeList[i].transform.position, HomingCubeList[i].transform.rotation);
+            if (eventManager.OnFireAll != null)
+            {
+                eventManager.OnFireAll(gameObject, Obj);
+            }
             BulletScript Bullet = Obj.GetComponent<BulletScript>();
-            Bullet.setDamage(Bullet.damagePlus * 2);
+            Bullet.setDamage(damage * 2 + ImpactDamage + extraDamage);
         }
     }
 
@@ -203,7 +213,7 @@ public class rocketLauncher : weapeon
         GameObject CubeTemp;
         if (RealProjectileCount % 2 == 1)
         {
-            CubeTemp = Instantiate(cube,firePoint.position, Quaternion.Euler(0,0, firePoint.rotation.z));
+            CubeTemp = Instantiate(cube,firePoint.position, Quaternion.Euler(0,0, firePoint.rotation.eulerAngles.z ));
             CubeTemp.transform.SetParent(gameObject.transform);
             CubeList.Add(CubeTemp);
             RealProjectileCount -= 1;
@@ -298,5 +308,20 @@ public class rocketLauncher : weapeon
             Destroy(HomingCubeList[i]);
         }
         HomingCubeList.Clear();
+    }
+
+    public override GameObject GetProjectile()
+    {
+        if (HomingFinal)
+        {
+            return HomingPrefab;
+        }else if (Atomic)
+        {
+            return rocket;
+        }
+        else
+        {
+            return rocket;
+        }
     }
 }

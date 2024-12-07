@@ -767,7 +767,7 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 0}
   name: Drill
-  description: 'Dealing damage to the same enemy causes it to take + 3
+  description: 'Dealing damage to the same enemy causes it to take + 4
 
     extra
     damage Stact up to 5 times'
@@ -832,7 +832,7 @@ MonoBehaviour:
   description: Killing an enemy with projectile spawns 3 bullets dealing 40% damage
   level: 0
   maxLevel: 2
-  rarity: 50
+  rarity: 65
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
@@ -2572,6 +2572,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7339895227748390268}
+  - component: {fileID: 1106073407}
   m_Layer: 0
   m_Name: WeapeonUpgrades
   m_TagString: Untagged
@@ -2628,6 +2629,20 @@ Transform:
   m_Father: {fileID: 7339895228486298395}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1106073407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7339895227748390269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f50f88cb1a5ebc4a8f8084964f39a88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  list: []
+  IncludeSpecial: 0
 --- !u!1 &7339895227780251130
 GameObject:
   m_ObjectHideFlags: 0
@@ -3108,14 +3123,14 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: c208a0c674c50f24b907bf578a0a44bd, type: 3}
   name: Heavy Rain
-  description: 10% of damage you cause is dealt to all Enemies
+  description: 5% of damage you cause is dealt to all Enemies
   level: 0
   maxLevel: 1
   rarity: 160
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
-  Amount: 0.1
+  Amount: 0.05
 --- !u!1 &7339895227891709128
 GameObject:
   m_ObjectHideFlags: 0
@@ -3352,7 +3367,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
-  ExplosionObj: {fileID: 0}
+  ExplosionObj: {fileID: 8133439119156806781, guid: 126f9f2ad2b90244bba1ea1b0ee75238, type: 3}
 --- !u!1 &7339895227956623780
 GameObject:
   m_ObjectHideFlags: 0
@@ -3879,7 +3894,7 @@ MonoBehaviour:
   description: Base Firerate + 25% projectiles + 3
   level: 0
   maxLevel: 0
-  rarity: 0
+  rarity: 100
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
@@ -3994,14 +4009,14 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: d61e2424bed028d4e94e5b4e2e58e419, type: 3}
   name: Health Conversion
-  description: + 1% damage for every bonus health
+  description: + 0.5% damage for every bonus health
   level: 0
   maxLevel: 0
-  rarity: 70
+  rarity: 50
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
-  amount: 1
+  amount: 0.5
   healthConversionMultiplier: 0
 --- !u!1 &7339895228102317122
 GameObject:
@@ -4358,7 +4373,7 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 0}
   name: 
-  description: Base Damage + 250% Pierce + 100 Base Firerate - 200%
+  description: Base Damage + 100% Pierce + 100 Base Firerate - 50%
   level: 0
   maxLevel: 1
   rarity: 300
@@ -4367,8 +4382,8 @@ MonoBehaviour:
   - Upgrade: {fileID: 7339895227027590873}
     LevelNeeded: 2
   Final: 1
-  DamageMultiplier: 2.5
-  FireRatePenalty: 2
+  DamageMultiplier: 1
+  FireRatePenalty: 0.5
 --- !u!1 &7339895228147233984
 GameObject:
   m_ObjectHideFlags: 0
@@ -5092,7 +5107,7 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 0}
   name: Infernal Burn
-  description: Laser causes burn for max health damage Pierce + 99 Base Area + 75%
+  description: Laser causes burn for max health damage Pierce + 99 Base Area + 100%
   level: 0
   maxLevel: 1
   rarity: 300
@@ -5100,7 +5115,7 @@ MonoBehaviour:
   SubserviantUpgrades: []
   Final: 1
   StatusSystem: {fileID: 0}
-  AreaAmount: 0.75
+  AreaAmount: 1
 --- !u!1 &7339895228303853598
 GameObject:
   m_ObjectHideFlags: 0
@@ -5528,7 +5543,7 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 0}
   name: 
-  description: Base damage + 60% projectiles + 4 Lasers now fire in a circular area
+  description: Base damage + 60% projectiles + 5 Lasers now fire in a circular area
   level: 0
   maxLevel: 1
   rarity: 300
@@ -5540,7 +5555,7 @@ MonoBehaviour:
     LevelNeeded: 1
   Final: 1
   DamageMultiplier: 0.6
-  ProjectileAmount: 4
+  ProjectileAmount: 5
 --- !u!1 &7339895228459032408
 GameObject:
   m_ObjectHideFlags: 0
@@ -5654,7 +5669,7 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 0}
   name: Nuclear Warheads
-  description: ' Damage + 1500% FireRate - 150%  Rockets now deal damage in global
+  description: ' Damage + 1500% FireRate - 85%  Rockets now deal damage in global
     Area'
   level: 0
   maxLevel: 1
@@ -5667,7 +5682,7 @@ MonoBehaviour:
     LevelNeeded: 1
   Final: 1
   DamageAmountMultiplier: 15
-  AsPenaltyMultiplier: 1.5
+  AsPenaltyMultiplier: 0.9
 --- !u!1 &7339895228464188006
 GameObject:
   m_ObjectHideFlags: 0
@@ -5733,7 +5748,7 @@ MonoBehaviour:
   CurrentShot: 0
   ShotsNeeded: 5
   BigRocketPrefab: {fileID: 2688692594259370575, guid: e81e35ccfded6c841a040dd4975ec989, type: 3}
-  BigRocketForce: 50
+  BigRocketForce: 30
   DamageMultiplier: 1
 --- !u!1 &7339895228466574495
 GameObject:
@@ -6489,14 +6504,14 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 0}
   name: 
-  description: Pierce + 2 Base Area + 40%
+  description: Pierce + 1 Base Area + 40%
   level: 0
   maxLevel: 0
-  rarity: 0
+  rarity: 100
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
-  PierceAmount: 2
+  PierceAmount: 1
   AreaAmount: 0.4
 --- !u!1 &7339895228654063979
 GameObject:
@@ -7153,7 +7168,7 @@ MonoBehaviour:
   description: Base damage + 40%
   level: 0
   maxLevel: 0
-  rarity: 0
+  rarity: 100
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0

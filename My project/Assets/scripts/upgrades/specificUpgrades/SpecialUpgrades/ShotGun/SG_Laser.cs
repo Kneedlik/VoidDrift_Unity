@@ -28,6 +28,7 @@ public class SG_Laser : upgrade
         levelingSystem.instance.FinallForm = true;
         ShotGun.ASmultiplier -= FireRatePenalty;
         ShotGun.damageMultiplier += DamageMultiplier;
+        ShotGun.LaserForm = true;
         level++;
     }
 }

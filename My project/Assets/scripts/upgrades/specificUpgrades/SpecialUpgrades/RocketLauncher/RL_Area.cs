@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class RL_Area : upgrade
 {
+    public static RL_Area Instance;
     [SerializeField] float AreaMultiplier;
     [SerializeField] int ProjectileAmount;
 
     // Start is called before the first frame update
     void Start()
     {
+        Instance = this;
         Type = type.special;
         setColor();
     }

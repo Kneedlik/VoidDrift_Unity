@@ -159,6 +159,7 @@ GameObject:
   - component: {fileID: 8528817913425594225}
   - component: {fileID: 7058084724569712887}
   - component: {fileID: 1760770725151484375}
+  - component: {fileID: -3330273430254611239}
   m_Layer: 16
   m_Name: SquidMiniboss
   m_TagString: Enemy
@@ -342,7 +343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  maxHealth: 1200000
+  maxHealth: 3000000
   baseMaxHealth: 0
   damageN: {fileID: 8636022699047134357, guid: 971665a441a2ea448a247928736ad030, type: 3}
   self: {fileID: 0}
@@ -419,6 +420,20 @@ MonoBehaviour:
   percentValue: 0
   XpPrefab: {fileID: 2379410571559361398, guid: 471236d52f210654cbb5c0a003284cd1, type: 3}
   Point: {fileID: 0}
+--- !u!114 &-3330273430254611239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8528817913425594224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85883de9423e5554d82e1afb8f257258, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tenacity: 0
+  Decrease: 0
 --- !u!1001 &6679784080671310150
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -153,6 +153,8 @@ public class spawner : MonoBehaviour
         {
             for(int j = 0;j < wawes[i].enemies.Count;j++)
             {
+                //Debug.Log(i);
+                //Debug.Log();
                 Health health = wawes[i].enemies[j].GetComponent<Health>();
                 float TrueChance = (float)wawes[i].chanses[j] / 100f;
                 Temp = health.maxHealth * wawes[i].healthMultiplier * TrueChance * wawes[i].spawnN;

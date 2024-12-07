@@ -159,6 +159,7 @@ GameObject:
   - component: {fileID: 136859910040533399}
   - component: {fileID: 341451533954417647}
   - component: {fileID: 9204286398194762564}
+  - component: {fileID: 6924719000284708865}
   m_Layer: 12
   m_Name: fodderEnemy 1 1
   m_TagString: Enemy
@@ -413,7 +414,7 @@ MonoBehaviour:
   armor: 0
   multiplier: 0
   ParticleExplosion: {fileID: 3528158295667628061, guid: 6d1756d7ad7932c49a9490abee50e3c2, type: 3}
-  DeathAnim: {fileID: 5470796982983684449, guid: c6500ecd7e8a77448b24572641c23e6e, type: 3}
+  DeathAnim: {fileID: 2789139120181189703, guid: 249db7ba3bcb1214da6841db87703b0f, type: 3}
   DeathDelay: 0
   DeathFunc: []
   OnDamageFunc: []
@@ -456,6 +457,20 @@ MonoBehaviour:
   percentValue: 0.045
   XpPrefab: {fileID: 2320706730734592644, guid: cabbcd8f3c321f941b937e91cb5f0d6a, type: 3}
   Point: {fileID: 0}
+--- !u!114 &6924719000284708865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136859910040533358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85883de9423e5554d82e1afb8f257258, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tenacity: 1
+  Decrease: 1
 --- !u!1 &136859910063553123
 GameObject:
   m_ObjectHideFlags: 0

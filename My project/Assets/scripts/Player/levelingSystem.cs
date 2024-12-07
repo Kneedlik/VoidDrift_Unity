@@ -271,6 +271,8 @@ public class levelingSystem : MonoBehaviour
 
         if (currentXp >= xpNeeded)
         {
+            currentXp -= xpNeeded;
+            ScaleXp();
             level++;
             ScaleByLevel("Enemy");
             ScaleByLevel("Enviroment");

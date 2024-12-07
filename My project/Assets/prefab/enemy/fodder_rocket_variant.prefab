@@ -250,6 +250,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: f2b4a19a34514a24e80dcea620ac8b3c, type: 2}
+    - target: {fileID: 136859910040533399, guid: 4ec25d9c3d7303d40a125b3ecdcbfb81, type: 3}
+      propertyPath: DeathAnim
+      value: 
+      objectReference: {fileID: 2789139120181189703, guid: 249db7ba3bcb1214da6841db87703b0f, type: 3}
     - target: {fileID: 136859910063553128, guid: 4ec25d9c3d7303d40a125b3ecdcbfb81, type: 3}
       propertyPath: uniqueID
       value: 6496068251668528701

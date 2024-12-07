@@ -152,8 +152,14 @@ public class BulletScript : Projectile
                     stun.Stun();
                 }
 
+                Tenacity tenacity = collision.GetComponent<Tenacity>();
+                float knockBackTemp = knockBack;
+                if (tenacity != null)
+                {
+                    knockBackTemp = tenacity.CalculateForce(knockBackTemp);
+                }
                 rbTarget.velocity = rbTarget.velocity.normalized;
-                rbTarget.AddForce(dir * knockBack, ForceMode2D.Impulse);
+                rbTarget.AddForce(dir * knockBackTemp, ForceMode2D.Impulse);
             }
 
             if(function != null)

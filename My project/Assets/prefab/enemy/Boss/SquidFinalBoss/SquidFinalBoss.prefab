@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 1882368835299068751}
   - component: {fileID: 1882368835299068744}
   - component: {fileID: 1057525322017561157}
+  - component: {fileID: 2787495575890402926}
   m_Layer: 16
   m_Name: SquidFinalBoss
   m_TagString: Enemy
@@ -144,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  maxHealth: 18000000
+  maxHealth: 30000000
   baseMaxHealth: 0
   damageN: {fileID: 8636022699047134357, guid: 971665a441a2ea448a247928736ad030, type: 3}
   self: {fileID: 0}
@@ -188,12 +189,12 @@ MonoBehaviour:
   MaxSpeedSlow: 4.6
   DesiredDistance: 28
   BulletPrefabA1: {fileID: 1628423145927788199, guid: 21fdeac82081f6a48830cd6238a4f73c, type: 3}
-  projectileCountA1: 14
-  ProjectileForceA1: 8
-  numberOfBurstsA1: 3
-  BurstDelayA1: 1.1
+  projectileCountA1: 16
+  ProjectileForceA1: 11
+  numberOfBurstsA1: 4
+  BurstDelayA1: 1.05
   FirePointA1: {fileID: 1882368836680517429}
-  damageA1: 12
+  damageA1: 20
   CollDownA1: 3.5
   PortalAmountA2: 2
   PortalPrefabA2: {fileID: 8237983199351795124, guid: 9df2edc3b9c1ab940a30dc49cb68f097, type: 3}
@@ -205,7 +206,7 @@ MonoBehaviour:
   LightNingBoltPrefabA2: {fileID: 6535137579040942387, guid: 8f2138add8298a340b61a44fa4453656, type: 3}
   projectileCountA3: 3
   CoolDownA3: 4
-  DamageA3: 10
+  DamageA3: 25
   LightNingBoltPrefabA3: {fileID: 4441376537446959723, guid: aa90e9401faa54a41ad4fb26590b75e3, type: 3}
   FireDelayA3: 0.6
   FireDurationA3: 0.35
@@ -301,7 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56d29f03d9a5833449233f53b685453d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VictoryDelay: 12
+  VictoryDelay: 8
 --- !u!114 &1882368835299068744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -341,6 +342,20 @@ MonoBehaviour:
   UseConstants: 1
   duration: 0.2
   flashMaterial: {fileID: 2100000, guid: e82836b480647394caf3762c08f71df0, type: 2}
+--- !u!114 &2787495575890402926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882368835299068742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85883de9423e5554d82e1afb8f257258, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tenacity: 0
+  Decrease: 0
 --- !u!1 &1882368835300938235
 GameObject:
   m_ObjectHideFlags: 0

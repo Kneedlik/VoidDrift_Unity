@@ -101,7 +101,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -124,14 +124,14 @@ TextureImporter:
         width: 14
         height: 15
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 836410024fd5feb4188576dad9f5ab84
-      internalID: 1559772548
+      spriteID: 01cd58f64c3a4e74391e10f095f28932
+      internalID: -360200590
       vertices: []
       indices: 
       edges: []
@@ -145,14 +145,14 @@ TextureImporter:
         width: 14
         height: 14
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e4bf371eb9f6df45bfbd92f056cc68d
-      internalID: 2087487422
+      spriteID: f417d36e5979ee64b9bb91d52bf67fdd
+      internalID: 612179187
       vertices: []
       indices: 
       edges: []
@@ -166,14 +166,14 @@ TextureImporter:
         width: 14
         height: 13
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f20db08484c969f4188ca056464b36dd
-      internalID: 574556850
+      spriteID: ceb459a82021f9441b5f6761815f7f13
+      internalID: 464903667
       vertices: []
       indices: 
       edges: []
@@ -187,14 +187,14 @@ TextureImporter:
         width: 13
         height: 13
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5cf00a3853bdb8a4d94d5d5a07acaa16
-      internalID: 1785872021
+      spriteID: f11b779cf80fa324896a2bd3bb039407
+      internalID: 179765087
       vertices: []
       indices: 
       edges: []
@@ -208,14 +208,12 @@ TextureImporter:
     indices: 
     edges: []
     weights: []
-    secondaryTextures:
-    - texture: {fileID: 2800000, guid: 495098c549adc05469214f969546c516, type: 3}
-      name: _Emission
+    secondaryTextures: []
     nameFileIdTable:
-      asteroid_sheet_2_3: 1785872021
-      asteroid_sheet_2_1: 2087487422
-      asteroid_sheet_2_2: 574556850
-      asteroid_sheet_2_0: 1559772548
+      asteroid_sheet_2_3: 179765087
+      asteroid_sheet_2_1: 612179187
+      asteroid_sheet_2_2: 464903667
+      asteroid_sheet_2_0: -360200590
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

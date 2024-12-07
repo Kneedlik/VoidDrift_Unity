@@ -68,6 +68,6 @@ public class BossDeathWhiteExplo : SimpleVirtual
             }
         }
 
-        yield return null;
+        //yield return null;
     }  
 }

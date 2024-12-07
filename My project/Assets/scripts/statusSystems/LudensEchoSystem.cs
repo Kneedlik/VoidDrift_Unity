@@ -11,6 +11,7 @@ public class LudensEchoSystem : MonoBehaviour
 
     public bool Aoe = false;
     [SerializeField] GameObject explosionObject;
+    [SerializeField] float AoeDamageMultiplier;
     [SerializeField] GameObject ImpactEffect;
     public bool burn;
     public int burnAmount;
@@ -61,6 +62,12 @@ public class LudensEchoSystem : MonoBehaviour
         {
             effectedEnemies.Add(target);
 
+            Health health = target.GetComponent<Health>();
+            if (health == null)
+            {
+                return;
+            }
+
             int pom = Damage;
             float pom2;
             float realDamage = 100 + damage;
@@ -73,29 +80,32 @@ public class LudensEchoSystem : MonoBehaviour
             int Rand = Random.Range(0, 180);
             Instantiate(ImpactEffect,target.transform.position,Quaternion.Euler(0,0,Rand));
 
-            if (Aoe == false)
-            {
-                Health health = target.GetComponent<Health>();
+            //if (Aoe == false)
+            //{
                 // health.onDamageEffects(pom);
                 // health.damagePopUp(pom);
-                Color32 c = new Color32(140, 0, 255, 255);
-                health.TakeDamage(pom, c);
+            Color32 c = new Color32(140, 0, 255, 255);
+            health.TakeDamage(pom, c);
 
-                if (burn)
+            if (burn)
+            {
+                for (int i = 0; i < burnAmount; i++)
                 {
-                    for (int i = 0; i < burnAmount; i++)
-                    {
-                        int a = 0;
-                        SpiritFlameSystem.instance.SpiritFlame(target, 0, ref a);
-                    }
-
+                    int a = 0;
+                    SpiritFlameSystem.instance.SpiritFlame(target, 0, ref a);
                 }
-            }else if(Aoe)
+
+            }
+           
+            if(Aoe)
             {
                 GameObject E = Instantiate(explosionObject, target.transform.position,Quaternion.Euler(0,0,0));
                 explosion ex = E.GetComponent<explosion>();
+                pom2 = pom2 * AoeDamageMultiplier;
+                pom = (int)pom2;
                 ex.damage = pom;
                 ex.Colour = new Color32(140, 0, 255, 255);
+                ex.IgnoreTargets.Add(target);
                 KnedlikLib.ScaleParticleByFloat(E, 1, true);
 
                 if(burn)

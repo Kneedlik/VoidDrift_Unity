@@ -20,8 +20,8 @@ MonoBehaviour:
   - {fileID: 4769829029796524462, guid: ca9badfee81beac4e878e91c48b0ce90, type: 3}
   - {fileID: 7408578348077365763, guid: 3d797b7cddd81bf45980188fe5a95adb, type: 3}
   chanses:
-  - 65
-  - 30
+  - 70
+  - 25
   - 5
   spawnRate: 1.4
   spawnN: 5

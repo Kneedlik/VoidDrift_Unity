@@ -20,12 +20,12 @@ MonoBehaviour:
   - {fileID: 4769829029796524462, guid: ca9badfee81beac4e878e91c48b0ce90, type: 3}
   - {fileID: 7408578348077365763, guid: 3d797b7cddd81bf45980188fe5a95adb, type: 3}
   chanses:
-  - 55
-  - 40
+  - 50
+  - 35
   - 5
-  spawnRate: 1.2
+  spawnRate: 1.3
   spawnN: 5
-  healthMultiplier: 3.8
+  healthMultiplier: 3.5
   XpMultiplier: 3.4
   Boss: {fileID: 4947118010078362543, guid: e34df4471beb50a48b24444ea225c591, type: 3}
   BossAmount: 1

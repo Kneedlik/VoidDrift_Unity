@@ -112,8 +112,12 @@ public class poisonSystem : MonoBehaviour
                         //KnedlikLib.scaleParticleSize(target, P, 1f);
                         P.transform.SetParent(target.transform);
 
+                        Color32 C = new Color32(255, 255, 255, 255);
                         SpriteRenderer S = target.GetComponent<SpriteRenderer>();
-                        Color32 C = S.color;
+                        if (S != null)
+                        {
+                            C = S.color;
+                        }
                         //S.color = color;
 
                         poisonedEnemies.Add(target);

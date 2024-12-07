@@ -15,28 +15,47 @@ public class ShotgunLaserDamage : MonoBehaviour
     public float Size;
     public int damage;
     Color32 Color;
+    public bool Cone;
+    Transform Player;
     // Start is called before the first frame update
     void Start()
     {
         ShotGun = GameObject.FindWithTag("Weapeon").GetComponent<projectileShotGun>();
+        Player = GameObject.FindWithTag("Player").GetComponent<Transform>();
         Multiplier = 1f;
 
-        for (int i = 0; i < ShotGun.CubeList.Count; i++)
+        if (Cone)
         {
-            Vector3 Temp = new Vector3(0, 0, 0);
-            Temp = ShotGun.CubeList[i].transform.up;
-            PosTemp.Add(Temp);
-            OreginTemp.Add(new Vector3(ShotGun.CubeList[i].transform.position.x, ShotGun.CubeList[i].transform.position.y, ShotGun.CubeList[i].transform.position.x));
-            AngleTemp.Add(ShotGun.CubeList[i].transform.rotation.eulerAngles.z);
-        }
+            float offset = 0;
+            float pom = 360 / ShotGun.RingOfFireCount;
 
-        for (int i = 0; i < ShotGun.SideCubeList.Count; i++)
+            for (int i = 0; i < ShotGun.RingOfFireCount; i++)
+            {
+                PosTemp.Add(new Vector3(Mathf.Sin(offset * Mathf.Deg2Rad), Mathf.Cos(offset * Mathf.Deg2Rad), 0));
+                OreginTemp.Add(Player.position);
+                AngleTemp.Add(offset);
+                offset += pom;
+            }
+        }
+        else
         {
-            Vector3 Temp = new Vector3(0, 0, 0);
-            Temp = ShotGun.SideCubeList[i].transform.up;
-            PosTemp.Add(Temp);
-            OreginTemp.Add(new Vector3(ShotGun.SideCubeList[i].transform.position.x, ShotGun.SideCubeList[i].transform.position.y, ShotGun.SideCubeList[i].transform.position.z));
-            AngleTemp.Add(ShotGun.SideCubeList[i].transform.rotation.eulerAngles.z);
+            for (int i = 0; i < ShotGun.CubeList.Count; i++)
+            {
+                Vector3 Temp = new Vector3(0, 0, 0);
+                Temp = ShotGun.CubeList[i].transform.up;
+                PosTemp.Add(Temp);
+                OreginTemp.Add(new Vector3(ShotGun.CubeList[i].transform.position.x, ShotGun.CubeList[i].transform.position.y, ShotGun.CubeList[i].transform.position.x));
+                AngleTemp.Add(ShotGun.CubeList[i].transform.rotation.eulerAngles.z);
+            }
+
+            for (int i = 0; i < ShotGun.SideCubeList.Count; i++)
+            {
+                Vector3 Temp = new Vector3(0, 0, 0);
+                Temp = ShotGun.SideCubeList[i].transform.up;
+                PosTemp.Add(Temp);
+                OreginTemp.Add(new Vector3(ShotGun.SideCubeList[i].transform.position.x, ShotGun.SideCubeList[i].transform.position.y, ShotGun.SideCubeList[i].transform.position.z));
+                AngleTemp.Add(ShotGun.SideCubeList[i].transform.rotation.eulerAngles.z);
+            }
         }
 
         Invoke("DealDamage", DelayBegin);

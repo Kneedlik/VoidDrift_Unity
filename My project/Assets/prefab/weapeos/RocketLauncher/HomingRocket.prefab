@@ -168,9 +168,12 @@ MonoBehaviour:
   MaxSpeed: 110
   rotSpeed: 900
   Enemy: 0
+  PlayerOnly: 0
   Trigger: 1
   ExploPrefab: {fileID: 0}
-  Delay: 0.18
+  Delay: 0.1
+  StopAfter: 0
+  StartForceAfter: 0
 --- !u!95 &1352366835226326628
 Animator:
   serializedVersion: 4

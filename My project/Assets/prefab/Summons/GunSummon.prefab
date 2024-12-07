@@ -134,7 +134,7 @@ MonoBehaviour:
   damage: 5
   fireRate: 2.35
   size: 1
-  baseDamage: 12
+  baseDamage: 14
   baseFireRate: 1.45
   baseSize: 1
   id: 1

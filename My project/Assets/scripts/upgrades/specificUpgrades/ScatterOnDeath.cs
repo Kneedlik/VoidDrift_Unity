@@ -7,6 +7,7 @@ public class ScatterOnDeath : upgrade
     GameObject BulletPrefab;
     public int amount;
     float multiplier;
+    weapeon W;
 
     private void Start()
     {
@@ -27,7 +28,7 @@ public class ScatterOnDeath : upgrade
         if (level == 0)
         {
             multiplier = 0.4f;
-            weapeon W = GameObject.FindWithTag("Weapeon").GetComponent<weapeon>();
+            W = GameObject.FindWithTag("Weapeon").GetComponent<weapeon>();
             BulletPrefab = W.GetProjectile();
             eventManager.PostImpact += OnDeathScatter;
             description = string.Format("Scatter shot bullets now deal 60% damage");
@@ -41,6 +42,12 @@ public class ScatterOnDeath : upgrade
 
     public void OnDeathScatter(GameObject Target,int damage, ref int Damage)
     {
+        BulletPrefab = W.GetProjectile();
+        if(BulletPrefab == null)
+        {
+            return;
+        }
+
         if (Target != null)
         {
             Health health = Target.GetComponent<Health>();

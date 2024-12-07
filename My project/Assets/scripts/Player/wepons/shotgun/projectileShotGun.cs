@@ -28,8 +28,8 @@ public class projectileShotGun : weapeon
     public float SideOffsetScaling;
 
     //RingOfFire;
-    [HideInInspector] public int RingOfFireCount;
-    [HideInInspector] public bool RingOfFireActive;
+    public int RingOfFireCount;
+    public bool RingOfFireActive;
     Transform Player;
 
     //Cluster
@@ -54,6 +54,7 @@ public class projectileShotGun : weapeon
     {
         Player = GameObject.FindWithTag("Player").GetComponent<Transform>();
         SetUpWeapeon();
+        PlayerStats.OnLevel += SetForce;
         timeStamp = 0;
 
         currentAmmo = magSize;
@@ -102,7 +103,8 @@ public class projectileShotGun : weapeon
             }
             shootCheck = false;
             timeStamp = CoolDown;
-            currentAmmo--;
+            currentAmmo = currentAmmo - 1;
+            //Debug.Log("yup");
         }   
     }
 
@@ -156,19 +158,38 @@ public class projectileShotGun : weapeon
         for (int i = 0; i < SideCubeList.Count; i++)
         {
             GameObject bullet;
-            bullet = Instantiate(pellet, SideCubeList[i].transform.position, SideCubeList[i].transform.rotation);
+
+            if (HomingForm)
+            {
+                bullet = Instantiate(HomingProjectileObj, SideCubeList[i].transform.position, SideCubeList[i].transform.rotation);
+            }
+            else
+            {
+                bullet = Instantiate(pellet, SideCubeList[i].transform.position, SideCubeList[i].transform.rotation);
+            }
 
             if (eventManager.OnFireAll != null)
             {
                 eventManager.OnFireAll(gameObject, bullet);
             }
 
-            ShotGunPellet BulletDamage = bullet.GetComponent<ShotGunPellet>();
-            SetUpProjectile(BulletDamage);
-            BulletDamage.ClusterAmount = ClusterAmount;
-
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            rb.AddForce(SideCubeList[i].transform.up * Force, ForceMode2D.Impulse);
+
+            if (HomingForm)
+            {
+                HomingProjectile Homing = bullet.GetComponent<HomingProjectile>();
+                SetUpProjectile(Homing);
+                Homing.force = Homing.force * ForceMultiplier;
+                Homing.MaxSpeed = Homing.MaxSpeed * ForceMultiplier;
+                Homing.function += BugetCluster;
+            }
+            else
+            {
+                ShotGunPellet BulletDamage = bullet.GetComponent<ShotGunPellet>();
+                SetUpProjectile(BulletDamage);
+                BulletDamage.ClusterAmount = ClusterAmount;
+                rb.AddForce(SideCubeList[i].transform.up * Force, ForceMode2D.Impulse);
+            }
         }
 
         extraDamage = pom;
@@ -247,7 +268,10 @@ public class projectileShotGun : weapeon
 
     public override GameObject GetProjectile()
     {
-        return pellet;
+        if(HomingForm)
+        {
+            return HomingProjectileObj;
+        }else return pellet;
     }
 
     public void RingOfFire()
@@ -257,9 +281,40 @@ public class projectileShotGun : weapeon
 
         for(int i = 0;i < RingOfFireCount ;i++)
         {
-            GameObject Pellet = Instantiate(pellet, Player.position, Quaternion.Euler(0, 0, offset));
-            Rigidbody2D rigidbody2D = Pellet.GetComponent<Rigidbody2D>();
-            rigidbody2D.AddForce(Pellet.transform.up * Force * 0.75f);
+            if (HomingForm)
+            {
+                GameObject Pellet = Instantiate(HomingProjectileObj, Player.position, Quaternion.Euler(0, 0, offset));
+
+                HomingProjectile Homing = Pellet.GetComponent<HomingProjectile>();
+                SetUpProjectile(Homing);
+                Homing.force = Homing.force * ForceMultiplier;
+                Homing.MaxSpeed = Homing.MaxSpeed * ForceMultiplier;
+                Homing.function += BugetCluster;
+            }
+            else if (LaserForm)
+            {
+                ShotgunImapact ObjTemp;
+                ShotgunLaserDamage LaserDamage;
+                ObjTemp = Instantiate(LaserImpactObj).GetComponent<ShotgunImapact>();
+                ObjTemp.Delay = LaserImpactDelay;
+                ObjTemp.Size = LaserRayCastSize;
+                ObjTemp.Cone = true;
+
+                LaserDamage = Instantiate(LaserDamageObj).GetComponent<ShotgunLaserDamage>();
+                LaserDamage.DelayBegin = LaserImpactDelay;
+                LaserDamage.DelayDamage = LaserDamageDelay;
+                LaserDamage.Size = LaserRayCastSize;
+                LaserDamage.damage = damage + extraDamage;
+                LaserDamage.Cone = true;
+            }
+            else
+            {
+                GameObject Pellet = Instantiate(pellet, Player.position, Quaternion.Euler(0, 0, offset));
+                BulletScript Bullet = Pellet.GetComponent<BulletScript>();
+                SetUpProjectile(Bullet);
+                Rigidbody2D rigidbody2D = Pellet.GetComponent<Rigidbody2D>();
+                rigidbody2D.AddForce(Pellet.transform.up * Force * 0.75f, ForceMode2D.Impulse);
+            }
             offset += pom;
         }
     }
@@ -272,7 +327,7 @@ public class projectileShotGun : weapeon
 
         for (int i = 0; i < ClusterProjectiles; i++)
         {
-            GameObject Pellet = Instantiate(pellet, transform.position, Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + offset));
+            GameObject Pellet = Instantiate(HomingProjectileObj, target.transform.position, Quaternion.Euler(0, 0, target.transform.rotation.eulerAngles.z + offset));
             HomingProjectile HomingScr = Pellet.GetComponent<HomingProjectile>();
             SetUpProjectile(HomingScr);
             Pellet.transform.localScale = new Vector3(Pellet.transform.localScale.x * 0.5f, Pellet.transform.localScale.y * 0.5f, Pellet.transform.localScale.z * 0.5f);
@@ -280,14 +335,12 @@ public class projectileShotGun : weapeon
             HomingScr.force = HomingScr.force * ForceMultiplier * 0.5f;
             HomingScr.MaxSpeed = HomingScr.MaxSpeed * ForceMultiplier * 0.5f;
 
-            
             HomingScr.destroyTime = HomingScr.destroyTime * 0.5f;
             float damagePom = HomingScr.damage * ClusterDamageMultiplier;
             HomingScr.damage = (int)damagePom;
 
             offset += pom;
         }
-
     }
 
     public void ShootHitScan()

@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 1076211932900973751}
   - component: {fileID: 1076211932900973744}
   - component: {fileID: 2640932649007868823}
+  - component: {fileID: -2600908402254200313}
   m_Layer: 11
   m_Name: Bitter
   m_TagString: Enemy
@@ -303,6 +304,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stop: 0
   StunDuration: 0.18
+--- !u!114 &-2600908402254200313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1076211932900973745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85883de9423e5554d82e1afb8f257258, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tenacity: 1
+  Decrease: 1
 --- !u!1 &1076211934847761110
 GameObject:
   m_ObjectHideFlags: 0

@@ -74,7 +74,7 @@ public class LaserInfernoBurnSystem : MonoBehaviour
             if (health != null)
             {
                 //Debug.Log("333");
-                TempDamage = (BurningEnemies[target].Amount / 2) * Damage;
+                TempDamage = ((BurningEnemies[target].Amount + 1) / 2) * Damage;
                 if (BurningEnemies[target].Amount == MaxValue)
                 {
                     TempDamage += target.GetComponent<Health>().maxHealth * TrueDamage;

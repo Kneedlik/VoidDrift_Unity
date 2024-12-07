@@ -14,6 +14,14 @@ public class SG_Homing : upgrade
         setColor();
     }
 
+    public override bool requirmentsMet()
+    {
+        if(FinalConditionsMet() && SG_Damage.instance.level >= 1 && SG_FireRate.instance.level >= 1)
+        {
+            return true;
+        }else return false;
+    }
+
     public override void function()
     {
         projectileShotGun ShotGun = GameObject.FindWithTag("Weapeon").GetComponent<projectileShotGun>();

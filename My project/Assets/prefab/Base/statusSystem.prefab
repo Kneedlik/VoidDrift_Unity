@@ -70,11 +70,11 @@ MonoBehaviour:
     rgba: 4287430560
   particles: {fileID: 7684258944382667462, guid: 63ddb8f44c0240e4daf5e81b3b16a746, type: 3}
   poisonedEnemies: []
-  CDamage: 30
+  CDamage: 20
   CTrueDamage: 0.02
   CDuration: 12.5
   CInfectDistance: 8
-  CSpeed: 0.8
+  CSpeed: 0.65
   CParticles: {fileID: 6297773213846443391, guid: cfe25543e768b9141bb9257d6d5e79c3, type: 3}
   CpoisonedEnemies: []
 --- !u!114 &2624672050981415261
@@ -106,12 +106,13 @@ MonoBehaviour:
   aoeSize: 0
   Aoe: 0
   explosionObject: {fileID: 8571674468385940068, guid: 05b2597b4cb78744ba0ff73c3383b1b7, type: 3}
+  AoeDamageMultiplier: 0.5
   ImpactEffect: {fileID: 6126344733268462889, guid: 3f48ea8455cb5e047a8dc685729ba7ca, type: 3}
   burn: 0
   burnAmount: 0
   effectedEnemies: []
   CEffectedEnemies: []
-  CFlatDamage: 150
+  CFlatDamage: 100
   CTrueDamage: 0.1
   CExplosion: {fileID: 2917965379787373392, guid: 26777a6e6c7d3204f8bf0f6075de7b0e, type: 3}
   CImpact: {fileID: 7141900597748865149, guid: 898270af61609d54b8b97732639b8332, type: 3}
@@ -166,6 +167,9 @@ MonoBehaviour:
   speedDecrease: 0.3
   BrittleEnemies: []
   particles: {fileID: 151218751605294979, guid: e944391aa14690c4dbda6146db825d74, type: 3}
+  BrittleColor:
+    serializedVersion: 2
+    rgba: 4294836107
   explode: 0
   explodeDamage: 25
   explosionPrefab: {fileID: 6628090173598930134, guid: 4ef42d9dd11633c43a9510b38c1c1f3e, type: 3}
@@ -173,7 +177,7 @@ MonoBehaviour:
   freeze: 0
   freezeDuration: 0
   secondExplosion: 0
-  FreezeObject: {fileID: 0}
+  FreezeObject: {fileID: 6357960598367966374, guid: 976a56bd295030a4db222334532ba263, type: 3}
 --- !u!114 &2624672050981415587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,6 +245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tickNeeded: 5
+  MaxDamage: 100
 --- !u!114 &2624672050981415591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,7 +261,7 @@ MonoBehaviour:
   damage1: 8
   chain: 1
   chance: 50
-  distance: 45
+  distance: 17
   removeBrittle: 0
   removeBrittleDamage: 0
   removeBrittleChance: 0
@@ -269,6 +274,11 @@ MonoBehaviour:
   lightningObject: {fileID: 6953000454649559023, guid: 3069a3ca2e075f24dabe476506c40b9a, type: 3}
   ImpactEffect: {fileID: 4794043405585894037, guid: 37138c0c33167b04fa1fb90b7f5a794f, type: 3}
   lightningDuration: 0.2
+  Cdamage: 15
+  Cchance: 50
+  ClightningObject: {fileID: 5013093133802592261, guid: c7a47250b3c55354a8ddfa763a889778, type: 3}
+  CimpactEffect: {fileID: 8305434672214973906, guid: 265b1f94c63fc4f468b64a0cd42f3ef3, type: 3}
+  Cchain: 1
 --- !u!114 &2624672050981415590
 MonoBehaviour:
   m_ObjectHideFlags: 0

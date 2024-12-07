@@ -10,8 +10,8 @@ public class ShotGunPellet : BulletScript
     {
         sr = this.GetComponent<SpriteRenderer>();
         rb = this.GetComponent<Rigidbody2D>();
-        Debug.Log("destroyTime" + destroyTime);
-        Debug.Log("Pierce" + pierce);
+        //Debug.Log("destroyTime" + destroyTime);
+        //Debug.Log("Pierce" + pierce);
         damage = damagePlus;
         Destroy(gameObject, destroyTime);
         SetUpProjectile();
@@ -75,11 +75,14 @@ public class ShotGunPellet : BulletScript
                 }
                 else
                 {
-                    Debug.Log("Destroying");
                     sr.enabled = false;
                     rb.velocity = Vector2.zero;
 
-                    Cluster();
+                    if (ClusterAmount > 0)
+                    {
+                        Cluster();
+                    }
+
                     Instantiate(impactEffect, transform.position, transform.rotation);
                     if (impactParticles != null)
                     {
@@ -94,7 +97,7 @@ public class ShotGunPellet : BulletScript
 
     public void Cluster()
     {
-        Debug.Log("Clustering");
+        //Debug.Log("Clustering");
         projectileShotGun ShotGun = GameObject.FindWithTag("Weapeon").GetComponent<projectileShotGun>();
         float offset = 360f / ShotGun.ClusterProjectiles;
         float pom = offset;

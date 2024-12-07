@@ -161,7 +161,7 @@ public class upgradeDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         }
     }
 
-    private void OnEnable()
+    public void UpdateUI()
     {
         if (Upgrade != null && image != null)
         {
@@ -173,10 +173,15 @@ public class upgradeDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             SelectedImg.enabled = false;
         }
 
-        if(HintWindow != null)
+        if (HintWindow != null)
         {
             HintWindow.SetActive(false);
         }
+    }
+
+    private void OnEnable()
+    {
+        UpdateUI();
     }
 
     public void ShowHint()

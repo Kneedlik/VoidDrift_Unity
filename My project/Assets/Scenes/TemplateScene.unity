@@ -710,6 +710,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 810992520, guid: 85f45ade01a9df142af1f68ee0315459, type: 3}
+      propertyPath: Sorting
+      value: 
+      objectReference: {fileID: 314178699}
     - target: {fileID: 1653032152388046803, guid: 85f45ade01a9df142af1f68ee0315459, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1085,6 +1089,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4c6e44d3d55f854a82760415ec0c06e, type: 3}
+--- !u!114 &314178699 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7339895228260985912, guid: d4c6e44d3d55f854a82760415ec0c06e, type: 3}
+  m_PrefabInstance: {fileID: 314178698}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f44d1afa6dc2804d83e5d16d1a3ed44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &333369772 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7339895227153614170, guid: d4c6e44d3d55f854a82760415ec0c06e, type: 3}
@@ -1344,6 +1359,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109bcaf53d3d0744baae06235d529c16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &596901373 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1653032152378760053, guid: 85f45ade01a9df142af1f68ee0315459, type: 3}
+  m_PrefabInstance: {fileID: 205539456}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &612170739 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7339895228466574489, guid: d4c6e44d3d55f854a82760415ec0c06e, type: 3}
@@ -2348,6 +2368,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 789251861587241434, guid: dabd55b913c84954baebe472af4c2239, type: 3}
+      propertyPath: Timer
+      value: 
+      objectReference: {fileID: 1555950243}
+    - target: {fileID: 789251861587241434, guid: dabd55b913c84954baebe472af4c2239, type: 3}
+      propertyPath: XPbar
+      value: 
+      objectReference: {fileID: 1916566087}
+    - target: {fileID: 789251861587241434, guid: dabd55b913c84954baebe472af4c2239, type: 3}
+      propertyPath: minimap
+      value: 
+      objectReference: {fileID: 1202869128}
+    - target: {fileID: 789251861587241434, guid: dabd55b913c84954baebe472af4c2239, type: 3}
+      propertyPath: HealthBar
+      value: 
+      objectReference: {fileID: 205539458}
+    - target: {fileID: 789251861587241434, guid: dabd55b913c84954baebe472af4c2239, type: 3}
+      propertyPath: VictoryScreen
+      value: 
+      objectReference: {fileID: 596901373}
     - target: {fileID: 5558817158427520867, guid: dabd55b913c84954baebe472af4c2239, type: 3}
       propertyPath: m_RootOrder
       value: 14

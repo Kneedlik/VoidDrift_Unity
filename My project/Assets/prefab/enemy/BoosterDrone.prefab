@@ -764,6 +764,7 @@ GameObject:
   - component: {fileID: 7929140047886012437}
   - component: {fileID: 8004373750479627352}
   - component: {fileID: 2954801987567291019}
+  - component: {fileID: 6824983739997698715}
   m_Layer: 0
   m_Name: BoosterDrone
   m_TagString: Untagged
@@ -863,3 +864,17 @@ MonoBehaviour:
   percentValue: 0
   XpPrefab: {fileID: 0}
   Point: {fileID: 0}
+--- !u!114 &6824983739997698715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7929140047886012436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85883de9423e5554d82e1afb8f257258, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tenacity: 1
+  Decrease: 1

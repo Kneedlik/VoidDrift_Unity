@@ -104,11 +104,13 @@ public class timer : MonoBehaviour
 
     public void VictoryDelayed(float Delay)
     {
+        Debug.Log("Before");
         Invoke("victory", Delay);
     }
 
     public void victory()
     {
+        Debug.Log("After");
         VictoryScreen.SetActive(true);
         Time.timeScale = 0;
 

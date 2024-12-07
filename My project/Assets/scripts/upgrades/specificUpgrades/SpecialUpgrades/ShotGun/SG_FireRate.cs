@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class SG_FireRate : upgrade
 {
+    public static SG_FireRate instance;
     public int AmmoAmount;
     public float ASAmount;
     
     // Start is called before the first frame update
     void Start()
     {
+        instance = this;
         Type = type.special;
         setColor();
     }

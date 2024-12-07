@@ -1193,7 +1193,7 @@ MonoBehaviour:
   armor: 0
   multiplier: 0
   ParticleExplosion: {fileID: 3528158295667628061, guid: 6d1756d7ad7932c49a9490abee50e3c2, type: 3}
-  DeathAnim: {fileID: 5470796982983684449, guid: c6500ecd7e8a77448b24572641c23e6e, type: 3}
+  DeathAnim: {fileID: 2789139120181189703, guid: 249db7ba3bcb1214da6841db87703b0f, type: 3}
   DeathDelay: 0
   DeathFunc: []
   OnDamageFunc: []

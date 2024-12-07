@@ -5082,16 +5082,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
-  reducedDamage: 0
+  PlayerDamage: 0
   TrueDamage: 0
   destroyTime: 1
   force: 0
   isEnemy: 0
   LevelScaling: 0
   ScaleDmg: 0
-  ScaleArea: 0
+  ScaleArea: 1
   Impact: 0
   PostImpact: 0
+  Stun: 0
+  Colour:
+    serializedVersion: 2
+    rgba: 4294967295
+  IgnoreTargets: []
 --- !u!1001 &8571674468061509077
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 1795891829044645795}
   - component: {fileID: 1795891829044645796}
   - component: {fileID: 8073209761852573941}
+  - component: {fileID: -662641497149853148}
   m_Layer: 11
   m_Name: BomberEnemy
   m_TagString: Enemy
@@ -310,3 +311,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stop: 0
   StunDuration: 0.35
+--- !u!114 &-662641497149853148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795891829044645782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85883de9423e5554d82e1afb8f257258, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tenacity: 1
+  Decrease: 1

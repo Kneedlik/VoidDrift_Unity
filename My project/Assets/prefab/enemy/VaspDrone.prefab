@@ -18,6 +18,9 @@ GameObject:
   - component: {fileID: 5378140761206221863}
   - component: {fileID: 5378140761206221860}
   - component: {fileID: 5378140761206221861}
+  - component: {fileID: -2305362513291642637}
+  - component: {fileID: 2721286698377046952}
+  - component: {fileID: 9159707446558214618}
   m_Layer: 12
   m_Name: VaspDrone
   m_TagString: Enemy
@@ -173,7 +176,7 @@ MonoBehaviour:
   DeathAnim: {fileID: 0}
   DeathDelay: 0
   DeathFunc: []
-  DeathFunc123: 
+  OnDamageFunc: []
   respawning: 0
   respawnTime: 0
   prefab: {fileID: 0}
@@ -237,6 +240,51 @@ MonoBehaviour:
   Object: {fileID: 270835278409273838, guid: 592292ee8052f9e4f91743ae5fa71b03, type: 3}
   PlayerOnly: 1
   destroy: 1
+--- !u!114 &-2305362513291642637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5378140761206221858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85883de9423e5554d82e1afb8f257258, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tenacity: 1
+  Decrease: 1
+--- !u!114 &2721286698377046952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5378140761206221858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b012fce8103ed4a4397b4dcf4d66b057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UsePrefab: 0
+  xpValue: 8
+  percentValue: 0
+  XpPrefab: {fileID: 0}
+  Point: {fileID: 0}
+--- !u!114 &9159707446558214618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5378140761206221858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c254073f7d54a314699e54aed8f94f82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stop: 0
+  StunDuration: 0.35
 --- !u!1 &5378140761297293754
 GameObject:
   m_ObjectHideFlags: 0

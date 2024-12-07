@@ -31,7 +31,7 @@ public class KrakenSlayerSystem : MonoBehaviour
         if(bulletCount >= delay)
         {
             StartCoroutine(flashIcon());
-           weapeon gun = target.GetComponent<weapeon>();
+            weapeon gun = target.GetComponent<weapeon>();
             gun.extraDamage += damage;
 
             bulletCount = 0;

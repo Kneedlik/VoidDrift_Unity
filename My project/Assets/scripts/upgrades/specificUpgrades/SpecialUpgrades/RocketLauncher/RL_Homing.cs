@@ -13,6 +13,15 @@ public class RL_Homing : upgrade
         setColor();
     }
 
+    public override bool requirmentsMet()
+    {
+        if (FinalConditionsMet() && RL_BugetHoming.instance.level >= 2)
+        {
+            return true;
+        }
+        else return false;
+    }
+
     public override void function()
     {
         rocketLauncher RocketLauncher = GameObject.FindWithTag("Weapeon").GetComponent<rocketLauncher>();

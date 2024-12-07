@@ -74,12 +74,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1559772548, guid: 644f88d108aade1488c0b9f7f056eb6d, type: 3}
+  m_Sprite: {fileID: 138133032, guid: 2b5a0bc5398e63d48bf7c7afef534de7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.2727273, y: 1.3636364}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -103,7 +103,7 @@ MonoBehaviour:
   - {fileID: 6718263228747521129, guid: ceaf889812cad214b9e290579b593235, type: 3}
   - {fileID: 4621732553808172075, guid: 24a835b665b55b24ab9e19849ea828a8, type: 3}
   dropChancePool1:
+  - 30
   - 25
-  - 25
-  - 25
+  - 20
   - 25

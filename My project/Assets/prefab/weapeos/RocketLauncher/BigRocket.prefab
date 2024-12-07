@@ -183,11 +183,16 @@ MonoBehaviour:
   OnCrit: 1
   PostImpact: 1
   IgnoreTargets: []
+  ImpactDamage: 0
   rocketSpeed: 0
   explosion: {fileID: 740366966416869938, guid: 4dccdda7c27038e479110deb7ca66f1b, type: 3}
   speedGrowth: 0
   maxSpeed: 0
-  Delay: 0.15
+  Delay: 0
+  AditionalExloAmount: 0
+  AditionalExploDelay: 0
+  RotateParticle: 0
+  ParticleRotation: {x: 0, y: 0, z: 0}
 --- !u!1 &4759478287686051366
 GameObject:
   m_ObjectHideFlags: 0

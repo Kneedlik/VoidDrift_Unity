@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: -7066333306832082077}
   - component: {fileID: 1269613586839714195}
   - component: {fileID: 7124082400006253234}
+  - component: {fileID: -7548127988421906290}
   m_Layer: 12
   m_Name: AdvancedDrone1
   m_TagString: Enemy
@@ -286,6 +287,20 @@ MonoBehaviour:
   percentValue: 0
   XpPrefab: {fileID: 0}
   Point: {fileID: 0}
+--- !u!114 &-7548127988421906290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4769829029796524462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85883de9423e5554d82e1afb8f257258, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tenacity: 1
+  Decrease: 1
 --- !u!1 &4769829030574521265
 GameObject:
   m_ObjectHideFlags: 0

@@ -20,18 +20,18 @@ public class ML_Drill : upgrade
         {
             eventManager.ImpactGunOnlyHitScan += drillSystem.DrillProc;
             drillSystem.enabled = true;
-            drillSystem.ExtraDamage = 3;
-            description = string.Format("Every drill stack now causes enemies to take + 5% damage Drill extra damage + 3");
+            drillSystem.ExtraDamage = 4;
+            description = string.Format("Every drill stack now causes enemies to take + 5% damage Drill extra damage + 4");
 
         }else if(level == 1)
         {
-            drillSystem.ExtraDamage += 3;
+            drillSystem.ExtraDamage += 4;
             drillSystem.DamageMultiplier += 0.05f;
             description = string.Format("Drill extra damage + 3 Drill damage + 5%");
         
         }else
         {
-            drillSystem.ExtraDamage += 3;
+            drillSystem.ExtraDamage += 4;
             drillSystem.DamageMultiplier += 0.05f;
         }
         level++;

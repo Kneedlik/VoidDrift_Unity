@@ -11,7 +11,7 @@ public class LaserDrone : Summon
     MiningLaser Laser;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         Laser = GameObject.FindWithTag("Weapeon").GetComponent<MiningLaser>();
         damage = baseDamage;
@@ -34,6 +34,7 @@ public class LaserDrone : Summon
         {
             if(KnedlikLib.FindClosestEnemyToCursor(Camera.main,out Target))
             {
+                StartCoroutine(ShootCorutine(Target));
                 return true;
             }else return false;
         }

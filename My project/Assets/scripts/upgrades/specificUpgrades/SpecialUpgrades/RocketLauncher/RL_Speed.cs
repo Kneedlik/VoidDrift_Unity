@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class RL_Speed : upgrade
 {
+    public static RL_Speed instance;
     [SerializeField] float SpeedMultiplier;
     [SerializeField] int ImpactDamageAmount;
     [SerializeField] int ImpactDamagePlus;
     // Start is called before the first frame update
     void Start()
     {
+        instance = this;
         Type = type.special;
         setColor();
     }
