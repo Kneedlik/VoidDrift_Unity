@@ -646,14 +646,14 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: 4330dd1f5b7731f4bbfab40e34404a4c, type: 3}
   name: Iron Heavy Caliber
-  description: Damage + 25%
+  description: Damage + 20%
   level: 0
   maxLevel: 0
   rarity: 100
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
-  amount: 25
+  amount: 20
 --- !u!1 &7339895227027590879
 GameObject:
   m_ObjectHideFlags: 0
@@ -829,7 +829,7 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 0}
   name: Scatter Shot
-  description: Killing an enemy with projectile spawns 3 bullets dealing 40% damage
+  description: Killing an enemy with projectile spawns 3 bullets dealing 20% damage
   level: 0
   maxLevel: 2
   rarity: 65
@@ -3477,14 +3477,14 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: d1ca97520fa81964c8967c1419744287, type: 3}
   name: Amplifiing Rod
-  description: Summon Damage + 20%
+  description: Summon Damage + 15%
   level: 0
   maxLevel: 0
   rarity: 100
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
-  amount: 20
+  amount: 15
 --- !u!1 &7339895227979265058
 GameObject:
   m_ObjectHideFlags: 0
@@ -3536,15 +3536,15 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: eb700b8b84f6bdc41b5b638c9a4bf68d, type: 3}
   name: Haste
-  description: "Movement speed + 20% \n    Attack speed + 20% "
+  description: "Movement speed + 15% \n    Attack speed + 15% "
   level: 0
   maxLevel: 0
   rarity: 100
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
-  ASamount: 20
-  SpeedAmount: 20
+  ASamount: 15
+  SpeedAmount: 15
 --- !u!1 &7339895228017155006
 GameObject:
   m_ObjectHideFlags: 0
@@ -5112,7 +5112,11 @@ MonoBehaviour:
   maxLevel: 1
   rarity: 300
   CanBeDoubled: 0
-  SubserviantUpgrades: []
+  SubserviantUpgrades:
+  - Upgrade: {fileID: 7339895228885902718}
+    LevelNeeded: 1
+  - Upgrade: {fileID: 7339895228638758651}
+    LevelNeeded: 1
   Final: 1
   StatusSystem: {fileID: 0}
   AreaAmount: 1

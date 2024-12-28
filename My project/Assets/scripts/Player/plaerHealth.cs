@@ -70,6 +70,11 @@ public class plaerHealth : MonoBehaviour
             return;
         }
 
+        if(godMode)
+        {
+            return;
+        }
+
         bool ready = false;
         if(shield.isActiveAndEnabled)
         {

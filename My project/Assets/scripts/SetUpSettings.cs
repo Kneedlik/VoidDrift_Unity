@@ -19,6 +19,7 @@ public class SetUpSettings : MonoBehaviour
             }
 
             QualitySettings.vSyncCount = Values.VSync;
+            Debug.Log(Values.VSync);
         }
     }
 

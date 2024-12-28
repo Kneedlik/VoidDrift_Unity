@@ -19,6 +19,7 @@ public class shockwawe : MonoBehaviour
         Vector2 dir = (collision.transform.position - transform.position).normalized;
         if (collision.transform.tag.Contains("Enemy") && collision.isTrigger == false)
         {
+            KnedlikLib.TryStun(collision.gameObject);
             Rigidbody2D rb = collision.GetComponent<Rigidbody2D>();
             rb.AddForce(dir * force, ForceMode2D.Impulse);
             Health health = collision.GetComponent<Health>();

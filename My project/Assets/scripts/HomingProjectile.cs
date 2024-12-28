@@ -177,18 +177,14 @@ public class HomingProjectile : BulletScript
             {
                 if (Enemy)
                 {
-                    Debug.Log(111);
                     if (collision.transform.tag != "Enemy")
                     {
-                        Debug.Log(222);
                         bool TargetFound = false;
 
                         if (collision.transform.tag == "Player")
                         {
-                            Debug.Log(333);
                             if (damage > 0)
                             {
-                                Debug.Log(444);
                                 collision.gameObject.GetComponent<plaerHealth>().TakeDamage(damage);
                                 TargetFound = true;
                             }

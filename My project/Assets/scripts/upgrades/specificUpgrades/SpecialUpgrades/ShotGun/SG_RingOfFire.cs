@@ -16,7 +16,7 @@ public class SG_RingOfFire : upgrade
     public override void function()
     {
         projectileShotGun ShotGun = GameObject.FindWithTag("Weapeon").GetComponent<projectileShotGun>();
-        if(level == 1)
+        if(level == 0)
         {
             ShotGun.RingOfFireCount = 10;
             ShotGun.RingOfFireActive = true;

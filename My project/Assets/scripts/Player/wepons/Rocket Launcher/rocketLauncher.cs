@@ -182,7 +182,8 @@ public class rocketLauncher : weapeon
                 eventManager.OnFireAll(gameObject, Obj);
             }
             BulletScript Bullet = Obj.GetComponent<BulletScript>();
-            Bullet.setDamage(damage * 2 + ImpactDamage + extraDamage);
+            float Temp = damage * 3f + ImpactDamage + extraDamage;
+            Bullet.setDamage((int)Temp);
         }
     }
 

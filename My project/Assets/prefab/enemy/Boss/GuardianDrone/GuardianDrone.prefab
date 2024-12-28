@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2664196073113781368}
   - component: {fileID: 2664196073113781374}
   - component: {fileID: 2664196073113781375}
+  - component: {fileID: 6708328798574107502}
   m_Layer: 16
   m_Name: GuardianDrone
   m_TagString: Enemy
@@ -236,6 +237,23 @@ MonoBehaviour:
   speed: 150
   maxSpeed: 3.2
   Multiplier: 1
+--- !u!114 &6708328798574107502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2664196073113781367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 599b41622875a6749b7d10012ed19326, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemPool1:
+  - {fileID: 7674282569647781966, guid: f80c732bbcca3de40b5eb15d54ebf07d, type: 3}
+  dropChancePool1:
+  - 100
+  pos: {fileID: 0}
 --- !u!1 &2664196073671634414
 GameObject:
   m_ObjectHideFlags: 0

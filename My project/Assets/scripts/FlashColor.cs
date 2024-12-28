@@ -53,9 +53,9 @@ public class FlashColor : MonoBehaviour
     IEnumerator flashRoutine()
     {
         
-        spriteRenderer.material = flashMaterial;
+        spriteRenderer.sharedMaterial = flashMaterial;
         yield return new WaitForSeconds(TrueDuration);
-        spriteRenderer.material = oreginalMaterial;
+        spriteRenderer.sharedMaterial = oreginalMaterial;
         coolDown = TrueDuration * 2;
         flash = null;
     }

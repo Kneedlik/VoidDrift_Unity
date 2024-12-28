@@ -55,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c5a1041706629b347adb8fa91b5eda73, type: 2}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 25
-  reducedDamage: 0
+  PlayerDamage: 0
   TrueDamage: 0
   destroyTime: 0.2
   force: 0
@@ -126,6 +126,13 @@ MonoBehaviour:
   ScaleArea: 1
   Impact: 1
   PostImpact: 0
+  OnCrit: 0
+  OnImpactGunOnly: 0
+  Stun: 0
+  Colour:
+    serializedVersion: 2
+    rgba: 4294967295
+  IgnoreTargets: []
 --- !u!95 &7167895812093458270
 Animator:
   serializedVersion: 4

@@ -27,14 +27,14 @@ public class ScatterOnDeath : upgrade
     {
         if (level == 0)
         {
-            multiplier = 0.4f;
+            multiplier = 0.2f;
             W = GameObject.FindWithTag("Weapeon").GetComponent<weapeon>();
             BulletPrefab = W.GetProjectile();
             eventManager.PostImpact += OnDeathScatter;
-            description = string.Format("Scatter shot bullets now deal 60% damage");
+            description = string.Format("Scatter shot bullets now deal 30% damage");
         }else if (level == 1)
         {
-            multiplier = 0.6f;
+            multiplier = 0.3f;
         }
 
         level++;

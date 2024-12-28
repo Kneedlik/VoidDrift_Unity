@@ -88,7 +88,7 @@ public class upgradeList : MonoBehaviour
 
         weapeon Weapeon = GameObject.FindWithTag("Weapeon").GetComponent<weapeon>();
         for (int i = 0;i < Weapeon.WeapeonUpgrades.Count;i++)
-        {
+        { 
             UpgradePlus upgradeTemp = new UpgradePlus();
             upgradeTemp.upgrade = Weapeon.WeapeonUpgrades[i];
             upgradeTemp.BaseDescription = Weapeon.WeapeonUpgrades[i].description;

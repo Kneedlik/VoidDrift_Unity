@@ -61,11 +61,15 @@ public class BeamSummon : Summon
 
         if(Aoe)
         {
-            Invoke("SpawnCone", 0.3f);
+            Invoke("SpawnCone", 0.2f);
             GameObject P = Instantiate(ConeParticle, transform.position, Quaternion.Euler(0, -90, 0));
+
+            float angle = Mathf.Atan2(pos.y, pos.x) * Mathf.Rad2Deg;
+            P.transform.rotation = Quaternion.Euler(angle + 180, -90, 0);
+
+
             KnedlikLib.ScaleParticleByFloat(P, size, false);
-            P.transform.LookAt(target);
-            P.transform.rotation = Quaternion.Euler(P.transform.rotation.eulerAngles.y < 180 ? 270 - P.transform.rotation.eulerAngles.x : P.transform.rotation.eulerAngles.x, -90,0);
+            //P.transform.rotation = Quaternion.Euler(0,-90,P.transform.rotation.eulerAngles.y < 180 ? 270 - P.transform.rotation.eulerAngles.x : P.transform.rotation.eulerAngles.x);
         }
 
         yield return new WaitForSeconds(beamDuration);
@@ -76,8 +80,11 @@ public class BeamSummon : Summon
     {
         GameObject C = Instantiate(ConeObject, transform.position, Quaternion.Euler(0, 0, 0));
         KnedlikLib.ScaleParticleByFloat(C, size, false);
-        C.transform.LookAt(target);
-        C.transform.rotation = Quaternion.Euler(0, 0, C.transform.rotation.eulerAngles.y < 180 ? 270 - C.transform.rotation.eulerAngles.x : C.transform.rotation.eulerAngles.x - 180);
+
+        Vector3 pos = (target.position - transform.position).normalized;
+        float angle = Mathf.Atan2(pos.y, pos.x) * Mathf.Rad2Deg;
+        C.transform.rotation = Quaternion.Euler(0, 0, angle);
+
         explosion Explo = C.GetComponent<explosion>();
         Explo.damage = damage;
         Explo.function += Freeze;
@@ -108,10 +115,21 @@ public class BeamSummon : Summon
 
                         if (health != null)
                         {
+                            int DamagePlus = damage;
+                            if (eventManager.SummonOnImpact != null)
+                            {
+                                eventManager.SummonOnImpact(hit[j].transform.gameObject, damage, ref DamagePlus);
+                            }
+
+                            if (eventManager.PostImpact != null)
+                            {
+                                eventManager.PostImpact(hit[j].transform.gameObject, DamagePlus, ref DamagePlus);
+                            }
+
                             int D = 0;
                             BrittleSystem.Instance.ApplyBrittle(hit[j].transform.gameObject, 0, ref D);
 
-                            health.TakeDamage(damage);
+                            health.TakeDamage(DamagePlus);
                         }
                     }
                 }

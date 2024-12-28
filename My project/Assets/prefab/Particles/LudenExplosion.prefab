@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &951161606216347043
 Transform:
   m_ObjectHideFlags: 0
@@ -244,7 +244,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.6
+      scalar: 0.25
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -297,7 +297,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 50
+      scalar: 60
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -413,7 +413,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 8
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -572,14 +572,14 @@ ParticleSystem:
     startRotationX:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 3.1415927
       minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -588,7 +588,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 0
+          value: -1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -625,7 +625,7 @@ ParticleSystem:
     startRotationY:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 3.1415927
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -685,7 +685,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -694,7 +694,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 0
+          value: -1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -864,7 +864,7 @@ ParticleSystem:
     m_SpriteRenderer: {fileID: 0}
     m_UseMeshMaterialIndex: 0
     m_UseMeshColors: 1
-    alignToDirection: 0
+    alignToDirection: 1
     m_Texture: {fileID: 0}
     m_TextureClipChannel: 3
     m_TextureClipThreshold: 0
@@ -934,7 +934,7 @@ ParticleSystem:
           m_RotationOrder: 4
     arc:
       value: 360
-      mode: 0
+      mode: 3
       spread: 0
       speed:
         serializedVersion: 2
@@ -1105,7 +1105,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 180
+        scalar: 60
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -2793,7 +2793,7 @@ ParticleSystem:
     magnitude:
       serializedVersion: 2
       minMaxState: 1
-      scalar: 50
+      scalar: 60
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -2808,22 +2808,22 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.0756444
-          value: 0.9843475
-          inSlope: -1.4999878
-          outSlope: -1.4999878
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
-        - serializedVersion: 3
-          time: 0.16608822
-          value: 0.24324286
+          time: 0.32921165
+          value: 0.89188623
           inSlope: -0.07063578
           outSlope: -0.07063578
           tangentMode: 0
           weightedMode: 0
           inWeight: 1
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 0.49763384
+          value: 0.20055884
+          inSlope: -1.4999878
+          outSlope: -1.4999878
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
@@ -4167,7 +4167,7 @@ ParticleSystem:
         m_RotationOrder: 4
     maxLights: 20
   TrailModule:
-    enabled: 1
+    enabled: 0
     mode: 0
     ratio: 1
     lifetime:
@@ -5002,7 +5002,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 20e729147a4dad247abfc2305c3dd963, type: 2}
-  - {fileID: 2100000, guid: 1fd724d226066ad4cbc105d4ad53a444, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5092,6 +5091,8 @@ MonoBehaviour:
   ScaleArea: 1
   Impact: 0
   PostImpact: 0
+  OnCrit: 0
+  OnImpactGunOnly: 0
   Stun: 0
   Colour:
     serializedVersion: 2
@@ -5122,7 +5123,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8423974155014209081, guid: 06c5d139d59970c47985ebeac217d330, type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 0.6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8423974155014209081, guid: 06c5d139d59970c47985ebeac217d330, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
@@ -5130,7 +5131,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8423974155014209081, guid: 06c5d139d59970c47985ebeac217d330, type: 3}
       propertyPath: InitialModule.startSize.minScalar
-      value: 0.04
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8423974155014209081, guid: 06c5d139d59970c47985ebeac217d330, type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.size
@@ -5142,7 +5143,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8423974155014209081, guid: 06c5d139d59970c47985ebeac217d330, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 1.2
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8423974155014209081, guid: 06c5d139d59970c47985ebeac217d330, type: 3}
       propertyPath: InitialModule.startColor.maxColor.g
@@ -5166,7 +5167,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8423974155014209081, guid: 06c5d139d59970c47985ebeac217d330, type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
-      value: 100
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8423974155014209081, guid: 06c5d139d59970c47985ebeac217d330, type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minScalar

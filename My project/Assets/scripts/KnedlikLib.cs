@@ -175,7 +175,17 @@ public static class KnedlikLib
 
         for (int i = 0; i < Enemies.Length; i++)
         {
-            if (renderers[i].isVisible)
+            bool Suitable = false;
+            if (renderers[i] != null)
+            {
+                if (renderers[i].isVisible)
+                {
+                    Suitable = true;
+                }
+            }
+            else Suitable = true;
+
+            if (Suitable)
             {
                 if (Vector3.Distance(Enemies[i].transform.position, self.position) < Vector3.Distance(target.position, self.position))
                 {
@@ -188,11 +198,15 @@ public static class KnedlikLib
             }
         }
 
-        if (renderers[j].isVisible)
+        if (renderers[j] != null)
         {
-            return true;
+            if (renderers[j].isVisible)
+            {
+                return true;
+            }
+            else return false;
         }
-        else return false;
+        else return true;
     }
 
    public static bool FindClosestEnemy(Transform self,out Transform target, List<Transform> list)

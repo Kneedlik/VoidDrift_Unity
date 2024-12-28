@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 5185391676591580203}
   - component: {fileID: 5185391676591580200}
   - component: {fileID: 5185391676591580201}
+  - component: {fileID: 4348595694247271656}
   m_Layer: 0
   m_Name: ElectricDroneAura
   m_TagString: Untagged
@@ -155,6 +156,23 @@ MonoBehaviour:
   AttackDuration: 4
   LightningPrefab: {fileID: 8778533342432092021, guid: 922cd18e8c67dc442bed893fef3bd35f, type: 3}
   LightningCoolDown: 0.25
+--- !u!114 &4348595694247271656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5185391676591580198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b012fce8103ed4a4397b4dcf4d66b057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UsePrefab: 1
+  xpValue: 10000
+  percentValue: 0
+  XpPrefab: {fileID: 2379410571559361398, guid: 471236d52f210654cbb5c0a003284cd1, type: 3}
+  Point: {fileID: 0}
 --- !u!1 &5185391677014471469
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,6 +188,8 @@ GameObject:
   - component: {fileID: 5185391677014471471}
   - component: {fileID: 5185391677014471474}
   - component: {fileID: 5185391677014471477}
+  - component: {fileID: 4875437728954610227}
+  - component: {fileID: 5717963436637751855}
   m_Layer: 12
   m_Name: ElectricDroneBase
   m_TagString: Enemy
@@ -345,6 +365,40 @@ MonoBehaviour:
   damage: 20
   coolDown: 1
   Trigger: 0
+--- !u!114 &4875437728954610227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5185391677014471469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 599b41622875a6749b7d10012ed19326, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemPool1:
+  - {fileID: 5976875162170406126, guid: 13671599c5b6a1546bb293d623795d0b, type: 3}
+  dropChancePool1:
+  - 100
+  pos: {fileID: 0}
+--- !u!114 &5717963436637751855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5185391677014471469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b012fce8103ed4a4397b4dcf4d66b057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UsePrefab: 1
+  xpValue: 1500
+  percentValue: 0
+  XpPrefab: {fileID: 2379410571559361398, guid: 471236d52f210654cbb5c0a003284cd1, type: 3}
+  Point: {fileID: 0}
 --- !u!1 &5185391677615682087
 GameObject:
   m_ObjectHideFlags: 0

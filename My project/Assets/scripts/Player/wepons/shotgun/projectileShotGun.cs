@@ -279,6 +279,7 @@ public class projectileShotGun : weapeon
         float offset = Player.rotation.eulerAngles.z;
         float pom = 360 / RingOfFireCount;
 
+        bool Finished = false;
         for(int i = 0;i < RingOfFireCount ;i++)
         {
             if (HomingForm)
@@ -293,19 +294,23 @@ public class projectileShotGun : weapeon
             }
             else if (LaserForm)
             {
-                ShotgunImapact ObjTemp;
-                ShotgunLaserDamage LaserDamage;
-                ObjTemp = Instantiate(LaserImpactObj).GetComponent<ShotgunImapact>();
-                ObjTemp.Delay = LaserImpactDelay;
-                ObjTemp.Size = LaserRayCastSize;
-                ObjTemp.Cone = true;
+                if (Finished == false)
+                {
+                    ShotgunImapact ObjTemp;
+                    ShotgunLaserDamage LaserDamage;
+                    ObjTemp = Instantiate(LaserImpactObj).GetComponent<ShotgunImapact>();
+                    ObjTemp.Delay = LaserImpactDelay;
+                    ObjTemp.Size = LaserRayCastSize;
+                    ObjTemp.Cone = true;
 
-                LaserDamage = Instantiate(LaserDamageObj).GetComponent<ShotgunLaserDamage>();
-                LaserDamage.DelayBegin = LaserImpactDelay;
-                LaserDamage.DelayDamage = LaserDamageDelay;
-                LaserDamage.Size = LaserRayCastSize;
-                LaserDamage.damage = damage + extraDamage;
-                LaserDamage.Cone = true;
+                    LaserDamage = Instantiate(LaserDamageObj).GetComponent<ShotgunLaserDamage>();
+                    LaserDamage.DelayBegin = LaserImpactDelay;
+                    LaserDamage.DelayDamage = LaserDamageDelay;
+                    LaserDamage.Size = LaserRayCastSize;
+                    LaserDamage.damage = damage + extraDamage;
+                    LaserDamage.Cone = true;
+                    Finished = true;
+                }
             }
             else
             {
