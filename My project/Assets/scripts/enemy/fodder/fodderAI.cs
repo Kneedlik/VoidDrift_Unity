@@ -172,8 +172,7 @@ public class fodderAI : simpleAI
         {
             // Vector2 lookDir = ((Vector2)path.vectorPath[currentWatPoint] - rb.position).normalized;
             // Vector3 lookDir = path.vectorPath[currentWatPoint];
-            lookDir = rb.velocity;
-
+            //lookDir = rb.velocity;
 
             if (waypoints[wayPointIndex] != null)
             {
@@ -185,17 +184,28 @@ public class fodderAI : simpleAI
 
                 //float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90;
 
-                lookAtRB(lookDir);
+                //lookAtRB(lookDir);
 
-                moveCharacter(speed);
+                //moveCharacter(speed);
 
                 if (distance < nextWayPointDistance)
                 {
                     currentWatPoint++;
                 }
+
+                lookAt(waypoints[wayPointIndex].position);
+                rb.AddForce(speed * transform.up ,ForceMode2D.Force);
+
             }
         }
-        setMaxSpeed(maxSpeed);
+
+        if (patrol && MaxPatrolSpeed != 0)
+        {
+            setMaxSpeed(MaxPatrolSpeed);
+        }else
+        {
+            setMaxSpeed(maxSpeed);
+        }
     }
 
     private void LateUpdate()

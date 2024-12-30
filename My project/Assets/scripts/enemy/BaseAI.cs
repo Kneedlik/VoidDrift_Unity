@@ -7,6 +7,7 @@ public class BaseAI : MonoBehaviour
     public Transform[] waypoints;
     public float speed;
     public float maxSpeed;
+    public float MaxPatrolSpeed;
     public float SpeedMultiplier = 1;
     public float rotationSpeed;
     public float nextWayPointDistance = 3f;

@@ -97,9 +97,12 @@ public class gunShipAI : simpleAI
 
             //float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90;
 
-            lookAt(currentTarget);
+            //lookAt(currentTarget);
 
-            moveCharacter(patrolSpeed);
+            //moveCharacter(patrolSpeed);
+
+            lookAt(waypoints[wayPointIndex].position);
+            rb.AddForce(speed * transform.up, ForceMode2D.Force);
 
             if (distance < nextWayPointDistance)
             {

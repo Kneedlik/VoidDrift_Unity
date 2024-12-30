@@ -29,6 +29,7 @@ public class ML_DronesFinal : upgrade
         Laser.DroneAmount += DroneAmount;
         Laser.SetUpDrones();
         Laser.setSideFirepoints();
+        levelingSystem.instance.FinallForm = true;
         level++;
     }
 }

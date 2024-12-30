@@ -30,6 +30,7 @@ public class ML_Circle : upgrade
         PlayerStats.sharedInstance.increaseProjectiles(ProjectileAmount);
         Laser.setSideFirepoints();
         Laser.setFirepoints();
+        levelingSystem.instance.FinallForm = true;
         level++;
     }
 }

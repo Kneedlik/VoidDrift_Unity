@@ -32,6 +32,7 @@ public class RL_Atomic : upgrade
         RocketLauncher.damageMultiplier += DamageAmountMultiplier;
         RocketLauncher.ASmultiplier -= AsPenaltyMultiplier;
         //PlayerStats.sharedInstance.increaseProjectiles(-99);
+        levelingSystem.instance.FinallForm = true;
         level++;
     }
 }

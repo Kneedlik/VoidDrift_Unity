@@ -33,6 +33,7 @@ public class ML_Inferno : upgrade
         Laser.Inferno = true;
         Laser.setFirepoints();
         Laser.setSideFirepoints();
+        levelingSystem.instance.FinallForm = true;
         level++;
     }
 }

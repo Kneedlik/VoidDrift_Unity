@@ -148,7 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damagePlus: 0
   damage: 6
-  destroyTime: 0.4
+  destroyTime: 0.44
   pierce: 0
   Bounce: 0
   knockBack: 0

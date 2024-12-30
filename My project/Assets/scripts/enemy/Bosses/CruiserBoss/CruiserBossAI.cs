@@ -5,7 +5,6 @@ using UnityEngine;
 public class CruiserBossAI : BaseAI
 {
     [SerializeField] float PatrolSpeed;
-    [SerializeField] float MaxPatrolSpeed;
     [SerializeField] float ChaseSpeed;
     [SerializeField] float MaxChaseSpeed;
 

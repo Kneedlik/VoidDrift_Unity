@@ -27,6 +27,7 @@ public class RL_Homing : upgrade
         rocketLauncher RocketLauncher = GameObject.FindWithTag("Weapeon").GetComponent<rocketLauncher>();
         RocketLauncher.HomingFinal = true;
         PlayerStats.sharedInstance.increaseProjectiles(ProjectileAmount);
+        levelingSystem.instance.FinallForm = true;
         level++;
     }
 }

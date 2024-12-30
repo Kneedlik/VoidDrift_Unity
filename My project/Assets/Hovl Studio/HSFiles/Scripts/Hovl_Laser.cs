@@ -40,9 +40,9 @@ public class Hovl_Laser : MonoBehaviour
         Hit = HitEffect.GetComponentsInChildren<ParticleSystem>();
     }
 
-    void Update()
+    private void LateUpdate()
     {
-        Laser.material.SetTextureScale("_MainTex", new Vector2(Length[0], Length[1]));                    
+        Laser.material.SetTextureScale("_MainTex", new Vector2(Length[0], Length[1]));
         Laser.material.SetTextureScale("_Noise", new Vector2(Length[2], Length[3]));
         //To set LineRender position
         if (Laser != null && UpdateSaver == false)
@@ -51,7 +51,7 @@ public class Hovl_Laser : MonoBehaviour
             {
                 Laser.SetPosition(0, StartPos);
                 //DELETE THIS IF YOU WANT USE LASERS IN 2D
-                                //ADD THIS IF YOU WANNT TO USE LASERS IN 2D: RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.forward, MaxLength);       
+                //ADD THIS IF YOU WANNT TO USE LASERS IN 2D: RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.forward, MaxLength);       
                 if (Endless == false)//CHANGE THIS IF YOU WANT TO USE LASERRS IN 2D: if (hit.collider != null)
                 {
                     //End laser position if collides with object
@@ -103,7 +103,7 @@ public class Hovl_Laser : MonoBehaviour
                 LaserSaver = true;
                 Laser.enabled = true;
             }
-        }  
+        }
     }
 
     public void SetUp(Vector3 StartPosition,Vector3 EndPosition,bool EndlessTemp)

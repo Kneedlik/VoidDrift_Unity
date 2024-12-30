@@ -11,6 +11,11 @@ public class DissableOnDistance : MonoBehaviour
  
     void Update()
     {
+        if(distance == 0)
+        {
+            return; 
+        }
+
         if(timeStamp > 0)
         {
             timeStamp -= Time.deltaTime;

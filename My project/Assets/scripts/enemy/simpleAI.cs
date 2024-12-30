@@ -77,7 +77,7 @@ public class simpleAI : BaseAI
 
     protected void moveUp()
     {
-        rb.AddForce(speed * transform.up * Time.deltaTime);
+        rb.AddForce(speed * transform.up, ForceMode2D.Force);
     }
 
     protected void lookAt(Vector3 lookDir)

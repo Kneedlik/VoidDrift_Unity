@@ -24,6 +24,7 @@ public class RL_Plasma : upgrade
     {
         rocketLauncher RocketLauncher = GameObject.FindWithTag("Weapeon").GetComponent<rocketLauncher>();
         RocketLauncher.Plasma = true;
+        levelingSystem.instance.FinallForm = true;
         level++;
     }
 }

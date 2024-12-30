@@ -11704,7 +11704,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 85072393607905457, guid: 57a931b9e02fa8d428a92f24910367a4, type: 3}
       propertyPath: baseDamage
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 85072393607905457, guid: 57a931b9e02fa8d428a92f24910367a4, type: 3}
       propertyPath: reloadSpeed
@@ -12532,7 +12532,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2776333528265854994, guid: 317437082b94dc04194b22cf4db2fc4c, type: 3}
       propertyPath: sideProjectiles
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2776333528265854994, guid: 317437082b94dc04194b22cf4db2fc4c, type: 3}
       propertyPath: damageMultiplier
