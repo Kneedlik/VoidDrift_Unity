@@ -21,6 +21,7 @@ public class HighLightButton : MonoBehaviour, IPointerEnterHandler, IPointerExit
     {
         // StartCoroutine(wait());
         image.color = highLightColor;
+        //Debug.Log("Enter");
 
     }
 
@@ -28,7 +29,9 @@ public class HighLightButton : MonoBehaviour, IPointerEnterHandler, IPointerExit
     {
         StartCoroutine(wait());
         image.color = baseColor;
+        //Debug.Log("Exit");
     }
+
 
     IEnumerator wait()
     {

@@ -14,7 +14,7 @@ public class HomingProjectile : BulletScript
     [SerializeField] bool Trigger = false;
     [SerializeField] GameObject ExploPrefab;
 
-    [SerializeField] float Delay = 0;
+    public float Delay = 0;
     [SerializeField] float StopAfter;
     [SerializeField] float StartForceAfter;
     float TimeStamp;
@@ -183,18 +183,18 @@ public class HomingProjectile : BulletScript
 
                         if (collision.transform.tag == "Player")
                         {
+                            TargetFound = true;
                             if (damage > 0)
                             {
                                 collision.gameObject.GetComponent<plaerHealth>().TakeDamage(damage);
-                                TargetFound = true;
                             }
                         }else if(PlayerOnly == false)
                         {
                             Health health = collision.gameObject.GetComponent<Health>();
-                            if(health != null && damage > 0)
+                            TargetFound = true;
+                            if (health != null && damage > 0)
                             {
                                 health.TakeDamage(damage);
-                                TargetFound = true;
                             }
                         }
 
@@ -203,7 +203,7 @@ public class HomingProjectile : BulletScript
                             rb.velocity = Vector2.zero;
                             if (ExploPrefab != null)
                             {
-                                Instantiate(ExploPrefab, transform.position, Quaternion.identity);
+                                Instantiate(ExploPrefab, transform.position, Quaternion.Euler(0,0,0));
                             }
                             Destroy(gameObject);
                         }

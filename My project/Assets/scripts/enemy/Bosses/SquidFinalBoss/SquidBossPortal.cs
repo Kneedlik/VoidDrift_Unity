@@ -76,15 +76,15 @@ public class SquidBossPortal : MonoBehaviour
         {
             if (timeStamp <= 0 && finished == false)
             {
-                if (state == 0)
-                {
-
-                    GameObject T = Instantiate(EnemyPrefab, transform.position, Quaternion.Euler(0, 0, 0));
-                    KnedlikLib.lookAt2d(T.transform, Player.position, 0);
-                    timeStamp = CoolDown0;
-                }
-                else if (state == 1)
-                {
+                //if (state == 0)
+                //{
+                //
+                //    GameObject T = Instantiate(EnemyPrefab, transform.position, Quaternion.Euler(0, 0, 0));
+                //    KnedlikLib.lookAt2d(T.transform, Player.position, 0);
+                //    timeStamp = CoolDown0;
+               // }
+               // else if (state == 1)
+               // {
                     int Rand = Random.Range(0, 2);
                     float RandOffset = Random.Range(OffsetMin, OffsetMax);
 
@@ -98,7 +98,7 @@ public class SquidBossPortal : MonoBehaviour
                     KnedlikLib.lookAt2d(T.transform, Player.position, 270 + RandOffset);
                     //T.transform.rotation = Quaternion.Euler(0, 0, T.transform.rotation.eulerAngles.z + RandOffset);
                     //Debug.Log(T.transform.rotation.eulerAngles.z);
-                }
+               // }
 
 
                 if (KnedlikLib.IncreaseIndex(ref CurrentIndex, MaxAmount) == false)

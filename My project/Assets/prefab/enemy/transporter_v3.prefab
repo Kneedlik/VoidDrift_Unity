@@ -759,7 +759,6 @@ MonoBehaviour:
   self: {fileID: 4999713868905198019}
   healthBarGObject: {fileID: 2063351580206056791}
   healthBar: {fileID: 0}
-  damageMultiplier: 1
   armor: 0
   multiplier: 0
   ParticleExplosion: {fileID: 0}
@@ -767,7 +766,7 @@ MonoBehaviour:
   DeathDelay: 0
   DeathFunc:
   - {fileID: 0}
-  DeathFunc123: 
+  OnDamageFunc: []
   respawning: 0
   respawnTime: 0
   prefab: {fileID: 0}
@@ -789,8 +788,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waypoints: []
   nextWayPointDistance: 6
-  speed: 1000
+  speed: 150
+  MaxSpeed: 13
   rotationSpeed: 50
+  StopAtEnd: 0
 --- !u!114 &5066695120436718384
 MonoBehaviour:
   m_ObjectHideFlags: 0

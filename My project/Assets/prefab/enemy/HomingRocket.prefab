@@ -421,16 +421,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9741afc7616ffcc4599fbc0ee730efbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damagePlus: 0
+  damage: 0
+  destroyTime: 6
+  pierce: 0
+  Bounce: 0
+  knockBack: 0
+  impactEffect: {fileID: 0}
+  impactParticles: {fileID: 0}
+  MaxBounceDistance: 0
+  OnImpactGunOnly: 0
+  OnImpact: 0
+  OnCrit: 0
+  PostImpact: 0
+  IgnoreTargets: []
   UseForce: 0
   force: 130
   MaxSpeed: 25
-  rotSpeed: 50
-  damage: 0
-  destroyTime: 6
+  rotSpeed: 45
   Enemy: 1
+  PlayerOnly: 0
   Trigger: 0
   ExploPrefab: {fileID: 0}
   Delay: 0
+  StopAfter: 0
+  StartForceAfter: 0
 --- !u!114 &2028490265936436563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -467,14 +482,13 @@ MonoBehaviour:
   self: {fileID: 8202118121778315371}
   healthBarGObject: {fileID: 0}
   healthBar: {fileID: 0}
-  damageMultiplier: 1
   armor: 0
   multiplier: 0
   ParticleExplosion: {fileID: 0}
   DeathAnim: {fileID: 0}
   DeathDelay: 0
   DeathFunc: []
-  DeathFunc123: 
+  OnDamageFunc: []
   respawning: 0
   respawnTime: 0
   prefab: {fileID: 0}

@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xpValue: 30
-  PercentValue: 0.055
+  PercentValue: 0.085
 --- !u!58 &4362483652719170630
 CircleCollider2D:
   m_ObjectHideFlags: 0

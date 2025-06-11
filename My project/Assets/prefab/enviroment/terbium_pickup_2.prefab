@@ -59,5 +59,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: terbium_pickup_2
       objectReference: {fileID: 0}
+    - target: {fileID: 3167945899287109128, guid: 1358789ef88329847b659d0079619d61, type: 3}
+      propertyPath: PercentValue
+      value: 0.15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1358789ef88329847b659d0079619d61, type: 3}

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7210052492092875528}
   - component: {fileID: 7210052492092875529}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Trail (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,7 +150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7210052492162925077}
   - component: {fileID: 7210052492162925066}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Trail (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -289,7 +289,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7210052492166810274}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FirePoint8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -320,7 +320,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7210052492263086141}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FirePoint7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -351,7 +351,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7210052492335086678}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FirePoint3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -383,7 +383,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7210052492340564672}
   - component: {fileID: 7210052492340564673}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -493,7 +493,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7210052492496735226}
   - component: {fileID: 7210052492496735227}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -603,7 +603,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7210052492546829970}
   - component: {fileID: 7210052492546829971}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -713,7 +713,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7210052492593390855}
   - component: {fileID: 7210052492593390852}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -852,7 +852,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7210052492643315310}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FirePoint5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -883,7 +883,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7210052492738346273}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FirePoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -919,7 +919,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7210052492769868414}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FirePoint2A1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -951,7 +951,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7210052492816932742}
   - component: {fileID: 7210052492816932743}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1090,7 +1090,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7210052493079894878}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FirePoint6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1121,7 +1121,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7210052493148223796}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FirePoint1A3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1152,7 +1152,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7210052493356362739}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FirePoint2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1184,7 +1184,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7210052493522558831}
   - component: {fileID: 7210052493522558828}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Trail (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1323,7 +1323,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7210052493569503781}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FirePoint2A3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1354,7 +1354,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7210052493580352013}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FirePointsA2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1393,7 +1393,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7210052493717458854}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FirePoint1A1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1431,7 +1431,7 @@ GameObject:
   - component: {fileID: 7210052493719424686}
   - component: {fileID: 7210052493719424681}
   - component: {fileID: 7210052493719424687}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FusatFinalBos
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -1717,7 +1717,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7210052493783466825}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Lights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1753,7 +1753,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7210052493870480148}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Trails
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1790,7 +1790,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7210052493943688754}
   - component: {fileID: 7210052493943688755}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1929,7 +1929,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7210052494059353577}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FirePoint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1960,7 +1960,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7210052494095021632}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FirePoint4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1992,7 +1992,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7210052494144371771}
   - component: {fileID: 7210052494144371768}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2146,6 +2146,10 @@ PrefabInstance:
     - target: {fileID: 8804440373767233201, guid: b60a2b1aecaadf148a7bac8aeba6ddbb, type: 3}
       propertyPath: m_Name
       value: MapIconBoss
+      objectReference: {fileID: 0}
+    - target: {fileID: 8804440373767233201, guid: b60a2b1aecaadf148a7bac8aeba6ddbb, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b60a2b1aecaadf148a7bac8aeba6ddbb, type: 3}

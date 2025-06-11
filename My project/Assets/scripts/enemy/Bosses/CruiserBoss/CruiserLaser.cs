@@ -111,7 +111,7 @@ public class CruiserLaser : MonoBehaviour
             {
                 FireLine.SetPosition(0,firePoint.position);
                 Vector3 temp = (pos - firePoint.position).normalized;
-                FireLine.SetPosition(1,firePoint.position + temp * 100);
+                FireLine.SetPosition(1,firePoint.position + temp * 1000);
 
                 if (widthDone == false)
                 {

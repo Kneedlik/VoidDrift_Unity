@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1656882850208728090
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5058031728365608992, guid: 6898ec1221ad9b642a071852d6db9f1e, type: 3}
+      propertyPath: m_Name
+      value: Septrom_pickup_1 Variant Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058031728365608993, guid: 6898ec1221ad9b642a071852d6db9f1e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1154751128, guid: f611e2cbd4bb8f347b763d6de4cdc5ea, type: 3}
+    - target: {fileID: 5058031728365608993, guid: 6898ec1221ad9b642a071852d6db9f1e, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058031728365608993, guid: 6898ec1221ad9b642a071852d6db9f1e, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058031728365608993, guid: 6898ec1221ad9b642a071852d6db9f1e, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058031728365608993, guid: 6898ec1221ad9b642a071852d6db9f1e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 72a06099e3171d54d8e6be332c8ef810, type: 2}
+    - target: {fileID: 5058031728365608998, guid: 6898ec1221ad9b642a071852d6db9f1e, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058031728365608998, guid: 6898ec1221ad9b642a071852d6db9f1e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058031728365608998, guid: 6898ec1221ad9b642a071852d6db9f1e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058031728365608998, guid: 6898ec1221ad9b642a071852d6db9f1e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058031728365608998, guid: 6898ec1221ad9b642a071852d6db9f1e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058031728365608998, guid: 6898ec1221ad9b642a071852d6db9f1e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058031728365608998, guid: 6898ec1221ad9b642a071852d6db9f1e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058031728365608998, guid: 6898ec1221ad9b642a071852d6db9f1e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058031728365608998, guid: 6898ec1221ad9b642a071852d6db9f1e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058031728365608998, guid: 6898ec1221ad9b642a071852d6db9f1e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058031728365608998, guid: 6898ec1221ad9b642a071852d6db9f1e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8293846012254237108, guid: 6898ec1221ad9b642a071852d6db9f1e, type: 3}
+      propertyPath: m_Color.b
+      value: 0.17789984
+      objectReference: {fileID: 0}
+    - target: {fileID: 8293846012254237108, guid: 6898ec1221ad9b642a071852d6db9f1e, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8293846012254237108, guid: 6898ec1221ad9b642a071852d6db9f1e, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456353193547368471, guid: 6898ec1221ad9b642a071852d6db9f1e, type: 3}
+      propertyPath: xpValue
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456353193547368471, guid: 6898ec1221ad9b642a071852d6db9f1e, type: 3}
+      propertyPath: PercentValue
+      value: 0.2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6898ec1221ad9b642a071852d6db9f1e, type: 3}

@@ -3,31 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using System;
 
 public class PlayerMenuManager : MonoBehaviour
 {
     [SerializeField] PlayerInformation playerInformation;
-
-    [SerializeField] TMP_InputField WeapeonId;
-    [SerializeField] TMP_InputField DamageMultiplier;
-    [SerializeField] TMP_InputField AsMultiplier;
-    [SerializeField] TMP_InputField HealthBonus;
-    [SerializeField] TMP_InputField MsMultiplier;
-    [SerializeField] TMP_InputField XpMultiplier;
-    [SerializeField] TMP_InputField SizeMultiplier;
-    [SerializeField] TMP_InputField ReviveBonus;
-    [SerializeField] TMP_InputField ProjectileBonus;
-    [SerializeField] TMP_InputField SummonDamageMultiplier;
+    public List<WeapeonBox> weapeonBoxes = new List<WeapeonBox>();
 
     // Start is called before the first frame update
     void Start()
     {
+        DeselectAllWeapeons();
+        //LockAllWeapeons();
         LoadFromPlayerInfo();
     }
 
     public void LoadFromPlayerInfo()
     {
+        /*
         WeapeonId.text = playerInformation.WeapeonId.ToString();
         DamageMultiplier.text = playerInformation.DamageMultiplier.ToString();
         AsMultiplier.text = playerInformation.AsMultiplier.ToString();
@@ -38,10 +32,21 @@ public class PlayerMenuManager : MonoBehaviour
         ReviveBonus.text = playerInformation.ReviveBonus.ToString();
         ProjectileBonus.text = playerInformation.ProjectileBonus.ToString();
         SummonDamageMultiplier.text = playerInformation.SummonDamageMultiplier.ToString();
+        */
+
+        for (int i = 0; i < weapeonBoxes.Count; i++)
+        {
+            if (weapeonBoxes[i].WeapeonId == playerInformation.WeapeonId)
+            {
+                Debug.Log("111");
+                weapeonBoxes[i].SelectWeapeon();
+            }
+        }
     }
 
     public void SaveToPlayerInfo()
     {
+        /*
         if (WeapeonId.text != "")
         {
             playerInformation.WeapeonId = int.Parse(WeapeonId.text);
@@ -82,6 +87,12 @@ public class PlayerMenuManager : MonoBehaviour
         {
             playerInformation.SummonDamageMultiplier = float.Parse(SummonDamageMultiplier.text);
         }
+        */
+    }
+
+    public void SwitchWeapeon(int Id)
+    {
+        playerInformation.WeapeonId = Id;
     }
 
     public void AdvanceToLevelSelection()
@@ -90,9 +101,35 @@ public class PlayerMenuManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    public void DeselectAllWeapeons()
+    {
+        for (int i = 0;i < weapeonBoxes.Count;i++)
+        {
+            weapeonBoxes[i].DeSelectWeapeon();
+        }
+    }
+
+    public void LockAllWeapeons()
+    {
+        for (int i = 0; i < weapeonBoxes.Count; i++)
+        {
+            weapeonBoxes[i].Lock();
+        }
+    }
+
     public void ExitToStartMenu()
     {
         SaveToPlayerInfo();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
+
+    public void EnterShop()
+    {
+        SceneManager.LoadScene(6);
+    }
+
+    public void EnterAchievments()
+    {
+        SceneManager.LoadScene(7);
     }
 }

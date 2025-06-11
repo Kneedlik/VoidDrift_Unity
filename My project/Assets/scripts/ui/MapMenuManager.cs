@@ -7,7 +7,13 @@ using UnityEngine.SceneManagement;
 public class MapMenuManager : MonoBehaviour
 {
     [SerializeField] TMP_InputField inputField;
-    // Start is called before the first frame update
+    public List<LevelSelectionBox> LevelBoxes = new List<LevelSelectionBox>();
+    public int SelectedLevel = 0;
+
+    private void Start()
+    {
+        SelectedLevel = 0;
+    }
 
     public void StartLevel()
     {
@@ -16,7 +22,7 @@ public class MapMenuManager : MonoBehaviour
             return;
         }
 
-        int LevelId = int.Parse(inputField.text);    
+        int LevelId = SelectedLevel;
         if(LevelId == 1)
         {
             SceneManager.LoadScene(3);
@@ -34,6 +40,15 @@ public class MapMenuManager : MonoBehaviour
     public void ExitToPlayerMenu()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
+
+    public void DeselectAll()
+    {
+        for(int i = 0; i < LevelBoxes.Count; i++)
+        {
+            SelectedLevel = 0;
+            LevelBoxes[i].DeselectLevel();
+        }
     }
 
 }

@@ -69,7 +69,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3167945899287109128, guid: 1358789ef88329847b659d0079619d61, type: 3}
       propertyPath: PercentValue
-      value: 0.055
+      value: 0.085
       objectReference: {fileID: 0}
     - target: {fileID: 6596242159184170602, guid: 1358789ef88329847b659d0079619d61, type: 3}
       propertyPath: m_LightCookieSprite

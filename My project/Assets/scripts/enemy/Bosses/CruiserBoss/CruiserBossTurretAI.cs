@@ -45,8 +45,11 @@ public class CruiserBossTurretAI : MonoBehaviour
             timeStamp -= Time.deltaTime;
         }
 
-        if (Const.Active && Range.Colliding)
+
+        if (Range == null || Range.Colliding)
         {
+            //if (Const.Active)
+            //{
             if (KnedlikLib.InterceptionPoint(Player.position, FirePointCentre[0].position, PlayerRB.velocity, Const.BulletForce, out var direction1))
             {
                 float angle = Mathf.Atan2(direction1.y, direction1.x) * Mathf.Rad2Deg - 90;
@@ -77,48 +80,53 @@ public class CruiserBossTurretAI : MonoBehaviour
                 desiredRot2 = angle;
             }
 
-            if(timeStamp <= 0)
+            if (Const.Active)
             {
-                if(Index == 0 || Index == 2)
+                if (timeStamp <= 0)
                 {
-                    if(Turret1.transform.rotation == Q1)
+                    if (Index == 0 || Index == 2)
                     {
-                        float Rand = Random.Range(0.1f, 1.2f);
-                        Invoke("Fire", Rand);
-                        if (Index == 3)
+                        if (Turret1.transform.rotation == Q1)
                         {
-                            timeStamp = Const.ReloadTime;
-                        }
-                        else
-                        {
-                            timeStamp = Const.Delay;
+                            float Rand = Random.Range(0.1f, 1.2f);
+                            Invoke("Fire", Rand);
+                            if (Index == 3)
+                            {
+                                timeStamp = Const.ReloadTime;
+                            }
+                            else
+                            {
+                                timeStamp = Const.Delay;
+                            }
                         }
                     }
-                }else
-                {
-                    if(Turret2.transform.rotation == Q2)
+                    else
                     {
-                        float Rand = Random.Range(0.1f, 0.6f);
-                        Invoke("Fire", Rand);
-                        if (Index == 3)
+                        if (Turret2.transform.rotation == Q2)
                         {
-                            timeStamp = ReloadTimeAdjusted;
-                            ReloadTimeAdjusted = Const.ReloadTime;
-                        }
-                        else
-                        {
-                            timeStamp = Const.Delay + Rand;
-                            ReloadTimeAdjusted -= Rand;
+                            float Rand = Random.Range(0.1f, 0.6f);
+                            Invoke("Fire", Rand);
+                            if (Index == 3)
+                            {
+                                timeStamp = ReloadTimeAdjusted;
+                                ReloadTimeAdjusted = Const.ReloadTime;
+                            }
+                            else
+                            {
+                                timeStamp = Const.Delay + Rand;
+                                ReloadTimeAdjusted -= Rand;
+                            }
                         }
                     }
                 }
             }
 
-        }
-        else
-        {
-            desiredRot1 = baseRot;
-            desiredRot2 = baseRot;
+            //}
+            //else
+            //{
+            //    desiredRot1 = baseRot;
+            //    desiredRot2 = baseRot;
+            //}
         }
     }
 

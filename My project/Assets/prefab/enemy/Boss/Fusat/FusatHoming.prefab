@@ -62,9 +62,9 @@ MonoBehaviour:
   PostImpact: 0
   IgnoreTargets: []
   UseForce: 0
-  force: 13.5
+  force: 20
   MaxSpeed: 0
-  rotSpeed: 50
+  rotSpeed: 75
   Enemy: 1
   PlayerOnly: 1
   Trigger: 1

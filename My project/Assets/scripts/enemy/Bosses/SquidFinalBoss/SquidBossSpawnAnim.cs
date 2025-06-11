@@ -24,9 +24,9 @@ public class SquidBossSpawnAnim : MonoBehaviour
         Flashing = true;
         TimeStamp = FlashDuration;
 
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        OldMaterial = spriteRenderer.material;
-        spriteRenderer.material = flashMaterial;
+        //spriteRenderer = GetComponent<SpriteRenderer>();
+        //OldMaterial = spriteRenderer.material;
+        //spriteRenderer.material = flashMaterial;
     }
 
     // Update is called once per frame
@@ -44,7 +44,7 @@ public class SquidBossSpawnAnim : MonoBehaviour
             }else
             {
                 Flashing = false;
-                spriteRenderer.material = OldMaterial;
+                //spriteRenderer.material = OldMaterial;
                 Instantiate(SpawnAnim,Point.transform.position,Quaternion.Euler(0,0,0));
                 TimeStamp = StartDelay;
             }

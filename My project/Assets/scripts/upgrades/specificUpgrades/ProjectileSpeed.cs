@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ProjectileSpeed : upgrade
 {
-  public  float ForceAmount;
-  public  int ASamount;
+    public  float ForceAmount;
+    public  int ASamount;
 
     void Start()
     {

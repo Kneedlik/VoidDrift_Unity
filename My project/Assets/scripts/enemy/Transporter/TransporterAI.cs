@@ -26,24 +26,29 @@ public class TransporterAI : MonoBehaviour
         {
             for (int i = 0; i < Jets.Count; i++)
             {
-                if (Jets[i].activeInHierarchy == false)
+                if (Jets[i] != null)
                 {
-                    imperial_jet_ai AI = Jets[i].GetComponent<imperial_jet_ai>();
-                    AI.SetAlert(false);
-                    AI.SetPatrol(true);
+                    if (Jets[i].activeInHierarchy == false)
+                    {
+                        imperial_jet_ai AI = Jets[i].GetComponent<imperial_jet_ai>();
+                        AI.SetAlert(false);
+                        AI.SetPatrol(true);
 
-                    Jets[i].SetActive(true);
-                    Jets[i].transform.position = Points[i].transform.position;
+                        Jets[i].SetActive(true);
+                        Jets[i].transform.position = Points[i].transform.position;
+                    }
                 }
             }
         }else
         {
-
             for (int i = 0; i < Jets.Count; i++)
             {
-                if (Jets[i].activeInHierarchy)
+                if (Jets[i] != null)
                 {
-                    Jets[i].SetActive(false);
+                    if (Jets[i].activeInHierarchy)
+                    {
+                        Jets[i].SetActive(false);
+                    }
                 }
             }
         }

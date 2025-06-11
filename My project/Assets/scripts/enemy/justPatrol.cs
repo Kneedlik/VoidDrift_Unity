@@ -9,10 +9,14 @@ public class justPatrol : MonoBehaviour
     public float nextWayPointDistance;
     Rigidbody2D rb;
     public float speed;
+    public float MaxSpeed;
     public float rotationSpeed;
+    public bool StopAtEnd;
+    bool Stop;
 
     protected void Start()
     {
+        Stop = false;
         wayPointIndex = 0;
         rb = GetComponent<Rigidbody2D>();
     }
@@ -21,7 +25,10 @@ public class justPatrol : MonoBehaviour
 
     protected void FixedUpdate()
     {
-        rb.AddForce(transform.up * speed * Time.deltaTime,ForceMode2D.Force);
+        if (Stop == false)
+        {
+            rb.AddForce(transform.up * speed, ForceMode2D.Force);
+        }
         //lookAtRB( new Vector2(waypoints[wayPointIndex].position.x, waypoints[wayPointIndex].position.y));
         lookAt(waypoints[wayPointIndex].position);
 
@@ -30,6 +37,8 @@ public class justPatrol : MonoBehaviour
         {
             IncreaseIndex();
         }
+
+        KnedlikLib.SetMaxSpeed(MaxSpeed,rb);
     }
 
     protected void IncreaseIndex()
@@ -38,6 +47,10 @@ public class justPatrol : MonoBehaviour
         if (wayPointIndex >= waypoints.Length)
         {
             wayPointIndex = 0;
+            if (StopAtEnd)
+            {
+                Stop = true;
+            }
         }
     }
 

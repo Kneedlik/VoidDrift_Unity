@@ -1217,13 +1217,21 @@ MonoBehaviour:
   damageN: {fileID: 8636022699047134357, guid: 971665a441a2ea448a247928736ad030, type: 3}
   self: {fileID: 3212882383903087358}
   healthBarGObject: {fileID: 8455087822082879082}
-  damageMultiplier: 1
+  healthBar: {fileID: 0}
   armor: 0
   multiplier: 0
   ParticleExplosion: {fileID: 0}
   DeathAnim: {fileID: 0}
+  DeathDelay: 0
+  DeathFunc: []
+  OnDamageFunc: []
+  respawning: 0
+  respawnTime: 0
+  prefab: {fileID: 0}
   randOffset: 30
   levelScaling: 1
+  Boss: 0
+  AlertOnHit: 0
 --- !u!114 &6287962146219003824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1241,8 +1249,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   nextWayPointDistance: 10
-  speed: 7500
+  speed: 250
+  MaxSpeed: 13
   rotationSpeed: 10
+  StopAtEnd: 0
 --- !u!114 &3433003614950555661
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -201,7 +201,7 @@ public class FusatAI : MonoBehaviour
     {
         yield return new WaitForSeconds(ChargeDelayA2);
         Rigidbody2D rb = Instantiate(ProjectilePrefabA2,Line.GetPosition(0),Quaternion.Euler(0,0,0)).GetComponent<Rigidbody2D>();
-        KnedlikLib.lookAt2d(rb.transform, Line.GetPosition(1), 0);
+        KnedlikLib.lookAt2d(rb.transform, Line.GetPosition(1), -90);
 
         Vector3 dir = Line.GetPosition(1) - Line.GetPosition(0);
         rb.velocity = dir.normalized * ProjectileForceA2;

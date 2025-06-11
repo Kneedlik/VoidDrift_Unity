@@ -14,8 +14,8 @@ public class foddeBullet : MonoBehaviour
 
     private void Start()
     {
-        sr = this.GetComponent<SpriteRenderer>();
-        rb = this.GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

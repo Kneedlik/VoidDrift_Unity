@@ -139,7 +139,7 @@ public class CruiserBossAI : BaseAI
                 Laser.fireMode = 1;
                 Missles.FireMode = 1;
                 Missles.Active = true;
-                Laser.StartCooling();
+                //Laser.StartCooling();
                 Laser.Active = true;
                 TurretManager.Active = true;
 

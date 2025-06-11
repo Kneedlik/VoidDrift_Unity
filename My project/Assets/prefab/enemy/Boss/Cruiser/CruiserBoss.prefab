@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 2451775984370913714}
   - component: {fileID: 2451775984370913715}
   - component: {fileID: 2451775984370913708}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TurretConeLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1297,7 +1297,7 @@ GameObject:
   - component: {fileID: 2451775985476102416}
   - component: {fileID: 2451775985476102423}
   - component: {fileID: 2451775985476102422}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TurretConeRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2039,7 +2039,7 @@ GameObject:
   - component: {fileID: 2451775985993093629}
   - component: {fileID: 2451775985993093630}
   - component: {fileID: 2451775985993093624}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: CruiserBoss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -2225,6 +2225,7 @@ MonoBehaviour:
   - {fileID: 0}
   speed: 450
   maxSpeed: 4.3
+  MaxPatrolSpeed: 4.4
   SpeedMultiplier: 1
   rotationSpeed: 5.5
   nextWayPointDistance: 20
@@ -2233,7 +2234,6 @@ MonoBehaviour:
   alertRadius: 65
   breakAwayRadius: 200
   PatrolSpeed: 375
-  MaxPatrolSpeed: 4.4
   ChaseSpeed: 550
   MaxChaseSpeed: 6
   nextOffsetDistance: 25
