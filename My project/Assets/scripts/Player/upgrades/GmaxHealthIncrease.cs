@@ -9,7 +9,7 @@ public class GmaxHealthIncrease : upgrade
 
     GameObject player;
     plaerHealth health;
-    public int HealthAmount = 15;
+    public float HealthAmount = 15;
     public int DamageAmount = 10;
 
 
@@ -20,18 +20,14 @@ public class GmaxHealthIncrease : upgrade
         setColor();
     }
 
-  public  void increaseHP()
-    {
-        health.setMaxHP(health.maxHealth + HealthAmount);
-        health.increaseHP(health.health + HealthAmount);
-    }
-
     public override void function()
     {
         player = GameObject.FindWithTag("Player");
         health = player.GetComponent<plaerHealth>();
-        health.setMaxHP(health.maxHealth + HealthAmount);
-        health.increaseHP(health.health + HealthAmount);
+        float HealthTemp = health.baseHealth * HealthAmount;
+        int TotalHealth = health.maxHealth + (int)HealthTemp;
+        health.setMaxHP(TotalHealth);
+        health.increaseHP(TotalHealth);
         PlayerStats.sharedInstance.increaseDMG(DamageAmount);
         level++;
     }

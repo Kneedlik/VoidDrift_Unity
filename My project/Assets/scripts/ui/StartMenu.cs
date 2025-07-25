@@ -29,6 +29,9 @@ public class StartMenu : MonoBehaviour
 
     [SerializeField] List<GameObject> StartButtons = new List<GameObject>();
 
+    [SerializeField] ProgressionState Progress;
+    [SerializeField] PlayerPrefs Prefs;
+
     private void Start()
     {
         SettingsValues TempValues = SaveManager.LoadSettings();
@@ -58,8 +61,36 @@ public class StartMenu : MonoBehaviour
             }
         }
 
+        //SaveManager.SavePlayerProgress(Progress);
+        ProgressionState TempP = SaveManager.LoadPlayerProgress();
+        PlayerPrefs TempPref = SaveManager.LoadPlayerPrefs();
+
+        if (TempPref != null)
+        {
+            Prefs = TempPref;
+        }
+
+        if(TempP != null)
+        {
+            Progress = TempP;
+        }
+        
+        if(Progress == null)
+        {
+            Progress = new ProgressionState();
+        }
+
+        if(Prefs == null)
+        {
+            Prefs = new PlayerPrefs();
+        }
+
+        //Debug.Log(Progress.UnlockedWeapeons.Count);
+
         Vector2 cursorHotSpot = new Vector2(BaseCursor.width / 2, BaseCursor.height / 2);
         Cursor.SetCursor(BaseCursor, cursorHotSpot, CursorMode.Auto);
+
+        AudioManager.instance.PlayMusicId(1);
     }
 
     private void Update()
@@ -75,6 +106,10 @@ public class StartMenu : MonoBehaviour
 
     public void startGame()
     {
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlayId(10);
+        }
         StartPanel.SetActive(true);
         Volume.profile.TryGet<DepthOfField>(out DepthOfField depthOfField);
         depthOfField.active = true;
@@ -119,11 +154,19 @@ public class StartMenu : MonoBehaviour
     public void ShutDownGame()
     {
         Debug.Log("Exiting");
+
+        SaveManager.SavePlayerProgress(Progress);
+        SaveManager.SavePlayerPrefs(Prefs);
+
         Application.Quit();
     }
 
     public void OpenSettings()
     {
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlayId(10);
+        }
         SettingsButton.color = new Color32(255, 0, 33,255);
         StartMenuObject.SetActive(false);
         Settings.SetActive(true);
@@ -131,14 +174,23 @@ public class StartMenu : MonoBehaviour
 
     public void FullScreenChange(bool isFullScreen)
     {
-       Values.IsFullScreen = isFullScreen;
-       Screen.fullScreen = isFullScreen;
-       Debug.Log("FullScreen");
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlayId(10);
+        }
+        Debug.Log(isFullScreen);
+        Values.IsFullScreen = isFullScreen;
+        Screen.fullScreen = isFullScreen;
+        //Debug.Log("FullScreen");
     }
 
     public void VSyncChange(bool isOn)
     {
-        if(isOn)
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlayId(10);
+        }
+        if (isOn)
         {
             Values.VSync = 1;
             QualitySettings.vSyncCount = 1;
@@ -148,12 +200,17 @@ public class StartMenu : MonoBehaviour
             QualitySettings.vSyncCount = 0;
         }
        
-       Debug.Log("Vsync");
+        Debug.Log("Vsync");
     }
 
     public void SetVolume()
     {
-        switch(Values.MasterVolume)
+        if (AudioManager.instance != null) 
+        {
+            AudioManager.instance.PlayId(10);
+        }
+        
+        switch (Values.MasterVolume)
         {
             case 1f:
                 Values.MasterVolume = 0.0f;
@@ -186,6 +243,10 @@ public class StartMenu : MonoBehaviour
 
     public void CloseSettings()
     {
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlayId(10);
+        }
         SaveManager.SaveSettings(Values);
         BackButton.color = new Color32(255, 0, 33, 255);
         StartMenuObject.SetActive(true );

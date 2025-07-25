@@ -331,6 +331,12 @@ public class Health : MonoBehaviour
     public void Die()
     {
         Dead = true;
+
+        if(gameObject.layer == 12)
+        {
+            MasterManager.Instance.progressionState.MapEnemiesKilled++;
+        }else MasterManager.Instance.progressionState.EnemiesKilled++;
+
         if(Boss)
         {
             BossBarManager.Instance.RemoveBar(this);
@@ -389,9 +395,11 @@ public class Health : MonoBehaviour
 
         var go = Instantiate(damageN,pos, Quaternion.identity);
         go.transform.SetParent(DmMaster.transform);
-        go.GetComponent<TMP_Text>().text = Damage.ToString();
-        go.GetComponent<TMP_Text>().color = color;
-        go.GetComponent<TMP_Text>().fontSize = ScaleDamagePopUp(go.GetComponent<TMP_Text>().fontSize,Damage);
+
+        TMP_Text Text = go.GetComponent<TMP_Text>();
+        Text.text = Damage.ToString();
+        Text.color = color;
+        Text.fontSize = ScaleDamagePopUp(go.GetComponent<TMP_Text>().fontSize,Damage);
     }
 
     public float ScaleDamagePopUp(float FontSize,int damage)

@@ -11,6 +11,7 @@ public class ShopManager : MonoBehaviour
     public PlayerInformation PlayerInfo;
     public static ShopManager Instance;
     public List<UpgradeBox> upgradeBoxes = new List<UpgradeBox>();
+    public GoldCounter goldCounter;
 
     //Window
     public Image WindowIcon;
@@ -25,7 +26,7 @@ public class ShopManager : MonoBehaviour
     {
         HideWindow();
         Instance = this;
-        ResetAll();
+        //ResetAll();
     }
 
     public void ResetAll()

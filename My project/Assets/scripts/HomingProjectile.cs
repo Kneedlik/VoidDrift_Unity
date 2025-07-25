@@ -22,15 +22,20 @@ public class HomingProjectile : BulletScript
     float TimeStamp3;
     bool Locked;
     float ExploArea = 1;
+    public bool Retarget = true;
 
     void Start()
     {
-        if (Enemy)
+        if (target == null)
         {
-            target = GameObject.FindWithTag("Player").transform;
-        }else
-        {
-            KnedlikLib.FindClosestEnemy(transform,out target);
+            if (Enemy)
+            {
+                target = GameObject.FindWithTag("Player").transform;
+            }
+            else
+            {
+                KnedlikLib.FindClosestEnemy(transform, out target);
+            }
         }
         rb = GetComponent<Rigidbody2D>();
         TimeStamp = Delay;
@@ -75,7 +80,7 @@ public class HomingProjectile : BulletScript
             }
             else
             {
-                if (!Enemy)
+                if (!Enemy && Retarget)
                 {
                     KnedlikLib.FindClosestEnemy(transform, out target);
                 }
@@ -215,12 +220,28 @@ public class HomingProjectile : BulletScript
                     {
                         DealDamageToEmemy(collision,damage);
 
-                        if(ExploPrefab != null)
+                        if (pierce <= 0)
                         {
-                            Instantiate(ExploPrefab, transform.position, Quaternion.identity);
+                            if (ExploPrefab != null)
+                            {
+                                Instantiate(ExploPrefab, transform.position, Quaternion.identity);
+                            }
+
+                            Destroy(gameObject);
+                        }else
+                        {
+                            pierce = pierce - 1;
+                            List<Transform> Exclude = new List<Transform>();
+                            if (collision.transform != null)
+                            {
+                                Exclude.Add(collision.transform);
+                            }
+                            if (KnedlikLib.FindClosestEnemy(transform, out target, Exclude))
+                            {
+
+                            }
+                            else KnedlikLib.FindClosestEnemy(transform, out target);
                         }
-                        
-                        Destroy(gameObject);
                     }
                 }
             }

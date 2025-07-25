@@ -106,9 +106,11 @@ MonoBehaviour:
   baseFireRate: 1.45
   baseSize: 0
   id: 2
-  damageDelay: 1
+  damageDelay: 0.5
   healthScaling: 0.2
   TrueDamage: 0
+  Aoe: 0
+  ExploObj: {fileID: 2135849028734686859, guid: 680268a5ce6ce6742877c52872c2166d, type: 3}
   DamageEffect: {fileID: 4871896003306599722, guid: 5438017e1f8956f46a18f25db17d636e, type: 3}
 --- !u!114 &2985734444400667940
 MonoBehaviour:

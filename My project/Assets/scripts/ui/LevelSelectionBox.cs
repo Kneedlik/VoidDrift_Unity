@@ -44,6 +44,11 @@ public class LevelSelectionBox : MonoBehaviour
 
     public void SelectLevel()
     {
+        if(AudioManager.instance != null)
+        {
+            AudioManager.instance.PlayId(10);
+        }
+
         if(Unlocked)
         {
             MenuManager.DeselectAll();

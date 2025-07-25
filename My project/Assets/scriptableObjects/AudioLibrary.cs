@@ -8,4 +8,5 @@ using UnityEngine;
 public class AudioLibrary : ScriptableObject
 {
     public List<Sound> clipList;
+    public List<Sound> MusicList;
 }

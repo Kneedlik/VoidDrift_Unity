@@ -25,6 +25,6 @@ MonoBehaviour:
   spawnN: 3
   healthMultiplier: 1.5
   XpMultiplier: 1.25
-  Boss: {fileID: 0}
+  Boss: {fileID: 2170166530244150968, guid: d019573246b9bb146ae5fd0a95c2e690, type: 3}
   BossAmount: 1
   SpawnedBoss: 0

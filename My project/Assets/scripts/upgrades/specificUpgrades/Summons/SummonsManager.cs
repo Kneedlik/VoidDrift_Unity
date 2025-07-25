@@ -31,6 +31,12 @@ public class SummonsManager : MonoBehaviour
             }
         }
 
+        if(summonCount > 1 && PlayerStats.sharedInstance.OneSummonBuff)
+        {
+            PlayerStats.sharedInstance.OneSummonBuff = false;
+            PlayerStats.sharedInstance.SummonDamage -= 50;
+        }
+
         Summon1 = summon;
         return false;
     }

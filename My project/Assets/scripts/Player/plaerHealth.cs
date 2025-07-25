@@ -13,6 +13,10 @@ public class plaerHealth : MonoBehaviour
     public healthBar healthBar;
    // public healthBar healthBar2;
     public float timer;
+    public float Regen;
+    public float RegenBuffer;
+    public float RegenCooldown;
+    float RegenTimeStamp;
   
     bool healCheck;
 
@@ -53,7 +57,9 @@ public class plaerHealth : MonoBehaviour
 
     private void Start()
     {
-        baseHealth += MasterManager.Instance.PlayerInformation.HealthBonus;
+        Regen += MasterManager.Instance.PlayerInformation.HealthRegen;
+        float HealthTemp = baseHealth * MasterManager.Instance.PlayerInformation.HealthMultiplier;
+        baseHealth = (int)HealthTemp;
         health = baseHealth;
         maxHealth = baseHealth;
         healthBar.SetMaxHealth(baseHealth);
@@ -109,7 +115,11 @@ public class plaerHealth : MonoBehaviour
             Instantiate(DamageParticle, transform.position, Quaternion.Euler(Rand, 90, 0));
             Instantiate(shockWawe,transform.position,Quaternion.identity);
             timeStamp = iframes;
-            AudioManager.instance.PlayId(6);
+
+            if (AudioManager.instance != null)
+            {
+                AudioManager.instance.PlayId(6);
+            }
            
         }else if (shield.ready && invincible == false)
         {
@@ -152,6 +162,33 @@ public class plaerHealth : MonoBehaviour
             invincible = true;
         }else invincible = false;
 
+        if(RegenTimeStamp > 0)
+        {
+            RegenTimeStamp -= Time.deltaTime;
+        }
+
+        if(RegenTimeStamp <= 0)
+        {
+            if (health < maxHealth)
+            {
+                RegenTimeStamp = RegenCooldown;
+                RegenBuffer += Regen;
+                float HealthTemp = RegenBuffer % 1;
+                HealthTemp = RegenBuffer - HealthTemp;
+                for (int i = 0;i < HealthTemp;i++)
+                {
+                    if(health < maxHealth)
+                    {
+                        health++;
+                        RegenBuffer = RegenBuffer - 1;
+                        healthBar.SetHealth(health);
+                    }
+                }
+            }
+        }
+
+
+
     }
 
     IEnumerator Revive()
@@ -166,12 +203,12 @@ public class plaerHealth : MonoBehaviour
         gameObject.GetComponent<PlayerMovement>().enabled = true;
         Instantiate(reviveParticle, transform.position, Quaternion.Euler(-90, 0, 0));
 
-        if(statsOnRevive.instance.level >= 0)
-        {
+        //if(statsOnRevive.instance.level >= 0)
+        //{
             PlayerStats.sharedInstance.increaseDMG(statsOnRevive.instance.damage);
             PlayerStats.sharedInstance.IncreaseAS(statsOnRevive.instance.fireRate);
             PlayerStats.sharedInstance.increaseMaxHP(statsOnRevive.instance.health);
-        }
+        //}
 
         GameObject[] Enemies = GameObject.FindGameObjectsWithTag("Enemy");       
         Renderer[] renderers = new Renderer[Enemies.Length];
@@ -216,17 +253,6 @@ public class plaerHealth : MonoBehaviour
         deathLight.SetActive(false);
     }
 
-    void Regeneration()
-    {
-        if(health < maxHealth)
-        {
-            health++;
-            healthBar.SetHealth(health);
-            //healthBar2.SetHealth(health);
-        }
-
-    }
-
     public bool getHealCheck()
     {
         return healCheck;
@@ -235,6 +261,7 @@ public class plaerHealth : MonoBehaviour
     public void setMaxHP(int amount)
     {
         maxHealth = amount;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     public void increaseHP(int amount)
@@ -260,6 +287,7 @@ public class plaerHealth : MonoBehaviour
              //   }
            // }
         }
+        healthBar.SetHealth(health);
     }
 
    void flashHealthBar()

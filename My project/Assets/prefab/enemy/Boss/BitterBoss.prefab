@@ -95,3 +95,26 @@ MonoBehaviour:
   dropChancePool1:
   - 100
   pos: {fileID: 0}
+  Amount: 1
+  ForceMin: 0
+  ForceMax: 0
+--- !u!114 &8474187368913650654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307482368655637027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 599b41622875a6749b7d10012ed19326, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemPool1:
+  - {fileID: 24702221549039422, guid: eb3fb37a2fe25c546b90133982bcd09e, type: 3}
+  dropChancePool1:
+  - 100
+  pos: {fileID: 0}
+  Amount: 14
+  ForceMin: 5.5
+  ForceMax: 10

@@ -160,6 +160,7 @@ GameObject:
   - component: {fileID: 7058084724569712887}
   - component: {fileID: 1760770725151484375}
   - component: {fileID: -3330273430254611239}
+  - component: {fileID: 213420208838605275}
   m_Layer: 16
   m_Name: SquidMiniboss
   m_TagString: Enemy
@@ -403,6 +404,9 @@ MonoBehaviour:
   dropChancePool1:
   - 100
   pos: {fileID: 8528817912529033774}
+  Amount: 1
+  ForceMin: 0
+  ForceMax: 0
 --- !u!114 &1760770725151484375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -434,6 +438,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tenacity: 0
   Decrease: 0
+--- !u!114 &213420208838605275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8528817913425594224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 599b41622875a6749b7d10012ed19326, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemPool1:
+  - {fileID: 24702221549039422, guid: eb3fb37a2fe25c546b90133982bcd09e, type: 3}
+  dropChancePool1:
+  - 100
+  pos: {fileID: 0}
+  Amount: 30
+  ForceMin: 5.5
+  ForceMax: 15
 --- !u!1001 &6679784080671310150
 PrefabInstance:
   m_ObjectHideFlags: 0

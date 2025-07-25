@@ -47,6 +47,8 @@ public class LightningSystem : MonoBehaviour
 
         if (rand <= chance)
         {
+            int DamageTemp = KnedlikLib.ScaleStatusDamage(damage1);
+
             Health health = target.GetComponent<Health>();
            
             List<Transform> Enemies = new List<Transform>();
@@ -95,7 +97,7 @@ public class LightningSystem : MonoBehaviour
                         Begin = currentTarget.gameObject;
                         if (h != null)
                         {
-                            h.TakeDamage(damage1);
+                            h.TakeDamage(DamageTemp);
                         }
                     }
                 }
@@ -103,7 +105,7 @@ public class LightningSystem : MonoBehaviour
 
             if (health != null)
             {
-                health.TakeDamage(damage1);
+                health.TakeDamage(DamageTemp);
             }
         }
     }
@@ -173,6 +175,8 @@ public class LightningSystem : MonoBehaviour
 
         if (rand <= Cchance)
         {
+            int DamageTemp = KnedlikLib.ScaleStatusDamage(Cdamage);
+
             Health health = target.GetComponent<Health>();
             Instantiate(CimpactEffect, target.transform.position, Quaternion.Euler(90, 0, 0));
 
@@ -202,7 +206,7 @@ public class LightningSystem : MonoBehaviour
                         Cbegin = currentTarget.gameObject;
                         if (h != null)
                         {
-                            h.TakeDamage(damage1);
+                            h.TakeDamage(Cdamage);
                         }
                     }
                 }

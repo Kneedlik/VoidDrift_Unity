@@ -13,6 +13,7 @@ public enum type
     special,
     iron,
     currupted,
+    none,
 }
 
 //[CreateAssetMenu(fileName = "new upgrade", menuName = "upgrades")]
@@ -33,6 +34,7 @@ public abstract class upgrade: MonoBehaviour
     public bool CanBeDoubled;
     public List<SubserviantUpgrade> SubserviantUpgrades;
     public bool Final;
+    public int RuneId;
 
     public virtual void function()
     {

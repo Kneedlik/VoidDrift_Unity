@@ -10,6 +10,8 @@ public class BioHammer : Summon
     Transform target;
     public float healthScaling = 1;
     public float TrueDamage;
+    public bool Aoe;
+    public GameObject ExploObj;
 
     [SerializeField] GameObject DamageEffect;
 
@@ -34,9 +36,9 @@ public class BioHammer : Summon
                 timeStamp = fireRate;
                 StartCoroutine(Shoot(target));
             }else if(setRandomTarget(out target) == false)
-             {
+            {
                 target = null;
-             }
+            }
             
         }
     }
@@ -56,18 +58,23 @@ public class BioHammer : Summon
 
             if (health != null)
             {
-                if (eventManager.SummonOnImpact != null)
+                if (Aoe)
                 {
-                    eventManager.SummonOnImpact(target.gameObject, damage, ref plusDamage);
+                    GameObject Obj = Instantiate(ExploObj, target.position, Quaternion.Euler(0, 0, 0));
+                    explosion Explo = Obj.GetComponent<explosion>();
+                    Explo.damage = plusDamage;
+                    Explo.TrueDamage = TrueDamage;
                 }
+                else
+                {
+                    if (eventManager.SummonOnImpact != null)
+                    {
+                        eventManager.SummonOnImpact(target.gameObject, damage, ref plusDamage);
+                    }
 
-                //  if (eventManager.PostImpact != null)
-                // {
-                //     eventManager.PostImpact(target.gameObject, plusDamage, ref plusDamage);
-                // }
-
-                float Temp = health.maxHealth * TrueDamage;
-                health.TakeDamage(plusDamage + (int)Temp);
+                    float Temp = health.maxHealth * TrueDamage;
+                    health.TakeDamage(plusDamage + (int)Temp);
+                }
             }
         }
     }

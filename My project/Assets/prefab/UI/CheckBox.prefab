@@ -166,6 +166,7 @@ GameObject:
   - component: {fileID: 4587932272241024507}
   - component: {fileID: 4587932272241024484}
   - component: {fileID: 4587932272241024506}
+  - component: {fileID: 8035688756506901217}
   m_Layer: 5
   m_Name: CheckBox
   m_TagString: Untagged
@@ -327,3 +328,15 @@ MonoBehaviour:
   highLightColor:
     serializedVersion: 2
     rgba: 4294967295
+--- !u!114 &8035688756506901217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4587932272241024480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca35e5d1efaf7ab4ba4fe9fe5ba5a8e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

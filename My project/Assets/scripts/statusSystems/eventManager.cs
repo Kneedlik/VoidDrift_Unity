@@ -27,7 +27,7 @@ public class eventManager : MonoBehaviour
     public static OnKillEffect OnKill;
   //  public static OnDamageEffect OnDamage;
 
-    private void Start()
+    private void Awake()
     {
         //  eventManager.OnImpact += poisonSystem.sharedInstance.Poison;
         ClearAllEffects();
@@ -36,6 +36,7 @@ public class eventManager : MonoBehaviour
 
     public static void ClearAllEffects()
     {
+        //Debug.Log("Clear");
         OnImpact = null;
         SummonOnImpact = null;
         OnFire = null;

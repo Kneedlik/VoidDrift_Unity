@@ -62,7 +62,10 @@ public class TurretCannon : MonoBehaviour
 
     void shoot()
     {
-        AudioManager.instance.PlayId(8);
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlayId(8);
+        }
 
         GameObject bulet =  Instantiate(bulletPrefab, firePoint1.position, firePoint1.rotation);
         Rigidbody2D rb = bulet.GetComponent<Rigidbody2D>();

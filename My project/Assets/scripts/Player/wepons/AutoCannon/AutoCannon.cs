@@ -88,7 +88,11 @@ public class AutoCannon : weapeon
         {
             int pom = extraDamage;
 
-            AudioManager.instance.PlayName("Autocannon4");
+            if (AudioManager.instance != null)
+            {
+                AudioManager.instance.PlayName("Autocannon1");
+            }
+
             if(eventManager.OnFire != null)
             {
                 eventManager.OnFire(gameObject);

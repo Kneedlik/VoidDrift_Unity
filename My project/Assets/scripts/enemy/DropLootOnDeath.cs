@@ -7,11 +7,12 @@ public class DropLootOnDeath : MonoBehaviour
     public List<GameObject> itemPool1 = new List<GameObject>();
     public List<float> dropChancePool1 = new List<float>();
     [SerializeField] Transform pos;
-   
-    
-    float[] borders;
 
-    
+    public int Amount = 1;
+    public float ForceMin;
+    public float ForceMax;
+   
+    float[] borders;
 
  /*   private void OnDestroy()
     {
@@ -64,12 +65,47 @@ public class DropLootOnDeath : MonoBehaviour
         {
             if (randomNumber1 > borders[i] && randomNumber1 <= borders[i + 1])
             {
-                if(pos != null)
+                if(Amount < 1)
                 {
-                    Instantiate(itemPool1[i], pos.position, Quaternion.Euler(0,0,0));
+                    Amount = 1;
                 }
-                else Instantiate(itemPool1[i], transform.position, Quaternion.Euler(0,0,0));
+
+                for (int j = 0; j < Amount; j++)
+                {
+                    if (pos != null)
+                    {
+                        GameObject Temp = Instantiate(itemPool1[i], pos.position, Quaternion.Euler(0, 0, 0));
+                        if (ForceMax > 0)
+                        {
+                            Push(Temp);
+                        }
+
+                    }
+                    else
+                    {
+                        GameObject Temp = Instantiate(itemPool1[i], transform.position, Quaternion.Euler(0, 0, 0));
+                        if (ForceMax > 0)
+                        {
+                            Push(Temp);
+                        }
+                    }
+                }
             }
+        }
+    }
+
+    public void Push(GameObject Obj)
+    {
+        float Force = Random.Range(ForceMin,ForceMax);
+
+        float DirX = Random.Range(-1f, 1f);
+        float DirY = Random.Range(-1f, 1f);
+        Vector3 Dir = new Vector3(DirX, DirY,0);
+
+        Rigidbody2D rb = Obj.GetComponent<Rigidbody2D>();
+        if(rb != null)
+        {
+            rb.AddForce(Dir * Force, ForceMode2D.Impulse);
         }
     }
 

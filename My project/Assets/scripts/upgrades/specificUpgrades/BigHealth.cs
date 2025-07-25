@@ -5,7 +5,7 @@ using UnityEngine;
 public class BigHealth : upgrade
 {
     public static BigHealth Instance;
-    [SerializeField] int HealthAmount;
+    [SerializeField] float HealthAmount;
 
     // Start is called before the first frame update
     void Start()
@@ -19,8 +19,11 @@ public class BigHealth : upgrade
     {
         GameObject player = GameObject.FindWithTag("Player");
         plaerHealth health = player.GetComponent<plaerHealth>();
-        health.setMaxHP(health.maxHealth + HealthAmount);
-        health.increaseHP(health.health + HealthAmount);
+        float HealthTemp = health.baseHealth * HealthAmount;
+        int TotalHealth = health.maxHealth + (int)HealthTemp;
+
+        health.setMaxHP(TotalHealth);
+        health.increaseHP(TotalHealth);
         level++;
     }
 }

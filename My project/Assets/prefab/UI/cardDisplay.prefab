@@ -52,6 +52,7 @@ GameObject:
   - component: {fileID: 1447349267362357709}
   - component: {fileID: 1447349267362357706}
   - component: {fileID: 1447349267362357710}
+  - component: {fileID: 1663240355450905748}
   m_Layer: 5
   m_Name: cardDisplay
   m_TagString: Untagged
@@ -240,6 +241,18 @@ MonoBehaviour:
   SpriteShortFill: {fileID: 21300000, guid: 3bc3058d09608e44791eeb9a0c54b3d7, type: 3}
   SpriteLong: {fileID: 21300000, guid: 7e14e405fce08e446bc24775298e6ccd, type: 3}
   SpriteLongFill: {fileID: 21300000, guid: 2cd8e29bdb1073942b9d93ff4b20fa5b, type: 3}
+--- !u!114 &1663240355450905748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447349267362357704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca35e5d1efaf7ab4ba4fe9fe5ba5a8e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1447349267549215627
 GameObject:
   m_ObjectHideFlags: 0

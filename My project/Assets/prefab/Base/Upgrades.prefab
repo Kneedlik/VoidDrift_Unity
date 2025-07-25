@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 65
+  m_RootOrder: 63
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &94593566
 MonoBehaviour:
@@ -51,14 +51,566 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 0}
   name: Vitality
-  description: Max Health + 35
+  description: Max Health + 25%
   level: 0
   maxLevel: 0
   rarity: 55
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
-  HealthAmount: 35
+  RuneId: 0
+  HealthAmount: 0.25
+--- !u!1 &263518260
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 263518261}
+  - component: {fileID: 263518262}
+  m_Layer: 0
+  m_Name: NukeSummon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &263518261
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263518260}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7339895228260985913}
+  m_RootOrder: 65
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &263518262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263518260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d0115fd454ebc14fb73bc956ffee93c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 0
+  Type: 0
+  color:
+    serializedVersion: 2
+    rgba: 0
+  icon: {fileID: 0}
+  name: Bio Sword
+  description: Summon an artifact that periodicaly deals Damage in large area
+  level: 0
+  maxLevel: 5
+  rarity: 65
+  CanBeDoubled: 0
+  SubserviantUpgrades: []
+  Final: 0
+  RuneId: 0
+  DamageAmount1: 175
+  DamageAmount2: 175
+  DamageAmount3: 300
+  Summon: {fileID: 5784896279642537224, guid: d598c324c9528894d90123508f3c5597, type: 3}
+--- !u!1 &318889920
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 318889921}
+  - component: {fileID: 318889922}
+  m_Layer: 0
+  m_Name: TR_Summon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &318889921
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318889920}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7339895227748390268}
+  m_RootOrder: 36
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &318889922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318889920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aee5d76e8607d17498042485750feef6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 0
+  Type: 0
+  color:
+    serializedVersion: 2
+    rgba: 0
+  icon: {fileID: 0}
+  name: 
+  description: Periodically Summon 2 Drones
+  level: 0
+  maxLevel: 0
+  rarity: 100
+  CanBeDoubled: 0
+  SubserviantUpgrades: []
+  Final: 0
+  RuneId: 0
+  Amount: 0
+--- !u!1 &345113445
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 345113446}
+  - component: {fileID: 345113447}
+  m_Layer: 0
+  m_Name: TR_Haste
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &345113446
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 345113445}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7339895227748390268}
+  m_RootOrder: 40
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &345113447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 345113445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77d61574a3820b544981516a150786bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 0
+  Type: 0
+  color:
+    serializedVersion: 2
+    rgba: 0
+  icon: {fileID: 0}
+  name: 
+  description: Base Firerate + 25% Base projectile speed + 25%
+  level: 0
+  maxLevel: 0
+  rarity: 100
+  CanBeDoubled: 0
+  SubserviantUpgrades: []
+  Final: 0
+  RuneId: 0
+  AsAmount: 0.25
+  ProjectileSpeedAmount: 0.25
+  RotationAmount: 0.35
+--- !u!1 &410486411
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 410486412}
+  - component: {fileID: 410486413}
+  m_Layer: 0
+  m_Name: Regen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &410486412
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410486411}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7339895228260985913}
+  m_RootOrder: 64
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &410486413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410486411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e59f4582a7b77854b824ad5eaf330d0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 0
+  Type: 0
+  color:
+    serializedVersion: 2
+    rgba: 0
+  icon: {fileID: 21300000, guid: 810876e37429687448f9032413a01528, type: 3}
+  name: Revitalize
+  description: Regenerate + 0.5 Health per second
+  level: 0
+  maxLevel: 0
+  rarity: 60
+  CanBeDoubled: 1
+  SubserviantUpgrades: []
+  Final: 0
+  RuneId: 0
+  RegenAmount: 0.5
+--- !u!1 &579687380
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 579687381}
+  - component: {fileID: 579687382}
+  m_Layer: 0
+  m_Name: TR_DoubleProjectileFinal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &579687381
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579687380}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7339895227748390268}
+  m_RootOrder: 38
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &579687382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579687380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8623d505f841b4445a408da505d7b59f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 0
+  Type: 0
+  color:
+    serializedVersion: 2
+    rgba: 0
+  icon: {fileID: 0}
+  name: 
+  description: Double the amount of Projectiles fired
+  level: 0
+  maxLevel: 1
+  rarity: 500
+  CanBeDoubled: 0
+  SubserviantUpgrades:
+  - Upgrade: {fileID: 345113447}
+    LevelNeeded: 1
+  - Upgrade: {fileID: 2115649724}
+    LevelNeeded: 1
+  Final: 1
+  RuneId: 0
+--- !u!1 &658055729
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 658055730}
+  - component: {fileID: 658055731}
+  m_Layer: 0
+  m_Name: TR_Pierce
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &658055730
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658055729}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7339895227748390268}
+  m_RootOrder: 34
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &658055731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658055729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3353291d66721ba458e985a43dcb1c9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 0
+  Type: 0
+  color:
+    serializedVersion: 2
+    rgba: 0
+  icon: {fileID: 0}
+  name: 
+  description: Pierce + 1
+  level: 0
+  maxLevel: 0
+  rarity: 100
+  CanBeDoubled: 0
+  SubserviantUpgrades: []
+  Final: 0
+  RuneId: 0
+  PierceIncrease: 1
+--- !u!1 &783191554
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 783191555}
+  - component: {fileID: 783191556}
+  m_Layer: 0
+  m_Name: Damage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &783191555
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783191554}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4982611722782253300}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &783191556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783191554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 625df73098bfbf242a16327a3a9a54f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 0
+  Type: 0
+  color:
+    serializedVersion: 2
+    rgba: 0
+  icon: {fileID: 0}
+  name: 
+  description: 
+  level: 0
+  maxLevel: 0
+  rarity: 0
+  CanBeDoubled: 0
+  SubserviantUpgrades: []
+  Final: 0
+  RuneId: 12
+  amount: 25
+--- !u!1 &1121461834
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1121461835}
+  - component: {fileID: 1121461836}
+  m_Layer: 0
+  m_Name: TR_SummonFinal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1121461835
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121461834}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7339895227748390268}
+  m_RootOrder: 37
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1121461836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121461834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7366412aa63d89143a4189acd4159389, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 0
+  Type: 0
+  color:
+    serializedVersion: 2
+    rgba: 0
+  icon: {fileID: 0}
+  name: 
+  description: Instead of firing summon drones every shot
+  level: 0
+  maxLevel: 1
+  rarity: 500
+  CanBeDoubled: 0
+  SubserviantUpgrades:
+  - Upgrade: {fileID: 318889922}
+    LevelNeeded: 2
+  Final: 1
+  RuneId: 0
+  SummonAmount: 0
+--- !u!1 &1362470231
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1362470232}
+  - component: {fileID: 1362470233}
+  m_Layer: 0
+  m_Name: TR_Damage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1362470232
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362470231}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7339895227748390268}
+  m_RootOrder: 39
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1362470233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362470231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae836de3113aa25498a1a98e053eb5e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 0
+  Type: 0
+  color:
+    serializedVersion: 2
+    rgba: 0
+  icon: {fileID: 0}
+  name: 
+  description: Base Damage + 25% Base Area + 25%
+  level: 0
+  maxLevel: 0
+  rarity: 100
+  CanBeDoubled: 0
+  SubserviantUpgrades: []
+  Final: 0
+  RuneId: 0
+  DamageMultiplier: 0.25
+  AreaMultiplier: 0.25
 --- !u!1 &1528374069
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,7 +641,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 64
+  m_RootOrder: 62
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1528374071
 MonoBehaviour:
@@ -110,7 +662,7 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 0}
   name: Cosmic Anomaly
-  description: 'Damage + 5% Summon Damage + 4% Attack speed + 5%
+  description: 'Damage + 5% Summon Damage + 3% Attack speed + 5%
 
 '
   level: 0
@@ -119,9 +671,79 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   DamageAmount: 5
-  SummonDamageAmount: 4
+  SummonDamageAmount: 3
   AsAmount: 5
+--- !u!1 &1877139434
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1877139435}
+  - component: {fileID: 1877139436}
+  m_Layer: 0
+  m_Name: TR_PierceFinal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1877139435
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877139434}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7339895227748390268}
+  m_RootOrder: 35
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1877139436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877139434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e41cd860f761b34299b80f5e7a01847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 0
+  Type: 0
+  color:
+    serializedVersion: 2
+    rgba: 0
+  icon: {fileID: 0}
+  name: 
+  description: You now fire single lagre projectile Pierce + 20 Base projectile Speed
+    + 40% Base Damage + 50% Base Attack Speed - 50%
+  level: 0
+  maxLevel: 1
+  rarity: 500
+  CanBeDoubled: 0
+  SubserviantUpgrades:
+  - Upgrade: {fileID: 658055731}
+    LevelNeeded: 1
+  - Upgrade: {fileID: 1362470233}
+    LevelNeeded: 1
+  Final: 0
+  RuneId: 0
+  PierceAmount: 20
+  SpeedMultiplier: 0.4
+  RotationMultiplier: 0.6
+  DamageMultiplier: 0.5
+  ASPenalty: 0.5
 --- !u!1 &2041488069
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,6 +802,1132 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
+--- !u!1 &2115649722
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2115649723}
+  - component: {fileID: 2115649724}
+  m_Layer: 0
+  m_Name: TR_Projectiles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2115649723
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115649722}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7339895227748390268}
+  m_RootOrder: 41
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2115649724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115649722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8f2cafdac6836945a8235366c65bbe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 0
+  Type: 0
+  color:
+    serializedVersion: 2
+    rgba: 0
+  icon: {fileID: 0}
+  name: 
+  description: Projectile amount + 4
+  level: 0
+  maxLevel: 0
+  rarity: 100
+  CanBeDoubled: 0
+  SubserviantUpgrades: []
+  Final: 0
+  RuneId: 0
+  MultishotAmount: 4
+--- !u!1 &846759633893058509
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2816541328651066591}
+  - component: {fileID: 4234648766463497347}
+  - component: {fileID: 6481032067085818785}
+  m_Layer: 0
+  m_Name: Phoenix
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2816541328651066591
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846759633893058509}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4982611722782253300}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4234648766463497347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846759633893058509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55d442c452b801448a3d1fcd79b6ed93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 0
+  Type: 9
+  color:
+    serializedVersion: 2
+    rgba: 0
+  icon: {fileID: 0}
+  name: 
+  description: 
+  level: 0
+  maxLevel: 0
+  rarity: 0
+  CanBeDoubled: 0
+  SubserviantUpgrades: []
+  Final: 0
+  RuneId: 17
+  amount: 10
+  healthAmaount: 20
+  fireRateAmount: 10
+  health: 0
+  damage: 0
+  fireRate: 0
+--- !u!114 &6481032067085818785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846759633893058509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aba9d7f15969cb646a9a7201f2fc59f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 0
+  Type: 0
+  color:
+    serializedVersion: 2
+    rgba: 0
+  icon: {fileID: 0}
+  name: 
+  description: 
+  level: 0
+  maxLevel: 0
+  rarity: 0
+  CanBeDoubled: 0
+  SubserviantUpgrades: []
+  Final: 0
+  RuneId: 17
+  amount: 1
+--- !u!1 &1358947359411696875
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4982611722782253300}
+  - component: {fileID: 1561064883}
+  m_Layer: 0
+  m_Name: RuneUpgrades
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4982611722782253300
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358947359411696875}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2267586484832395566}
+  - {fileID: 7706812395981051474}
+  - {fileID: 4263085724453375067}
+  - {fileID: 6398487936461438877}
+  - {fileID: 372230604374424023}
+  - {fileID: 8599125158276695626}
+  - {fileID: 1825949719948950810}
+  - {fileID: 5030928457543447243}
+  - {fileID: 6370554849568518271}
+  - {fileID: 4570811168883290351}
+  - {fileID: 1711860983924182405}
+  - {fileID: 3146370061725169696}
+  - {fileID: 7213155189053364239}
+  - {fileID: 8815212403547851098}
+  - {fileID: 7787395596395574222}
+  - {fileID: 2565872528889516193}
+  - {fileID: 2816541328651066591}
+  - {fileID: 2632571453769160251}
+  - {fileID: 1959843605578623747}
+  - {fileID: 1690183429098313831}
+  - {fileID: 512841574130930929}
+  - {fileID: 626570443343341392}
+  - {fileID: 783191555}
+  m_Father: {fileID: 7339895228486298395}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1561064883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358947359411696875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4ea488e2d7e3b048adea101a1efc18d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  list: []
+  IncludeSpecial: 0
+  playerInformation: {fileID: 11400000, guid: 6fe1b5e96d7dd2f47a58d5bd1e7c2a5c, type: 2}
+--- !u!1 &1584004375198397950
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 626570443343341392}
+  - component: {fileID: 1078677478}
+  m_Layer: 0
+  m_Name: Lasers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &626570443343341392
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584004375198397950}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4982611722782253300}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1078677478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584004375198397950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c24de4f081e93494d8ba6403d2502293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 0
+  Type: 0
+  color:
+    serializedVersion: 2
+    rgba: 0
+  icon: {fileID: 0}
+  name: 
+  description: 
+  level: 0
+  maxLevel: 0
+  rarity: 0
+  CanBeDoubled: 0
+  SubserviantUpgrades: []
+  Final: 0
+  RuneId: 25
+--- !u!1 &1783150155457110377
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7787395596395574222}
+  - component: {fileID: 3449919531431593305}
+  m_Layer: 0
+  m_Name: OneSummon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7787395596395574222
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783150155457110377}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4982611722782253300}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3449919531431593305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783150155457110377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73b1f7b6090d65741a6fb19b3786d991, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 0
+  Type: 9
+  color:
+    serializedVersion: 2
+    rgba: 0
+  icon: {fileID: 0}
+  name: 
+  description: 
+  level: 0
+  maxLevel: 0
+  rarity: 0
+  CanBeDoubled: 0
+  SubserviantUpgrades: []
+  Final: 0
+  RuneId: 7
+  DamageIncrease: 50
+--- !u!1 &2582154475716224344
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7706812395981051474}
+  - component: {fileID: 3072601031505652129}
+  m_Layer: 0
+  m_Name: CritChance2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7706812395981051474
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2582154475716224344}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4982611722782253300}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3072601031505652129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2582154475716224344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00411d64abc3594408186fe8d4b27d42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 0
+  Type: 9
+  color:
+    serializedVersion: 2
+    rgba: 0
+  icon: {fileID: 0}
+  name: 
+  description: 
+  level: 0
+  maxLevel: 0
+  rarity: 0
+  CanBeDoubled: 0
+  SubserviantUpgrades: []
+  Final: 0
+  RuneId: 2
+  amount: 40
+--- !u!1 &2946798892437988335
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6398487936461438877}
+  - component: {fileID: 797038587144487691}
+  m_Layer: 0
+  m_Name: SummonDamage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6398487936461438877
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2946798892437988335}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4982611722782253300}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &797038587144487691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2946798892437988335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 288583fa9a22b0242842fedebeb89b79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 0
+  Type: 0
+  color:
+    serializedVersion: 2
+    rgba: 0
+  icon: {fileID: 0}
+  name: 
+  description: 
+  level: 0
+  maxLevel: 0
+  rarity: 0
+  CanBeDoubled: 0
+  SubserviantUpgrades: []
+  Final: 0
+  RuneId: 12
+  amount: 25
+--- !u!1 &3334547611325757710
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7213155189053364239}
+  - component: {fileID: 8828607696766025746}
+  m_Layer: 0
+  m_Name: HelathOrb
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7213155189053364239
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3334547611325757710}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4982611722782253300}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8828607696766025746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3334547611325757710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b17953fb858756e4dadf1cb181140cdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 0
+  Type: 9
+  color:
+    serializedVersion: 2
+    rgba: 0
+  icon: {fileID: 0}
+  name: 
+  description: 
+  level: 0
+  maxLevel: 0
+  rarity: 0
+  CanBeDoubled: 0
+  SubserviantUpgrades: []
+  Final: 0
+  RuneId: 15
+  Value: 0.5
+--- !u!1 &3721332175700542006
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2565872528889516193}
+  - component: {fileID: 3916801575505380204}
+  m_Layer: 0
+  m_Name: Omega
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2565872528889516193
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3721332175700542006}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4982611722782253300}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3916801575505380204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3721332175700542006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d23a859e4d2792c4ea36b465f5ce7cd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 0
+  Type: 9
+  color:
+    serializedVersion: 2
+    rgba: 0
+  icon: {fileID: 0}
+  name: 
+  description: 
+  level: 0
+  maxLevel: 0
+  rarity: 0
+  CanBeDoubled: 0
+  SubserviantUpgrades: []
+  Final: 0
+  RuneId: 16
+  amount: 20
+--- !u!1 &3929317402244461455
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4570811168883290351}
+  - component: {fileID: 3449919531431593307}
+  m_Layer: 0
+  m_Name: StatusDamage1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4570811168883290351
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3929317402244461455}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4982611722782253300}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3449919531431593307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3929317402244461455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a8303d0ca75ad94994d187ce4a04da2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 0
+  Type: 9
+  color:
+    serializedVersion: 2
+    rgba: 0
+  icon: {fileID: 0}
+  name: 
+  description: 
+  level: 0
+  maxLevel: 0
+  rarity: 0
+  CanBeDoubled: 0
+  SubserviantUpgrades: []
+  Final: 0
+  RuneId: 9
+  DamageAmount: 0.2
+--- !u!1 &4252448403594908241
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8599125158276695626}
+  - component: {fileID: 8819764744440102315}
+  m_Layer: 0
+  m_Name: TickRate
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8599125158276695626
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4252448403594908241}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4982611722782253300}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8819764744440102315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4252448403594908241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1a50ef26b330940bc357f01ecf3ce1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 0
+  Type: 9
+  color:
+    serializedVersion: 2
+    rgba: 0
+  icon: {fileID: 0}
+  name: 
+  description: 
+  level: 0
+  maxLevel: 0
+  rarity: 0
+  CanBeDoubled: 0
+  SubserviantUpgrades: []
+  Final: 0
+  RuneId: 11
+  amount: 0.2
+--- !u!1 &4974633334163540394
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 512841574130930929}
+  - component: {fileID: 418653517}
+  m_Layer: 0
+  m_Name: LethalTempo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &512841574130930929
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4974633334163540394}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4982611722782253300}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &418653517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4974633334163540394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20f04cb70f57ad9488c7e50ac4f6076e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 0
+  Type: 0
+  color:
+    serializedVersion: 2
+    rgba: 0
+  icon: {fileID: 0}
+  name: 
+  description: 
+  level: 0
+  maxLevel: 0
+  rarity: 0
+  CanBeDoubled: 0
+  SubserviantUpgrades: []
+  Final: 0
+  RuneId: 21
+--- !u!1 &5211305444938353874
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1959843605578623747}
+  - component: {fileID: 1931964586}
+  m_Layer: 0
+  m_Name: BlackHoles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1959843605578623747
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5211305444938353874}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4982611722782253300}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1931964586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5211305444938353874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21f4683c582123748a3eb64cc7c5e0af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 0
+  Type: 0
+  color:
+    serializedVersion: 2
+    rgba: 0
+  icon: {fileID: 0}
+  name: 
+  description: 
+  level: 0
+  maxLevel: 0
+  rarity: 0
+  CanBeDoubled: 0
+  SubserviantUpgrades: []
+  Final: 0
+  RuneId: 24
+--- !u!1 &5237853100307050204
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8815212403547851098}
+  - component: {fileID: 3707892553919342573}
+  m_Layer: 0
+  m_Name: ExtraDamage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8815212403547851098
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5237853100307050204}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4982611722782253300}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3707892553919342573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5237853100307050204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5695cca176d34ae418541d0abc5204cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 0
+  Type: 9
+  color:
+    serializedVersion: 2
+    rgba: 0
+  icon: {fileID: 0}
+  name: 
+  description: 
+  level: 0
+  maxLevel: 0
+  rarity: 0
+  CanBeDoubled: 0
+  SubserviantUpgrades: []
+  Final: 0
+  RuneId: 14
+  amount: 10
+--- !u!1 &5269695208526798266
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1711860983924182405}
+  - component: {fileID: 3449919531431593306}
+  m_Layer: 0
+  m_Name: StatusDamage2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1711860983924182405
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5269695208526798266}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4982611722782253300}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3449919531431593306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5269695208526798266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a8303d0ca75ad94994d187ce4a04da2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 0
+  Type: 9
+  color:
+    serializedVersion: 2
+    rgba: 0
+  icon: {fileID: 0}
+  name: 
+  description: 
+  level: 0
+  maxLevel: 0
+  rarity: 0
+  CanBeDoubled: 0
+  SubserviantUpgrades: []
+  Final: 0
+  RuneId: 10
+  DamageAmount: 0.3
+--- !u!1 &5860383352599871820
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5030928457543447243}
+  - component: {fileID: 2107220644570036560}
+  m_Layer: 0
+  m_Name: CritDamage1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5030928457543447243
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5860383352599871820}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4982611722782253300}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2107220644570036560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5860383352599871820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a065ef9981ad6074e86e01ae9a255e4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 0
+  Type: 9
+  color:
+    serializedVersion: 2
+    rgba: 0
+  icon: {fileID: 0}
+  name: 
+  description: 
+  level: 0
+  maxLevel: 0
+  rarity: 0
+  CanBeDoubled: 0
+  SubserviantUpgrades: []
+  Final: 0
+  RuneId: 3
+  amount: 30
+--- !u!1 &6775880731264444767
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3146370061725169696}
+  - component: {fileID: 1260126517}
+  m_Layer: 0
+  m_Name: DevineShield
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3146370061725169696
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6775880731264444767}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4982611722782253300}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1260126517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6775880731264444767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61ed546429dbaa24c94e25a95e17fecd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 0
+  Type: 0
+  color:
+    serializedVersion: 2
+    rgba: 0
+  icon: {fileID: 0}
+  name: 
+  description: 
+  level: 0
+  maxLevel: 0
+  rarity: 0
+  CanBeDoubled: 0
+  SubserviantUpgrades: []
+  Final: 0
+  RuneId: 5
+  devineShield: {fileID: 0}
+  amount: 0
+--- !u!1 &6872563728630973283
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1825949719948950810}
+  - component: {fileID: 7498816300982938449}
+  m_Layer: 0
+  m_Name: KillSpeed
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1825949719948950810
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6872563728630973283}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4982611722782253300}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7498816300982938449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6872563728630973283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c30327370527b79438e15660e94ca6ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 0
+  Type: 9
+  color:
+    serializedVersion: 2
+    rgba: 0
+  icon: {fileID: 0}
+  name: 
+  description: 
+  level: 0
+  maxLevel: 0
+  rarity: 0
+  CanBeDoubled: 0
+  SubserviantUpgrades: []
+  Final: 0
+  RuneId: 13
+  increaseAmount: 40
+  totalAmount: 0
+  durationAmount: 0.25
+  totalDuration: 0.5
 --- !u!1 &7339895226768260069
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,6 +1986,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   amount: 40
 --- !u!1 &7339895226812186411
 GameObject:
@@ -290,15 +2039,16 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: c4c5638bb26d9874498ed39ded9dfe86, type: 3}
   name: Aplha
-  description: Damage + 10%
+  description: Damage + 5%
   level: 0
   maxLevel: 1
   rarity: 20
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
-  amount: 10
-  rarityIncrease: 0
+  RuneId: 0
+  amount: 5
+  rarityIncrease: 5
 --- !u!1 &7339895226829830620
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,6 +2107,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   Amount: 2
 --- !u!1 &7339895226870565086
 GameObject:
@@ -416,6 +2167,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   summon: {fileID: 3089789153198010307, guid: ddbf0923ed9243146b743f8c440aff26, type: 3}
 --- !u!1 &7339895226908667242
 GameObject:
@@ -475,6 +2227,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   amount: 14
 --- !u!1 &7339895226914913089
 GameObject:
@@ -534,6 +2287,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   amount: 75
   amount2: 60
 --- !u!1 &7339895226923330993
@@ -566,7 +2320,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 58
+  m_RootOrder: 56
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7339895226923330995
 MonoBehaviour:
@@ -594,6 +2348,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   PoisonTrailObject: {fileID: 5240060747186604111, guid: 43020e44820bbfe46a0f61eced37587b, type: 3}
 --- !u!1 &7339895226972757983
 GameObject:
@@ -653,6 +2408,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   amount: 20
 --- !u!1 &7339895227027590879
 GameObject:
@@ -714,6 +2470,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   DamageMultiplier: 0.3
   ForceMultiplier: 0.2
 --- !u!1 &7339895227060023709
@@ -777,6 +2534,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   drillSystem: {fileID: 0}
 --- !u!1 &7339895227067405547
 GameObject:
@@ -808,7 +2566,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 59
+  m_RootOrder: 57
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7339895227067405557
 MonoBehaviour:
@@ -836,6 +2594,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   amount: 3
 --- !u!1 &7339895227069592265
 GameObject:
@@ -888,15 +2647,16 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: ae322a5c0ccef7149943603feadb164b, type: 3}
   name: Gamma
-  description: Attack speed + 10%
+  description: Attack speed + 7.5%
   level: 0
   maxLevel: 1
   rarity: 20
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
-  amount: 10
-  rarityIncrease: 0
+  RuneId: 0
+  amount: 8
+  rarityIncrease: 5
 --- !u!1 &7339895227153614168
 GameObject:
   m_ObjectHideFlags: 0
@@ -955,6 +2715,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   SpeedMultiplier: 0.3
   ImpactDamageAmount: 5
   ImpactDamagePlus: 8
@@ -1017,6 +2778,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
 --- !u!1 &7339895227244443429
 GameObject:
   m_ObjectHideFlags: 0
@@ -1068,14 +2830,15 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: e0f1347d810077449b22d38838856f9a, type: 3}
   name: Point blank
-  description: Crit damage + 25%
+  description: Crit damage + 17.5%
   level: 0
   maxLevel: 0
   rarity: 60
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
-  amount: 0.25
+  RuneId: 0
+  amount: 0.175
 --- !u!1 &7339895227246496312
 GameObject:
   m_ObjectHideFlags: 0
@@ -1106,7 +2869,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 32
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7339895227246496314
 MonoBehaviour:
@@ -1134,6 +2897,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   summon: {fileID: 618941534808215217, guid: 780597a595ed91146a7bb6c02ea42bb5, type: 3}
 --- !u!1 &7339895227249733506
 GameObject:
@@ -1165,7 +2929,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 45
+  m_RootOrder: 43
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7339895227249733516
 MonoBehaviour:
@@ -1194,6 +2958,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
 --- !u!1 &7339895227250428468
 GameObject:
   m_ObjectHideFlags: 0
@@ -1224,7 +2989,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 48
+  m_RootOrder: 46
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7339895227250428470
 MonoBehaviour:
@@ -1252,6 +3017,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
 --- !u!1 &7339895227264869711
 GameObject:
   m_ObjectHideFlags: 0
@@ -1282,7 +3048,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 60
+  m_RootOrder: 58
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7339895227264869705
 MonoBehaviour:
@@ -1310,6 +3076,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
 --- !u!1 &7339895227300238475
 GameObject:
   m_ObjectHideFlags: 0
@@ -1372,70 +3139,9 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   Amount: 1
   DamageMultiplier: 0.15
---- !u!1 &7339895227307598331
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7339895227307598330}
-  - component: {fileID: 7339895227307598277}
-  m_Layer: 0
-  m_Name: Thorns
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7339895227307598330
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7339895227307598331}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 36
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7339895227307598277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7339895227307598331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59ddd386f2bf0144c81433289af36dba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Id: 37
-  Type: 0
-  color:
-    serializedVersion: 2
-    rgba: 0
-  icon: {fileID: 21300000, guid: e0f828e88ea272444b15a5223aab3f8d, type: 3}
-  name: Reactive armor
-  description: Thorns + 15
-  level: 0
-  maxLevel: 0
-  rarity: 60
-  CanBeDoubled: 0
-  SubserviantUpgrades: []
-  Final: 0
-  amount: 15
-  ticksNeeded: 5
-  infiniteScaling: 0
-  onHit: 0
 --- !u!1 &7339895227322777493
 GameObject:
   m_ObjectHideFlags: 0
@@ -1540,7 +3246,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 42
+  m_RootOrder: 40
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7339895227324245447
 MonoBehaviour:
@@ -1568,6 +3274,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   amount: 8
   healthAmaount: 15
   fireRateAmount: 5
@@ -1625,14 +3332,15 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: 4d3f9b857dfa14040ba165001ae1694d, type: 3}
   name: Pure Rod
-  description: Summon Damage + 35%
+  description: Summon Damage + 30%
   level: 0
   maxLevel: 1
   rarity: 150
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
-  amount: 35
+  RuneId: 0
+  amount: 30
 --- !u!1 &7339895227465300385
 GameObject:
   m_ObjectHideFlags: 0
@@ -1687,7 +3395,7 @@ MonoBehaviour:
   description: Rockets now deal damage twice
   level: 0
   maxLevel: 1
-  rarity: 300
+  rarity: 500
   CanBeDoubled: 0
   SubserviantUpgrades:
   - Upgrade: {fileID: 7339895227540304071}
@@ -1695,6 +3403,7 @@ MonoBehaviour:
   - Upgrade: {fileID: 7339895227603248790}
     LevelNeeded: 1
   Final: 1
+  RuneId: 0
 --- !u!1 &7339895227538574182
 GameObject:
   m_ObjectHideFlags: 0
@@ -1753,6 +3462,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   summon: {fileID: 4556972382933838620, guid: 279c2bc2b88cf6741b4214752dda2e96, type: 3}
   Damage1: 10
   Damage2: 20
@@ -1814,6 +3524,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   DamageAmount: 0.25
   AsAmount: 0.2
 --- !u!1 &7339895227544969061
@@ -1875,6 +3586,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   damage: 10
   damage2: 15
   chance: 10
@@ -1933,12 +3645,13 @@ MonoBehaviour:
   description: Pellets cluster one more time
   level: 0
   maxLevel: 1
-  rarity: 300
+  rarity: 500
   CanBeDoubled: 0
   SubserviantUpgrades:
   - Upgrade: {fileID: 7339895227679717034}
     LevelNeeded: 2
   Final: 1
+  RuneId: 0
 --- !u!1 &7339895227558292395
 GameObject:
   m_ObjectHideFlags: 0
@@ -1969,7 +3682,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 35
+  m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7339895227558292405
 MonoBehaviour:
@@ -1997,6 +3710,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   summon: {fileID: 8909545730458285654, guid: d773224bc91711b4384d264bcb136bc5, type: 3}
   Damage1: 6
   Damage2: 8
@@ -2051,16 +3765,17 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: 1c0491dcefccf6e4aaed80a924808852, type: 3}
   name: Amplifing Core
-  description: 'Projectile size + 12.5%
+  description: 'Area + 10%
 
-    Damage + 8%'
+    Damage + 7.5%'
   level: 0
   maxLevel: 0
   rarity: 75
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
-  area: 12
+  RuneId: 0
+  area: 10
   damage: 8
 --- !u!1 &7339895227596640620
 GameObject:
@@ -2120,6 +3835,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   Prefab: {fileID: 5614711869421546837, guid: 699de027eeef3224baa640d2b67d8e3e, type: 3}
   Amnount: 3
   BaseOffset: 12.5
@@ -2191,6 +3907,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   AreaMultiplier: 0.3
   ProjectileAmount: 2
 --- !u!1 &7339895227625331719
@@ -2297,7 +4014,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 51
+  m_RootOrder: 49
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7339895227638993270
 MonoBehaviour:
@@ -2325,6 +4042,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
 --- !u!1 &7339895227674964274
 GameObject:
   m_ObjectHideFlags: 0
@@ -2383,6 +4101,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   amount: 1
 --- !u!1 &7339895227679717032
 GameObject:
@@ -2442,6 +4161,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
 --- !u!1 &7339895227685053105
 GameObject:
   m_ObjectHideFlags: 0
@@ -2501,6 +4221,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   damageAmount: 30
   chance: 10
   maxChance: 0
@@ -2558,10 +4279,11 @@ MonoBehaviour:
   description: Crit chance + 15%
   level: 0
   maxLevel: 6
-  rarity: 65
+  rarity: 60
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   amount: 15
 --- !u!1 &7339895227748390269
 GameObject:
@@ -2626,6 +4348,14 @@ Transform:
   - {fileID: 7339895227540304068}
   - {fileID: 7339895227603248791}
   - {fileID: 7339895227153614171}
+  - {fileID: 658055730}
+  - {fileID: 1877139435}
+  - {fileID: 318889921}
+  - {fileID: 1121461835}
+  - {fileID: 579687381}
+  - {fileID: 1362470232}
+  - {fileID: 345113446}
+  - {fileID: 2115649723}
   m_Father: {fileID: 7339895228486298395}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2673,7 +4403,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 41
+  m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7339895227780251076
 MonoBehaviour:
@@ -2701,6 +4431,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   Increase: 0
   amount: 8
 --- !u!1 &7339895227803551362
@@ -2758,7 +4489,7 @@ MonoBehaviour:
     on impact"
   level: 0
   maxLevel: 1
-  rarity: 300
+  rarity: 500
   CanBeDoubled: 0
   SubserviantUpgrades:
   - Upgrade: {fileID: 7339895227300238485}
@@ -2766,6 +4497,7 @@ MonoBehaviour:
   - Upgrade: {fileID: 7339895228688028657}
     LevelNeeded: 1
   Final: 1
+  RuneId: 0
   Bounce: 3
   Damage: 0
   Speed: 1.5
@@ -2825,12 +4557,13 @@ MonoBehaviour:
   description: 'Laser is replaced by swarm of drones  Drones + 2 '
   level: 0
   maxLevel: 0
-  rarity: 300
+  rarity: 500
   CanBeDoubled: 0
   SubserviantUpgrades:
   - Upgrade: {fileID: 7339895228126908570}
     LevelNeeded: 2
   Final: 1
+  RuneId: 0
   DroneAmount: 2
 --- !u!1 &7339895227814222094
 GameObject:
@@ -2883,15 +4616,16 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: 7bd1ada94eb611e4fa1e3165b738c4f4, type: 3}
   name: Beta
-  description: Projectile Size + 10%
+  description: Projectile Size + 7.5%
   level: 0
   maxLevel: 1
   rarity: 20
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
-  amount: 10
-  rarityIncrease: 0
+  RuneId: 0
+  amount: 8
+  rarityIncrease: 5
 --- !u!1 &7339895227829586575
 GameObject:
   m_ObjectHideFlags: 0
@@ -2950,6 +4684,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   devineShield: {fileID: 0}
   amount: 2
 --- !u!1 &7339895227855491148
@@ -2982,7 +4717,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 62
+  m_RootOrder: 60
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7339895227855491150
 MonoBehaviour:
@@ -3010,7 +4745,8 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
-  Value: 0.3
+  RuneId: 0
+  Value: 0.2
 --- !u!1 &7339895227865177510
 GameObject:
   m_ObjectHideFlags: 0
@@ -3065,12 +4801,13 @@ MonoBehaviour:
   description: Every Missle is now homing Projectiles + 2
   level: 0
   maxLevel: 1
-  rarity: 300
+  rarity: 500
   CanBeDoubled: 0
   SubserviantUpgrades:
   - Upgrade: {fileID: 7339895226829830622}
     LevelNeeded: 2
   Final: 1
+  RuneId: 0
   ProjectileAmount: 2
 --- !u!1 &7339895227875915271
 GameObject:
@@ -3102,7 +4839,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 34
+  m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7339895227875915265
 MonoBehaviour:
@@ -3123,14 +4860,15 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: c208a0c674c50f24b907bf578a0a44bd, type: 3}
   name: Heavy Rain
-  description: 5% of damage you cause is dealt to all Enemies
+  description: 4% of damage you cause is dealt to all Enemies
   level: 0
   maxLevel: 1
   rarity: 160
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
-  Amount: 0.05
+  RuneId: 0
+  Amount: 0.04
 --- !u!1 &7339895227891709128
 GameObject:
   m_ObjectHideFlags: 0
@@ -3161,7 +4899,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 37
+  m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7339895227891709130
 MonoBehaviour:
@@ -3189,6 +4927,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   amount: 30
   system: {fileID: 0}
 --- !u!1 &7339895227892902010
@@ -3221,7 +4960,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 61
+  m_RootOrder: 59
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7339895227892901956
 MonoBehaviour:
@@ -3249,6 +4988,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   amount: 18
 --- !u!1 &7339895227904232996
 GameObject:
@@ -3308,6 +5048,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   summon: {fileID: 3095118525630452413, guid: 81ccfb36e63f9a146a76855cb0eee820, type: 3}
 --- !u!1 &7339895227935488831
 GameObject:
@@ -3367,6 +5108,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   ExplosionObj: {fileID: 8133439119156806781, guid: 126f9f2ad2b90244bba1ea1b0ee75238, type: 3}
 --- !u!1 &7339895227956623780
 GameObject:
@@ -3398,7 +5140,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 55
+  m_RootOrder: 53
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7339895227956623782
 MonoBehaviour:
@@ -3426,6 +5168,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
 --- !u!1 &7339895227957741278
 GameObject:
   m_ObjectHideFlags: 0
@@ -3484,6 +5227,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   amount: 15
 --- !u!1 &7339895227979265058
 GameObject:
@@ -3543,6 +5287,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   ASamount: 15
   SpeedAmount: 15
 --- !u!1 &7339895228017155006
@@ -3603,6 +5348,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   summon: {fileID: 2543018737411639306, guid: 4e6bb2887636bfd4ca38aa2ea4f4b1e0, type: 3}
 --- !u!1 &7339895228018338426
 GameObject:
@@ -3662,6 +5408,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   AmmoAmount: 2
   ASAmount: 0.25
 --- !u!1 &7339895228022303794
@@ -3694,7 +5441,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 57
+  m_RootOrder: 55
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7339895228022303804
 MonoBehaviour:
@@ -3722,6 +5469,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
 --- !u!1 &7339895228027585929
 GameObject:
   m_ObjectHideFlags: 0
@@ -3781,6 +5529,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
 --- !u!1 &7339895228030414930
 GameObject:
   m_ObjectHideFlags: 0
@@ -3832,14 +5581,15 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: 76a43af9799125449acc84ea8950dabb, type: 3}
   name: Blunt Trauma
-  description: Extra Damage + 4
+  description: Extra Damage + 5
   level: 0
   maxLevel: 0
   rarity: 70
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
-  amount: 4
+  RuneId: 0
+  amount: 5
 --- !u!1 &7339895228042797714
 GameObject:
   m_ObjectHideFlags: 0
@@ -3898,6 +5648,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   AsAmount: 0.25
   projectiles: 3
 --- !u!1 &7339895228053293429
@@ -3930,7 +5681,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 47
+  m_RootOrder: 45
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7339895228053293431
 MonoBehaviour:
@@ -3958,6 +5709,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
 --- !u!1 &7339895228067070110
 GameObject:
   m_ObjectHideFlags: 0
@@ -4009,14 +5761,15 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: d61e2424bed028d4e94e5b4e2e58e419, type: 3}
   name: Health Conversion
-  description: + 0.5% damage for every bonus health
+  description: + 0.25% damage for every bonus health
   level: 0
   maxLevel: 0
   rarity: 50
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
-  amount: 0.5
+  RuneId: 0
+  amount: 0.25
   healthConversionMultiplier: 0
 --- !u!1 &7339895228102317122
 GameObject:
@@ -4048,7 +5801,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 40
+  m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7339895228102317132
 MonoBehaviour:
@@ -4076,6 +5829,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   summon: {fileID: 5625183162843050144, guid: 7442a8b7269606c4da15f9428534ce07, type: 3}
   Damage1: 6
   Damage2: 6
@@ -4138,6 +5892,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   ReloadSpeedIncrease: 0.5
   KnockBackIncrease: 0.3
 --- !u!1 &7339895228113523261
@@ -4170,7 +5925,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 39
+  m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7339895228113523263
 MonoBehaviour:
@@ -4198,6 +5953,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   summon: {fileID: 5459016640301027787, guid: 84ad9b7fa731512489fdbbba84b9d43a, type: 3}
   Damage1: 10
   Damage2: 8
@@ -4252,17 +6008,18 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: 503c464f16458cf41a270a6d499e7710, type: 3}
   name: Hypersonic Amunition
-  description: 'Projectile speed + 12%
+  description: 'Projectile speed + 10%
 
-    FireRate + 12%'
+    FireRate + 7.5%'
   level: 0
   maxLevel: 0
   rarity: 65
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
-  ForceAmount: 0.075
-  ASamount: 12
+  RuneId: 0
+  ForceAmount: 0.1
+  ASamount: 8
 --- !u!1 &7339895228126908568
 GameObject:
   m_ObjectHideFlags: 0
@@ -4321,6 +6078,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   Amount: 2
 --- !u!1 &7339895228143620394
 GameObject:
@@ -4376,12 +6134,13 @@ MonoBehaviour:
   description: Base Damage + 100% Pierce + 100 Base Firerate - 50%
   level: 0
   maxLevel: 1
-  rarity: 300
+  rarity: 500
   CanBeDoubled: 0
   SubserviantUpgrades:
   - Upgrade: {fileID: 7339895227027590873}
     LevelNeeded: 2
   Final: 1
+  RuneId: 0
   DamageMultiplier: 1
   FireRatePenalty: 0.5
 --- !u!1 &7339895228147233984
@@ -4442,6 +6201,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
 --- !u!1 &7339895228237251962
 GameObject:
   m_ObjectHideFlags: 0
@@ -4472,7 +6232,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 44
+  m_RootOrder: 42
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7339895228237251908
 MonoBehaviour:
@@ -4500,6 +6260,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
 --- !u!1 &7339895228238755933
 GameObject:
   m_ObjectHideFlags: 0
@@ -4560,6 +6321,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   multishotAmount: 2
   baseArea: 0.4
 --- !u!1 &7339895228246821018
@@ -4613,15 +6375,16 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: 520a81790477bed4180c9941a1c5ee42, type: 3}
   name: Delta
-  description: Max Health + 15
+  description: Max Health + 10%
   level: 0
   maxLevel: 1
   rarity: 20
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
-  ammount: 15
-  rarityIncrease: 0
+  RuneId: 0
+  HealthAmount: 0.1
+  rarityIncrease: 5
 --- !u!1 &7339895228254407142
 GameObject:
   m_ObjectHideFlags: 0
@@ -4673,15 +6436,16 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: 15c828a8a8b5781418bd5bca9df06755, type: 3}
   name: Vigor
-  description: Max health + 10 Damage + 10%
+  description: Max health + 10% Damage + 7.5%
   level: 0
   maxLevel: 10
   rarity: 75
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
-  HealthAmount: 10
-  DamageAmount: 10
+  RuneId: 0
+  HealthAmount: 0.1
+  DamageAmount: 8
 --- !u!1 &7339895228260985916
 GameObject:
   m_ObjectHideFlags: 0
@@ -4743,12 +6507,10 @@ Transform:
   - {fileID: 7339895227904232999}
   - {fileID: 7339895228358156044}
   - {fileID: 7339895228901156358}
-  - {fileID: 7339895228474718210}
   - {fileID: 7339895227246496315}
   - {fileID: 7339895228687240757}
   - {fileID: 7339895227875915270}
   - {fileID: 7339895227558292394}
-  - {fileID: 7339895227307598330}
   - {fileID: 7339895227891709131}
   - {fileID: 7339895228490502643}
   - {fileID: 7339895228113523260}
@@ -4778,6 +6540,8 @@ Transform:
   - {fileID: 7339895228455175774}
   - {fileID: 1528374070}
   - {fileID: 94593565}
+  - {fileID: 410486412}
+  - {fileID: 263518261}
   m_Father: {fileID: 7339895228486298395}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4846,7 +6610,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 49
+  m_RootOrder: 47
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7339895228264630564
 MonoBehaviour:
@@ -4874,6 +6638,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
 --- !u!1 &7339895228275282218
 GameObject:
   m_ObjectHideFlags: 0
@@ -4904,7 +6669,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 56
+  m_RootOrder: 54
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7339895228275282228
 MonoBehaviour:
@@ -4932,6 +6697,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   summon: {fileID: 1432115837677902165, guid: 1db7c2f5d5ba05d4b97d2c4ecc8a9809, type: 3}
   Damage1: 8
   Damage2: 12
@@ -4986,7 +6752,7 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: f0e8056fac1f5ef48b110530ee031e35, type: 3}
   name: Minigun
-  description: 'Base Fire rate + 45%
+  description: 'Base Fire rate + 40%
 
     Base damage - 10%'
   level: 0
@@ -4995,7 +6761,8 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
-  ASamount: 0.45
+  RuneId: 0
+  ASamount: 0.4
   DamagePenaltyMultiplier: 0.1
 --- !u!1 &7339895228283678003
 GameObject:
@@ -5048,14 +6815,15 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: 4330dd1f5b7731f4bbfab40e34404a4c, type: 3}
   name: Heavy caliber
-  description: Damage + 15%
+  description: Damage + 12.5%
   level: 0
   maxLevel: 0
   rarity: 75
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
-  amount: 15
+  RuneId: 0
+  amount: 13
 --- !u!1 &7339895228288739954
 GameObject:
   m_ObjectHideFlags: 0
@@ -5110,7 +6878,7 @@ MonoBehaviour:
   description: Laser causes burn for max health damage Pierce + 99 Base Area + 100%
   level: 0
   maxLevel: 1
-  rarity: 300
+  rarity: 500
   CanBeDoubled: 0
   SubserviantUpgrades:
   - Upgrade: {fileID: 7339895228885902718}
@@ -5118,6 +6886,7 @@ MonoBehaviour:
   - Upgrade: {fileID: 7339895228638758651}
     LevelNeeded: 1
   Final: 1
+  RuneId: 0
   StatusSystem: {fileID: 0}
   AreaAmount: 1
 --- !u!1 &7339895228303853598
@@ -5178,6 +6947,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   amount: 12
 --- !u!1 &7339895228358156045
 GameObject:
@@ -5237,6 +7007,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
 --- !u!1 &7339895228365500236
 GameObject:
   m_ObjectHideFlags: 0
@@ -5300,7 +7071,7 @@ MonoBehaviour:
     Autocanon now fires in bursts'
   level: 0
   maxLevel: 1
-  rarity: 300
+  rarity: 500
   CanBeDoubled: 0
   SubserviantUpgrades:
   - Upgrade: {fileID: 7339895228238755935}
@@ -5308,6 +7079,7 @@ MonoBehaviour:
   - Upgrade: {fileID: 7339895228654063989}
     LevelNeeded: 1
   Final: 1
+  RuneId: 0
   DamageMultiplier: 1
   Projectiles: 4
   FireRatePenalty: 0.4
@@ -5370,6 +7142,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   amount: 0.1
   amount2: 0
   chance: 15
@@ -5405,7 +7178,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 53
+  m_RootOrder: 51
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7339895228434425025
 MonoBehaviour:
@@ -5434,6 +7207,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
 --- !u!1 &7339895228455175775
 GameObject:
   m_ObjectHideFlags: 0
@@ -5464,7 +7238,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 63
+  m_RootOrder: 61
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7339895228455175769
 MonoBehaviour:
@@ -5494,6 +7268,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   HealthValue: 50
   DamageValue: 35
 --- !u!1 &7339895228455609800
@@ -5550,7 +7325,7 @@ MonoBehaviour:
   description: Base damage + 60% projectiles + 5 Lasers now fire in a circular area
   level: 0
   maxLevel: 1
-  rarity: 300
+  rarity: 500
   CanBeDoubled: 0
   SubserviantUpgrades:
   - Upgrade: {fileID: 7339895228885902718}
@@ -5558,6 +7333,7 @@ MonoBehaviour:
   - Upgrade: {fileID: 7339895228042797724}
     LevelNeeded: 1
   Final: 1
+  RuneId: 0
   DamageMultiplier: 0.6
   ProjectileAmount: 5
 --- !u!1 &7339895228459032408
@@ -5620,6 +7396,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   amount: 1
   damagePenalty: 5
 --- !u!1 &7339895228461198648
@@ -5677,7 +7454,7 @@ MonoBehaviour:
     Area'
   level: 0
   maxLevel: 1
-  rarity: 300
+  rarity: 500
   CanBeDoubled: 0
   SubserviantUpgrades:
   - Upgrade: {fileID: 7339895228464188001}
@@ -5685,6 +7462,7 @@ MonoBehaviour:
   - Upgrade: {fileID: 7339895227153614170}
     LevelNeeded: 1
   Final: 1
+  RuneId: 0
   DamageAmountMultiplier: 15
   AsPenaltyMultiplier: 0.9
 --- !u!1 &7339895228464188006
@@ -5747,6 +7525,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   Damage: 25
   MultiplierAmount: 0.8
   CurrentShot: 0
@@ -5808,7 +7587,7 @@ MonoBehaviour:
   description: Base Damage + 40% Base Firerate + 50% Ammo + 4 Pellets are now homing
   level: 0
   maxLevel: 1
-  rarity: 300
+  rarity: 500
   CanBeDoubled: 0
   SubserviantUpgrades:
   - Upgrade: {fileID: 7339895228018338372}
@@ -5816,69 +7595,10 @@ MonoBehaviour:
   - Upgrade: {fileID: 7339895227027590873}
     LevelNeeded: 1
   Final: 1
+  RuneId: 0
   AmmoAmount: 4
   ASAmount: 0.5
   DamageMultiplier: 0.4
---- !u!1 &7339895228474718211
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7339895228474718210}
-  - component: {fileID: 7339895228474718221}
-  m_Layer: 0
-  m_Name: HealingSummon
-  m_TagString: SummonUpgrade
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7339895228474718210
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7339895228474718211}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 31
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7339895228474718221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7339895228474718211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 820a294a6323a1b469654ebf171a2a05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Id: 32
-  Type: 0
-  color:
-    serializedVersion: 2
-    rgba: 0
-  icon: {fileID: 21300000, guid: 59bf08f1aadb7184f91f9d971ce06854, type: 3}
-  name: Repair Drone
-  description: Summon Healing drone that regenarates 0.2 health per second
-  level: 0
-  maxLevel: 5
-  rarity: 60
-  CanBeDoubled: 0
-  SubserviantUpgrades: []
-  Final: 0
-  summon: {fileID: 8597536834272814938, guid: 8b6f8b71a437e55408074c4ae5f39aee, type: 3}
-  TrueHeal: 0
 --- !u!1 &7339895228486298392
 GameObject:
   m_ObjectHideFlags: 0
@@ -5911,6 +7631,7 @@ Transform:
   - {fileID: 7339895227625331718}
   - {fileID: 7339895227322777492}
   - {fileID: 7339895227748390268}
+  - {fileID: 4982611722782253300}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5970,12 +7691,13 @@ MonoBehaviour:
     Bullets are now fired in single file'
   level: 0
   maxLevel: 1
-  rarity: 300
+  rarity: 500
   CanBeDoubled: 0
   SubserviantUpgrades:
   - Upgrade: {fileID: 7339895228277265100}
     LevelNeeded: 2
   Final: 1
+  RuneId: 0
   FireRate: 3
 --- !u!1 &7339895228490502640
 GameObject:
@@ -6007,7 +7729,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 38
+  m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7339895228490502642
 MonoBehaviour:
@@ -6035,6 +7757,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   summon: {fileID: 5202527886860771328, guid: 10fcd28a8540aa94f87f40c6889aa52d, type: 3}
 --- !u!1 &7339895228513795823
 GameObject:
@@ -6087,15 +7810,16 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: eb700b8b84f6bdc41b5b638c9a4bf68d, type: 3}
   name: Haste
-  description: "Movement speed + 10% \n    Attack speed + 10% "
+  description: "Movement speed + 7.5% \n    Attack speed + 7.5% "
   level: 0
   maxLevel: 0
   rarity: 75
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
-  ASamount: 10
-  SpeedAmount: 10
+  RuneId: 0
+  ASamount: 8
+  SpeedAmount: 8
 --- !u!1 &7339895228523859248
 GameObject:
   m_ObjectHideFlags: 0
@@ -6154,6 +7878,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   amount: 15
 --- !u!1 &7339895228541658468
 GameObject:
@@ -6216,6 +7941,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   amount: 80
 --- !u!1 &7339895228542753679
 GameObject:
@@ -6275,6 +8001,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   summon: {fileID: 3906934220119455522, guid: 225e0dded2cae9948bc36aff33d61c6f, type: 3}
   Damage1: 8
   Damage2: 6
@@ -6309,7 +8036,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 50
+  m_RootOrder: 48
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7339895228554903546
 MonoBehaviour:
@@ -6337,6 +8064,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
 --- !u!1 &7339895228567161419
 GameObject:
   m_ObjectHideFlags: 0
@@ -6367,7 +8095,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 54
+  m_RootOrder: 52
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7339895228567161429
 MonoBehaviour:
@@ -6395,6 +8123,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   amount: 0.1
 --- !u!1 &7339895228611044746
 GameObject:
@@ -6426,7 +8155,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 52
+  m_RootOrder: 50
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7339895228611044756
 MonoBehaviour:
@@ -6454,6 +8183,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   damageAmount: 6
   damageAmount2: 8
   chance: 15
@@ -6515,6 +8245,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   PierceAmount: 1
   AreaAmount: 0.4
 --- !u!1 &7339895228654063979
@@ -6575,6 +8306,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   Prefab: {fileID: 2758356059344963085, guid: e6c4f0e42b74760428bf2f52f21539ed, type: 3}
   Amount: 0
   Force: 500
@@ -6717,7 +8449,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 46
+  m_RootOrder: 44
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7339895228675026045
 MonoBehaviour:
@@ -6745,6 +8477,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
 --- !u!1 &7339895228687240746
 GameObject:
   m_ObjectHideFlags: 0
@@ -6775,7 +8508,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 33
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7339895228687240756
 MonoBehaviour:
@@ -6803,6 +8536,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
 --- !u!1 &7339895228688028663
 GameObject:
   m_ObjectHideFlags: 0
@@ -6868,10 +8602,11 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   DamageMultiplier: 0.4
   ForceMultiplier: 0.15
   PierceAmount: 1
-  ASpenalty: 0.04
+  ASpenalty: 0.1
 --- !u!1 &7339895228804509351
 GameObject:
   m_ObjectHideFlags: 0
@@ -6902,7 +8637,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 43
+  m_RootOrder: 41
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7339895228804509345
 MonoBehaviour:
@@ -6923,14 +8658,15 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: 11ec1f29de795c4468f597641ae41460, type: 3}
   name: Kill Speed
-  description: After killing an enemy gain + 25% movement soeed for 0.5 seconds
+  description: After killing an enemy gain + 20% movement soeed for 0.5 seconds
   level: 0
   maxLevel: 5
   rarity: 50
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
-  increaseAmount: 25
+  RuneId: 0
+  increaseAmount: 20
   totalAmount: 0
   durationAmount: 0.25
   totalDuration: 0.5
@@ -6987,18 +8723,19 @@ MonoBehaviour:
   name: Omega
   description: 'Damage + 20%
 
-    Projectile size + 20%
+    Area + 20%
 
     Attack speed + 20%
 
-    Max
-    health + 20%'
+    Max health
+    + 20%'
   level: 0
   maxLevel: 1
   rarity: 120
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   amount: 20
 --- !u!1 &7339895228827862852
 GameObject:
@@ -7058,6 +8795,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   amount: 2
 --- !u!1 &7339895228883293747
 GameObject:
@@ -7117,6 +8855,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   amount: 8
 --- !u!1 &7339895228885902716
 GameObject:
@@ -7176,6 +8915,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   DamageMultiplier: 0.4
 --- !u!1 &7339895228888465854
 GameObject:
@@ -7235,6 +8975,7 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   summon: {fileID: 4416045798595578746, guid: 47c0a3732254be94ca5a03e7568df09e, type: 3}
 --- !u!1 &7339895228901156359
 GameObject:
@@ -7294,4 +9035,364 @@ MonoBehaviour:
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
+  RuneId: 0
   amount: 1
+--- !u!1 &7757775756279514323
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1690183429098313831}
+  - component: {fileID: 698561794}
+  m_Layer: 0
+  m_Name: BlackPoison
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1690183429098313831
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7757775756279514323}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4982611722782253300}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &698561794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7757775756279514323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08f3e2ded32f9ed4abfa8cface1f0a01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 0
+  Type: 0
+  color:
+    serializedVersion: 2
+    rgba: 0
+  icon: {fileID: 0}
+  name: 
+  description: 
+  level: 0
+  maxLevel: 0
+  rarity: 0
+  CanBeDoubled: 0
+  SubserviantUpgrades: []
+  Final: 0
+  RuneId: 23
+--- !u!1 &7822053549461742758
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 372230604374424023}
+  - component: {fileID: 3449919531431593308}
+  m_Layer: 0
+  m_Name: SummonAs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &372230604374424023
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7822053549461742758}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4982611722782253300}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3449919531431593308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7822053549461742758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75016a1e607df2147a798fa319f435eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 0
+  Type: 9
+  color:
+    serializedVersion: 2
+    rgba: 0
+  icon: {fileID: 0}
+  name: 
+  description: 
+  level: 0
+  maxLevel: 0
+  rarity: 0
+  CanBeDoubled: 0
+  SubserviantUpgrades: []
+  Final: 0
+  RuneId: 8
+  AsIncrease: 0.15
+--- !u!1 &8368009333323279130
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2267586484832395566}
+  - component: {fileID: 1729300410094774790}
+  m_Layer: 0
+  m_Name: CritChance1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2267586484832395566
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8368009333323279130}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4982611722782253300}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1729300410094774790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8368009333323279130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00411d64abc3594408186fe8d4b27d42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 0
+  Type: 9
+  color:
+    serializedVersion: 2
+    rgba: 0
+  icon: {fileID: 0}
+  name: 
+  description: 
+  level: 0
+  maxLevel: 0
+  rarity: 0
+  CanBeDoubled: 0
+  SubserviantUpgrades: []
+  Final: 0
+  RuneId: 1
+  amount: 25
+--- !u!1 &8484436661438607577
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2632571453769160251}
+  - component: {fileID: 3449919531431593304}
+  m_Layer: 0
+  m_Name: NearDamage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2632571453769160251
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8484436661438607577}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4982611722782253300}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3449919531431593304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8484436661438607577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dc7452664162b842bcd6f003829dfe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 0
+  Type: 0
+  color:
+    serializedVersion: 2
+    rgba: 0
+  icon: {fileID: 0}
+  name: 
+  description: 
+  level: 0
+  maxLevel: 0
+  rarity: 0
+  CanBeDoubled: 0
+  SubserviantUpgrades: []
+  Final: 0
+  RuneId: 22
+--- !u!1 &9020665561781909247
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4263085724453375067}
+  - component: {fileID: 564813673275410277}
+  m_Layer: 0
+  m_Name: HealthDamage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4263085724453375067
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9020665561781909247}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4982611722782253300}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &564813673275410277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9020665561781909247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b20fe836f10170443acec0fc66f8d11f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 0
+  Type: 9
+  color:
+    serializedVersion: 2
+    rgba: 0
+  icon: {fileID: 0}
+  name: 
+  description: 
+  level: 0
+  maxLevel: 0
+  rarity: 0
+  CanBeDoubled: 0
+  SubserviantUpgrades: []
+  Final: 0
+  RuneId: 6
+  amount: 0.75
+  healthConversionMultiplier: 0
+--- !u!1 &9088421921176731418
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6370554849568518271}
+  - component: {fileID: 7883466965909644239}
+  m_Layer: 0
+  m_Name: CritDamage2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6370554849568518271
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9088421921176731418}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4982611722782253300}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7883466965909644239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9088421921176731418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a065ef9981ad6074e86e01ae9a255e4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 0
+  Type: 9
+  color:
+    serializedVersion: 2
+    rgba: 0
+  icon: {fileID: 0}
+  name: 
+  description: 
+  level: 0
+  maxLevel: 0
+  rarity: 0
+  CanBeDoubled: 0
+  SubserviantUpgrades: []
+  Final: 0
+  RuneId: 4
+  amount: 50

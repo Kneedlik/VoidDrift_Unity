@@ -12,7 +12,6 @@ public class TracerGun : weapeon
     public GameObject bulletPrefab;
     HomingProjectile BulletDamage;
 
-    GameObject[] sideCubes = new GameObject[100];
     public GameObject cubePrefab;
     [SerializeField] int RealProjectiles;
     public float sideScaling = 1;
@@ -43,6 +42,7 @@ public class TracerGun : weapeon
     {
         SetUpWeapeon();
         setFirepoints();
+        setSideFirepoints();
 
         PlayerStats.OnLevel += SetAS;
         PlayerStats.OnLevel += SetForce;
@@ -148,6 +148,11 @@ public class TracerGun : weapeon
 
     void Shoot()
     {
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlayName("Tracer");
+        }
+
         int pom = extraDamage;
 
         if (PierceFinal)
@@ -179,7 +184,7 @@ public class TracerGun : weapeon
             for (int i = 0; i < SideCubeList.Count; i++)
             {
                 GameObject bullet;
-                bullet = Instantiate(bulletPrefab, sideCubes[i].transform.position, sideCubes[i].transform.rotation);
+                bullet = Instantiate(bulletPrefab, SideCubeList[i].transform.position, SideCubeList[i].transform.rotation);
 
                 if (eventManager.OnFireAll != null)
                 {
@@ -308,19 +313,17 @@ public class TracerGun : weapeon
 
             float offsetA = offset * 2;
 
-            for (int i = 0; i < sideProjectiles * 2; i++)
+            for (int i = 0; i < sideProjectiles;i++)
             {
-                Destroy(sideCubes[i]);
-            }
+                GameObject Temp;
+                Temp = Instantiate(cubePrefab, firePoint.position, Quaternion.Euler(0, 0, (offsetA * -1) + 270));
+                Temp.transform.parent = gameObject.transform;
+                SideCubeList.Add(Temp);
 
-            for (int i = 0; i < sideProjectiles * 2;)
-            {
-                sideCubes[i] = Instantiate(cubePrefab, firePoint.position, Quaternion.Euler(0, 0, (offsetA * -1) + 270));
-                sideCubes[i].transform.parent = gameObject.transform;
-                i++;
-                sideCubes[i] = Instantiate(cubePrefab, firePoint.position, Quaternion.Euler(0, 0, offsetA + 270));
-                sideCubes[i].transform.parent = gameObject.transform;
-                i++;
+                Temp = Instantiate(cubePrefab, firePoint.position, Quaternion.Euler(0, 0, offsetA + 270));
+                Temp.transform.parent = gameObject.transform;
+                SideCubeList.Add(Temp);
+
                 offsetA += offset;
             }
         }

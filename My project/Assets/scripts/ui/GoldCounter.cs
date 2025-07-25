@@ -7,10 +7,28 @@ public class GoldCounter : MonoBehaviour
 {
     [SerializeField] TMP_Text Text;
     [SerializeField] ProgressionState Progress;
+    public bool ShowGoldGained;
     // Start is called before the first frame update
 
     private void Awake()
     {
-        Text.text = Progress.Gold.ToString();
+        UpdateCount();
+    }
+
+    private void OnEnable()
+    {
+        UpdateCount();
+    }
+
+    public void UpdateCount()
+    {
+        if (ShowGoldGained == false)
+        {
+            Text.text = Progress.Gold.ToString();
+        }
+        else
+        {
+            Text.text = MasterManager.Instance.GoldEarned.ToString();
+        }
     }
 }

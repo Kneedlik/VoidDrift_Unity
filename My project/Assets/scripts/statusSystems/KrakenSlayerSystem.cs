@@ -32,7 +32,8 @@ public class KrakenSlayerSystem : MonoBehaviour
         {
             StartCoroutine(flashIcon());
             weapeon gun = target.GetComponent<weapeon>();
-            gun.extraDamage += damage;
+            int DamageTemp = KnedlikLib.ScaleStatusDamage(damage);
+            gun.extraDamage += DamageTemp;
 
             bulletCount = 0;
         }

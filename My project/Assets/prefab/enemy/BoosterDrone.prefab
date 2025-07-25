@@ -338,7 +338,7 @@ MonoBehaviour:
   armor: 0
   multiplier: 1
   ParticleExplosion: {fileID: 0}
-  DeathAnim: {fileID: 0}
+  DeathAnim: {fileID: 2360855068873841653, guid: 9d024159c29a5ed4dadc422aca7b568f, type: 3}
   DeathDelay: 0
   DeathFunc: []
   OnDamageFunc: []

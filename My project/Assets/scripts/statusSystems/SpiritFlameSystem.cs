@@ -135,6 +135,7 @@ public class SpiritFlameSystem : MonoBehaviour
                 float pom = (TrueDamage * stacks[index]) / 100f;
                 pom = health.maxHealth * pom;
                 Damage = KnedlikLib.ScaleDamage(Damage, true, true);
+                Damage = KnedlikLib.ScaleStatusDamage(Damage);
                 Damage = Damage + (int)pom;
                 health.TakeDamage(Damage);
             }

@@ -7,9 +7,11 @@ public class Omega : upgrade
     GameObject player;
     plaerHealth health;
     public int amount;
+    public static Omega instance;
 
     private void Awake()
     {
+        instance = this;
         Type = type.blue;
         setColor();
     }
@@ -31,8 +33,11 @@ public class Omega : upgrade
 
         player = GameObject.FindWithTag("Player");
         health = player.GetComponent<plaerHealth>();
-        health.setMaxHP(health.maxHealth + amount);
-        health.increaseHP(health.health + amount);
+        float HealthAmount = amount / 100f;
+        float HealthTemp = health.baseHealth * HealthAmount;
+        int TotalHealth = health.maxHealth + (int)HealthTemp;
+        health.setMaxHP(TotalHealth);
+        health.increaseHP(TotalHealth);
 
         level++;
     }

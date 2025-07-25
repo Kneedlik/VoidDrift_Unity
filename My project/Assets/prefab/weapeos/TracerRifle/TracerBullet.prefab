@@ -276,12 +276,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damagePlus: 0
   damage: 0
-  destroyTime: 2.5
+  destroyTime: 2.75
   pierce: 0
   Bounce: 0
   knockBack: 0
   impactEffect: {fileID: 907559903438879465, guid: 1ce0060ea82c3b44fbea7c2d7584e88e, type: 3}
   impactParticles: {fileID: 7437022105064872643, guid: 795f94ad9917fbe4b90ec843e9018744, type: 3}
+  target: {fileID: 0}
   MaxBounceDistance: 0
   OnImpactGunOnly: 1
   OnImpact: 1
@@ -291,14 +292,15 @@ MonoBehaviour:
   UseForce: 0
   force: 200
   MaxSpeed: 80
-  rotSpeed: 700
+  rotSpeed: 600
   Enemy: 0
   PlayerOnly: 0
   Trigger: 1
   ExploPrefab: {fileID: 0}
-  Delay: 0.1
+  Delay: 0.08
   StopAfter: 0
   StartForceAfter: 0
+  Retarget: 1
 --- !u!96 &8112898585176992374
 TrailRenderer:
   serializedVersion: 2

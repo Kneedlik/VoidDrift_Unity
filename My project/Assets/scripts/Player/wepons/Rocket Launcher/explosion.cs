@@ -22,6 +22,7 @@ public class explosion : MonoBehaviour
     [SerializeField] bool PostImpact;
     [SerializeField] bool OnCrit;
     [SerializeField] bool OnImpactGunOnly;
+    [SerializeField] bool OnImpactSummon;
     public bool Stun;
     public Color32 Colour = new Color32(255,255,255,255);
 
@@ -132,6 +133,11 @@ public class explosion : MonoBehaviour
                     if (Impact && eventManager.OnImpact != null)
                     {
                         eventManager.OnImpact(collision.gameObject, damage, ref damagePlus);
+                    }
+
+                    if(OnImpactSummon && eventManager.SummonOnImpact != null)
+                    {
+                        eventManager.SummonOnImpact(collision.gameObject, damage, ref damagePlus);
                     }
 
                     if (eventManager.OnCrit != null && OnCrit)

@@ -12,7 +12,7 @@ public class BulletScript : Projectile
     protected Rigidbody2D rb;
     public GameObject impactEffect;
     public GameObject impactParticles;
-    protected Transform target;
+    public Transform target;
     protected Color32 Color;
 
     public float MaxBounceDistance;

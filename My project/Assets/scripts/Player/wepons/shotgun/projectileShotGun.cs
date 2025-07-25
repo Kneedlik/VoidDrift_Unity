@@ -110,6 +110,10 @@ public class projectileShotGun : weapeon
 
     void Shoot()
     {
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlayName("ShotGun");
+        }
         //Debug.Log("Shooting");
         int pom = extraDamage;
         if (eventManager.OnFire != null)

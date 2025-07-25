@@ -4986,6 +4986,200 @@ MonoBehaviour:
   DroneList: []
   BaseCoolDown: 1.5
   CoolDown: 0
+--- !u!1 &293977001
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 293977002}
+  - component: {fileID: 293977003}
+  m_Layer: 0
+  m_Name: TracerRifle
+  m_TagString: Weapeon
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &293977002
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293977001}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 523125542}
+  - {fileID: 314303766}
+  - {fileID: 1911762087}
+  - {fileID: 1208460961}
+  m_Father: {fileID: 2249976208581306086}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &293977003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293977001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fa60717f645f6d4bb6d4030ba14bc0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 5
+  WeapeonUpgrades:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  firePoint: {fileID: 523125542}
+  ASmultiplier: 1
+  damage: 0
+  baseDamage: 4
+  damageMultiplier: 1
+  startingDamage: 0
+  extraDamage: 0
+  BaseForce: 5.3
+  StartingForce: 0
+  ForceMultiplier: 1
+  Force: 0
+  size: 0
+  baseSize: 1
+  StartingSize: 0
+  baseCoolDown: 0.52
+  StartingCooldown: 0
+  CoolDown: 0
+  pierce: 0
+  knockBack: 2.2
+  knockBackMultiplier: 1
+  projectileCount: 2
+  sideProjectiles: 0
+  CubeList: []
+  SideCubeList: []
+  bulletPrefab: {fileID: 5415648236872054861, guid: 7cd353d2875b46f4f9bc6e79862ae649, type: 3}
+  cubePrefab: {fileID: 7649358505173974130, guid: 6f222e7656bc59a4e88a4a647b82e2de, type: 3}
+  RealProjectiles: 0
+  sideScaling: 0.06
+  MaxSideScaling: 20
+  BaseOffset: 35
+  BaseSideOffset: 50
+  OffsetScaling: 0.04
+  RotationMultiplier: 1
+  Double: 0
+  PierceFinal: 0
+  SummonFinal: 0
+  SummonCount: 0
+  SummonPrefab: {fileID: 4709633329786434157, guid: af6dd304e24298b40a7aa1327170f14c, type: 3}
+  SummonCooldown: 2.65
+  SummonDelay: 0.2
+  DroneManager: {fileID: 314303765}
+  SummonPointDistance: 4
+  SummonList: []
+  SummonList2: []
+  Firepoint1: {fileID: 1911762087}
+  Firepoint2: {fileID: 1208460961}
+--- !u!1 &314303765
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 314303766}
+  - component: {fileID: 314303770}
+  - component: {fileID: 314303769}
+  - component: {fileID: 314303768}
+  - component: {fileID: 314303767}
+  m_Layer: 0
+  m_Name: DroneBaseTR
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &314303766
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314303765}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 293977002}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &314303770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314303765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 354398a968feddd4e87d9d231a72006f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obj: {fileID: 2249976207217024486}
+  offsetX: 0
+  offsetY: 0
+--- !u!114 &314303769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314303765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e3f2b7716bee32429766cf66a1f5028, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 150
+--- !u!114 &314303768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314303765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71251f4cfc26d374a892262e8b2058a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &314303767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314303765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 005a68c283b65074086c704aea0f6287, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DroneList: []
+  BaseCoolDown: 0
+  CoolDown: 0
 --- !u!1 &344245386
 GameObject:
   m_ObjectHideFlags: 0
@@ -5230,6 +5424,37 @@ MonoBehaviour:
   CoolDown: 0.7
   Damage: 45
   TrueDamage: 0.002
+--- !u!1 &523125541
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 523125542}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &523125542
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 523125541}
+  m_LocalRotation: {x: 0, y: -0, z: 0.7071068, w: -0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 293977002}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 270}
 --- !u!1 &633558901
 GameObject:
   m_ObjectHideFlags: 0
@@ -10157,6 +10382,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v: {x: 270, y: 0, z: 0}
+--- !u!1 &1208460960
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1208460961}
+  m_Layer: 0
+  m_Name: Firepoint2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1208460961
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208460960}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 293977002}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!1 &1296277864
 GameObject:
   m_ObjectHideFlags: 0
@@ -10705,6 +10961,37 @@ Transform:
   m_Father: {fileID: 2249976207621557054}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 270}
+--- !u!1 &1911762086
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1911762087}
+  m_Layer: 0
+  m_Name: FirePoint1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1911762087
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1911762086}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 293977002}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1942887365
 GameObject:
   m_ObjectHideFlags: 0
@@ -11238,10 +11525,13 @@ MonoBehaviour:
   maxHealth: 100
   healthBar: {fileID: 0}
   timer: 0
+  Regen: 0
+  RegenBuffer: 0
+  RegenCooldown: 1
   iframes: 0.6
   shield: {fileID: 633558903}
   DamageParticle: {fileID: 6418731716618493352, guid: ae6a7cd82740eec418e3048224d159da, type: 3}
-  godMode: 1
+  godMode: 0
   deathDelay: 2
   ParticleExplosion: {fileID: 2474492865396701593, guid: 4ab685516835c7743a50d3b1b8d32d1b, type: 3}
   Smoke: {fileID: 684212094}
@@ -11398,6 +11688,7 @@ Transform:
   - {fileID: 2249976208974874640}
   - {fileID: 2249976207621557054}
   - {fileID: 2249976208629522623}
+  - {fileID: 293977002}
   m_Father: {fileID: 2249976207217024507}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12532,7 +12823,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2776333528265854994, guid: 317437082b94dc04194b22cf4db2fc4c, type: 3}
       propertyPath: sideProjectiles
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2776333528265854994, guid: 317437082b94dc04194b22cf4db2fc4c, type: 3}
       propertyPath: damageMultiplier

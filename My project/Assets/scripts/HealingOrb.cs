@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class HealingOrb : MonoBehaviour
 {
-     plaerHealth health;
-     healthBar healthBar;
-    int maxHealth;
-   
+    public float HealthRestore;
+    plaerHealth health;
+    healthBar healthBar;
 
    // private void OnApplicationQuit()
    // {
@@ -36,12 +35,16 @@ public class HealingOrb : MonoBehaviour
 
             healthBar = GameObject.FindWithTag("HealthBar").GetComponent<healthBar>();
 
-            maxHealth = health.maxHealth;
-
-            health.health = maxHealth;
-            healthBar.SetHealth(maxHealth);
+            float HealthTemp = health.maxHealth * HealthRestore;
+            for (int i = 0; i < HealthTemp; i++)
+            {
+                if (health.health < health.maxHealth)
+                {
+                    health.health = health.health + 1;
+                    healthBar.SetHealth(health.health);
+                }
+            }
             Destroy(gameObject);
-
         }
     }
 }

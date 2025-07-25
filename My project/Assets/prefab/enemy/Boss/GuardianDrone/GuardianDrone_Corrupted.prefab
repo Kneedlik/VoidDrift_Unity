@@ -75,5 +75,13 @@ PrefabInstance:
       propertyPath: WarningDelay
       value: 1.2
       objectReference: {fileID: 0}
+    - target: {fileID: 4169060446568460734, guid: 5c72fef6941dea84c86ed09666ea4872, type: 3}
+      propertyPath: Amount
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169060446568460734, guid: 5c72fef6941dea84c86ed09666ea4872, type: 3}
+      propertyPath: ForceMax
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c72fef6941dea84c86ed09666ea4872, type: 3}

@@ -190,6 +190,7 @@ GameObject:
   - component: {fileID: 5185391677014471477}
   - component: {fileID: 4875437728954610227}
   - component: {fileID: 5717963436637751855}
+  - component: {fileID: 4060584689229584221}
   m_Layer: 12
   m_Name: ElectricDroneBase
   m_TagString: Enemy
@@ -382,6 +383,9 @@ MonoBehaviour:
   dropChancePool1:
   - 100
   pos: {fileID: 0}
+  Amount: 1
+  ForceMin: 0
+  ForceMax: 0
 --- !u!114 &5717963436637751855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -399,6 +403,26 @@ MonoBehaviour:
   percentValue: 0
   XpPrefab: {fileID: 2379410571559361398, guid: 471236d52f210654cbb5c0a003284cd1, type: 3}
   Point: {fileID: 0}
+--- !u!114 &4060584689229584221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5185391677014471469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 599b41622875a6749b7d10012ed19326, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemPool1:
+  - {fileID: 24702221549039422, guid: eb3fb37a2fe25c546b90133982bcd09e, type: 3}
+  dropChancePool1:
+  - 100
+  pos: {fileID: 0}
+  Amount: 20
+  ForceMin: 5.5
+  ForceMax: 15
 --- !u!1 &5185391677615682087
 GameObject:
   m_ObjectHideFlags: 0

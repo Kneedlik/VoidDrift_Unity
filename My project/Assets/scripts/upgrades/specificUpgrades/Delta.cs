@@ -7,7 +7,7 @@ public class Delta : upgrade
     public static Delta sharedInstance;
     GameObject player;
     plaerHealth health;
-    public int ammount;
+    public float HealthAmount;
     public int rarityIncrease;
 
 
@@ -22,8 +22,10 @@ public class Delta : upgrade
     {
         player = GameObject.FindWithTag("Player");
         health = player.GetComponent<plaerHealth>();
-        health.setMaxHP(health.maxHealth + ammount);
-        health.increaseHP(health.health + ammount);
+        float HealthTemp = health.baseHealth * HealthAmount;
+        int TotalHealth = health.maxHealth + (int)HealthTemp;
+        health.setMaxHP(TotalHealth);
+        health.increaseHP(TotalHealth);
 
         Beta.sharedInstance.rarity += rarityIncrease;
         Gamma.sharedInstance.rarity += rarityIncrease;

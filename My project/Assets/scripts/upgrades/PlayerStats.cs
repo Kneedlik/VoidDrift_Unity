@@ -24,6 +24,9 @@ public class PlayerStats : MonoBehaviour
     public int thorns = 0;
 
     public int SummonDamage = 100;
+    public float SummonCoolDown = 1f;
+    public bool OneSummonBuff = false;
+    public float StatusDamage = 1f;
 
     public int revives = 0;
     [SerializeField] Slider slider;

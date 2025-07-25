@@ -21,9 +21,9 @@ MonoBehaviour:
   chanses:
   - 93
   - 7
-  spawnRate: 0.6
-  spawnN: 10
-  healthMultiplier: 50
+  spawnRate: 0.8
+  spawnN: 7
+  healthMultiplier: 45
   XpMultiplier: 15
   Boss: {fileID: 0}
   BossAmount: 1

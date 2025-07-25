@@ -80,6 +80,11 @@ public class rocketLauncher : weapeon
 
     void Shoot()
     {
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlayId(15);
+        }
+
         int pom = extraDamage;
         if (eventManager.OnFire != null)
         {

@@ -85,6 +85,10 @@ public class spawner : MonoBehaviour
             }else
             {
                 setNewWawe();
+                if(gameObject.activeInHierarchy == false)
+                {
+                    return;
+                }
                 if (wawes[count].Boss != null)
                 {
                     if (wawes[count].SpawnedBoss == false)
@@ -144,13 +148,17 @@ public class spawner : MonoBehaviour
     void PrintWawePowerLevel()
     {
         int PowerLevel = 0;
+        int XpNeeded = 0;
         float Temp;
+        float XpTemp;
         List<string> StringList = new List<string>();
         string FullLine;
 
         StringList.Add(FileName + "                    ");
         for(int i = 0;i < wawes.Count;i++)
         {
+            PowerLevel = 0;
+            XpNeeded = 0;
             for(int j = 0;j < wawes[i].enemies.Count;j++)
             {
                 //Debug.Log(i);
@@ -160,14 +168,20 @@ public class spawner : MonoBehaviour
                 Temp = health.maxHealth * wawes[i].healthMultiplier * TrueChance * wawes[i].spawnN;
                 Temp = Temp / wawes[i].spawnRate;
                 PowerLevel += (int)Temp;
+
+                dropXP Xp = wawes[i].enemies[j].GetComponent<dropXP>();
+                XpTemp = Xp.xpValue * wawes[i].XpMultiplier * TrueChance * wawes[i].spawnN;
+                XpTemp = XpTemp / wawes[i].spawnRate;
+                XpNeeded += (int)XpTemp;
+
             }
 
             if (wawes[i].Boss == null)
             {
-                FullLine = string.Format("{0}, Wawe: {1}, Power level: {2}, Spawn Rate: {3}, Spawn number: {4}, Health: {5}                 ",PrintPrefix, i, PowerLevel, wawes[i].spawnRate, wawes[i].spawnN, wawes[i].healthMultiplier);
+                FullLine = string.Format("{0}, Wawe: {1}, Power level: {2}, Spawn Rate: {3}, Spawn number: {4}, Health: {5}, Xp: {6}                 ",PrintPrefix, i, PowerLevel, wawes[i].spawnRate, wawes[i].spawnN, wawes[i].healthMultiplier, XpNeeded * 60);
             }else
             {
-                FullLine = string.Format("{0}, Wawe: {1}, Power level: {2}, Spawn Rate: {3}, Spawn nubber: {4}, Health: {5}      Boss round ",PrintPrefix, i, PowerLevel, wawes[i].spawnRate, wawes[i].spawnN, wawes[i].healthMultiplier);
+                FullLine = string.Format("{0}, Wawe: {1}, Power level: {2}, Spawn Rate: {3}, Spawn nubber: {4}, Health: {5}, Xp: {6}      Boss round ",PrintPrefix, i, PowerLevel, wawes[i].spawnRate, wawes[i].spawnN, wawes[i].healthMultiplier, XpNeeded * 60);
             }
             //Debug.Log(FullLine);
             StringList.Add(FullLine);

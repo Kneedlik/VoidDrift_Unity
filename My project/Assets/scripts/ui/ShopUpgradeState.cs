@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShopUpgradeState : MonoBehaviour
+[System.Serializable]
+public class ShopUpgradeState
 {
+    public int Id;
     public bool Unlocked;
     public int CurrentLevel;
 }

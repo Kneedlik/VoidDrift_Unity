@@ -57,7 +57,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - Id: 6
     name: PlayerDamagedRing2
-    clip: {fileID: 8300000, guid: 5b39cfb0eb4e1b74091d6acef452bdda, type: 3}
+    clip: {fileID: 8300000, guid: 78693bacf68be2849b4003f210742c68, type: 3}
     volume: 0.5
     pitch: 1
     Loop: 0
@@ -75,4 +75,103 @@ MonoBehaviour:
     volume: 0.5
     pitch: 1
     Loop: 0
+    source: {fileID: 0}
+  - Id: 9
+    name: UiHover
+    clip: {fileID: 8300000, guid: 4b3551f1c6b89fa4982a080863aa2a60, type: 3}
+    volume: 0.15
+    pitch: 1
+    Loop: 0
+    source: {fileID: 0}
+  - Id: 10
+    name: UiConfirm
+    clip: {fileID: 8300000, guid: f8f8f0b89c40dee4895d8d9b3974ed58, type: 3}
+    volume: 1
+    pitch: 1
+    Loop: 0
+    source: {fileID: 0}
+  - Id: 11
+    name: ShotGun
+    clip: {fileID: 8300000, guid: 3e4ea135230fc49498f893710e6fea30, type: 3}
+    volume: 0.5
+    pitch: 1
+    Loop: 0
+    source: {fileID: 0}
+  - Id: 12
+    name: Tracer
+    clip: {fileID: 8300000, guid: 49d8ad00f1c9b4e43b203be41cc8d2a5, type: 3}
+    volume: 0.5
+    pitch: 1
+    Loop: 0
+    source: {fileID: 0}
+  - Id: 13
+    name: LaserStart
+    clip: {fileID: 8300000, guid: 915840c2e462f7d42b2504d1bcc8e456, type: 3}
+    volume: 0.5
+    pitch: 1
+    Loop: 0
+    source: {fileID: 0}
+  - Id: 14
+    name: LaserShoot
+    clip: {fileID: 8300000, guid: 22a7f6cd6ce380d4e87a20e932cd3c9d, type: 3}
+    volume: 0.3
+    pitch: 1
+    Loop: 0
+    source: {fileID: 0}
+  - Id: 15
+    name: Rocket
+    clip: {fileID: 8300000, guid: e9125be2e88c5614a9c483cb0cb8b6b7, type: 3}
+    volume: 0.4
+    pitch: 1
+    Loop: 0
+    source: {fileID: 0}
+  - Id: 16
+    name: Burner
+    clip: {fileID: 8300000, guid: bc5c68d447bb3044badd714dcf834687, type: 3}
+    volume: 0.15
+    pitch: 1
+    Loop: 1
+    source: {fileID: 0}
+  - Id: 17
+    name: Explosion
+    clip: {fileID: 8300000, guid: b4b0030e5978c5d478e1ad093073f63d, type: 3}
+    volume: 0.3
+    pitch: 1
+    Loop: 0
+    source: {fileID: 0}
+  MusicList:
+  - Id: 0
+    name: 
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    Loop: 0
+    source: {fileID: 0}
+  - Id: 1
+    name: MenuMusic
+    clip: {fileID: 8300000, guid: 6eec34acd4f4e2c42839dbd4e5f27734, type: 3}
+    volume: 0.35
+    pitch: 1
+    Loop: 1
+    source: {fileID: 0}
+  - Id: 3
+    name: Level1Music
+    clip: {fileID: 8300000, guid: 9e5279e0761f50944bfb3da898dbcc33, type: 3}
+    volume: 0.4
+    pitch: 1
+    Loop: 1
+    source: {fileID: 0}
+  - Id: 4
+    name: Level2Music
+    clip: {fileID: 8300000, guid: 28e654e743d83e747b92711c75c5c616, type: 3}
+    volume: 0.4
+    pitch: 1
+    Loop: 1
+    source: {fileID: 0}
+  - Id: 5
+    name: Level3Music
+    clip: {fileID: 8300000, guid: c726248fdcf95594d86b9b472d4024c7, type: 3}
+    volume: 0.4
+    pitch: 1
+    Loop: 1
     source: {fileID: 0}

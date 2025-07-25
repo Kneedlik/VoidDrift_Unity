@@ -110,6 +110,11 @@ public class timer : MonoBehaviour
 
     public void victory()
     {
+        MasterManager.Instance.AddGold(ProgressionConst.VictoryGold,true);
+        AchiavementManager.instance.CheckAll(true);
+        AchiavementManager.instance.SaveAllToProgress();
+        SaveManager.SavePlayerProgress(AchiavementManager.instance.progressionState);
+
         Debug.Log("After");
         VictoryScreen.SetActive(true);
         Time.timeScale = 0;

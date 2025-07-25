@@ -166,7 +166,7 @@ public class Summon : MonoBehaviour
     public virtual int PrintPowerLevel()
     {
         float PowerLevel = baseDamage / baseFireRate;
-        Debug.Log(string.Format("Power level: {0}",(int)PowerLevel));
+        //Debug.Log(string.Format("Power level: {0}",(int)PowerLevel));
         return (int)PowerLevel;
     }
 }

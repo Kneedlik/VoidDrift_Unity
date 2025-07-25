@@ -76,6 +76,8 @@ public class LudensEchoSystem : MonoBehaviour
             pom2 += flatDamage;
             pom = (int)pom2;
             pom -= Damage;
+            pom = KnedlikLib.ScaleStatusDamage(pom);
+            pom2 = pom;
 
             int Rand = Random.Range(0, 180);
             Instantiate(ImpactEffect,target.transform.position,Quaternion.Euler(0,0,Rand));

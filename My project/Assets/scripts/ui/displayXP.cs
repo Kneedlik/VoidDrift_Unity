@@ -13,7 +13,7 @@ public class displayXP : MonoBehaviour
    // }
 
     private void OnEnable()
-   {
+    {
         textMeshProUGUI = GetComponent<TextMeshProUGUI>();
         textMeshProUGUI.text = string.Format("{0}", levelingSystem.instance.totalXP);
     }

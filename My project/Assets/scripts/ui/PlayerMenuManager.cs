@@ -8,18 +8,29 @@ using System;
 
 public class PlayerMenuManager : MonoBehaviour
 {
-    [SerializeField] PlayerInformation playerInformation;
+    public int SelectedBox;
+    public PlayerInformation playerInformation;
+    public PlayerPrefs playerPrefs;
+    public ProgressionState progressionState;
+    public static PlayerMenuManager instance;
     public List<WeapeonBox> weapeonBoxes = new List<WeapeonBox>();
+    public List<RuneBox> RuneBoxes = new List<RuneBox>();
+    public List<EquipedRuneBox> EquipedRuneBoxes = new List<EquipedRuneBox>();
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         DeselectAllWeapeons();
         //LockAllWeapeons();
-        LoadFromPlayerInfo();
+        LoadFromPlayerPrefs();
     }
 
-    public void LoadFromPlayerInfo()
+    public void LoadFromPlayerPrefs()
     {
         /*
         WeapeonId.text = playerInformation.WeapeonId.ToString();
@@ -38,56 +49,32 @@ public class PlayerMenuManager : MonoBehaviour
         {
             if (weapeonBoxes[i].WeapeonId == playerInformation.WeapeonId)
             {
-                Debug.Log("111");
                 weapeonBoxes[i].SelectWeapeon();
             }
         }
     }
 
-    public void SaveToPlayerInfo()
+    public void SaveToPlayerPrefs()
     {
-        /*
-        if (WeapeonId.text != "")
+        playerPrefs.EquipedWeapeon = playerInformation.WeapeonId;
+        for (int i = 0;i < EquipedRuneBoxes.Count;i++)
         {
-            playerInformation.WeapeonId = int.Parse(WeapeonId.text);
+            switch(EquipedRuneBoxes[i].SlotId)
+            {
+                case 1: playerPrefs.Keystone = EquipedRuneBoxes[i].EquipedId;
+                    break;
+                case 2: playerPrefs.RuneSlot1 = EquipedRuneBoxes[i].EquipedId;
+                    break;
+                case 3: playerPrefs.RuneSlot2 = EquipedRuneBoxes[i].EquipedId;
+                    break;
+                case 4: playerPrefs.RuneSlot3 = EquipedRuneBoxes[i].EquipedId;
+                    break;
+                case 5: playerPrefs.RuneSlot4 = EquipedRuneBoxes[i].EquipedId;
+                    break;
+                case 6: playerPrefs.RuneSlot5 = EquipedRuneBoxes[i].EquipedId;
+                    break;
+            }
         }
-        if (DamageMultiplier.text != "")
-        {
-            playerInformation.DamageMultiplier = float.Parse(DamageMultiplier.text);
-        }
-        if (AsMultiplier.text != "")
-        {
-            playerInformation.AsMultiplier = float.Parse(AsMultiplier.text);
-        }
-        if (HealthBonus.text != "")
-        {
-            playerInformation.HealthBonus = int.Parse(HealthBonus.text);
-        }
-        if (MsMultiplier.text != "")
-        {
-            playerInformation.MsMultiplier = float.Parse(MsMultiplier.text);
-        }
-        if (XpMultiplier.text != "")
-        {
-            playerInformation.XpMultiplier = float.Parse(XpMultiplier.text);
-        }
-        if (SizeMultiplier.text != "")
-        {
-            playerInformation.SizeMultiplier = float.Parse(SizeMultiplier.text);
-        }
-        if (ReviveBonus.text != "")
-        {
-            playerInformation.ReviveBonus = int.Parse(ReviveBonus.text);
-        }
-        if (ProjectileBonus.text != "")
-        {
-            playerInformation.ProjectileBonus = int.Parse(ProjectileBonus.text);
-        }
-        if (SummonDamageMultiplier.text != "")
-        {
-            playerInformation.SummonDamageMultiplier = float.Parse(SummonDamageMultiplier.text);
-        }
-        */
     }
 
     public void SwitchWeapeon(int Id)
@@ -97,7 +84,12 @@ public class PlayerMenuManager : MonoBehaviour
 
     public void AdvanceToLevelSelection()
     {
-        SaveToPlayerInfo();
+        if(AudioManager.instance != null)
+        {
+            AudioManager.instance.PlayId(10);
+        }
+        playerInformation.CalculateStats(progressionState);
+        SaveToPlayerPrefs();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
@@ -119,17 +111,40 @@ public class PlayerMenuManager : MonoBehaviour
 
     public void ExitToStartMenu()
     {
-        SaveToPlayerInfo();
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlayId(10);
+        }
+        SaveManager.SavePlayerPrefs(playerPrefs);
+        SaveManager.SavePlayerProgress(progressionState);
+        SaveToPlayerPrefs();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
     public void EnterShop()
     {
+        if (AudioManager.instance != null)
+        { 
+            AudioManager.instance.PlayId(10);
+        }
         SceneManager.LoadScene(6);
     }
 
     public void EnterAchievments()
     {
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlayId(10);
+        }
         SceneManager.LoadScene(7);
+    }
+
+    public void DeselectAllEquiped()
+    {
+        for(int i = 0; i < EquipedRuneBoxes.Count; i++)
+        {
+            EquipedRuneBoxes[i].Deselect();
+            SelectedBox = 0;
+        }
     }
 }

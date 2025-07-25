@@ -160,6 +160,7 @@ GameObject:
   - component: {fileID: 341451533954417647}
   - component: {fileID: 9204286398194762564}
   - component: {fileID: 6924719000284708865}
+  - component: {fileID: 4619873772523749741}
   m_Layer: 12
   m_Name: fodderEnemy 1 1
   m_TagString: Enemy
@@ -357,6 +358,7 @@ MonoBehaviour:
   waypoints: []
   speed: 100
   maxSpeed: 10.4
+  MaxPatrolSpeed: 0
   SpeedMultiplier: 1
   rotationSpeed: 60
   nextWayPointDistance: 10
@@ -471,6 +473,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tenacity: 1
   Decrease: 1
+--- !u!114 &4619873772523749741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136859910040533358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 599b41622875a6749b7d10012ed19326, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemPool1:
+  - {fileID: 24702221549039422, guid: eb3fb37a2fe25c546b90133982bcd09e, type: 3}
+  dropChancePool1:
+  - 100
+  pos: {fileID: 0}
+  Amount: 3
+  ForceMin: 5.5
+  ForceMax: 10
 --- !u!1 &136859910063553123
 GameObject:
   m_ObjectHideFlags: 0
@@ -575,7 +597,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  uniqueID: 1012701831409140202
+  uniqueID: 3876375068136824108
   updateError: 1
   checkTime: 0.2
 --- !u!60 &136859910063553129

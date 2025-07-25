@@ -256,3 +256,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 2128928534382772759}
+  WorldSpace: 1

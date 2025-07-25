@@ -47,7 +47,9 @@ public class levelingSystem : MonoBehaviour
     [SerializeField] List<Image> BorderImages = new List<Image>();
 
     [SerializeField] GameObject SaveScreen;
-    [SerializeField] GameObject UIVolume; 
+    [SerializeField] GameObject UIVolume;
+
+    [SerializeField] string FileName;
 
 
     private void Awake()
@@ -64,6 +66,11 @@ public class levelingSystem : MonoBehaviour
         bar.displayedLevel(level);
         bar.setMaxXp(xpNeeded);
         bar.setXP(currentXp);
+    }
+
+    private void Start()
+    {
+        PrintXpToFile();
     }
 
     private void Update()
@@ -235,6 +242,41 @@ public class levelingSystem : MonoBehaviour
             //Debug.Log(xpInccrease);
         }
         xpFlatInccrease += FlatXpPlus;
+    }
+
+    public void PrintXpToFile()
+    {
+        int LevelTemp = 1;
+        int XpNeededTemp = xpNeeded;
+        int XpIncreaseTemp = xpInccrease;
+        float XpFlatIncreaseTemp = xpFlatInccrease;
+        List<string> StringList = new List<string>();
+
+        for (int i = 0;i < 60;i++)
+        {
+            if (LevelTemp % 10 != 0)
+            {
+                float pom = XpIncreaseTemp * xpInccreaseMultiplier;
+                pom = pom + XpFlatIncreaseTemp;
+                XpIncreaseTemp = (int)pom;
+                XpNeededTemp += XpIncreaseTemp;
+            }
+            else
+            {
+                float pom = (xpInccreaseMultiplier - 1f) * 2.25f;
+                pom += 1f;
+                pom = pom * XpIncreaseTemp;
+                pom = pom + (XpFlatIncreaseTemp * 2);
+                XpIncreaseTemp = (int)pom;
+                XpNeededTemp += XpIncreaseTemp;
+            }
+            XpFlatIncreaseTemp += FlatXpPlus;
+
+            StringList.Add(XpNeededTemp.ToString());
+            LevelTemp++;
+        }
+
+        SaveManager.SaveLog(FileName,StringList);
     }
 
     public void IncreaseLevel()

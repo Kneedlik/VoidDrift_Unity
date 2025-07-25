@@ -1,0 +1,2054 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &60574875
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 60574876}
+  - component: {fileID: 60574877}
+  m_Layer: 0
+  m_Name: Crit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &60574876
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 60574875}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4935351424032747092}
+  m_RootOrder: 25
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &60574877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 60574875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d328ced7f659ad4d842826a475681f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 27
+  Unlocked: 0
+  Claimed: 0
+  Current: 0
+  Needed: 100
+  Description: Get 100% crit chance
+  SecondText: 
+  Icon: {fileID: 21300000, guid: 79f8134de8b364f41a59173e09a8b1f6, type: 3}
+  IconColor:
+    serializedVersion: 2
+    rgba: 4278195455
+  BackGround: {fileID: 0}
+  RewardIcon: {fileID: 21300000, guid: 401d49d193d357a4a8f65395b27e0069, type: 3}
+  RewardIconColor:
+    serializedVersion: 2
+    rgba: 4278195455
+  Page: 0
+  Order: 4
+--- !u!1 &222281723
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 222281724}
+  - component: {fileID: 222281725}
+  m_Layer: 0
+  m_Name: Level1CheckPoint1H
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &222281724
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 222281723}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4935351424032747092}
+  m_RootOrder: 28
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &222281725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 222281723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5194e180c0c29d442a635eeed49c1858, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 30
+  Unlocked: 0
+  Claimed: 0
+  Current: 0
+  Needed: 1
+  Description: Survive for 10 minutes on rift 1 on Hard mode
+  SecondText: Lvl 2
+  Icon: {fileID: 21300000, guid: cb725801164b18d4a904898310035839, type: 3}
+  IconColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  BackGround: {fileID: 21300000, guid: 433a92c0fe426704a88434204df1657c, type: 3}
+  RewardIcon: {fileID: 21300000, guid: 7d4fa7aec36b11043ab8a639de65af84, type: 3}
+  RewardIconColor:
+    serializedVersion: 2
+    rgba: 4278195455
+  Page: 0
+  Order: 22
+  TargetTime: 600
+--- !u!1 &348602745
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 348602746}
+  - component: {fileID: 348602747}
+  m_Layer: 0
+  m_Name: HealingOrb
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &348602746
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348602745}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4935351424032747092}
+  m_RootOrder: 24
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &348602747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348602745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8eab770786338447937abe81930458f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 26
+  Unlocked: 0
+  Claimed: 0
+  Current: 0
+  Needed: 200
+  Description: Get + 200% bonus hp
+  SecondText: 
+  Icon: {fileID: 21300000, guid: 2619d18bbffb92c4c84e97aed829a13f, type: 3}
+  IconColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  BackGround: {fileID: 0}
+  RewardIcon: {fileID: 21300000, guid: 5b9e6daca568bc149bc2add096264a93, type: 3}
+  RewardIconColor:
+    serializedVersion: 2
+    rgba: 4278195455
+  Page: 0
+  Order: 9
+  BonusHealth: 2
+--- !u!1 &960060134
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 960060135}
+  - component: {fileID: 960060136}
+  m_Layer: 0
+  m_Name: NoSummon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &960060135
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960060134}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4935351424032747092}
+  m_RootOrder: 27
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &960060136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960060134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7e056083f046bd4fa58636585369da7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 29
+  Unlocked: 0
+  Claimed: 0
+  Current: 0
+  Needed: 1
+  Description: Complete Rift without any Summons
+  SecondText: 
+  Icon: {fileID: 21300000, guid: 43d4a152c7924144e9acdfdd1e1e03a9, type: 3}
+  IconColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  BackGround: {fileID: 0}
+  RewardIcon: {fileID: 21300000, guid: 21f26dbbaaec88a438eef5bce35b6cd1, type: 3}
+  RewardIconColor:
+    serializedVersion: 2
+    rgba: 4294967105
+  Page: 0
+  Order: 13
+--- !u!1 &1048360526
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1048360527}
+  - component: {fileID: 1048360528}
+  m_Layer: 0
+  m_Name: BlackPoison
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1048360527
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048360526}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4935351424032747092}
+  m_RootOrder: 26
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1048360528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048360526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e26219801365e3b4a9372f1de5bcc302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 28
+  Unlocked: 0
+  Claimed: 0
+  Current: 0
+  Needed: 8
+  Description: Put 8 or more levels into Corosive Coating upgrade
+  SecondText: 
+  Icon: {fileID: 21300000, guid: 0b63bad756ea2974f8a43298eafb6031, type: 3}
+  IconColor:
+    serializedVersion: 2
+    rgba: 4281204480
+  BackGround: {fileID: 0}
+  RewardIcon: {fileID: 21300000, guid: 147b673c351e8ef4eb28fb853a9fe84b, type: 3}
+  RewardIconColor:
+    serializedVersion: 2
+    rgba: 4281204480
+  Page: 0
+  Order: 14
+  TargetLevel: 8
+--- !u!1 &1403416206
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1403416207}
+  - component: {fileID: 1403416208}
+  m_Layer: 0
+  m_Name: Level2H
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1403416207
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403416206}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4935351424032747092}
+  m_RootOrder: 30
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1403416208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403416206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa0d03f557248b24f832ffdb478f39dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 32
+  Unlocked: 0
+  Claimed: 0
+  Current: 0
+  Needed: 1
+  Description: Complete rift 2 on Hard mode
+  SecondText: Lvl 2
+  Icon: {fileID: 21300000, guid: 17b603d37bf08e841a6d111eff9b7899, type: 3}
+  IconColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  BackGround: {fileID: 21300000, guid: 84e74e03ea041984eac7f6e64b7ebe25, type: 3}
+  RewardIcon: {fileID: 21300000, guid: 79f8134de8b364f41a59173e09a8b1f6, type: 3}
+  RewardIconColor:
+    serializedVersion: 2
+    rgba: 4278195455
+  Page: 0
+  Order: 24
+--- !u!1 &1926626109
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1926626110}
+  - component: {fileID: 1926626111}
+  m_Layer: 0
+  m_Name: Level1H
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1926626110
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926626109}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -87.45859, y: -160.91763, z: 11.211664}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4935351424032747092}
+  m_RootOrder: 29
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1926626111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926626109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89dc12408ef5ea3428dabda12701eadc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 31
+  Unlocked: 0
+  Claimed: 0
+  Current: 0
+  Needed: 1
+  Description: Complete rift 1 on Hard mode
+  SecondText: Lvl 2
+  Icon: {fileID: 21300000, guid: 14e193c339afa5a48a32ba51bd28bbc4, type: 3}
+  IconColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  BackGround: {fileID: 21300000, guid: 433a92c0fe426704a88434204df1657c, type: 3}
+  RewardIcon: {fileID: 21300000, guid: 0b63bad756ea2974f8a43298eafb6031, type: 3}
+  RewardIconColor:
+    serializedVersion: 2
+    rgba: 4280876800
+  Page: 0
+  Order: 23
+--- !u!1 &4935351423218436048
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4935351423218436051}
+  - component: {fileID: 4935351423218436050}
+  m_Layer: 0
+  m_Name: Level2Checkpoint1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4935351423218436051
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351423218436048}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4935351424032747092}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4935351423218436050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351423218436048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df2ef930e997b2d438478f62d5f51a28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 13
+  Unlocked: 0
+  Claimed: 0
+  Current: 0
+  Needed: 1
+  Description: Survive for 10 minutes on rift 2
+  SecondText: 
+  Icon: {fileID: 21300000, guid: cb725801164b18d4a904898310035839, type: 3}
+  IconColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  BackGround: {fileID: 21300000, guid: 84e74e03ea041984eac7f6e64b7ebe25, type: 3}
+  RewardIcon: {fileID: 21300000, guid: 0b63bad756ea2974f8a43298eafb6031, type: 3}
+  RewardIconColor:
+    serializedVersion: 2
+    rgba: 4281204480
+  Page: 0
+  Order: 12
+  TargetTime: 600
+  LevelIndex: 4
+--- !u!1 &4935351423267208907
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4935351423267208906}
+  - component: {fileID: 4935351423267208901}
+  m_Layer: 0
+  m_Name: EnemiesKilled1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4935351423267208906
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351423267208907}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4935351424032747092}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4935351423267208901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351423267208907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d9d173bf7c4d2d498083453da6280a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 1
+  Unlocked: 0
+  Claimed: 0
+  Current: 0
+  Needed: 0
+  Description: 'Enemies killed:'
+  SecondText: 
+  Icon: {fileID: 21300000, guid: dbceb0d2d980b1f4f9cbc4afd934a582, type: 3}
+  IconColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  BackGround: {fileID: 0}
+  RewardIcon: {fileID: 21300000, guid: 632be8b9a30dee248a5475bd3f2553e1, type: 3}
+  RewardIconColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  Page: 0
+  Order: 28
+  GoldReward: 0
+--- !u!1 &4935351423290691740
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4935351423290691743}
+  - component: {fileID: 4935351423290691742}
+  m_Layer: 0
+  m_Name: TransporterKill
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4935351423290691743
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351423290691740}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4935351424032747092}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4935351423290691742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351423290691740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1897aa51255d7240af8500368ac0fee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 17
+  Unlocked: 0
+  Claimed: 0
+  Current: 0
+  Needed: 1
+  Description: Destroy Transporter mini Boss on Rift 1
+  SecondText: 
+  Icon: {fileID: 21300000, guid: e499fe369e59bb4479ef0864b976b723, type: 3}
+  IconColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  BackGround: {fileID: 21300000, guid: 433a92c0fe426704a88434204df1657c, type: 3}
+  RewardIcon: {fileID: 21300000, guid: d61e2424bed028d4e94e5b4e2e58e419, type: 3}
+  RewardIconColor:
+    serializedVersion: 2
+    rgba: 4281204480
+  Page: 0
+  Order: 6
+--- !u!1 &4935351423480805665
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4935351423480805664}
+  - component: {fileID: 4935351423480805667}
+  m_Layer: 0
+  m_Name: Level2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4935351423480805664
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351423480805665}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4935351424032747092}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4935351423480805667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351423480805665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 787aac10511b73f4d81733d540acd4cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 12
+  Unlocked: 0
+  Claimed: 0
+  Current: 0
+  Needed: 1
+  Description: Complete rift 2
+  SecondText: 
+  Icon: {fileID: 21300000, guid: 17b603d37bf08e841a6d111eff9b7899, type: 3}
+  IconColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  BackGround: {fileID: 21300000, guid: 84e74e03ea041984eac7f6e64b7ebe25, type: 3}
+  RewardIcon: {fileID: 21300000, guid: 6f6cc4646cda30f48a884b026ae62453, type: 3}
+  RewardIconColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  Page: 0
+  Order: 16
+  LevelIndex: 0
+  SlotId: 0
+--- !u!1 &4935351423490358320
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4935351423490358323}
+  - component: {fileID: 4935351423490358322}
+  m_Layer: 0
+  m_Name: GuardianDroneKill
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4935351423490358323
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351423490358320}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4935351424032747092}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4935351423490358322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351423490358320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcc76bb4ecd15e440b3b964f4684dd2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 19
+  Unlocked: 0
+  Claimed: 0
+  Current: 0
+  Needed: 1
+  Description: Destroy rift boss on Rift 2
+  SecondText: 
+  Icon: {fileID: 21300000, guid: 8b7948ea297597648993c9dee187da4d, type: 3}
+  IconColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  BackGround: {fileID: 21300000, guid: 84e74e03ea041984eac7f6e64b7ebe25, type: 3}
+  RewardIcon: {fileID: 21300000, guid: 4d3f9b857dfa14040ba165001ae1694d, type: 3}
+  RewardIconColor:
+    serializedVersion: 2
+    rgba: 4294901900
+  Page: 0
+  Order: 15
+--- !u!1 &4935351424027180137
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4935351424027180136}
+  - component: {fileID: 4935351424027180139}
+  m_Layer: 0
+  m_Name: Level3Checkpoint1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4935351424027180136
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351424027180137}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4935351424032747092}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4935351424027180139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351424027180137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9f134ed5b6be7e4189fb0aa39560455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 15
+  Unlocked: 0
+  Claimed: 0
+  Current: 0
+  Needed: 1
+  Description: Survive for 10 minutes on rift 3
+  SecondText: 
+  Icon: {fileID: 21300000, guid: cb725801164b18d4a904898310035839, type: 3}
+  IconColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  BackGround: {fileID: 21300000, guid: fb51d1624c6ed914ab3b1e3be9420742, type: 3}
+  RewardIcon: {fileID: 21300000, guid: 7231773ef43b0654ca8d225c72d996bd, type: 3}
+  RewardIconColor:
+    serializedVersion: 2
+    rgba: 4294967105
+  Page: 0
+  Order: 19
+  TargetTime: 600
+  LevelIndex: 5
+--- !u!1 &4935351424032747098
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4935351424032747092}
+  - component: {fileID: 4935351424032747093}
+  - component: {fileID: 4935351423624678703}
+  m_Layer: 0
+  m_Name: Achiavements
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4935351424032747092
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351424032747098}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 531.66223, y: 490.45505, z: -5.496117}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4935351423267208906}
+  - {fileID: 4935351424672422883}
+  - {fileID: 4935351424915344400}
+  - {fileID: 4935351424636986354}
+  - {fileID: 4935351424795792067}
+  - {fileID: 4935351424753017770}
+  - {fileID: 4935351424432658763}
+  - {fileID: 4935351424508811332}
+  - {fileID: 4935351424654916566}
+  - {fileID: 4935351424088525799}
+  - {fileID: 4935351425212036484}
+  - {fileID: 4935351423480805664}
+  - {fileID: 4935351423218436051}
+  - {fileID: 4935351424638070554}
+  - {fileID: 4935351424027180136}
+  - {fileID: 4935351424194455385}
+  - {fileID: 4935351423290691743}
+  - {fileID: 4935351424528607595}
+  - {fileID: 4935351423490358323}
+  - {fileID: 4935351425038434651}
+  - {fileID: 4935351424821752508}
+  - {fileID: 4935351424231484059}
+  - {fileID: 3360076507979298703}
+  - {fileID: 8098319504974647196}
+  - {fileID: 348602746}
+  - {fileID: 60574876}
+  - {fileID: 1048360527}
+  - {fileID: 960060135}
+  - {fileID: 222281724}
+  - {fileID: 1926626110}
+  - {fileID: 1403416207}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4935351424032747093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351424032747098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72b13b636c7006146ba5a746ca00ee55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  progressionState: {fileID: 11400000, guid: 7857322546f26cc4289fdf38e1509a9a, type: 2}
+  playerInformation: {fileID: 11400000, guid: 6fe1b5e96d7dd2f47a58d5bd1e7c2a5c, type: 2}
+  achiavements: []
+  MaxPage: 0
+  Boxes:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  CurrentPage: 1
+--- !u!114 &4935351423624678703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351424032747098}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df8a186afaca77b4d97e74f5cc711855, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  progressionState: {fileID: 11400000, guid: 7857322546f26cc4289fdf38e1509a9a, type: 2}
+  playerInformation: {fileID: 11400000, guid: 6fe1b5e96d7dd2f47a58d5bd1e7c2a5c, type: 2}
+  achiavements: []
+  MaxPage: 0
+--- !u!1 &4935351424088525796
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4935351424088525799}
+  - component: {fileID: 4935351424088525798}
+  m_Layer: 0
+  m_Name: Level1Checkpoint1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4935351424088525799
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351424088525796}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4935351424032747092}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4935351424088525798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351424088525796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74267a8aff4a97048b0031d3062e2390, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 10
+  Unlocked: 0
+  Claimed: 0
+  Current: 0
+  Needed: 1
+  Description: Survive for 5 minutes on rift 1
+  SecondText: 
+  Icon: {fileID: 21300000, guid: cb725801164b18d4a904898310035839, type: 3}
+  IconColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  BackGround: {fileID: 21300000, guid: 433a92c0fe426704a88434204df1657c, type: 3}
+  RewardIcon: {fileID: 21300000, guid: 8b4dd685994002b4981d438706f03aee, type: 3}
+  RewardIconColor:
+    serializedVersion: 2
+    rgba: 4294901900
+  Page: 0
+  Order: 1
+  TargetTime: 300
+  LevelIndex: 3
+--- !u!1 &4935351424194455390
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4935351424194455385}
+  - component: {fileID: 4935351424194455384}
+  m_Layer: 0
+  m_Name: CruiserKill
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4935351424194455385
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351424194455390}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4935351424032747092}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4935351424194455384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351424194455390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 562c59bf157a0d644b62099194ffd128, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 16
+  Unlocked: 0
+  Claimed: 0
+  Current: 0
+  Needed: 1
+  Description: Destroy rift boss on Rift 1
+  SecondText: 
+  Icon: {fileID: 21300000, guid: 32074086fdaa61e4399a0f652e8adfbf, type: 3}
+  IconColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  BackGround: {fileID: 21300000, guid: 433a92c0fe426704a88434204df1657c, type: 3}
+  RewardIcon: {fileID: 21300000, guid: b28d8bbf024b7a04a8e5616d0834fd6e, type: 3}
+  RewardIconColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  Page: 0
+  Order: 5
+--- !u!1 &4935351424231484056
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4935351424231484059}
+  - component: {fileID: 4935351424231484058}
+  m_Layer: 0
+  m_Name: IrisDrones
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4935351424231484059
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351424231484056}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4935351424032747092}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4935351424231484058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351424231484056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cef8bad8d8a990345a13a371f42957aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 23
+  Unlocked: 0
+  Claimed: 0
+  Current: 0
+  Needed: 5
+  Description: Control 5 Iris drones at one time
+  SecondText: 
+  Icon: {fileID: 21300000, guid: 0a7f1836d7d2dda489f1b35d035e7f48, type: 3}
+  IconColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  BackGround: {fileID: 0}
+  RewardIcon: {fileID: 21300000, guid: 762be478669d38e438d5e54cf2615499, type: 3}
+  RewardIconColor:
+    serializedVersion: 2
+    rgba: 4294967105
+  Page: 0
+  Order: 18
+--- !u!1 &4935351424432658760
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4935351424432658763}
+  - component: {fileID: 4935351424432658762}
+  m_Layer: 0
+  m_Name: MapEnemiesKilled2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4935351424432658763
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351424432658760}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4935351424032747092}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4935351424432658762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351424432658760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e085337ad9c3b245961095137d79070, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 7
+  Unlocked: 0
+  Claimed: 0
+  Current: 0
+  Needed: 0
+  Description: 'Roaming enemies killed:'
+  SecondText: 
+  Icon: {fileID: 21300000, guid: 9a590ac8cf3489548bd15703874d1218, type: 3}
+  IconColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  BackGround: {fileID: 0}
+  RewardIcon: {fileID: 21300000, guid: 632be8b9a30dee248a5475bd3f2553e1, type: 3}
+  RewardIconColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  Page: 0
+  Order: 26
+  GoldReward: 0
+--- !u!1 &4935351424508811333
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4935351424508811332}
+  - component: {fileID: 4935351424508811335}
+  m_Layer: 0
+  m_Name: MapEnemiesKilled3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4935351424508811332
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351424508811333}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4935351424032747092}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4935351424508811335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351424508811333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e085337ad9c3b245961095137d79070, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 8
+  Unlocked: 0
+  Claimed: 0
+  Current: 0
+  Needed: 0
+  Description: 'Roaming enemies killed:'
+  SecondText: 
+  Icon: {fileID: 21300000, guid: 9a590ac8cf3489548bd15703874d1218, type: 3}
+  IconColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  BackGround: {fileID: 0}
+  RewardIcon: {fileID: 21300000, guid: 632be8b9a30dee248a5475bd3f2553e1, type: 3}
+  RewardIconColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  Page: 0
+  Order: 27
+  GoldReward: 0
+--- !u!1 &4935351424528607592
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4935351424528607595}
+  - component: {fileID: 4935351424528607594}
+  m_Layer: 0
+  m_Name: SaucerKill
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4935351424528607595
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351424528607592}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4935351424032747092}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4935351424528607594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351424528607592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54e38ae98b6a0a240850217d6f5005ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 18
+  Unlocked: 0
+  Claimed: 0
+  Current: 0
+  Needed: 1
+  Description: Destroy rift boss on Rift 3
+  SecondText: 
+  Icon: {fileID: 21300000, guid: 83b383e5b9808b14c8b7140bf4e53ebe, type: 3}
+  IconColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  BackGround: {fileID: 0}
+  RewardIcon: {fileID: 21300000, guid: 399a691e72756f641a990904c2194a3a, type: 3}
+  RewardIconColor:
+    serializedVersion: 2
+    rgba: 4278255615
+  Page: 0
+  Order: 20
+--- !u!1 &4935351424636986355
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4935351424636986354}
+  - component: {fileID: 4935351424636986317}
+  m_Layer: 0
+  m_Name: EnemiesKilled4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4935351424636986354
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351424636986355}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4935351424032747092}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4935351424636986317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351424636986355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d9d173bf7c4d2d498083453da6280a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 4
+  Unlocked: 0
+  Claimed: 0
+  Current: 0
+  Needed: 0
+  Description: 'Enemies killed:'
+  SecondText: 
+  Icon: {fileID: 21300000, guid: dbceb0d2d980b1f4f9cbc4afd934a582, type: 3}
+  IconColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  BackGround: {fileID: 0}
+  RewardIcon: {fileID: 21300000, guid: 632be8b9a30dee248a5475bd3f2553e1, type: 3}
+  RewardIconColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  Page: 0
+  Order: 31
+  GoldReward: 0
+--- !u!1 &4935351424638070555
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4935351424638070554}
+  - component: {fileID: 4935351424638070549}
+  m_Layer: 0
+  m_Name: Level3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4935351424638070554
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351424638070555}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4935351424032747092}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4935351424638070549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351424638070555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5a1cc6aaf7a7c043bbac649e6c709a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 14
+  Unlocked: 0
+  Claimed: 0
+  Current: 0
+  Needed: 1
+  Description: Complete rift 3
+  SecondText: 
+  Icon: {fileID: 21300000, guid: 8b3fc2a5691a67b408e034c7187c8944, type: 3}
+  IconColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  BackGround: {fileID: 21300000, guid: fb51d1624c6ed914ab3b1e3be9420742, type: 3}
+  RewardIcon: {fileID: 0}
+  RewardIconColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  Page: 0
+  Order: 21
+--- !u!1 &4935351424654916567
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4935351424654916566}
+  - component: {fileID: 4935351424654916561}
+  m_Layer: 0
+  m_Name: Level1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4935351424654916566
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351424654916567}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4935351424032747092}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4935351424654916561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351424654916567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e516050c0fd3f4642a47b1600672e02b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 9
+  Unlocked: 0
+  Claimed: 0
+  Current: 0
+  Needed: 1
+  Description: Complete rift 1
+  SecondText: 
+  Icon: {fileID: 21300000, guid: 14e193c339afa5a48a32ba51bd28bbc4, type: 3}
+  IconColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  BackGround: {fileID: 21300000, guid: 433a92c0fe426704a88434204df1657c, type: 3}
+  RewardIcon: {fileID: 21300000, guid: 5ab1ec46579a22842ac30358d3107628, type: 3}
+  RewardIconColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  Page: 0
+  Order: 8
+  LevelIndex: 3
+  SlotId: 4
+--- !u!1 &4935351424672422880
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4935351424672422883}
+  - component: {fileID: 4935351424672422882}
+  m_Layer: 0
+  m_Name: EnemiesKilled2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4935351424672422883
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351424672422880}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4935351424032747092}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4935351424672422882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351424672422880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d9d173bf7c4d2d498083453da6280a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 2
+  Unlocked: 0
+  Claimed: 0
+  Current: 0
+  Needed: 0
+  Description: 'Enemies killed:'
+  SecondText: 
+  Icon: {fileID: 21300000, guid: dbceb0d2d980b1f4f9cbc4afd934a582, type: 3}
+  IconColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  BackGround: {fileID: 0}
+  RewardIcon: {fileID: 21300000, guid: 632be8b9a30dee248a5475bd3f2553e1, type: 3}
+  RewardIconColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  Page: 0
+  Order: 29
+  GoldReward: 0
+--- !u!1 &4935351424753017771
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4935351424753017770}
+  - component: {fileID: 4935351424753017765}
+  m_Layer: 0
+  m_Name: MapEnemiesKilled1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4935351424753017770
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351424753017771}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4935351424032747092}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4935351424753017765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351424753017771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e085337ad9c3b245961095137d79070, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 6
+  Unlocked: 0
+  Claimed: 0
+  Current: 0
+  Needed: 0
+  Description: 'Roaming enemies killed:'
+  SecondText: 
+  Icon: {fileID: 21300000, guid: 9a590ac8cf3489548bd15703874d1218, type: 3}
+  IconColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  BackGround: {fileID: 0}
+  RewardIcon: {fileID: 21300000, guid: 632be8b9a30dee248a5475bd3f2553e1, type: 3}
+  RewardIconColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  Page: 0
+  Order: 25
+  GoldReward: 0
+--- !u!1 &4935351424795792064
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4935351424795792067}
+  - component: {fileID: 4935351424795792066}
+  m_Layer: 0
+  m_Name: EnemiesKilled5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4935351424795792067
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351424795792064}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4935351424032747092}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4935351424795792066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351424795792064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d9d173bf7c4d2d498083453da6280a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 5
+  Unlocked: 0
+  Claimed: 0
+  Current: 0
+  Needed: 0
+  Description: 'Enemies killed:'
+  SecondText: 
+  Icon: {fileID: 21300000, guid: dbceb0d2d980b1f4f9cbc4afd934a582, type: 3}
+  IconColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  BackGround: {fileID: 0}
+  RewardIcon: {fileID: 21300000, guid: 632be8b9a30dee248a5475bd3f2553e1, type: 3}
+  RewardIconColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  Page: 0
+  Order: 32
+  GoldReward: 0
+--- !u!1 &4935351424821752509
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4935351424821752508}
+  - component: {fileID: 4935351424821752511}
+  m_Layer: 0
+  m_Name: Lvl40
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4935351424821752508
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351424821752509}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4935351424032747092}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4935351424821752511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351424821752509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04b1bf34b66238542ba42a49c624fbf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 22
+  Unlocked: 0
+  Claimed: 0
+  Current: 0
+  Needed: 40
+  Description: Reach Lvl 40
+  SecondText: 
+  Icon: {fileID: 21300000, guid: 17b395e9fe13bb34189df6238c933acc, type: 3}
+  IconColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  BackGround: {fileID: 0}
+  RewardIcon: {fileID: 21300000, guid: 5476ad577cee2b44f84f0324d1c7f3fc, type: 3}
+  RewardIconColor:
+    serializedVersion: 2
+    rgba: 4281204480
+  Page: 0
+  Order: 3
+--- !u!1 &4935351424915344401
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4935351424915344400}
+  - component: {fileID: 4935351424915344403}
+  m_Layer: 0
+  m_Name: EnemiesKilled3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4935351424915344400
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351424915344401}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4935351424032747092}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4935351424915344403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351424915344401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d9d173bf7c4d2d498083453da6280a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 3
+  Unlocked: 1
+  Claimed: 0
+  Current: 0
+  Needed: 0
+  Description: 'Enemies killed:'
+  SecondText: 
+  Icon: {fileID: 21300000, guid: dbceb0d2d980b1f4f9cbc4afd934a582, type: 3}
+  IconColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  BackGround: {fileID: 0}
+  RewardIcon: {fileID: 21300000, guid: 632be8b9a30dee248a5475bd3f2553e1, type: 3}
+  RewardIconColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  Page: 0
+  Order: 30
+  GoldReward: 0
+--- !u!1 &4935351425038434648
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4935351425038434651}
+  - component: {fileID: 4935351425038434650}
+  m_Layer: 0
+  m_Name: ShotGunWin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4935351425038434651
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351425038434648}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4935351424032747092}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4935351425038434650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351425038434648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44d8697ae548b06489c93bf2cfe2cf9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 20
+  Unlocked: 0
+  Claimed: 0
+  Current: 0
+  Needed: 1
+  Description: Complete rift with Scatter shot
+  SecondText: 
+  Icon: {fileID: 21300000, guid: 2da3160bf2b038f4083a9bcbc47d3c14, type: 3}
+  IconColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  BackGround: {fileID: 0}
+  RewardIcon: {fileID: 21300000, guid: 11ec1f29de795c4468f597641ae41460, type: 3}
+  RewardIconColor:
+    serializedVersion: 2
+    rgba: 4294901900
+  Page: 0
+  Order: 11
+--- !u!1 &4935351425212036485
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4935351425212036484}
+  - component: {fileID: 4935351425212036487}
+  m_Layer: 0
+  m_Name: Level1Checkpoint2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4935351425212036484
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351425212036485}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4935351424032747092}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4935351425212036487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935351425212036485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 093fb0ae70a58274fbf8f39af4eae73b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 11
+  Unlocked: 0
+  Claimed: 0
+  Current: 0
+  Needed: 1
+  Description: Survive for 15 minutes on rift 1
+  SecondText: 
+  Icon: {fileID: 21300000, guid: cb725801164b18d4a904898310035839, type: 3}
+  IconColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  BackGround: {fileID: 21300000, guid: 433a92c0fe426704a88434204df1657c, type: 3}
+  RewardIcon: {fileID: 21300000, guid: 2da3160bf2b038f4083a9bcbc47d3c14, type: 3}
+  RewardIconColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  Page: 0
+  Order: 2
+  TargetTime: 900
+  LevelIndex: 3
+--- !u!1 &6136948111568450206
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8098319504974647196}
+  - component: {fileID: 619082768037223318}
+  m_Layer: 0
+  m_Name: Revives
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8098319504974647196
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6136948111568450206}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4935351424032747092}
+  m_RootOrder: 23
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &619082768037223318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6136948111568450206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4a342486cc3af54399cfee5499250fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 25
+  Unlocked: 0
+  Claimed: 0
+  Current: 0
+  Needed: 4
+  Description: Finish game with 4 or more revives
+  SecondText: 
+  Icon: {fileID: 21300000, guid: ac9ad31fc846c0a43aadb2293235fece, type: 3}
+  IconColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  BackGround: {fileID: 0}
+  RewardIcon: {fileID: 21300000, guid: fa780925937339f4a9b009ba858b0ab5, type: 3}
+  RewardIconColor:
+    serializedVersion: 2
+    rgba: 4294901900
+  Page: 0
+  Order: 10
+  ReviveAmount: 4
+--- !u!1 &8495937058041373240
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3360076507979298703}
+  - component: {fileID: 6638049649084554405}
+  m_Layer: 0
+  m_Name: Omega
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3360076507979298703
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8495937058041373240}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4935351424032747092}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6638049649084554405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8495937058041373240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc5650d5392d994aa5936bd7f310a24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 24
+  Unlocked: 0
+  Claimed: 0
+  Current: 0
+  Needed: 1
+  Description: Obtain Omega upgrade
+  SecondText: 
+  Icon: {fileID: 21300000, guid: c59dcb4969bbbdd4ab9f2952e98aacb6, type: 3}
+  IconColor:
+    serializedVersion: 2
+    rgba: 4294967105
+  BackGround: {fileID: 0}
+  RewardIcon: {fileID: 21300000, guid: 127abc3ce0b895846982282d4465414d, type: 3}
+  RewardIconColor:
+    serializedVersion: 2
+    rgba: 4294967105
+  Page: 0
+  Order: 7

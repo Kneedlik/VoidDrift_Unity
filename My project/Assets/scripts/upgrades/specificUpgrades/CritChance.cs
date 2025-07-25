@@ -10,7 +10,10 @@ public class CritChance : upgrade
 
     private void Awake()
     {
-        instance = this;
+        if (RuneId == 0)
+        {
+            instance = this;
+        }
         Type = type.red;
         setColor();
     }

@@ -15,12 +15,19 @@ MonoBehaviour:
   WeapeonId: 5
   DamageMultiplier: 1.2
   AsMultiplier: 1.2
-  HealthBonus: 20
+  HealthMultiplier: 1.4
   MsMultiplier: 1
-  XpMultiplier: 1
+  XpMultiplier: 1.06
   SizeMultiplier: 1.1
   ReviveBonus: 0
   ProjectileBonus: 0
   SummonDamageMultiplier: 1
   Rerols: 0
   SelectedLevel: 0
+  HealthRegen: 0
+  GoldGain: 0
+  EquippedRunes: 
+  Keystone: 0
+  MapEnemyHealthMultiplier: 1
+  MapGoldMultiplier: 1
+  HardMode: 0

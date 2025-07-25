@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8499674105743672058
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1076211932900973738, guid: a967c783e696c41458fd2340fbf04114, type: 3}
+      propertyPath: maxHealth
+      value: 8000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1076211932900973741, guid: a967c783e696c41458fd2340fbf04114, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1076211932900973741, guid: a967c783e696c41458fd2340fbf04114, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1076211932900973741, guid: a967c783e696c41458fd2340fbf04114, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1076211932900973741, guid: a967c783e696c41458fd2340fbf04114, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1076211932900973741, guid: a967c783e696c41458fd2340fbf04114, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1076211932900973741, guid: a967c783e696c41458fd2340fbf04114, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1076211932900973741, guid: a967c783e696c41458fd2340fbf04114, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1076211932900973741, guid: a967c783e696c41458fd2340fbf04114, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1076211932900973741, guid: a967c783e696c41458fd2340fbf04114, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1076211932900973741, guid: a967c783e696c41458fd2340fbf04114, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1076211932900973741, guid: a967c783e696c41458fd2340fbf04114, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1076211932900973741, guid: a967c783e696c41458fd2340fbf04114, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1076211932900973741, guid: a967c783e696c41458fd2340fbf04114, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1076211932900973745, guid: a967c783e696c41458fd2340fbf04114, type: 3}
+      propertyPath: m_Name
+      value: BitterBossL3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a967c783e696c41458fd2340fbf04114, type: 3}
+--- !u!1 &8870843998439824971 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1076211932900973745, guid: a967c783e696c41458fd2340fbf04114, type: 3}
+  m_PrefabInstance: {fileID: 8499674105743672058}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-7957999721144398622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8870843998439824971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 599b41622875a6749b7d10012ed19326, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemPool1:
+  - {fileID: 24702221549039422, guid: eb3fb37a2fe25c546b90133982bcd09e, type: 3}
+  dropChancePool1:
+  - 100
+  pos: {fileID: 0}
+  Amount: 14
+  ForceMin: 5.5
+  ForceMax: 10
+--- !u!114 &-4559358774474506130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8870843998439824971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 599b41622875a6749b7d10012ed19326, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemPool1:
+  - {fileID: 24702221549039422, guid: eb3fb37a2fe25c546b90133982bcd09e, type: 3}
+  dropChancePool1:
+  - 100
+  pos: {fileID: 0}
+  Amount: 12
+  ForceMin: 5.5
+  ForceMax: 10

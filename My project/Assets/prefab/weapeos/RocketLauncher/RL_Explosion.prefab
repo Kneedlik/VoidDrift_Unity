@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7262436819839762218}
   - component: {fileID: 2517969821121315846}
   - component: {fileID: 1053093706805176451}
+  - component: {fileID: 6920661795769708987}
   m_Layer: 0
   m_Name: RL_Explosion
   m_TagString: Untagged
@@ -148,8 +149,21 @@ MonoBehaviour:
   PostImpact: 1
   OnCrit: 1
   OnImpactGunOnly: 1
+  OnImpactSummon: 0
   Stun: 1
   Colour:
     serializedVersion: 2
     rgba: 4294967295
   IgnoreTargets: []
+--- !u!114 &6920661795769708987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7262436819839762217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29f8fa0ba5dc0604597d256636b586d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

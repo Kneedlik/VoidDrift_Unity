@@ -19,10 +19,10 @@ public static class UpgradeConsts
     public const int GoldGain = 12;
 
     public const float DamageIncrease = 10;
-    public const float AreaIncrease = 7.5f;
-    public const float SpeedIncrease = 5;
-    public const float AttackSpeedIncrease = 7.5f;
-    public const int HealthIncrease = 20;
+    public const float AreaIncrease = 10f;
+    public const float SpeedIncrease = 7.5f;
+    public const float AttackSpeedIncrease = 10f;
+    public const float HealthIncrease = 20f;
     public const float XpIncrease = 6;
     public const int ReviveIncrease = 1;
     public const int ProjectileIncrease = 1;
@@ -45,6 +45,8 @@ public static class UpgradeConsts
             case Projectiles: return ProjectileIncrease;
             case SummonDamage: return SummonDamageIncrease;
             case Rerols: return RerolIncrease;
+            case HealthRegen: return HealthRegenIncrease;
+            case GoldGain: return GoldGainIncrease;
             default: return 0;
         }
     }

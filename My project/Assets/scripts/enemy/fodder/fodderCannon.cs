@@ -92,7 +92,10 @@ public class fodderCannon : MonoBehaviour
     {
         for (int i = 0; i < bulletsInABurst; i++)
         {
-            AudioManager.instance.PlayId(7);
+            if (AudioManager.instance != null)
+            {
+                AudioManager.instance.PlayId(7);
+            }
             GameObject bullet;
             bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             foddeBullet ee = bullet.GetComponent<foddeBullet>();

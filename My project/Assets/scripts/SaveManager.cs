@@ -85,4 +85,58 @@ public static class SaveManager
         SettingsValues data = JsonConvert.DeserializeObject<SettingsValues>(File.ReadAllText(path));
         return data;
     }
+
+    public static void SavePlayerProgress(ProgressionState Progress)
+    {
+        string path = Application.persistentDataPath + "/Progress.json";
+        if (File.Exists(path))
+        {
+            File.Delete(path);
+        }
+        using FileStream stream = File.Create(path);
+        stream.Close();
+
+        File.WriteAllText(path, JsonConvert.SerializeObject(Progress));
+    }
+
+    public static ProgressionState LoadPlayerProgress()
+    {
+        string path = Application.persistentDataPath + "/Progress.json";
+
+        if (File.Exists(path) == false)
+        {
+            Debug.Log("File doesnt exists");
+            return null;
+        }
+
+        ProgressionState data = JsonConvert.DeserializeObject<ProgressionState>(File.ReadAllText(path));
+        return data;
+    }
+
+    public static void SavePlayerPrefs(PlayerPrefs Preffs)
+    {
+        string path = Application.persistentDataPath + "/Prefs.json";
+        if (File.Exists(path))
+        {
+            File.Delete(path);
+        }
+        using FileStream stream = File.Create(path);
+        stream.Close();
+
+        File.WriteAllText(path, JsonConvert.SerializeObject(Preffs));
+    }
+
+    public static PlayerPrefs LoadPlayerPrefs()
+    {
+        string path = Application.persistentDataPath + "/Prefs.json";
+
+        if (File.Exists(path) == false)
+        {
+            Debug.Log("File doesnt exists");
+            return null;
+        }
+
+        PlayerPrefs data = JsonConvert.DeserializeObject<PlayerPrefs>(File.ReadAllText(path));
+        return data;
+    }
 }

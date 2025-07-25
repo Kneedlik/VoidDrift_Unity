@@ -47,7 +47,8 @@ public class weapeon : MonoBehaviour
     {
         CoolDown = baseCoolDown / ASmultiplier;
         float realMultiplier = (float)PlayerStats.sharedInstance.ASmultiplier / 100f;
-        CoolDown = CoolDown / realMultiplier;      
+        CoolDown = CoolDown / realMultiplier;
+        CoolDown = CoolDown / MasterManager.Instance.PlayerInformation.AsMultiplier;
     }
 
     public void SetForce()

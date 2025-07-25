@@ -12,5 +12,168 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 564cdb1dabea58b46b5ccf2c2b10774b, type: 3}
   m_Name: Progression
   m_EditorClassIdentifier: 
-  UnlockedWeapeons: 010000000200000004000000
-  UnlockedLevels: 0100000002000000
+  EnemiesKilled: 202
+  MapEnemiesKilled: 0
+  Gold: 80399
+  UnlockedWeapeons:
+  - Id: 1
+    Unlocked: 1
+    Bought: 1
+  - Id: 2
+    Unlocked: 1
+    Bought: 1
+  - Id: 3
+    Unlocked: 1
+    Bought: 1
+  - Id: 4
+    Unlocked: 1
+    Bought: 1
+  - Id: 5
+    Unlocked: 1
+    Bought: 1
+  UnlockedLevels: 010000000200000003000000
+  ShopUpgradesProgression:
+  - Id: 1
+    Unlocked: 1
+    CurrentLevel: 2
+  - Id: 5
+    Unlocked: 1
+    CurrentLevel: 2
+  - Id: 2
+    Unlocked: 1
+    CurrentLevel: 1
+  - Id: 4
+    Unlocked: 1
+    CurrentLevel: 2
+  - Id: 6
+    Unlocked: 1
+    CurrentLevel: 1
+  UnlockedRunes: 0100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f0000001000000011000000
+  UnlockedKeyStones: 
+  UnlockedSlots: 010000000200000003000000
+  HardModeUnlocked: 1
+  UnlockedAchievements:
+  - Id: 3
+    Unlocked: 0
+    Claimed: 0
+    Current: 0
+  - Id: 10
+    Unlocked: 0
+    Claimed: 0
+    Current: 0
+  - Id: 11
+    Unlocked: 0
+    Claimed: 0
+    Current: 0
+  - Id: 22
+    Unlocked: 0
+    Claimed: 0
+    Current: 0
+  - Id: 27
+    Unlocked: 0
+    Claimed: 0
+    Current: 0
+  - Id: 16
+    Unlocked: 0
+    Claimed: 0
+    Current: 0
+  - Id: 17
+    Unlocked: 0
+    Claimed: 0
+    Current: 0
+  - Id: 24
+    Unlocked: 0
+    Claimed: 0
+    Current: 0
+  - Id: 9
+    Unlocked: 0
+    Claimed: 0
+    Current: 0
+  - Id: 26
+    Unlocked: 0
+    Claimed: 0
+    Current: 0
+  - Id: 25
+    Unlocked: 0
+    Claimed: 0
+    Current: 0
+  - Id: 20
+    Unlocked: 0
+    Claimed: 0
+    Current: 0
+  - Id: 13
+    Unlocked: 0
+    Claimed: 0
+    Current: 0
+  - Id: 29
+    Unlocked: 0
+    Claimed: 0
+    Current: 0
+  - Id: 28
+    Unlocked: 0
+    Claimed: 0
+    Current: 0
+  - Id: 19
+    Unlocked: 0
+    Claimed: 0
+    Current: 0
+  - Id: 12
+    Unlocked: 0
+    Claimed: 0
+    Current: 0
+  - Id: 23
+    Unlocked: 0
+    Claimed: 0
+    Current: 0
+  - Id: 15
+    Unlocked: 0
+    Claimed: 0
+    Current: 0
+  - Id: 18
+    Unlocked: 0
+    Claimed: 0
+    Current: 0
+  - Id: 14
+    Unlocked: 0
+    Claimed: 0
+    Current: 0
+  - Id: 30
+    Unlocked: 0
+    Claimed: 0
+    Current: 0
+  - Id: 31
+    Unlocked: 0
+    Claimed: 0
+    Current: 0
+  - Id: 32
+    Unlocked: 0
+    Claimed: 0
+    Current: 0
+  - Id: 6
+    Unlocked: 0
+    Claimed: 0
+    Current: 0
+  - Id: 7
+    Unlocked: 0
+    Claimed: 0
+    Current: 0
+  - Id: 8
+    Unlocked: 0
+    Claimed: 0
+    Current: 0
+  - Id: 1
+    Unlocked: 0
+    Claimed: 0
+    Current: 0
+  - Id: 2
+    Unlocked: 0
+    Claimed: 0
+    Current: 0
+  - Id: 4
+    Unlocked: 0
+    Claimed: 0
+    Current: 0
+  - Id: 5
+    Unlocked: 0
+    Claimed: 0
+    Current: 0

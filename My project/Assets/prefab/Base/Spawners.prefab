@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4353153679129378864}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -382.64975, y: 148.21625, z: 1.2190188}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -46,15 +46,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3135243d483e194bb65e5daf9af31e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wawes: []
-  offsetX: 1200
-  offsetY: 900
-  active: 1
+  wawes:
+  - {fileID: 11400000, guid: e1e2bf8f35044e24a9c6e8505ca47dc7, type: 2}
+  - {fileID: 11400000, guid: cb22fc29e86b0de459ce72ae8f6d0fb2, type: 2}
+  - {fileID: 11400000, guid: c411fe45ffbdf2747a9740bca656d1e4, type: 2}
+  - {fileID: 11400000, guid: faf85f4b55ec0204abdee3bcadf051d9, type: 2}
+  - {fileID: 11400000, guid: a98e6ce12382ef74289df4e03936a50f, type: 2}
+  - {fileID: 11400000, guid: aeb8875c47de80d4c86ed2d9da238d96, type: 2}
+  - {fileID: 11400000, guid: cb6efab40e9389b44973191a929547c9, type: 2}
+  offsetX: 1150
+  offsetY: 850
+  active: 0
   Endless: 0
-  parent: {fileID: 4353153680516291602}
+  parent: {fileID: 0}
   count: 0
-  counter: {fileID: 4353153680516291603}
+  counter: {fileID: 0}
   PrintPrefix: Big
+  FileName: Level 1 Big spawner
 --- !u!1 &4353153679375785429
 GameObject:
   m_ObjectHideFlags: 0
@@ -81,7 +89,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4353153679375785429}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -21.649761, y: -20.783747, z: 1.2190188}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -100,15 +108,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3135243d483e194bb65e5daf9af31e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wawes: []
-  offsetX: 80
-  offsetY: 55
+  wawes:
+  - {fileID: 11400000, guid: db1040ce3cc81414cbd8802cdd11201a, type: 2}
+  - {fileID: 11400000, guid: e1c15c36ee138bf4e977219e5ec41fe6, type: 2}
+  - {fileID: 11400000, guid: f4cd7b6dc85c83949be0bdf2e67bf6e7, type: 2}
+  - {fileID: 11400000, guid: 9581b6e0f4c1f1146add341bc6d6499b, type: 2}
+  - {fileID: 11400000, guid: 29a26dce1c1650444b0c8f4acc33feba, type: 2}
+  - {fileID: 11400000, guid: add1e9f15bd3e8d479ba76ea7b4a2ea9, type: 2}
+  - {fileID: 11400000, guid: ef09d8a3749444742bb184bb8473aa64, type: 2}
+  - {fileID: 11400000, guid: bf0e027954d1ef248a40e20432b95486, type: 2}
+  - {fileID: 11400000, guid: 38b44ea4ceed3cb45b89ff90bfc9c775, type: 2}
+  - {fileID: 11400000, guid: 25a8e72843563254eb80dfb09866c89c, type: 2}
+  - {fileID: 11400000, guid: 415eb263ad03783449b97294e0683eba, type: 2}
+  - {fileID: 11400000, guid: 7ba5c87db4d082643869f971a0084760, type: 2}
+  - {fileID: 11400000, guid: 3fa43d50f5d6dbc45b4a6dc279ba18a8, type: 2}
+  - {fileID: 11400000, guid: c4b43281c6a6ddc449cf2324b5a1d9d7, type: 2}
+  - {fileID: 11400000, guid: 3a36056db75cbc545b6f9c07f03ffa25, type: 2}
+  - {fileID: 11400000, guid: 25eb8bfdc0fef074289a98064175574f, type: 2}
+  - {fileID: 11400000, guid: 24228b4e675715846ab1759b691e4251, type: 2}
+  - {fileID: 11400000, guid: 2db42d248d8444a44916725d2817c362, type: 2}
+  - {fileID: 11400000, guid: ea1e27d4179d2174abb4e8f9d9b50a6b, type: 2}
+  - {fileID: 11400000, guid: be937ccf524024e4389604dac5005fe5, type: 2}
+  - {fileID: 11400000, guid: ef539ca7e6e0848468abbf9b9a028312, type: 2}
+  - {fileID: 11400000, guid: f0dcb275634524448855f0510944e168, type: 2}
+  - {fileID: 11400000, guid: 41b8fb512995bae418add35074a0b87c, type: 2}
+  - {fileID: 11400000, guid: eb68acc868e3a6d49be51ecf6f9b2527, type: 2}
+  - {fileID: 11400000, guid: bd4f6911ebda31c4782c0806c6165442, type: 2}
+  offsetX: 65
+  offsetY: 40
   active: 0
   Endless: 0
   parent: {fileID: 4353153680516291602}
   count: 0
   counter: {fileID: 4353153680516291603}
   PrintPrefix: Classic
+  FileName: Level 1 Classic spawner
 --- !u!114 &4353153679375785433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,7 +214,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4353153680516291601}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -23.646236, y: 32.8451, z: 0.7973131}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -47,7 +47,11 @@ public class upgradeDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public void activate()
     {
-        if(levelingSystem.instance.Double)
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlayId(10);
+        }
+        if (levelingSystem.instance.Double)
         {
             Upgrade.upgrade.function();
             Upgrade.upgrade.level -= 1;

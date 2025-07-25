@@ -320,6 +320,7 @@ GameObject:
   - component: {fileID: 6894693682927455996}
   - component: {fileID: 6894693682927455999}
   - component: {fileID: 8317198806193346994}
+  - component: {fileID: 4264315301430711047}
   m_Layer: 5
   m_Name: WeapeonBox
   m_TagString: Untagged
@@ -471,7 +472,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeapeonId: 3
   SelectedObject: {fileID: 6894693681397195038}
+  Unlocked: 0
+  Bought: 0
+  Price: 0
+  WeapeonImage: {fileID: 0}
+  LockedObj: {fileID: 0}
   playerInformation: {fileID: 11400000, guid: 6fe1b5e96d7dd2f47a58d5bd1e7c2a5c, type: 2}
+  progressionState: {fileID: 0}
+  playerMenuManager: {fileID: 0}
+  PriceText: {fileID: 0}
 --- !u!114 &6894693682927455996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -523,3 +532,15 @@ MonoBehaviour:
   highLightColor:
     serializedVersion: 2
     rgba: 4294967295
+--- !u!114 &4264315301430711047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6894693682927455990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca35e5d1efaf7ab4ba4fe9fe5ba5a8e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

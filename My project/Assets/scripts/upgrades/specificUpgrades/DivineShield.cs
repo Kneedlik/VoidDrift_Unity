@@ -10,23 +10,35 @@ public class DivineShield : upgrade
 
     private void Awake()
     {
-        instance = this;
-        Type = type.purple;
-        setColor();
+        if (RuneId == 0)
+        {
+            instance = this;
+            Type = type.purple;
+            setColor();
+            //Debug.Log(222);
+        }else
+        {
+            Type = type.none;
+        }
     }
 
     public override void function()
     {
         if(level == 0)
         {
-            devineShield.SetActive(true);
-            rarity -= 15;
+            if (RuneId == 0)
+            {
+                devineShield.SetActive(true);
+                rarity -= 15;
+            }else
+            {
+                DivineShield.instance.function();
+            }
         }else
         {
             DivineShieldSystem.instance.coolDown -= amount;
         }
 
         level++;
-
     }
 }

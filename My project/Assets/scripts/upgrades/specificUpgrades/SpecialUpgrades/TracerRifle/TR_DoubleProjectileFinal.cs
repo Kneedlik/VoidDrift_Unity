@@ -11,14 +11,14 @@ public class TR_DoubleProjectileFinal : upgrade
         setColor();
     }
 
-    public override bool requirmentsMet()
-    {
-        if (FinalConditionsMet() && TR_Haste.Instance.level >= 1 && TR_Projectiles.Instance.level >= 1)
-        {
-            return true;
-        }
-        return false;
-    }
+    //public override bool requirmentsMet()
+    //{
+    //    if (FinalConditionsMet() && TR_Haste.Instance.level >= 1 && TR_Projectiles.Instance.level >= 1)
+    //    {
+    //        return true;
+    //    }
+    //    return false;
+    //}
 
     public override void function()
     {

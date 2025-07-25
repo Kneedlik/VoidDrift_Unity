@@ -47,6 +47,7 @@ public class BrittleSystem : MonoBehaviour
                     GameObject E = Instantiate(explosionPrefab, target.transform.position, Quaternion.Euler(0, 0, 0));
                     explosion exp = E.GetComponent<explosion>();
                     int pom = KnedlikLib.ScaleDamage(explodeDamage, true, true);
+                    pom = KnedlikLib.ScaleStatusDamage(pom);
 
                     exp.damage = pom;
 

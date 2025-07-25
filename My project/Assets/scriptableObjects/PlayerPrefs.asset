@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dd4717a02b07a247967a81f0b764705, type: 3}
+  m_Name: PlayerPrefs
+  m_EditorClassIdentifier: 
+  EquipedWeapeon: 0
+  SelectedLevel: 0
+  Keystone: 0
+  RuneSlot1: 0
+  RuneSlot2: 0
+  RuneSlot3: 0
+  RuneSlot4: 0
+  RuneSlot5: 0
+  HardMode: 0

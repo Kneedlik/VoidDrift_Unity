@@ -1033,6 +1033,7 @@ GameObject:
   - component: {fileID: 4925706110532136052}
   - component: {fileID: 2143752235187869052}
   - component: {fileID: 6655828604110552287}
+  - component: {fileID: 7419411231378675580}
   m_Layer: 12
   m_Name: TurretBase
   m_TagString: Enemy
@@ -1248,6 +1249,26 @@ MonoBehaviour:
   percentValue: 0.045
   XpPrefab: {fileID: 2320706730734592644, guid: cabbcd8f3c321f941b937e91cb5f0d6a, type: 3}
   Point: {fileID: 0}
+--- !u!114 &7419411231378675580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4651986903781394071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 599b41622875a6749b7d10012ed19326, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemPool1:
+  - {fileID: 24702221549039422, guid: eb3fb37a2fe25c546b90133982bcd09e, type: 3}
+  dropChancePool1:
+  - 100
+  pos: {fileID: 0}
+  Amount: 3
+  ForceMin: 5.5
+  ForceMax: 10
 --- !u!1 &6491415119416687536
 GameObject:
   m_ObjectHideFlags: 0

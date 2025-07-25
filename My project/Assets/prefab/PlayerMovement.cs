@@ -8,9 +8,10 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 mousePos;
     Camera cam;
+    bool AudioPlaying;
 
     //combat movement
-    private Vector2 movement;
+    public Vector2 movement;
     public float baseMoveSpeed;
     public float baseMaxSpeed;
     public float moveSpeed;
@@ -69,6 +70,26 @@ public class PlayerMovement : MonoBehaviour
 
         movement.y = Input.GetAxisRaw("Vertical");
         movement.x = Input.GetAxisRaw("Horizontal");
+
+        if(AudioManager.instance != null)
+        {
+            if(movement.y != 0 || movement.x != 0)
+            {
+                if(AudioPlaying == false)
+                {
+                    AudioManager.instance.PlayName("Burner");
+                    AudioPlaying = true;
+                }
+            }else
+            {
+                if(AudioPlaying)
+                {
+                    AudioManager.instance.StopName("Burner");
+                    AudioPlaying = false;
+                }
+            }
+
+        }
 
         //activeVerticalSpeed = Mathf.Lerp(activeVerticalSpeed, Input.GetAxisRaw("Vertical") * VerticalMoveSpeed, verticalAcceleration * Time.deltaTime);
         //activeHorizontalSpeed = Mathf.Lerp(activeHorizontalSpeed, Input.GetAxisRaw("Horizontal") * HorizontalMoveSpeed, horizontalAcceleration * Time.deltaTime);
@@ -150,7 +171,6 @@ public class PlayerMovement : MonoBehaviour
         {
             moveCharacter(movement, moveSpeed);
             setMaxSpeed(maxSpeed);
-
         }
 
         //dash

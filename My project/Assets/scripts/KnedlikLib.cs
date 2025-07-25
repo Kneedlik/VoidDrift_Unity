@@ -123,6 +123,14 @@ public static class KnedlikLib
         return pom;
     }
 
+    public static int ScaleStatusDamage(int Damage)
+    {
+        float damage = Damage;
+        damage = damage * PlayerStats.sharedInstance.StatusDamage;
+        int pom = (int)damage;
+        return pom;
+    }
+
     public static void DrawCircle(LineRenderer line,float radius,int steps)
     {
         line.positionCount = steps;
@@ -355,6 +363,36 @@ public static class KnedlikLib
             renderers[i] = Enemies[i].GetComponent<Renderer>();
 
             if (renderers[i].isVisible)
+            {
+                Enemies2.Add(Enemies[i]);
+            }
+        }
+
+        if (Enemies2.Count == 0)
+        {
+            target = Enemies[0].transform;
+            return false;
+        }
+        else
+        {
+            int rand = Random.Range(0, Enemies2.Count);
+            target = Enemies2[rand].transform;
+        }
+        return true;
+    }
+
+    public static bool FindRandomEnemy(out Transform target, List<Transform> list)
+    {
+        GameObject[] Enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        List<GameObject> Enemies2 = new List<GameObject>();
+
+        Renderer[] renderers = new Renderer[Enemies.Length];
+
+        for (int i = 0; i < renderers.Length; i++)
+        {
+            renderers[i] = Enemies[i].GetComponent<Renderer>();
+
+            if (renderers[i].isVisible && list.Contains(renderers[i].transform) == false)
             {
                 Enemies2.Add(Enemies[i]);
             }

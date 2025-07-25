@@ -29,14 +29,16 @@ public class UpgradeBox : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void LoadFromProgression()
     {
-        if (ShopManager.Instance.Progress.ShopUpgradesProgression.ContainsKey(Id))
+        Unlocked = false;
+        CurrentLevel = 0;
+
+        for (int i = 0;i < ShopManager.Instance.Progress.ShopUpgradesProgression.Count;i++)
         {
-            Unlocked = ShopManager.Instance.Progress.ShopUpgradesProgression[Id].Unlocked;
-            CurrentLevel = ShopManager.Instance.Progress.ShopUpgradesProgression[Id].CurrentLevel;
-        }else
-        {
-            Unlocked = false;
-            CurrentLevel = 0;
+            if (ShopManager.Instance.Progress.ShopUpgradesProgression[i].Id == Id)
+            {
+                Unlocked = ShopManager.Instance.Progress.ShopUpgradesProgression[i].Unlocked;
+                CurrentLevel = ShopManager.Instance.Progress.ShopUpgradesProgression[i].CurrentLevel;
+            }
         }
 
         if (Unlocked || UnlockedByDefault)
@@ -76,8 +78,9 @@ public class UpgradeBox : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             {
                 if (ShopManager.Instance.Progress.Gold >= Prices[CurrentLevel])
                 {
-                    CurrentLevel += 1;
                     ShopManager.Instance.Progress.Gold -= Prices[CurrentLevel];
+                    ShopManager.Instance.goldCounter.UpdateCount();
+                    CurrentLevel += 1;
                     IncreaseLevel();
 
                 }
@@ -103,17 +106,20 @@ public class UpgradeBox : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         //    return;
         //}
 
-        if (ShopManager.Instance.Progress.ShopUpgradesProgression.ContainsKey(Id))
+        for (int i = 0;i < ShopManager.Instance.Progress.ShopUpgradesProgression.Count; i++)
         {
-            ShopManager.Instance.Progress.ShopUpgradesProgression[Id].CurrentLevel = CurrentLevel;
+            if (ShopManager.Instance.Progress.ShopUpgradesProgression[i].Id == Id)
+            {
+                ShopManager.Instance.Progress.ShopUpgradesProgression[i].CurrentLevel = CurrentLevel;
+                return;
+            }
         }
-        else
-        {
-            ShopUpgradeState Temp = new ShopUpgradeState();
-            Temp.CurrentLevel = CurrentLevel;
-            Temp.Unlocked = true;
-            ShopManager.Instance.Progress.ShopUpgradesProgression.Add(Id, Temp);
-        }
+
+        ShopUpgradeState Temp = new ShopUpgradeState();
+        Temp.CurrentLevel = CurrentLevel;
+        Temp.Unlocked = true;
+        Temp.Id = Id;
+        ShopManager.Instance.Progress.ShopUpgradesProgression.Add(Temp);
     }
 
     public void Lock()
@@ -130,7 +136,7 @@ public class UpgradeBox : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void SetPrice()
     {
-        if (Unlocked)
+        if (Unlocked || UnlockedByDefault)
         {
             if (CurrentLevel < MaxLevel)
             {

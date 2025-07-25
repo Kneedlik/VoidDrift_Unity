@@ -23,6 +23,10 @@ GameObject:
   - component: {fileID: 2624672050981415590}
   - component: {fileID: 2624672050981415593}
   - component: {fileID: 2624672050981415592}
+  - component: {fileID: 1929432595}
+  - component: {fileID: 1929432596}
+  - component: {fileID: 1929432597}
+  - component: {fileID: 1929432612}
   m_Layer: 0
   m_Name: statusSystem
   m_TagString: StatusSystem
@@ -61,7 +65,7 @@ MonoBehaviour:
   chance: 40
   duration: 8
   maxHealthDMG: 0
-  maxHealthDMGamount: 0.025
+  maxHealthDMGamount: 0.02
   infect: 0
   distance: 8
   speed: 1.25
@@ -71,12 +75,18 @@ MonoBehaviour:
   particles: {fileID: 7684258944382667462, guid: 63ddb8f44c0240e4daf5e81b3b16a746, type: 3}
   poisonedEnemies: []
   CDamage: 20
-  CTrueDamage: 0.02
+  CTrueDamage: 0.015
   CDuration: 12.5
   CInfectDistance: 8
-  CSpeed: 0.65
+  CSpeed: 0.75
   CParticles: {fileID: 6297773213846443391, guid: cfe25543e768b9141bb9257d6d5e79c3, type: 3}
   CpoisonedEnemies: []
+  BDamage: 20
+  BTrueDamage: 0.04
+  BDuration: 8
+  BSpeed: 1.75
+  BParticles: {fileID: 7117855671623497608, guid: b0dc112c5264b5349a6ea83569442b3a, type: 3}
+  BPoisonedEnemies: []
 --- !u!114 &2624672050981415261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,7 +341,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2624672050981415256}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e4c5c86e1124d747ab0ca65f4587227, type: 3}
   m_Name: 
@@ -342,3 +352,72 @@ MonoBehaviour:
   LeechDuration: 8
   active: 0
   Storage: 0
+--- !u!114 &1929432595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2624672050981415256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8135a3c424ee46d49a81a0bc7a4beb83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DamageIncrease: 0.4
+  AuraObj: {fileID: 4504797955614850787, guid: 06e26268702baf04088315fc03d737ae, type: 3}
+  AffectedEnems: []
+--- !u!114 &1929432596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2624672050981415256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a1a9d47207458346b876432cd9b53dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LaserObj: {fileID: 2934436382433456190, guid: 93cde6eeba097da48a0f57e7184240b1, type: 3}
+  BurstAmount: 3
+  BulletsInSalvo: 1
+  Damage: 12
+  Delay: 0.8
+  CoolDown: 6.5
+--- !u!114 &1929432597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2624672050981415256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbeff101ab0d88f489d72b61885f7ce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Projectile: {fileID: 6419192049325329518, guid: 791fcfe998761fd46a5b96dea442ed5c, type: 3}
+  DamageCoefitient: 0.5
+  FlatDamage: 10
+  AngleOffset: 30
+  AffectedTargets: []
+--- !u!114 &1929432612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2624672050981415256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0a56db7f233d4448bafaffc4b811d4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BulletsInBurst: 2
+  CoolDown: 8.5
+  BlackHoleObj: {fileID: 2278057870061898724, guid: 0b5f1916f9707c648afb7d5b1852652a, type: 3}
+  MaxX: 50
+  MaxY: 27
+  MinX: 17
+  MinY: 13

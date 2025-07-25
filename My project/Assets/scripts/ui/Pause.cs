@@ -45,7 +45,11 @@ public class Pause : MonoBehaviour
     }
 
    public void Resume()
-    {
+   {
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlayId(10);
+        }
         Time.timeScale = 1;
         GamePaused = false;
 
@@ -84,13 +88,26 @@ public class Pause : MonoBehaviour
 
     public void quitToMenu()
     {
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlayId(10);
+        }
         Debug.Log("Exiting to menu");
-        SceneManager.LoadScene("StartMenu");
+        //SceneManager.LoadScene("StartMenu");
+        AchiavementManager.instance.CheckAll(false);
+        AchiavementManager.instance.SaveAllToProgress();
+        SaveManager.SavePlayerProgress(AchiavementManager.instance.progressionState);
+        AudioManager.instance.PlayMusicId(1);
+        SceneManager.LoadScene(1);
         Time.timeScale = 1;
     }
 
     public void restartScene()
     {
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlayId(10);
+        }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1;
     }

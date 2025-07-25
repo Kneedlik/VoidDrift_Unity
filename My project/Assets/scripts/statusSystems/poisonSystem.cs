@@ -33,7 +33,15 @@ public class poisonSystem : MonoBehaviour
     [SerializeField] GameObject CParticles;
     public List<GameObject> CpoisonedEnemies = new List<GameObject>();
 
-    void Start()
+    //Black Poison
+    public int BDamage;
+    public float BTrueDamage;
+    public float BDuration;
+    public float BSpeed;
+    [SerializeField] GameObject BParticles;
+    public List<GameObject> BPoisonedEnemies = new List<GameObject>();
+
+    void Awake()
     {
         sharedInstance = this;
     }
@@ -51,7 +59,7 @@ public class poisonSystem : MonoBehaviour
                 //KnedlikLib.scaleParticleSize(target, P, 1f);
                 P.transform.SetParent(target.transform);
                 StartCoroutine(CStartPoison(health, target));
-                StartCoroutine(stopPoison(target,P,true));
+                StartCoroutine(stopPoison(target,P,true,false));
             }
             
         }
@@ -59,8 +67,9 @@ public class poisonSystem : MonoBehaviour
 
     IEnumerator CStartPoison(Health health,GameObject target)
     {
-        yield return new WaitForSeconds(CSpeed);
+        yield return new WaitForSeconds(CSpeed * PlayerStats.sharedInstance.TickRate);
         int Damage = KnedlikLib.ScaleDamage(CDamage, true, true);
+        Damage = KnedlikLib.ScaleStatusDamage(Damage);
 
         while (health != null && CpoisonedEnemies.Contains(target))
         {
@@ -92,6 +101,57 @@ public class poisonSystem : MonoBehaviour
         if (CpoisonedEnemies.Contains(target))
         {
             CpoisonedEnemies.Remove(target);
+        }
+    }
+
+    public void BlackPoison(GameObject target, int damage, ref int plusDamage)
+    {
+        if (BPoisonedEnemies.Contains(target) == false && target.tag != "Player")
+        {
+            Health health = target.GetComponent<Health>();
+            if (health != null)
+            {
+                BPoisonedEnemies.Add(target);
+
+                GameObject P = Instantiate(BParticles, target.transform.position, Quaternion.Euler(0, 0, 0));
+                //KnedlikLib.scaleParticleSize(target, P, 1f);
+                P.transform.SetParent(target.transform);
+                StartCoroutine(BStartPoison(health, target));
+                StartCoroutine(stopPoison(target, P, false,true));
+            }
+
+        }
+    }
+
+    IEnumerator BStartPoison(Health health, GameObject target)
+    {
+        yield return new WaitForSeconds(BSpeed * PlayerStats.sharedInstance.TickRate);
+        int Damage = KnedlikLib.ScaleDamage(BDamage, true, true);
+        Damage = KnedlikLib.ScaleStatusDamage(Damage);
+
+        while (health != null && BPoisonedEnemies.Contains(target))
+        {
+            if (target.activeInHierarchy)
+            {
+                int extra = 0;
+
+                float pomH = health.maxHealth * BTrueDamage;
+                extra = (int)pomH;
+
+                Color32 C = Constants.GreenColor;
+                health.TakeDamage(Damage + extra, C);
+
+                yield return new WaitForSeconds(BSpeed * PlayerStats.sharedInstance.TickRate);
+            }
+            else
+            {
+                BPoisonedEnemies.Remove(target);
+            }
+        }
+
+        if (BPoisonedEnemies.Contains(target))
+        {
+            BPoisonedEnemies.Remove(target);
         }
     }
 
@@ -139,8 +199,9 @@ public class poisonSystem : MonoBehaviour
     {
         yield return new WaitForSeconds(speed);
         int Damage = KnedlikLib.ScaleDamage(damage, true, true);
+        Damage = KnedlikLib.ScaleStatusDamage(Damage);
 
-        while( health != null && poisonedEnemies.Contains(target))
+        while ( health != null && poisonedEnemies.Contains(target))
         {
             if (target.activeInHierarchy)
             {
@@ -180,9 +241,13 @@ public class poisonSystem : MonoBehaviour
        
     }
 
-    IEnumerator stopPoison(GameObject target, GameObject P,bool Corrupted)
+    IEnumerator stopPoison(GameObject target, GameObject P,bool Corrupted,bool Black)
     {
-        if (Corrupted == false)
+        if (Black)
+        {
+            yield return new WaitForSeconds(BDuration);
+        }
+        else  if (Corrupted == false)
         {
             yield return new WaitForSeconds(duration);
         }else
@@ -195,6 +260,13 @@ public class poisonSystem : MonoBehaviour
             Destroy(P);
         }
 
+        if (Black)
+        {
+            if (BPoisonedEnemies.Contains(target))
+            {
+                BPoisonedEnemies.Remove(target);
+            }
+        }
         if (Corrupted == false)
         {
             if (poisonedEnemies.Contains(target))
