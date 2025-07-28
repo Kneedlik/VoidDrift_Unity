@@ -127,7 +127,7 @@ public class SpiritFlameSystem : MonoBehaviour
         }
         
 
-        while (enemies.Contains (target) && target != null)
+        while (enemies.Contains (target) && target != null && target.activeSelf)
         {
             if(health != null)
             {

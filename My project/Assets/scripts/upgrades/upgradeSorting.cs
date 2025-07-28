@@ -106,7 +106,7 @@ public class upgradeSorting : MonoBehaviour
 
         if (levelingSystem.instance.level % 10 == 0)
         {
-            amount = 4;
+            amount = 3;
         }
         else
         {

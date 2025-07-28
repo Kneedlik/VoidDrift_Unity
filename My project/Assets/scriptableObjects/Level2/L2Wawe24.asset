@@ -23,10 +23,10 @@ MonoBehaviour:
   - 86
   - 7
   - 7
-  spawnRate: 0.55
-  spawnN: 12
-  healthMultiplier: 155
-  XpMultiplier: 18
+  spawnRate: 0.65
+  spawnN: 10
+  healthMultiplier: 90
+  XpMultiplier: 25
   Boss: {fileID: 0}
   BossAmount: 1
   SpawnedBoss: 0

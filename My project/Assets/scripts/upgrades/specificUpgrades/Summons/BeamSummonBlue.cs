@@ -40,7 +40,7 @@ public class BeamSummonBlue : upgrade
                 }
                 rarity -= 10;
                 fireRate = beam.baseFireRate;
-                description = string.Format("Iris drone damage + {0} cooldown - 20%",Damage1);
+                description = string.Format("Iris drone damage + {0} cooldown - 30%",Damage1);
             }
         }else if(level == 1)
         {
@@ -50,9 +50,9 @@ public class BeamSummonBlue : upgrade
 
         }else if(level == 2)
         {
-            beam.ticks += 2;
-            beam.beamDuration += beam.tickDelay * 2;
-            description = string.Format("Iris drone damage + {0} cooldown - 25%",Damage2);
+            beam.ticks += 3;
+            beam.beamDuration += beam.tickDelay * 3;
+            description = string.Format("Iris drone damage + {0} cooldown - 40%",Damage2);
         }else if(level == 3)
         {
             beam.baseDamage += Damage2;

@@ -21,11 +21,19 @@ public class NukeSummonGreen : upgrade
         setColor();
     }
 
+    public override bool requirmentsMet()
+    {
+        if (KnedlikLib.CheckSummon(this))
+        {
+            return true;
+        }
+        else return false;
+    }
+
     public override void function()
     {
         if (level == 0)
         {
-
             if (SummonsManager.instance.addSummon(Summon, out pom))
             {
                 NukSum = pom.GetComponent<NukeSummon>();

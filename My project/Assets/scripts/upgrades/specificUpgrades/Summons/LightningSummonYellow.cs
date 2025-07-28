@@ -43,7 +43,7 @@ public class LightningSummonYellow : upgrade
                 }
                 rarity -= 10;
                 fireRate = sum.baseFireRate;
-                description = string.Format("Sky beam damage + {0}, CoolDown - 25%",Damage1);
+                description = string.Format("Sky beam damage + {0}, CoolDown - 30%",Damage1);
             }
         }else if(level == 1)
         {
@@ -54,7 +54,7 @@ public class LightningSummonYellow : upgrade
         {
             sum.Aoe = true;
             sum.projectiles += 1;
-            description = string.Format("Sky beam damage + {0} CoolDown - 25%",Damage2);
+            description = string.Format("Sky beam damage + {0} CoolDown - 30%",Damage2);
         }else if(level == 3)
         {
             sum.baseDamage += Damage2;

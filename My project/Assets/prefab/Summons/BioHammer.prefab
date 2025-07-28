@@ -99,14 +99,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad5644200469e148a94bdc6b7dfc141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 14
+  damage: 16
   fireRate: 2.1
   size: 1
-  baseDamage: 25
-  baseFireRate: 1.45
+  baseDamage: 30
+  baseFireRate: 1
   baseSize: 0
   id: 2
-  damageDelay: 0.5
+  damageDelay: 0.4
   healthScaling: 0.2
   TrueDamage: 0
   Aoe: 0

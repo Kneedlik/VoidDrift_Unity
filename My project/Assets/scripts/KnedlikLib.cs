@@ -169,6 +169,13 @@ public static class KnedlikLib
 
         GameObject[] Enemies = GameObject.FindGameObjectsWithTag("Enemy");
         // Transform[] Transforms = new Transform[Enemies.Length];
+
+        if (Enemies.Length == 0)
+        {
+            target = null;
+            return false;
+        }
+
         Renderer[] renderers = new Renderer[Enemies.Length];
 
         for (int i = 0; i < Enemies.Length; i++)
@@ -664,12 +671,12 @@ public static class KnedlikLib
         upgradeTemp.TrueRarity = upgradeTemp.upgrade.rarity;
         for (int i = 0; i < upgrade.NotChoosen; i++)
         {
-            upgradeTemp.TrueRarity -= 8;
+            upgradeTemp.TrueRarity -= 4;
         }
 
         for (int i = 0; i < upgrade.NotApeared; i++)
         {
-            upgradeTemp.TrueRarity += 11;
+            upgradeTemp.TrueRarity += 10;
         }
 
         for (int i = 0; i < upgrade.ApearedInRow - 1; i++)

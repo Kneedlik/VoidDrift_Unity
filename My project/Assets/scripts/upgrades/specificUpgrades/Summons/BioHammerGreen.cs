@@ -49,10 +49,10 @@ public class BioHammerGreen : upgrade
                 fireRate = hammer.baseFireRate;
             }
 
-            description = string.Format("BioHammer cooldown - 30%");
+            description = string.Format("BioHammer cooldown - 40%");
         }else if(level == 1)
         {
-            float pom = fireRate * 0.3f;
+            float pom = fireRate * 0.4f;
             hammer.baseFireRate -= pom; 
 
             description = string.Format("Biohammer now deals damage in an area Biohammer base damage + {0}",Damage1);

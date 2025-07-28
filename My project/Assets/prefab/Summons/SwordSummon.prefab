@@ -104,7 +104,7 @@ MonoBehaviour:
   fireRate: 1.6
   size: 1
   baseDamage: 18
-  baseFireRate: 0.6
+  baseFireRate: 0.5
   baseSize: 1
   id: 8
   SlashObjectT: {fileID: 2360662370584755344, guid: 90426e44dc2ffe646abbbd5ca3409782, type: 3}

@@ -35,7 +35,7 @@ public class RespawnManager : MonoBehaviour
             yield return null;
         }
 
-       if(destroy == false)
+        if(destroy == false)
         {
             prefab.transform.parent = gameObject.transform;
             prefab.SetActive(false);
@@ -57,7 +57,10 @@ public class RespawnManager : MonoBehaviour
             health.setUp();
         }else
         {
-            Instantiate(prefab,location,Quaternion.Euler(0,0,0));
+            if (prefab != null)
+            {
+                Instantiate(prefab, location, Quaternion.Euler(0, 0, 0));
+            }
         }
     }
 

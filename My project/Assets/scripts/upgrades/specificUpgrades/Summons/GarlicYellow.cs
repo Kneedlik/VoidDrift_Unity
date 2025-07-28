@@ -49,16 +49,16 @@ public class GarlicYellow : upgrade
                 fireRate = main.baseFireRate;
                 size = main.baseSize;
 
-                description = string.Format("Serpent base damage + {0} area + 30%",Damage1);
+                description = string.Format("Serpent base damage + {0} area + 40%",Damage1);
             }
         }
         else if (level == 1)
         {
             main.baseDamage += Damage1;
-            float pom = size * 0.30f;
+            float pom = size * 0.40f;
             main.baseSize += pom;
 
-            description = string.Format("Serpent cooldown - 25% damage + {0}",Damage2);
+            description = string.Format("Serpent cooldown - 30% damage + {0}",Damage2);
 
         }else if(level == 2)
         {

@@ -61,6 +61,7 @@ public static class RuneConst
             case StatusTick: return StatusTickIncrease;
             case SummonAndDamage: return SummonAndDamageIncrease;
             case KillSpeed: return KillSpeedIncrease;
+            case ExtraDamage: return ExtraDamageIncrease;
             case OrbDropRate: return OrbDropRateIncrease;
             case Omega: return OmegaIncrease;
             case Phoenix: return PhoenixIncrease;

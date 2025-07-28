@@ -101,8 +101,8 @@ MonoBehaviour:
   damage: 4
   fireRate: 2
   size: 1
-  baseDamage: 9
-  baseFireRate: 1.9
+  baseDamage: 12
+  baseFireRate: 1.5
   baseSize: 1
   id: 9
   Line: {fileID: 7059526789082523097, guid: 018a80464463f0f44993b09d7261574e, type: 3}

@@ -5058,7 +5058,7 @@ MonoBehaviour:
   size: 0
   baseSize: 1
   StartingSize: 0
-  baseCoolDown: 0.52
+  baseCoolDown: 0.6
   StartingCooldown: 0
   CoolDown: 0
   pierce: 0
@@ -5074,7 +5074,7 @@ MonoBehaviour:
   sideScaling: 0.06
   MaxSideScaling: 20
   BaseOffset: 35
-  BaseSideOffset: 50
+  BaseSideOffset: 80
   OffsetScaling: 0.04
   RotationMultiplier: 1
   Double: 0
@@ -11500,6 +11500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 664c87830f7f4274386dca16f3830d17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movement: {x: 0, y: 0}
   baseMoveSpeed: 140
   baseMaxSpeed: 10
   moveSpeed: 0
@@ -11562,9 +11563,9 @@ MonoBehaviour:
   level: 1
   currentXp: 0
   xpNeeded: 120
-  xpInccrease: 45
-  xpFlatInccrease: 8
-  FlatXpPlus: 3.4
+  xpInccrease: 60
+  xpFlatInccrease: 7
+  FlatXpPlus: 3
   xpInccreaseMultiplier: 1.038
   levelUpMenu: {fileID: 0}
   sorting: {fileID: 0}
@@ -11594,6 +11595,7 @@ MonoBehaviour:
   - {fileID: 0}
   SaveScreen: {fileID: 0}
   UIVolume: {fileID: 0}
+  FileName: LevelsXp
 --- !u!114 &1454237884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11618,7 +11620,10 @@ MonoBehaviour:
   ProjectileForce: 1
   thorns: 0
   SummonDamage: 100
-  revives: 1
+  SummonCoolDown: 1
+  OneSummonBuff: 0
+  StatusDamage: 1
+  revives: 0
   slider: {fileID: 0}
   TickRate: 1
   HealingOrbDropChance: 0.35

@@ -153,6 +153,11 @@ public class LightningSummon : Summon
         List<GameObject> Enemies2 = new List<GameObject>();
         List<GameObject> Enemies3 = new List<GameObject>();
 
+        if (Enemies.Length == 0)
+        {
+            target = null;
+            return false;
+        }
 
         Renderer[] renderers = new Renderer[Enemies.Length];
 

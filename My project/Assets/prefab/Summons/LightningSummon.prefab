@@ -102,7 +102,7 @@ MonoBehaviour:
   fireRate: 0
   size: 1
   baseDamage: 18
-  baseFireRate: 1.35
+  baseFireRate: 1.2
   baseSize: 1
   id: 10
   projectiles: 1

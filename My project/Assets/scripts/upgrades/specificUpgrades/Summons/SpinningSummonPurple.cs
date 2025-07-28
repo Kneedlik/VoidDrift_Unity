@@ -47,7 +47,7 @@ public class SpinningSummonPurple : upgrade
                  distance = main.orbDistance;
                 fireRate = main.fireRate;
 
-                description = string.Format("Orb base damage + 15 firerate + 10% ");
+                description = string.Format("Orb base damage + 15 firerate + 30% ");
             }        
         }
 
@@ -65,15 +65,15 @@ public class SpinningSummonPurple : upgrade
             main.orbDistance += pom;
             main.setDistance();
 
-            description = string.Format("Drone base damage + 20 Base size + 25%");
+            description = string.Format("Drone base damage + 30 Base size + 40%");
         }
         else if(level == 3)
         {
-            main.baseDamage += 20;
-            float pom = size * 0.25f;
+            main.baseDamage += 30;
+            float pom = size * 0.4f;
             main.baseSize += pom;
 
-            description = string.Format("Drone projectiles + 1 orb base size + 25% orb base distance + 25");
+            description = string.Format("Drone projectiles + 2 orb base size + 30% orb base distance + 25%");
         }else if(level == 4)
         {
             main.increaseOrbCount(1);
@@ -81,7 +81,7 @@ public class SpinningSummonPurple : upgrade
             main.orbDistance += pom;
             main.setDistance();
 
-            pom = size * 0.25f;
+            pom = size * 0.3f;
             main.baseSize += pom;
         }
 

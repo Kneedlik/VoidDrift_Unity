@@ -48,21 +48,23 @@ public class spawner : MonoBehaviour
                 for (int i = 0; i < spawnN; i++)
                 {
                     GameObject E;
-                    GameObject En = new GameObject();
+                    GameObject En;
                     Vector3 pos = KnedlikLib.GenerateRandPosition(transform.position,offsetX,offsetY);
 
                     En = wawes[count].decideEnemy();
-                   
-                    E = Instantiate(En, pos, Quaternion.identity);
-                    E.transform.SetParent(parent);
+                    if (En != null)
+                    {
+                        E = Instantiate(En, pos, Quaternion.identity);
+                        E.transform.SetParent(parent);
 
-                    Health health = E.GetComponent<Health>();
-                    float pom = health.maxHealth * wawes[count].healthMultiplier;
-                    health.maxHealth = (int)pom;
+                        Health health = E.GetComponent<Health>();
+                        float pom = health.maxHealth * wawes[count].healthMultiplier;
+                        health.maxHealth = (int)pom;
 
-                    dropXP XP = E.GetComponent<dropXP>();
-                    pom = XP.xpValue * wawes[count].XpMultiplier;
-                    XP.xpValue = (int)pom;
+                        dropXP XP = E.GetComponent<dropXP>();
+                        pom = XP.xpValue * wawes[count].XpMultiplier;
+                        XP.xpValue = (int)pom;
+                    }
                 }
                 timeStamp = spawnRate;
             }

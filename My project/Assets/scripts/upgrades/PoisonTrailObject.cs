@@ -45,13 +45,17 @@ public class PoisonTrailObject : MonoBehaviour
 
         for (int i = 0; i < list.Count; i++)
         {
-            Health health = list[i].GetComponent<Health>();
-            if (health != null)
+            if (list[i] != null)
             {
-                poisonSystem.sharedInstance.Poison(list[i],Damage,ref Damage);
-                health.TakeDamage(Damage);
+                Health health = list[i].GetComponent<Health>();
+                if (health != null)
+                {
+                    poisonSystem.sharedInstance.Poison(list[i], Damage, ref Damage);
+                    health.TakeDamage(Damage);
+                }
             }
             list.RemoveAt(i);
+
         }
     }
 

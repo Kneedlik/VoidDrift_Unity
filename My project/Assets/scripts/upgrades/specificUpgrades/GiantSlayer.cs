@@ -13,7 +13,7 @@ public class GiantSlayer : upgrade
 
     public override bool requirmentsMet()
     {
-        if(levelingSystem.instance.level >= 25 && levelingSystem.instance.yellow >= 15)
+        if(levelingSystem.instance.level >= 30 && levelingSystem.instance.yellow >= 15)
         {
             return true;
         }else return false; 

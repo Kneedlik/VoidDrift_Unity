@@ -19,11 +19,11 @@ public class TR_PierceFinal : upgrade
 
     public override bool requirmentsMet()
     {
-        //if (FinalConditionsMet() && TR_Pierce.instance.level >= 1 && TR_Damage.Instance.level >= 1)
-        //{
+        if (FinalConditionsMet() && TR_Pierce.instance.level >= 1 && TR_Damage.Instance.level >= 1)
+        {
             return true;
-        //}
-        //return false;
+        }
+        return false;
     }
 
     public override void function()

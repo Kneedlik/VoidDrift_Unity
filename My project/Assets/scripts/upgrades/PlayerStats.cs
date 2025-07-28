@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -46,14 +47,14 @@ public class PlayerStats : MonoBehaviour
         player = GetComponent<Transform>();
         health = GetComponent<plaerHealth>();
         OnLevel = null;
-        addRevive(0);
-        sharedInstance = this;
 
+        sharedInstance = this;
         //ResetUpgrades();
     }
 
     private void Start()
     {
+        addRevive(MasterManager.Instance.PlayerInformation.ReviveBonus);
         gun = GameObject.FindWithTag("Weapeon").GetComponent<weapeon>();
     }
 

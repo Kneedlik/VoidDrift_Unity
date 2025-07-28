@@ -378,7 +378,12 @@ public class Health : MonoBehaviour
 
     public void damagePopUp(int Damage,Color32 color)
     {
-        if(DmMaster.Full)
+        if(DmMaster == null)
+        {
+            return;
+        }
+
+        if(DmMaster.Full)//
         {
             return;
         }

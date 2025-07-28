@@ -52,7 +52,7 @@ public class MasterManager : MonoBehaviour
             DestroyTime DTime = Text.GetComponent<DestroyTime>();
             DTime.destroyTime = DTime.destroyTime * 1.5f;
         }
-        Debug.Log(progressionState.Gold);
+        //Debug.Log(progressionState.Gold);
     }
 
 

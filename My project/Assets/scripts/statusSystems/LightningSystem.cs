@@ -48,6 +48,7 @@ public class LightningSystem : MonoBehaviour
         if (rand <= chance)
         {
             int DamageTemp = KnedlikLib.ScaleStatusDamage(damage1);
+            DamageTemp += PlayerStats.sharedInstance.ExtraDamage;
 
             Health health = target.GetComponent<Health>();
            
@@ -176,6 +177,7 @@ public class LightningSystem : MonoBehaviour
         if (rand <= Cchance)
         {
             int DamageTemp = KnedlikLib.ScaleStatusDamage(Cdamage);
+            DamageTemp += PlayerStats.sharedInstance.ExtraDamage;
 
             Health health = target.GetComponent<Health>();
             Instantiate(CimpactEffect, target.transform.position, Quaternion.Euler(90, 0, 0));
@@ -188,7 +190,7 @@ public class LightningSystem : MonoBehaviour
 
             if (health != null)
             {
-                health.TakeDamage(Cdamage);
+                health.TakeDamage(DamageTemp);
             }
 
             for (int i = 0; i < Cchain; i++)
@@ -206,7 +208,7 @@ public class LightningSystem : MonoBehaviour
                         Cbegin = currentTarget.gameObject;
                         if (h != null)
                         {
-                            h.TakeDamage(Cdamage);
+                            h.TakeDamage(DamageTemp);
                         }
                     }
                 }

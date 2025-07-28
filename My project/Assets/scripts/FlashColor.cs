@@ -44,7 +44,7 @@ public class FlashColor : MonoBehaviour
             {
                 StopCoroutine(flash);
             }
-            flash = StartCoroutine(flashRoutine());
+            flash = StartCoroutine(flashRoutine());     //
         }
     }
 

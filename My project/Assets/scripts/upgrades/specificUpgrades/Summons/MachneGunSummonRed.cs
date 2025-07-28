@@ -46,11 +46,11 @@ public class MachneGunSummonRed : upgrade
         if(level == 1)
         {
             drone.baseDamage += Damage1;
-            description = string.Format("Drone projectiles + 2 projectile speed + 40%");
+            description = string.Format("Drone projectiles + 4 projectile speed + 40%");
             
         }else if(level == 2)
         {
-            drone.bulletsInBurst += 2;
+            drone.bulletsInBurst += 4;
             drone.BaseForce = drone.BaseForce + (drone.BaseForce * 0.4f);
             description = string.Format("Drone cooldown - 40% base damage + {0}",Damage2);
 

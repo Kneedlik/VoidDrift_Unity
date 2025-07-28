@@ -41,6 +41,7 @@ public class plaerHealth : MonoBehaviour
     //revive
     [SerializeField] GameObject reviveParticle;
     [SerializeField] Slider ReviveSlider;
+    bool Reviving;
 
      public GameObject shockWawe;
 
@@ -130,10 +131,11 @@ public class plaerHealth : MonoBehaviour
         }
         
 
-        if (health <= 0 && godMode == false)
+        if (health <= 0 && godMode == false && Reviving == false)
         {
             if(PlayerStats.sharedInstance.revives > 0)
             {
+                Reviving = true;
                 StartCoroutine(Revive());
                 StartCoroutine(FlashLight());
                 gameObject.GetComponent<PlayerMovement>().enabled = false;
@@ -196,7 +198,7 @@ public class plaerHealth : MonoBehaviour
         yield return new WaitForSeconds(deathDelay / 1.5f);
 
         PlayerStats.sharedInstance.revives -= 1;
-        ReviveSlider.value -= 1;
+        ReviveSlider.value -= 1;//
         health = maxHealth;
         healthBar.SetHealth(health);
         timeStamp = 1.5f;
@@ -224,6 +226,7 @@ public class plaerHealth : MonoBehaviour
                 h.TakeDamage(h.maxHealth);
             }
         }
+        Reviving = false;
 
     }
     void Die()

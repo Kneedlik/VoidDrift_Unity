@@ -274,12 +274,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damagePlus: 18
   damage: 18
-  destroyTime: 6
+  destroyTime: 3
   pierce: 0
   Bounce: 0
   knockBack: 0
   impactEffect: {fileID: 0}
   impactParticles: {fileID: 0}
+  target: {fileID: 0}
   MaxBounceDistance: 0
   OnImpactGunOnly: 0
   OnImpact: 0
@@ -287,9 +288,9 @@ MonoBehaviour:
   PostImpact: 0
   IgnoreTargets: []
   UseForce: 0
-  force: 33
+  force: 22
   MaxSpeed: 0
-  rotSpeed: 90
+  rotSpeed: 50
   Enemy: 1
   PlayerOnly: 0
   Trigger: 1
@@ -297,6 +298,7 @@ MonoBehaviour:
   Delay: 0.3
   StopAfter: 0
   StartForceAfter: 0
+  Retarget: 1
 --- !u!58 &8427582367293497123
 CircleCollider2D:
   m_ObjectHideFlags: 0

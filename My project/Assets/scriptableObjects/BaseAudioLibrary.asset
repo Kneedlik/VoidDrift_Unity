@@ -100,7 +100,7 @@ MonoBehaviour:
   - Id: 12
     name: Tracer
     clip: {fileID: 8300000, guid: 49d8ad00f1c9b4e43b203be41cc8d2a5, type: 3}
-    volume: 0.5
+    volume: 0.3
     pitch: 1
     Loop: 0
     source: {fileID: 0}
@@ -157,21 +157,21 @@ MonoBehaviour:
   - Id: 3
     name: Level1Music
     clip: {fileID: 8300000, guid: 9e5279e0761f50944bfb3da898dbcc33, type: 3}
-    volume: 0.4
+    volume: 0.45
     pitch: 1
     Loop: 1
     source: {fileID: 0}
   - Id: 4
     name: Level2Music
     clip: {fileID: 8300000, guid: 28e654e743d83e747b92711c75c5c616, type: 3}
-    volume: 0.4
+    volume: 0.45
     pitch: 1
     Loop: 1
     source: {fileID: 0}
   - Id: 5
     name: Level3Music
     clip: {fileID: 8300000, guid: c726248fdcf95594d86b9b472d4024c7, type: 3}
-    volume: 0.4
+    volume: 0.45
     pitch: 1
     Loop: 1
     source: {fileID: 0}

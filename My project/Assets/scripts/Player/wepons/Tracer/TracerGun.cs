@@ -154,6 +154,10 @@ public class TracerGun : weapeon
         }
 
         int pom = extraDamage;
+        if (eventManager.OnFire != null)
+        {
+            eventManager.OnFire(gameObject);
+        }
 
         if (PierceFinal)
         {

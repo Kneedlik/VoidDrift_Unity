@@ -19,10 +19,10 @@ MonoBehaviour:
   - {fileID: 4769829029796524462, guid: ca9badfee81beac4e878e91c48b0ce90, type: 3}
   chanses:
   - 100
-  spawnRate: 0.65
-  spawnN: 10
-  healthMultiplier: 120
-  XpMultiplier: 18
+  spawnRate: 0.85
+  spawnN: 9
+  healthMultiplier: 55
+  XpMultiplier: 22
   Boss: {fileID: 2664196073113781367, guid: 5c72fef6941dea84c86ed09666ea4872, type: 3}
   BossAmount: 3
   SpawnedBoss: 0

@@ -8,6 +8,7 @@ public class KillSpeed : upgrade
     [SerializeField] int totalAmount;
     [SerializeField] float durationAmount;
     [SerializeField] float totalDuration;
+    PlayerMovement Movement;
 
     bool active;
 
@@ -16,6 +17,7 @@ public class KillSpeed : upgrade
         Type = type.purple;
         setColor();
         active = false;
+        Movement = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
     }
 
     public override void function()
@@ -60,16 +62,17 @@ public class KillSpeed : upgrade
                 StartCoroutine(speedBurst());
             }
         }
-        
-
     }
 
     IEnumerator speedBurst()
     {
+        Debug.Log("yep");
         int pom = totalAmount;
         PlayerStats.sharedInstance.IncreaseSpeed(totalAmount);
+        Movement.updateMS(PlayerStats.sharedInstance.SpeedMultiplier);
         yield return new WaitForSeconds(totalDuration);
         PlayerStats.sharedInstance.IncreaseSpeed(pom * -1);
+        Movement.updateMS(PlayerStats.sharedInstance.SpeedMultiplier);
         active = false;
     }
 
