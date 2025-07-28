@@ -24,7 +24,8 @@
 - In development
 - Steam page live: [Void Drift on Steam](https://store.steampowered.com/app/3491090/Void_Drift/)
 
-  [Void Drift Gameplay](VoidDrift/Assets/Gifs/Short3.gif)
+## Gameplay Preview
+  ![Void Drift Gameplay](VoidDrift/Assets/Gifs/Short3.gif)
 
   
 
