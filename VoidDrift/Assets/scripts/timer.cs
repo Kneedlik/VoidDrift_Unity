@@ -19,6 +19,7 @@ public class timer : MonoBehaviour
     [SerializeField] GameObject HealthBar;
     [SerializeField] GameObject Timer;
     [SerializeField] GameObject FinalBoss;
+    [SerializeField] bool SpawnBossOffScren;
     
     void Start()
     {
@@ -99,7 +100,18 @@ public class timer : MonoBehaviour
     {
         Debug.Log("summoning");
         GameObject Player = GameObject.FindWithTag("Player");
-        Instantiate(FinalBoss, Player.transform.transform.position,Quaternion.Euler(0,0,0));
+        Health BossHealth;
+        if (SpawnBossOffScren)
+        {
+            Vector3 pos = KnedlikLib.GenerateRandPosition(Player.transform.position, spawner.offsetX, spawner.offsetY);
+            BossHealth = Instantiate(FinalBoss, pos, Quaternion.Euler(0, 0, 0)).GetComponent<Health>();
+        }
+        else
+        {
+            BossHealth = Instantiate(FinalBoss, Player.transform.position, Quaternion.Euler(0, 0, 0)).GetComponent<Health>();
+        }
+        float pom = BossHealth.maxHealth * MasterManager.Instance.PlayerInformation.MapEnemyHealthMultiplier;
+        BossHealth.maxHealth = (int)pom;
     }
 
     public void VictoryDelayed(float Delay)
@@ -111,7 +123,7 @@ public class timer : MonoBehaviour
     public void victory()
     {
         MasterManager.Instance.AddGold(ProgressionConst.VictoryGold,true);
-        AchiavementManager.instance.CheckAll(true);
+        AchiavementManager.instance.CheckAll(true); //
         AchiavementManager.instance.SaveAllToProgress();
         SaveManager.SavePlayerProgress(AchiavementManager.instance.progressionState);
 

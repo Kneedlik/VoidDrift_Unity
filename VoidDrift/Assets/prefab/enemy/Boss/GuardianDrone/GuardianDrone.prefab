@@ -275,7 +275,7 @@ MonoBehaviour:
   dropChancePool1:
   - 100
   pos: {fileID: 0}
-  Amount: 10
+  Amount: 12
   ForceMin: 5.5
   ForceMax: 10
 --- !u!1 &2664196073671634414

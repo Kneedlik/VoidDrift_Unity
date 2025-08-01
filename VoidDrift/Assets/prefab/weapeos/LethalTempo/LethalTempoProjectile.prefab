@@ -295,7 +295,7 @@ MonoBehaviour:
   UseForce: 0
   force: 75
   MaxSpeed: 0
-  rotSpeed: 450
+  rotSpeed: 600
   Enemy: 0
   PlayerOnly: 0
   Trigger: 1

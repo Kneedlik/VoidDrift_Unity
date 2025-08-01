@@ -455,6 +455,7 @@ public class levelingSystem : MonoBehaviour
     {
         float pom = health * healthPerLevel * (level - 1);
         pom = pom + health;
+        pom = pom * MasterManager.Instance.PlayerInformation.MapEnemyHealthMultiplier;
         return (int)pom;
     }
 

@@ -49,13 +49,13 @@ public class PlayerStats : MonoBehaviour
         OnLevel = null;
 
         sharedInstance = this;
-        //ResetUpgrades();
+        gun = GameObject.FindWithTag("Weapeon").GetComponent<weapeon>();
     }
 
     private void Start()
     {
         addRevive(MasterManager.Instance.PlayerInformation.ReviveBonus);
-        gun = GameObject.FindWithTag("Weapeon").GetComponent<weapeon>();
+        increaseProjectiles(MasterManager.Instance.PlayerInformation.ProjectileBonus);
     }
 
     public void increaseMaxHP(int HP)

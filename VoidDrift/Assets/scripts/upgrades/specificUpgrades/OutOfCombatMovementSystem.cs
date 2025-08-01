@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class OutOfCombatMovementSystem : MonoBehaviour
 {
-  //  public static OutOfCombatMovementSystem instance;
+    public static OutOfCombatMovementSystem instance;
     float timeStamp;
     public float coolDown;
     public bool active;
     public int speedAmount;
+    public int DamageAmount;
 
-    public GameObject line1;
-    public GameObject line2;
+    public GameObject Line;
 
-    void Start()
+    void Awake()
     {
-       // instance = this;
+        instance = this;
+        enabled = false;
     }
 
     private void OnEnable()
@@ -29,7 +30,7 @@ public class OutOfCombatMovementSystem : MonoBehaviour
     {
         if(Input.GetButton("Fire1"))
         {
-            reduceMoveSpeed(0);
+            reduceMoveSpeed();
         }
 
         if(timeStamp > 0)
@@ -43,15 +44,16 @@ public class OutOfCombatMovementSystem : MonoBehaviour
         }
     }
 
-    public void reduceMoveSpeed(int amount)
+    public void reduceMoveSpeed()
     {
         if(active)
         {
             timeStamp = coolDown;
             active = false;
             PlayerStats.sharedInstance.IncreaseSpeed(speedAmount * -1);
-            line1.SetActive(false);
-            line2.SetActive(false);
+            PlayerStats.sharedInstance.increaseDMG(DamageAmount * -1);
+            Line.SetActive(false);
+            PlayerStats.sharedInstance.UpdateStats();
         }   
 
     }
@@ -62,8 +64,9 @@ public class OutOfCombatMovementSystem : MonoBehaviour
         {
             active = true;
             PlayerStats.sharedInstance.IncreaseSpeed(speedAmount);
-            line1.SetActive(true);
-            line2.SetActive(true);
+            PlayerStats.sharedInstance.increaseDMG(DamageAmount);
+            Line.SetActive(true);
+            PlayerStats.sharedInstance.UpdateStats();
         }
   
     }
@@ -73,9 +76,9 @@ public class OutOfCombatMovementSystem : MonoBehaviour
         if(active)
         {
             PlayerStats.sharedInstance.IncreaseSpeed(speedAmount * -1);
+            PlayerStats.sharedInstance.increaseDMG(DamageAmount * -1);
             active = false;
-            line1.SetActive(false);
-            line2.SetActive(false);
+            Line.SetActive(false);
         }
         
     }

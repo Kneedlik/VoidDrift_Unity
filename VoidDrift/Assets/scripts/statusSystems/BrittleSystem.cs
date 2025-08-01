@@ -142,15 +142,22 @@ public class BrittleSystem : MonoBehaviour
 
         yield return new WaitForSeconds(freezeDuration);
 
-        if(secondExplosion)
+        if (target != null)
         {
-            GameObject E = Instantiate(explosionPrefab, target.transform.position, Quaternion.Euler(0, 0, 0));
-            explosion exp = E.GetComponent<explosion>();
-            int pom = KnedlikLib.ScaleDamage(explodeDamage, true, true);
-        }
+            if (secondExplosion)
+            {
+                GameObject E = Instantiate(explosionPrefab, target.transform.position, Quaternion.Euler(0, 0, 0));
+                explosion exp = E.GetComponent<explosion>();
+                int pom = KnedlikLib.ScaleDamage(explodeDamage, true, true);
+            }
 
-        Destroy(F);
-        rb.constraints = RigidbodyConstraints2D.None;
+            Destroy(F);
+
+            if (rb != null)
+            {
+                rb.constraints = RigidbodyConstraints2D.None;
+            }
+        }
     }
 
     

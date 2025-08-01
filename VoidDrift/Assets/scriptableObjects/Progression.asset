@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemiesKilled: 202
   MapEnemiesKilled: 0
-  Gold: 80399
+  Gold: 71999
   UnlockedWeapeons:
   - Id: 1
     Unlocked: 1
@@ -35,22 +35,46 @@ MonoBehaviour:
   ShopUpgradesProgression:
   - Id: 1
     Unlocked: 1
-    CurrentLevel: 2
+    CurrentLevel: 3
   - Id: 5
     Unlocked: 1
     CurrentLevel: 2
   - Id: 2
     Unlocked: 1
-    CurrentLevel: 1
+    CurrentLevel: 2
   - Id: 4
     Unlocked: 1
     CurrentLevel: 2
   - Id: 6
     Unlocked: 1
+    CurrentLevel: 2
+  - Id: 3
+    Unlocked: 1
+    CurrentLevel: 2
+  - Id: 3
+    Unlocked: 1
+    CurrentLevel: 2
+  - Id: 11
+    Unlocked: 1
+    CurrentLevel: 1
+  - Id: 8
+    Unlocked: 1
+    CurrentLevel: 1
+  - Id: 9
+    Unlocked: 1
+    CurrentLevel: 1
+  - Id: 12
+    Unlocked: 1
+    CurrentLevel: 1
+  - Id: 7
+    Unlocked: 1
+    CurrentLevel: 1
+  - Id: 10
+    Unlocked: 1
     CurrentLevel: 1
   UnlockedRunes: 0100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f0000001000000011000000
-  UnlockedKeyStones: 
-  UnlockedSlots: 010000000200000003000000
+  UnlockedKeyStones: 1500000016000000170000001800000019000000
+  UnlockedSlots: 01000000020000000300000004000000
   HardModeUnlocked: 1
   UnlockedAchievements:
   - Id: 3

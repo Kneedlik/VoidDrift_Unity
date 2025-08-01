@@ -22,9 +22,9 @@ public class EquipedRuneBox : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     // Start is called before the first frame update
     void Start()
     {
-        Deselect();
-        LoadFromProgression();
-        LoadFromPrefs();
+        //Deselect();
+        //LoadFromProgression();
+        //LoadFromPrefs();
     }
 
     public void LoadFromProgression()

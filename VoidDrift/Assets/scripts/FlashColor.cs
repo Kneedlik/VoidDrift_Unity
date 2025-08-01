@@ -38,6 +38,11 @@ public class FlashColor : MonoBehaviour
 
     public void Flash()
     {
+        if(flashMaterial == null)
+        {
+            return;
+        }
+
         if(coolDown <= 0 && gameObject.activeSelf)
         {
             if (flash != null)
@@ -52,8 +57,7 @@ public class FlashColor : MonoBehaviour
 
     IEnumerator flashRoutine()
     {
-        
-        spriteRenderer.sharedMaterial = flashMaterial;
+        spriteRenderer.sharedMaterial = flashMaterial; //
         yield return new WaitForSeconds(TrueDuration);
         spriteRenderer.sharedMaterial = oreginalMaterial;
         coolDown = TrueDuration * 2;

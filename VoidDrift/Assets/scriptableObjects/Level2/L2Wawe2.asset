@@ -26,5 +26,5 @@ MonoBehaviour:
   healthMultiplier: 1.25
   XpMultiplier: 1
   Boss: {fileID: 0}
-  BossAmount: 1
+  BossAmount: 3
   SpawnedBoss: 0

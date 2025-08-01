@@ -18,7 +18,6 @@ public class LightningSystem : MonoBehaviour
     public float shockDuration;
     public bool shock;
     public int armorDamage;
-    public int shockChance;
     [SerializeField] GameObject ShockObject;
 
     [SerializeField] GameObject lightningObject;
@@ -36,6 +35,9 @@ public class LightningSystem : MonoBehaviour
     GameObject Cbegin;
     GameObject Cend;
 
+    [SerializeField] int MaxLightning;
+    public int LightningCounter;
+
     void Start()
     {
         instance = this;
@@ -47,7 +49,8 @@ public class LightningSystem : MonoBehaviour
 
         if (rand <= chance)
         {
-            int DamageTemp = KnedlikLib.ScaleStatusDamage(damage1);
+            float DamageTemp = KnedlikLib.ScaleStatusDamage(damage1);
+            DamageTemp = DamageTemp * MasterManager.Instance.PlayerInformation.DamageMultiplier;
             DamageTemp += PlayerStats.sharedInstance.ExtraDamage;
 
             Health health = target.GetComponent<Health>();
@@ -56,18 +59,21 @@ public class LightningSystem : MonoBehaviour
             Enemies.Add(target.transform);
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
             Transform currentTarget = target.transform;
-            Instantiate(ImpactEffect, currentTarget.position, Quaternion.Euler(90, 0, 0));
+            if (LightningCounter < MaxLightning)
+            {
+                Instantiate(ImpactEffect, currentTarget.position, Quaternion.Euler(90, 0, 0));
+            }
             RemoveBrittle(currentTarget.gameObject, health);
             Begin = target;
 
             if (shock)
             {
-                int rand1 = Random.Range(0, 100);
+                //int rand1 = Random.Range(0, 100);
 
-                if(rand1 <= shockChance)
-                {
+                //if(rand1 <= shockChance)
+                //{
                     StartCoroutine(Shock(currentTarget.gameObject));
-                }
+                //}
              
             }
 
@@ -81,24 +87,31 @@ public class LightningSystem : MonoBehaviour
                         Enemies.Add(currentTarget);
 
                         RemoveBrittle(currentTarget.gameObject, h);
-                        Instantiate(ImpactEffect, currentTarget.position, Quaternion.Euler(90, 0, 0));
+                        if (LightningCounter < MaxLightning)
+                        {
+                            Instantiate(ImpactEffect, currentTarget.position, Quaternion.Euler(90, 0, 0));
+                        }
 
                         if (shock)
                         {
-                            int rand1 = Random.Range(0, chance);
+                            //int rand1 = Random.Range(0, chance);
 
-                            if (rand1 <= 100)
-                            {
+                            //if (rand1 <= 100)
+                            //{
                                 StartCoroutine(Shock(currentTarget.gameObject));
-                            }
+                            //}
                         }
 
                         End = currentTarget.gameObject;
-                        StartCoroutine(lightningGraphics(Begin, End,lightningObject));
+
+                        if (LightningCounter < MaxLightning)
+                        {
+                            StartCoroutine(lightningGraphics(Begin, End, lightningObject));
+                        }
                         Begin = currentTarget.gameObject;
                         if (h != null)
                         {
-                            h.TakeDamage(DamageTemp);
+                            h.TakeDamage((int)DamageTemp);
                         }
                     }
                 }
@@ -106,7 +119,7 @@ public class LightningSystem : MonoBehaviour
 
             if (health != null)
             {
-                health.TakeDamage(DamageTemp);
+                health.TakeDamage((int)DamageTemp);
             }
         }
     }
@@ -115,6 +128,8 @@ public class LightningSystem : MonoBehaviour
     {
         if (shocked.Contains(target) == false)
         {
+            Debug.Log("ShockTrigger");
+
             Health health = target.GetComponent<Health>();
             GameObject Obj = Instantiate(ShockObject, target.transform.position, Quaternion.Euler(-90, 0, 0));
             Obj.transform.SetParent(target.transform);
@@ -135,6 +150,7 @@ public class LightningSystem : MonoBehaviour
 
     IEnumerator lightningGraphics(GameObject begin, GameObject ending,GameObject Lobject)
     {
+        LightningCounter++;
         GameObject pom = Instantiate(Lobject,transform);
         //Debug.Log("EEE");
         LightningBolt script = pom.GetComponent<LightningBolt>();
@@ -167,6 +183,7 @@ public class LightningSystem : MonoBehaviour
         }
         
         yield return new WaitForSeconds(lightningDuration / 3);
+        LightningCounter = LightningCounter - 1;
         Destroy(pom);
     }
 
@@ -176,7 +193,8 @@ public class LightningSystem : MonoBehaviour
 
         if (rand <= Cchance)
         {
-            int DamageTemp = KnedlikLib.ScaleStatusDamage(Cdamage);
+            float DamageTemp = KnedlikLib.ScaleStatusDamage(Cdamage);
+            DamageTemp = DamageTemp * MasterManager.Instance.PlayerInformation.DamageMultiplier;
             DamageTemp += PlayerStats.sharedInstance.ExtraDamage;
 
             Health health = target.GetComponent<Health>();
@@ -190,7 +208,7 @@ public class LightningSystem : MonoBehaviour
 
             if (health != null)
             {
-                health.TakeDamage(DamageTemp);
+                health.TakeDamage((int)DamageTemp);
             }
 
             for (int i = 0; i < Cchain; i++)
@@ -208,7 +226,7 @@ public class LightningSystem : MonoBehaviour
                         Cbegin = currentTarget.gameObject;
                         if (h != null)
                         {
-                            h.TakeDamage(DamageTemp);
+                            h.TakeDamage((int)DamageTemp);
                         }
                     }
                 }

@@ -6,8 +6,8 @@ public class spawner : MonoBehaviour
 {
     public List<Wawe> wawes = new List<Wawe>();
 
-    public float offsetX;
-    public float offsetY;
+    public const float offsetX = 65;
+    public const float offsetY = 40;
     float spawnRate;
     int spawnN;
    
@@ -59,6 +59,7 @@ public class spawner : MonoBehaviour
 
                         Health health = E.GetComponent<Health>();
                         float pom = health.maxHealth * wawes[count].healthMultiplier;
+                        pom = pom * MasterManager.Instance.PlayerInformation.MapEnemyHealthMultiplier;
                         health.maxHealth = (int)pom;
 
                         dropXP XP = E.GetComponent<dropXP>();
@@ -95,8 +96,18 @@ public class spawner : MonoBehaviour
                 {
                     if (wawes[count].SpawnedBoss == false)
                     {
-                        Vector3 pos = KnedlikLib.GenerateRandPosition(transform.position, offsetX, offsetY);
-                        Instantiate(wawes[count].Boss, pos, Quaternion.identity);
+                        for (int i = 0; i < wawes[count].BossAmount; i++)
+                        {
+                            Vector3 pos = KnedlikLib.GenerateRandPosition(transform.position, offsetX, offsetY);
+                            GameObject G = Instantiate(wawes[count].Boss, pos, Quaternion.identity);
+
+                            Health health = G.GetComponent<Health>();
+                            if (health != null)
+                            {
+                                float pom = health.maxHealth * MasterManager.Instance.PlayerInformation.MapEnemyHealthMultiplier;
+                                health.maxHealth = (int)pom;
+                            }
+                        }
                     }
                 }
             }

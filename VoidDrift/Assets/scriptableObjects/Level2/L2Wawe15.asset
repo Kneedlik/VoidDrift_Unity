@@ -20,10 +20,10 @@ MonoBehaviour:
   - {fileID: 4769829029796524462, guid: ca9badfee81beac4e878e91c48b0ce90, type: 3}
   - {fileID: 7929140047886012436, guid: ead87bf1c5c771f418472e61db66f1a8, type: 3}
   chanses:
-  - 30
+  - 32
   - 60
-  - 10
-  spawnRate: 0.8
+  - 8
+  spawnRate: 0.88
   spawnN: 6
   healthMultiplier: 18
   XpMultiplier: 10

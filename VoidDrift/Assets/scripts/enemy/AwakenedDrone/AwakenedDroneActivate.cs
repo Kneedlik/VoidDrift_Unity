@@ -39,7 +39,7 @@ public class AwakenedDroneActivate : SimpleVirtual
 
     public override void function()
     {
-        Debug.Log("yep");
+        //Debug.Log("yep");
         //Anim.Play();
         animator.enabled = true;
         Vape.enabled = true;

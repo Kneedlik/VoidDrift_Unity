@@ -48,18 +48,18 @@ public class RerollManager : MonoBehaviour
 
     public void ReRollUpgrades()
     {
-        if(CurrentRerolls <= 0)
-        {
-            return;
-        }else
-        {
+        //if(CurrentRerolls <= 0)
+        //{
+        //    return;
+        //}else
+        //{
             CurrentRerolls = CurrentRerolls - 1;
             text.text = CurrentRerolls.ToString();
             if (CurrentRerolls <= 0)
             {
                 Lock();
             }
-        }
+        //}
 
         Sorting.setUpCards();
         for (int i = 0; i < Sorting.cards.Count; i++)

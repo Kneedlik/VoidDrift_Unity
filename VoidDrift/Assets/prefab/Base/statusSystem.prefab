@@ -61,20 +61,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f29223a10191dc445a03e64efff0f901, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 12
+  damage: 16
   chance: 40
   duration: 8
   maxHealthDMG: 0
   maxHealthDMGamount: 0.02
   infect: 0
   distance: 8
-  speed: 1.25
+  speed: 1
   color:
     serializedVersion: 2
     rgba: 4287430560
   particles: {fileID: 7684258944382667462, guid: 63ddb8f44c0240e4daf5e81b3b16a746, type: 3}
   poisonedEnemies: []
-  CDamage: 20
+  CDamage: 30
   CTrueDamage: 0.015
   CDuration: 12.5
   CInfectDistance: 8
@@ -185,7 +185,7 @@ MonoBehaviour:
   explosionPrefab: {fileID: 6628090173598930134, guid: 4ef42d9dd11633c43a9510b38c1c1f3e, type: 3}
   explodeRadius: 1
   freeze: 0
-  freezeDuration: 0
+  freezeDuration: 1.2
   secondExplosion: 0
   FreezeObject: {fileID: 6357960598367966374, guid: 976a56bd295030a4db222334532ba263, type: 3}
 --- !u!114 &2624672050981415587
@@ -237,11 +237,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee11ed09319919f40ac357d31865fa48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coolDown: 3
+  coolDown: 2
   active: 0
   speedAmount: 0
-  line1: {fileID: 0}
-  line2: {fileID: 0}
+  DamageAmount: 0
+  Line: {fileID: 0}
 --- !u!114 &2624672050981415588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,8 +254,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cad0a6cb49e6a3e4aa014fcf6a4f8ae3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tickNeeded: 5
-  MaxDamage: 100
+  tickNeeded: 4
+  MaxDamage: 150
 --- !u!114 &2624672050981415591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,19 +276,20 @@ MonoBehaviour:
   removeBrittleDamage: 0
   removeBrittleChance: 0
   shocked: []
-  shockDuration: 0
+  shockDuration: 6
   shock: 0
   armorDamage: 6
-  shockChance: 40
   ShockObject: {fileID: 6952469453606716450, guid: 990b6bc7324813b42b1f281aa7068dbe, type: 3}
   lightningObject: {fileID: 6953000454649559023, guid: 3069a3ca2e075f24dabe476506c40b9a, type: 3}
   ImpactEffect: {fileID: 4794043405585894037, guid: 37138c0c33167b04fa1fb90b7f5a794f, type: 3}
   lightningDuration: 0.2
   Cdamage: 15
-  Cchance: 50
+  Cchance: 40
   ClightningObject: {fileID: 5013093133802592261, guid: c7a47250b3c55354a8ddfa763a889778, type: 3}
   CimpactEffect: {fileID: 8305434672214973906, guid: 265b1f94c63fc4f468b64a0cd42f3ef3, type: 3}
   Cchain: 1
+  MaxLightning: 30
+  LightningCounter: 0
 --- !u!114 &2624672050981415590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,7 +321,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2624672050981415256}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 38036d78aaf04db469bfd1322c556cfd, type: 3}
   m_Name: 
@@ -399,7 +400,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Projectile: {fileID: 6419192049325329518, guid: 791fcfe998761fd46a5b96dea442ed5c, type: 3}
   DamageCoefitient: 0.5
-  FlatDamage: 10
+  FlatDamage: 5
   AngleOffset: 30
   AffectedTargets: []
 --- !u!114 &1929432612

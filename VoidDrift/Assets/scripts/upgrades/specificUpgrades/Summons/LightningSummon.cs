@@ -104,7 +104,10 @@ public class LightningSummon : Summon
         }else
         {
             Health health = target.gameObject.GetComponent<Health>();
-            health.TakeDamage(damage);
+            if (health != null)
+            {
+                health.TakeDamage(damage);
+            }
         }
 
         if(shock)

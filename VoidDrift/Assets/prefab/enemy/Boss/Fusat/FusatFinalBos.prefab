@@ -1431,6 +1431,7 @@ GameObject:
   - component: {fileID: 7210052493719424686}
   - component: {fileID: 7210052493719424681}
   - component: {fileID: 7210052493719424687}
+  - component: {fileID: 5786765800894931449}
   m_Layer: 12
   m_Name: FusatFinalBos
   m_TagString: Enemy
@@ -1583,7 +1584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  maxHealth: 1000000
+  maxHealth: 10000000
   baseMaxHealth: 0
   damageN: {fileID: 8636022699047134357, guid: 971665a441a2ea448a247928736ad030, type: 3}
   self: {fileID: 0}
@@ -1708,6 +1709,19 @@ MonoBehaviour:
   MaxDeviation: 4.5
   FlipTime: 1.5
   Ready: 0
+--- !u!114 &5786765800894931449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7210052493719424695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d29f03d9a5833449233f53b685453d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VictoryDelay: 8
 --- !u!1 &7210052493783466824
 GameObject:
   m_ObjectHideFlags: 0
@@ -2149,7 +2163,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8804440373767233201, guid: b60a2b1aecaadf148a7bac8aeba6ddbb, type: 3}
       propertyPath: m_Layer
-      value: 12
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b60a2b1aecaadf148a7bac8aeba6ddbb, type: 3}

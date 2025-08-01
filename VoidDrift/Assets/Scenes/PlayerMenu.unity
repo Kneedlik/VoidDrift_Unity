@@ -5020,19 +5020,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1662477556163762924, guid: 735999f2771e54f419d4cd3e1626d8d0, type: 3}
       propertyPath: m_Color.a
-      value: 0.65882355
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662477556163762924, guid: 735999f2771e54f419d4cd3e1626d8d0, type: 3}
-      propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1662477556163762924, guid: 735999f2771e54f419d4cd3e1626d8d0, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1662477556163762924, guid: 735999f2771e54f419d4cd3e1626d8d0, type: 3}
       propertyPath: m_Color.g
-      value: 0.2549019
+      value: 0.39215687
       objectReference: {fileID: 0}
     - target: {fileID: 1662477556163762924, guid: 735999f2771e54f419d4cd3e1626d8d0, type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8728643749616861925, guid: 735999f2771e54f419d4cd3e1626d8d0, type: 3}
       propertyPath: SlotId
@@ -6677,6 +6677,10 @@ PrefabInstance:
     - target: {fileID: 3486632325835320434, guid: 5b2301b130f7f6e44bdaaeb97a584e4e, type: 3}
       propertyPath: Id
       value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486632325835320434, guid: 5b2301b130f7f6e44bdaaeb97a584e4e, type: 3}
+      propertyPath: Unlocked
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3486632325835320446, guid: 5b2301b130f7f6e44bdaaeb97a584e4e, type: 3}
       propertyPath: m_Name

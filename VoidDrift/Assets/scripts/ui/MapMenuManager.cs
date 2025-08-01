@@ -54,10 +54,12 @@ public class MapMenuManager : MonoBehaviour
             {
                 PlayerInfo.MapGoldMultiplier = ProgressionConst.Level1GoldHard;
                 PlayerInfo.MapEnemyHealthMultiplier = ProgressionConst.Level1HealthHard;
+                PlayerInfo.MapDamageMultiplier = ProgressionConst.Level1DamageHard;
             }else
             {
                 PlayerInfo.MapGoldMultiplier = ProgressionConst.Level1Gold;
                 PlayerInfo.MapEnemyHealthMultiplier = ProgressionConst.Level1Health;
+                PlayerInfo.MapDamageMultiplier = ProgressionConst.Level1Damage;
             }
 
             SceneManager.LoadScene(3);
@@ -68,10 +70,13 @@ public class MapMenuManager : MonoBehaviour
             {
                 PlayerInfo.MapGoldMultiplier = ProgressionConst.Level2GoldHard;
                 PlayerInfo.MapEnemyHealthMultiplier = ProgressionConst.Level2HealthHard;
-            }else
+                PlayerInfo.MapDamageMultiplier = ProgressionConst.Level2DamageHard;
+            }
+            else
             {
                 PlayerInfo.MapGoldMultiplier = ProgressionConst.Level2Gold;
                 PlayerInfo.MapEnemyHealthMultiplier = ProgressionConst.Level2Health;
+                PlayerInfo.MapDamageMultiplier = ProgressionConst.Level2Damage;
             }
 
             SceneManager.LoadScene(4);
@@ -82,10 +87,13 @@ public class MapMenuManager : MonoBehaviour
             {
                 PlayerInfo.MapGoldMultiplier = ProgressionConst.Level3GoldHard;
                 PlayerInfo.MapEnemyHealthMultiplier = ProgressionConst.Level3HealthHard;
-            }else
+                PlayerInfo.MapDamageMultiplier = ProgressionConst.Level3DamageHard;
+            }
+            else
             {
                 PlayerInfo.MapGoldMultiplier = ProgressionConst.Level3Gold;
                 PlayerInfo.MapEnemyHealthMultiplier= ProgressionConst.Level3Health;
+                PlayerInfo.MapDamageMultiplier = ProgressionConst.Level3Damage;
             }
 
             SceneManager.LoadScene(5);

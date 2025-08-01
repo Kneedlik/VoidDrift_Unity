@@ -27,14 +27,14 @@ public class ScatterOnDeath : upgrade
     {
         if (level == 0)
         {
-            multiplier = 0.2f;
+            multiplier = 0.25f;
             W = GameObject.FindWithTag("Weapeon").GetComponent<weapeon>();
             BulletPrefab = W.GetProjectile();
             eventManager.PostImpact += OnDeathScatter;
-            description = string.Format("Scatter shot bullets now deal 30% damage");
+            description = string.Format("Scatter shot bullets now deal 40% damage");
         }else if (level == 1)
         {
-            multiplier = 0.3f;
+            multiplier = 0.4f;
         }
 
         level++;
@@ -51,22 +51,21 @@ public class ScatterOnDeath : upgrade
         if (Target != null)
         {
             Health health = Target.GetComponent<Health>();
-            if((health.health + health.armor) <= damage)
+            if((health.health + health.armor) <= damage * health.multiplier)
             {
                 float Angle = 360f / (float)amount;
                 int rand = Random.Range(0, 90);
                 float temp = rand;
 
-                weapeon Weapeon = GameObject.FindWithTag("Weapeon").GetComponent<weapeon>();
-                float Force = Weapeon.Force;
+                float Force = W.Force;
 
                 for (int i = 0; i < amount; i++)
                 {
                     GameObject Bullet = Instantiate(BulletPrefab, Target.transform.position, Quaternion.Euler(0, 0, 0));
-                    Projectile p =  Bullet.GetComponent<Projectile>();
+                    BulletScript p =  Bullet.GetComponent<BulletScript>();
                     float pom = damage * multiplier;
                     p.damagePlus = (int)pom;
-
+                    p.PostImpact = false;
 
                     Bullet.transform.rotation = Quaternion.Euler(0, 0, temp);
                     temp += Angle;

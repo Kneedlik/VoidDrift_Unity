@@ -36,6 +36,7 @@ public class LethalTempoSystem : MonoBehaviour
 
     public void Fire(Transform target,int Damage)
     {
+        //Debug.Log("Fire");
         int Flip = Random.Range(0, 1);
         float OffsetTemp;
         if (Flip == 0)
@@ -47,7 +48,6 @@ public class LethalTempoSystem : MonoBehaviour
         Vector3 Dir = target.transform.position - Player.transform.position;
         float angle = Mathf.Atan2(Dir.y, Dir.x) * Mathf.Rad2Deg - 90;
         HomingProjectile Homing = Instantiate(Projectile, Player.position, Quaternion.Euler(0, 0, angle + OffsetTemp)).GetComponent<HomingProjectile>();
-        Debug.Log(angle);
         Homing.damage = Damage;
         Homing.damagePlus = Damage;
         Homing.target = target;

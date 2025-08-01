@@ -123,9 +123,9 @@ public class weapeon : MonoBehaviour
         StartingCooldown = baseCoolDown;
         StartingSize = baseSize;
         Force = BaseForce;
-        updateDamage(100);
-        updateSize(100);
-        updateAS(100);
+        updateDamage(PlayerStats.sharedInstance.damageMultiplier);
+        updateSize(PlayerStats.sharedInstance.areaMultiplier);
+        updateAS(PlayerStats.sharedInstance.atackSpeedMultiplier);
     }
 
     public void SetUpProjectile(BulletScript BulletDamage)

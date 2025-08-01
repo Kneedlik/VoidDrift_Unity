@@ -15,6 +15,7 @@ public class BeamSummon : Summon
 
     public int ticks;
     public float tickDelay;
+    Vector3 LastPos;
 
     private void Start()
     {
@@ -55,13 +56,14 @@ public class BeamSummon : Summon
         line.enabled = true;
 
         Vector3 pos = (target.position - transform.position).normalized;
+        LastPos = target.position;
 
         line.SetPosition(0,transform.position);
         line.SetPosition(1, transform.position + pos * 100);
 
         if(Aoe)
         {
-            Invoke("SpawnCone", 0.2f);
+            Invoke("SpawnCone", 0.1f);
             GameObject P = Instantiate(ConeParticle, transform.position, Quaternion.Euler(0, -90, 0));
 
             float angle = Mathf.Atan2(pos.y, pos.x) * Mathf.Rad2Deg;
@@ -81,7 +83,14 @@ public class BeamSummon : Summon
         GameObject C = Instantiate(ConeObject, transform.position, Quaternion.Euler(0, 0, 0));
         KnedlikLib.ScaleParticleByFloat(C, size, false);
 
-        Vector3 pos = (target.position - transform.position).normalized;
+        Vector3 pos;
+        if (target != null)
+        {
+            pos = (target.position - transform.position).normalized;
+        }else
+        {
+            pos = (LastPos - transform.position).normalized;
+        }
         float angle = Mathf.Atan2(pos.y, pos.x) * Mathf.Rad2Deg;
         C.transform.rotation = Quaternion.Euler(0, 0, angle);
 

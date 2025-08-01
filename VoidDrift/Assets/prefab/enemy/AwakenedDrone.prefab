@@ -161,6 +161,7 @@ GameObject:
   - component: {fileID: 2399042149763568579}
   - component: {fileID: 2399042149763568578}
   - component: {fileID: 6219599625162816258}
+  - component: {fileID: 5629886561211450769}
   m_Layer: 12
   m_Name: AwakenedDrone
   m_TagString: Enemy
@@ -273,6 +274,8 @@ MonoBehaviour:
   waypoints: []
   speed: 180
   maxSpeed: 9.8
+  MaxPatrolSpeed: 0
+  SpeedMultiplier: 1
   rotationSpeed: 0
   nextWayPointDistance: 3
   patrol: 1
@@ -309,8 +312,8 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   armor: 0
   multiplier: 1
-  ParticleExplosion: {fileID: 0}
-  DeathAnim: {fileID: 0}
+  ParticleExplosion: {fileID: 3528158295667628061, guid: 6d1756d7ad7932c49a9490abee50e3c2, type: 3}
+  DeathAnim: {fileID: 2789139120181189703, guid: 249db7ba3bcb1214da6841db87703b0f, type: 3}
   DeathDelay: 0
   DeathFunc: []
   OnDamageFunc: []
@@ -448,6 +451,26 @@ MonoBehaviour:
   percentValue: 0.05
   XpPrefab: {fileID: 2320706730734592644, guid: cabbcd8f3c321f941b937e91cb5f0d6a, type: 3}
   Point: {fileID: 0}
+--- !u!114 &5629886561211450769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2399042149763568436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 599b41622875a6749b7d10012ed19326, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemPool1:
+  - {fileID: 24702221549039422, guid: eb3fb37a2fe25c546b90133982bcd09e, type: 3}
+  dropChancePool1:
+  - 100
+  pos: {fileID: 0}
+  Amount: 4
+  ForceMin: 5.5
+  ForceMax: 10
 --- !u!1001 &3868377244879051631
 PrefabInstance:
   m_ObjectHideFlags: 0

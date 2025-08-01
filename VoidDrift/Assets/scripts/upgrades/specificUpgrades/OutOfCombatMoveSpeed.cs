@@ -5,14 +5,12 @@ using UnityEngine;
 public class OutOfCombatMoveSpeed : upgrade
 {
     [SerializeField] int amount;
-   [SerializeField] OutOfCombatMovementSystem system;
+    [SerializeField] int DamageAmount;
 
     void Start()
     {
         Type = type.blue;
         setColor();
-        
-        
     }
 
     // Update is called once per frame
@@ -20,19 +18,19 @@ public class OutOfCombatMoveSpeed : upgrade
     {
         if(level == 0)
         {
-            system.enabled = true;
-            eventManager.OnDamage += system.reduceMoveSpeed;
+            OutOfCombatMovementSystem.instance.enabled = true;
 
-           system.reset();
-            system.speedAmount += amount;
-           system.increaseMovespeed();
+            OutOfCombatMovementSystem.instance.reset();
+            OutOfCombatMovementSystem.instance.speedAmount += amount;
+            OutOfCombatMovementSystem.instance.DamageAmount += DamageAmount;
+            OutOfCombatMovementSystem.instance.increaseMovespeed();
         }else
         {
-            system.reset();
-            system.speedAmount += amount;
-           system.increaseMovespeed();
+            OutOfCombatMovementSystem.instance.reset();
+            OutOfCombatMovementSystem.instance.speedAmount += amount;
+            OutOfCombatMovementSystem.instance.DamageAmount += DamageAmount;
+            OutOfCombatMovementSystem.instance.increaseMovespeed();
         }
-
 
         level++;
     }

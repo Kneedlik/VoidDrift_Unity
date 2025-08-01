@@ -13,21 +13,22 @@ MonoBehaviour:
   m_Name: PlayerInformation
   m_EditorClassIdentifier: 
   WeapeonId: 5
-  DamageMultiplier: 1.2
+  DamageMultiplier: 1.3
   AsMultiplier: 1.2
   HealthMultiplier: 1.4
-  MsMultiplier: 1
-  XpMultiplier: 1.06
-  SizeMultiplier: 1.1
+  MsMultiplier: 1.15
+  XpMultiplier: 1.12
+  SizeMultiplier: 1.2
   ReviveBonus: 0
   ProjectileBonus: 0
-  SummonDamageMultiplier: 1
-  Rerols: 0
+  SummonDamageMultiplier: 1.1
+  Rerols: 1
   SelectedLevel: 0
-  HealthRegen: 0
-  GoldGain: 0
+  HealthRegen: 0.4
+  GoldGain: 1.1
   EquippedRunes: 
   Keystone: 0
-  MapEnemyHealthMultiplier: 1
-  MapGoldMultiplier: 1
+  MapEnemyHealthMultiplier: 1.75
+  MapGoldMultiplier: 1.75
+  MapDamageMultiplier: 1.5
   HardMode: 0

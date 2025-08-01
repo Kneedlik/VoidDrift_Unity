@@ -57,6 +57,12 @@ public class Summon : MonoBehaviour
         Transform player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         
         GameObject[] Enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        if(Enemies.Length == 0)
+        {
+            target = null;
+            return false;
+        }
+
        // Transform[] Transforms = new Transform[Enemies.Length];
         Renderer[] renderers = new Renderer[Enemies.Length];
 
@@ -66,10 +72,9 @@ public class Summon : MonoBehaviour
             renderers[i] = Enemies[i].GetComponent<Renderer>();
         }
 
-        target = Enemies[0].transform;
-       int j = 0;
+        target = Enemies[0].transform; //
+        int j = 0;
        
-
         for (int i = 0; i < Enemies.Length; i++)
         {
             if (renderers[i].isVisible)

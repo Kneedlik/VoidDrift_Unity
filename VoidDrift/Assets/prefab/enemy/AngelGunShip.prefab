@@ -190,6 +190,7 @@ GameObject:
   - component: {fileID: 2116844584515988420}
   - component: {fileID: 5962728816011435747}
   - component: {fileID: 4377537919435577292}
+  - component: {fileID: 3191436020009123386}
   m_Layer: 12
   m_Name: AngelGunShip
   m_TagString: Enemy
@@ -284,6 +285,7 @@ MonoBehaviour:
   waypoints: []
   speed: 300
   maxSpeed: 14
+  MaxPatrolSpeed: 0
   SpeedMultiplier: 1
   rotationSpeed: 70
   nextWayPointDistance: 3
@@ -488,6 +490,26 @@ MonoBehaviour:
   percentValue: 1.5
   XpPrefab: {fileID: 2320706730734592644, guid: cabbcd8f3c321f941b937e91cb5f0d6a, type: 3}
   Point: {fileID: 0}
+--- !u!114 &3191436020009123386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708551267828833822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 599b41622875a6749b7d10012ed19326, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemPool1:
+  - {fileID: 24702221549039422, guid: eb3fb37a2fe25c546b90133982bcd09e, type: 3}
+  dropChancePool1:
+  - 100
+  pos: {fileID: 0}
+  Amount: 8
+  ForceMin: 5.5
+  ForceMax: 10
 --- !u!1 &4229040738682110817
 GameObject:
   m_ObjectHideFlags: 0

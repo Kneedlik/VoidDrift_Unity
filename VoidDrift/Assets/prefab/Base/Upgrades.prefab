@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 63
+  m_RootOrder: 62
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &94593566
 MonoBehaviour:
@@ -90,7 +90,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 65
+  m_RootOrder: 64
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &263518262
 MonoBehaviour:
@@ -275,7 +275,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 64
+  m_RootOrder: 63
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &410486413
 MonoBehaviour:
@@ -641,7 +641,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 62
+  m_RootOrder: 61
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1528374071
 MonoBehaviour:
@@ -793,9 +793,9 @@ MonoBehaviour:
   color:
     serializedVersion: 2
     rgba: 0
-  icon: {fileID: 0}
-  name: 
-  description: Projectiles have 50% chance to trigger red chain lightning
+  icon: {fileID: 21300000, guid: efc0623c31f097345b020ec401a34c02, type: 3}
+  name: Charged amunition
+  description: Projectiles have 40% chance to trigger red chain lightning
   level: 0
   maxLevel: 3
   rarity: 100
@@ -2320,7 +2320,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 56
+  m_RootOrder: 55
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7339895226923330995
 MonoBehaviour:
@@ -2566,7 +2566,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 57
+  m_RootOrder: 56
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7339895227067405557
 MonoBehaviour:
@@ -3009,7 +3009,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 0
   icon: {fileID: 21300000, guid: 3bc1b673fcbcfd24086bb688a1b57d66, type: 3}
-  name: Frost Bite
+  name: Frostbite
   description: Brittle explosion damage + 10 area + 15%
   level: 0
   maxLevel: 3
@@ -3048,7 +3048,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 58
+  m_RootOrder: 57
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7339895227264869705
 MonoBehaviour:
@@ -3141,7 +3141,6 @@ MonoBehaviour:
   Final: 0
   RuneId: 0
   Amount: 1
-  DamageMultiplier: 0.15
 --- !u!1 &7339895227322777493
 GameObject:
   m_ObjectHideFlags: 0
@@ -4485,7 +4484,7 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: 86acf074c22061a4490866510a9778d6, type: 3}
   name: High explosive
-  description: "Bounce +3\nProjectile speed + 100% \nProjectiles - 2\nBullets explode
+  description: "Bounce +3\nProjectile speed + 100% \nProjectiles - 3\nBullets explode
     on impact"
   level: 0
   maxLevel: 1
@@ -4499,7 +4498,7 @@ MonoBehaviour:
   Bounce: 3
   Damage: 0
   Speed: 1.5
-  ProjectilePenalty: 2
+  ProjectilePenalty: 3
   Explosion: {fileID: 2151314756470311978, guid: 085539a21d2e32d478311c5c277974ca, type: 3}
 --- !u!1 &7339895227809968579
 GameObject:
@@ -4715,7 +4714,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 60
+  m_RootOrder: 59
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7339895227855491150
 MonoBehaviour:
@@ -4958,7 +4957,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 59
+  m_RootOrder: 58
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7339895227892901956
 MonoBehaviour:
@@ -5409,65 +5408,6 @@ MonoBehaviour:
   RuneId: 0
   AmmoAmount: 2
   ASAmount: 0.25
---- !u!1 &7339895228022303794
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7339895228022303805}
-  - component: {fileID: 7339895228022303804}
-  m_Layer: 0
-  m_Name: StaticShiv
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7339895228022303805
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7339895228022303794}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 55
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7339895228022303804
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7339895228022303794}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b7d6e3a24df92547979a743e0379ae0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Id: 58
-  Type: 0
-  color:
-    serializedVersion: 2
-    rgba: 0
-  icon: {fileID: 21300000, guid: 2b087a38d94770943bc1e841f7fa7c16, type: 3}
-  name: Static Shiv
-  description: Moving generates charge that is relased when shooting
-  level: 0
-  maxLevel: 3
-  rarity: 65
-  CanBeDoubled: 0
-  SubserviantUpgrades: []
-  Final: 0
-  RuneId: 0
 --- !u!1 &7339895228027585929
 GameObject:
   m_ObjectHideFlags: 0
@@ -6529,7 +6469,6 @@ Transform:
   - {fileID: 7339895228567161418}
   - {fileID: 7339895227956623783}
   - {fileID: 7339895228275282229}
-  - {fileID: 7339895228022303805}
   - {fileID: 7339895226923330992}
   - {fileID: 7339895227067405546}
   - {fileID: 7339895227264869710}
@@ -7236,7 +7175,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7339895228260985913}
-  m_RootOrder: 61
+  m_RootOrder: 60
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7339895228455175769
 MonoBehaviour:
@@ -7684,7 +7623,7 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: 05d45f80852c1f24d9dab2f25f518c0d, type: 3}
   name: Laser beam
-  description: 'Base firerate + 300%
+  description: 'Base firerate + 200%
 
     Bullets are now fired in single file'
   level: 0
@@ -7696,7 +7635,7 @@ MonoBehaviour:
     LevelNeeded: 2
   Final: 1
   RuneId: 0
-  FireRate: 3
+  FireRate: 2
 --- !u!1 &7339895228490502640
 GameObject:
   m_ObjectHideFlags: 0

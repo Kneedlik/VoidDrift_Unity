@@ -6,7 +6,7 @@ public class AC_Bounce : upgrade
 {
     public static AC_Bounce instance;
     public int Amount;
-    public float DamageMultiplier;
+    //public float DamageMultiplier;
     //public float ProjectileSpeed;
 
     private void Start()
@@ -21,7 +21,7 @@ public class AC_Bounce : upgrade
         AutoCannon AC = GameObject.FindWithTag("Weapeon").GetComponent<AutoCannon>();
         AC.Bounce += Amount;
         //AC.BaseForce += ProjectileSpeed;
-        AC.damageMultiplier += DamageMultiplier;
+        //AC.damageMultiplier += DamageMultiplier;
 
       //  PlayerStats.sharedInstance.increaseDMG(0);
         level++;

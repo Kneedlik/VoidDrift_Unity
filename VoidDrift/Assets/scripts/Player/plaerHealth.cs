@@ -93,6 +93,12 @@ public class plaerHealth : MonoBehaviour
        
         if(invincible == false && ready == false)
         {
+            if (MasterManager.Instance.PlayerInformation.DamageMultiplier > 1)
+            {
+                float Temp = damage * MasterManager.Instance.PlayerInformation.MapDamageMultiplier;
+                damage = (int)Temp;
+            }
+
             if(eventManager.OnDamage != null)
             {
                 eventManager.OnDamage(damage);
@@ -217,17 +223,20 @@ public class plaerHealth : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
+        Reviving = false;
+
         for (int i = 0; i < Enemies.Length; i++)
         {
             renderers[i] = Enemies[i].GetComponent<Renderer>();
-            if(renderers[i].isVisible)
+            if (renderers[i] != null)
             {
-                Health h = Enemies[i].GetComponent<Health>();
-                h.TakeDamage(h.maxHealth);
+                if (renderers[i].isVisible)
+                {
+                    Health h = Enemies[i].GetComponent<Health>();
+                    h.TakeDamage(h.maxHealth);
+                }
             }
         }
-        Reviving = false;
-
     }
     void Die()
     {

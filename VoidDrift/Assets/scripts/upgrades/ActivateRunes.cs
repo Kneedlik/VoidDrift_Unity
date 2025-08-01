@@ -10,6 +10,7 @@ public class ActivateRunes : upgradeList
     {
         addUpgrades();
         ActivateAll();
+        PlayerStats.sharedInstance.UpdateStats();
     }
 
     public void ActivateAll()

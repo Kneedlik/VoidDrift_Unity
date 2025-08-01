@@ -79,7 +79,6 @@ GameObject:
   - component: {fileID: 1882368835299068750}
   - component: {fileID: 1882368835299068751}
   - component: {fileID: 1882368835299068744}
-  - component: {fileID: 1057525322017561157}
   - component: {fileID: 2787495575890402926}
   - component: {fileID: 1743087501}
   m_Layer: 16
@@ -178,7 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  maxHealth: 7000000
+  maxHealth: 10000000
   baseMaxHealth: 0
   damageN: {fileID: 8636022699047134357, guid: 971665a441a2ea448a247928736ad030, type: 3}
   self: {fileID: 0}
@@ -360,21 +359,6 @@ MonoBehaviour:
   AlphaDecaySpeed: 0.08
   flashMaterial: {fileID: 2100000, guid: e82836b480647394caf3762c08f71df0, type: 2}
   Repeat: 2
---- !u!114 &1057525322017561157
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1882368835299068742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 416d879c6a950ad449830a952d890d70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UseConstants: 1
-  duration: 0.2
-  flashMaterial: {fileID: 2100000, guid: e82836b480647394caf3762c08f71df0, type: 2}
 --- !u!114 &2787495575890402926
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -366,7 +366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 120
-  maxSpeed: 18
+  maxSpeed: 13
   Multiplier: 1
 --- !u!114 &3590360479638116533
 MonoBehaviour:
@@ -421,7 +421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  maxHealth: 38
+  maxHealth: 30
   baseMaxHealth: 0
   damageN: {fileID: 8636022699047134357, guid: 971665a441a2ea448a247928736ad030, type: 3}
   self: {fileID: 0}
@@ -430,7 +430,7 @@ MonoBehaviour:
   armor: 0
   multiplier: 0
   ParticleExplosion: {fileID: 0}
-  DeathAnim: {fileID: 0}
+  DeathAnim: {fileID: 2360855068873841653, guid: 9d024159c29a5ed4dadc422aca7b568f, type: 3}
   DeathDelay: 0
   DeathFunc: []
   OnDamageFunc: []

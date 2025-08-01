@@ -22,7 +22,7 @@ public class RuneBox : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     void Start()
     {
         UsedImage.sprite = Icon.sprite;
-        LoadFromProggression();
+        //LoadFromProggression();
     }
 
     public void LoadFromProggression()
@@ -118,23 +118,29 @@ public class RuneBox : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         }
         if (IsUsed)
         {
+            Debug.Log("1");
             return;
         }
 
         if (Unlocked == false)
         {
+            Debug.Log(Id);
             return;
         }
 
         if (PlayerMenuManager.instance.SelectedBox == 1 && KeyStone == false)
         {
+            Debug.Log("3");
             return;
         }
 
         if(PlayerMenuManager.instance.SelectedBox > 1 && KeyStone)
         {
+            Debug.Log("4");
             return;
         }
+
+        Debug.Log("First");
 
         int DesiredBox = 0;
         if(PlayerMenuManager.instance.SelectedBox != 0)
@@ -178,7 +184,6 @@ public class RuneBox : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 {
                     if (PlayerMenuManager.instance.RuneBoxes[j].Id == PlayerMenuManager.instance.EquipedRuneBoxes[i].EquipedId)
                     {
-                        Debug.Log(Id + 100);
                         PlayerMenuManager.instance.RuneBoxes[j].StopUsing();
                     }
                 }

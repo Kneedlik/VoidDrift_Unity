@@ -23,11 +23,11 @@ public class ShockUpgrade : upgrade
     {
         if(level == 0)
         {
-            description = string.Format("Shocked enemies take + 4 more damage from all sources");
-            LightningSystem.instance.armorDamage += 4;
+            description = string.Format("Shocked enemies take + 8 more damage from all sources");
+            LightningSystem.instance.armorDamage += 5;
         }else if (level == 1)
         {
-            LightningSystem.instance.armorDamage += 6;
+            LightningSystem.instance.armorDamage += 8;
         }
 
         level++;

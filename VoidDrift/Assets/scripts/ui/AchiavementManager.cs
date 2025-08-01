@@ -29,7 +29,7 @@ public class AchiavementManager : MonoBehaviour
 
     public void LoadAllAchiavements()
     {
-        Debug.Log(achiavements.Count);
+        //Debug.Log(achiavements.Count);
         for (int i = 0; i < achiavements.Count; i++)
         {
             achiavements[i].LoadProgress(); 

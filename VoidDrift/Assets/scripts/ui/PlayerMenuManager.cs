@@ -28,6 +28,18 @@ public class PlayerMenuManager : MonoBehaviour
         DeselectAllWeapeons();
         //LockAllWeapeons();
         LoadFromPlayerPrefs();
+
+        for (int i = 0; i < RuneBoxes.Count; i++)
+        {
+            RuneBoxes[i].LoadFromProggression();
+        }
+
+        for (int i = 0;i < EquipedRuneBoxes.Count; i++)
+        {
+            EquipedRuneBoxes[i].Deselect();
+            EquipedRuneBoxes[i].LoadFromProgression();
+            EquipedRuneBoxes[i].LoadFromPrefs();
+        }
     }
 
     public void LoadFromPlayerPrefs()
@@ -127,6 +139,7 @@ public class PlayerMenuManager : MonoBehaviour
         { 
             AudioManager.instance.PlayId(10);
         }
+        SaveToPlayerPrefs();
         SceneManager.LoadScene(6);
     }
 
@@ -136,6 +149,7 @@ public class PlayerMenuManager : MonoBehaviour
         {
             AudioManager.instance.PlayId(10);
         }
+        SaveToPlayerPrefs();
         SceneManager.LoadScene(7);
     }
 
