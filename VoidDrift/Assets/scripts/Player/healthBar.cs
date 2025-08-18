@@ -12,7 +12,7 @@ public class healthBar : MonoBehaviour
     {
         if(WorldSpace)
         {
-            transform.SetParent(GameObject.FindWithTag("WorldCanvas").transform);
+            //transform.SetParent(GameObject.FindWithTag("WorldCanvas").transform);
         }
        
     }

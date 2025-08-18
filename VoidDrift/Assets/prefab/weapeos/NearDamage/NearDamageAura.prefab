@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 1514642815937577208}
   - component: {fileID: 7693861563356892095}
   - component: {fileID: 5183382039485731781}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: NearDamageAura
   m_TagString: Untagged
   m_Icon: {fileID: 0}

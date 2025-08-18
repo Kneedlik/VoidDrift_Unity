@@ -10,6 +10,7 @@ public class SummonBullet : Projectile
     public GameObject impactEffect;
     public GameObject impactParticles;
     public bool Crit;
+    Color32 Color;
 
     private void Start()
     {
@@ -42,7 +43,13 @@ public class SummonBullet : Projectile
                 {
                     if (eventManager.OnCrit != null)
                     {
-                        eventManager.OnCrit(collision.gameObject, damagePlus, ref damagePlus);
+                        Color32 TempColor = eventManager.OnCrit(collision.gameObject, damagePlus, ref damagePlus);
+                        Color32 BaseColor = new Color32(0, 0, 0, 0);
+                        if (!TempColor.Equals(BaseColor))
+                        {
+                            Color = TempColor;
+                            Crit = false;
+                        }
                     }
                 }
 
@@ -51,12 +58,16 @@ public class SummonBullet : Projectile
                     eventManager.PostImpact(collision.gameObject, damagePlus, ref damagePlus);
                 }
 
-
-                health.TakeDamage(damagePlus);
+                if (Color.Equals(new Color32(0, 0, 0, 0)))
+                {
+                    health.TakeDamage(damagePlus);
+                }else
+                {
+                    health.TakeDamage(damagePlus,Color);
+                }
             }
 
-            pierce--;
-
+            
             if (pierce <= 0)
             {
                 sr.enabled = false;
@@ -75,6 +86,9 @@ public class SummonBullet : Projectile
                     Instantiate(impactParticles, transform.position, Quaternion.Euler(-90, 0, 0));
                 }
                 Destroy(gameObject);
+            }else
+            {
+                pierce--;
             }
         }
     }

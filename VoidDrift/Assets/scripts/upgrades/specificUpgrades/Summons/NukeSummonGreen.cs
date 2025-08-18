@@ -62,12 +62,12 @@ public class NukeSummonGreen : upgrade
             NukSum.baseDamage += DamageAmount2;
             float pom = fireRate * 0.2f;
             NukSum.baseFireRate -= pom;
-            description = string.Format("Bio Sword now deals 5% max health Damge Bio Sword base Damage + {0}",DamageAmount3);
+            description = string.Format("Bio Sword now deals 4% max health Damge Bio Sword base Damage + {0}",DamageAmount3);
         }
         else if(level == 4)
         {
             NukSum.baseDamage += DamageAmount3;
-            NukSum.TrueDamage = 0.05f; 
+            NukSum.TrueDamage = 0.04f; 
         }
 
 

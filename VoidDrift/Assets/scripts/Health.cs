@@ -84,8 +84,13 @@ public class Health : MonoBehaviour
             maxHealth = levelingSystem.instance.ScaleHpByLevel(baseMaxHealth);
         }
     }
-    public void TakeDamage(int damage,Color32 color = default(Color32))
+    public void TakeDamage(int damage,Color32 color = default(Color32), bool Flash = true)
     {
+        if(Vector3.Distance(transform.position,MasterManager.Instance.Player.position) > Constants.MaxDamageDistance)
+        {
+            return;
+        }
+
         if (Dead == false)
         {
             // onDamageEffects(damage);
@@ -156,7 +161,7 @@ public class Health : MonoBehaviour
                     }
                 }
 
-                if (flashColor != null)
+                if (flashColor != null && Flash)
                 {
                     flashColor.Flash();
                 }
@@ -383,7 +388,8 @@ public class Health : MonoBehaviour
             return;
         }
 
-        if(DmMaster.Full)//
+        DmMaster.UpdateCounter();
+        if(DmMaster.Full)
         {
             return;
         }

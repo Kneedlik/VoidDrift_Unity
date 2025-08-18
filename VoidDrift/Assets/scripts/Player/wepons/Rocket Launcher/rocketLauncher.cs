@@ -299,7 +299,7 @@ public class rocketLauncher : weapeon
     
         for (int i = 0;i < Amount;i++)
         {
-            ObjTemp = Instantiate(cube,gameObject.transform.position,Quaternion.Euler(0,0,Offset + 270));
+            ObjTemp = Instantiate(cube,gameObject.transform.position,Quaternion.Euler(0,0,Offset));
             //ObjTemp.transform.Translate(ObjTemp.transform.forward * HomingPointDistance);
             ObjTemp.transform.parent = gameObject.transform;
             HomingCubeList.Add(ObjTemp);
@@ -324,6 +324,9 @@ public class rocketLauncher : weapeon
         }else if (Atomic)
         {
             return rocket;
+        }else if(Plasma)
+        {
+            return PlasmaPrefab;
         }
         else
         {

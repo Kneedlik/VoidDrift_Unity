@@ -6,13 +6,14 @@ public class TargetMarker : Summon
 {
     public int targets;
     float timeStamp;
-    Transform target;
     PrimeSystem instance;
+    Transform Player;
    // [SerializeField] GameObject Targetingprefab;
 
 
     private void Start()
     {
+        Player = GameObject.FindGameObjectWithTag("Player").transform;
         instance = GameObject.FindGameObjectWithTag("StatusSystem").GetComponent<PrimeSystem>();
     }
 
@@ -45,18 +46,20 @@ public class TargetMarker : Summon
             {
                 bool viable = true;
 
-                if (instance.PrimedEnemies.Contains(Enemies[i]) || instance.Priming.Contains(Enemies[i]))
+                if (instance.PrimedEnemies.ContainsKey(Enemies[i]))
+                {
+                    viable = false;
+                }
+
+                if (Vector3.Distance(Player.position, Enemies[i].transform.position) > Constants.RandomDistance)
                 {
                     viable = false;
                 }
 
                 if(viable == true)
                 {
-                  
                     Enemies2.Add(Enemies[i]);
                 }
-
-                
             }
             
         }
@@ -80,13 +83,16 @@ public class TargetMarker : Summon
                 for (int j = 0; j < targets; j++)
                 {
                     int rand;
+                    int Safe = 0;
                     do
                     {
-                         rand = Random.Range(0, Enemies2.Count);
-                    } while(L.Contains(rand));
+                        Safe++;
+                        rand = Random.Range(0, Enemies2.Count);
+                    } while(L.Contains(rand) && Safe < 100);
 
-                   // GameObject t = Instantiate(Targetingprefab, Enemies2[rand].transform.position, Quaternion.Euler(0, 0, 0));
-                   // t.GetComponent<followPosition>().obj = Enemies2[rand];
+                    // GameObject t = Instantiate(Targetingprefab, Enemies2[rand].transform.position, Quaternion.Euler(0, 0, 0));
+                    // t.GetComponent<followPosition>().obj = Enemies2[rand];
+                    Debug.Log(Enemies2[rand]);
                     instance.prime(Enemies2[rand], 0, ref pom);
                 }
 

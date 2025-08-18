@@ -53,10 +53,13 @@ public class upgradeDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         }
         if (levelingSystem.instance.Double)
         {
-            Upgrade.upgrade.function();
-            Upgrade.upgrade.level -= 1;
-            Upgrade.upgrade.function();
-            levelingSystem.instance.Double = false;
+            if (Upgrade.upgrade.CanBeDoubled)
+            {
+                Upgrade.upgrade.function();
+                Upgrade.upgrade.level -= 1;
+                Upgrade.upgrade.function();
+                levelingSystem.instance.Double = false;
+            }
         }else
         {
             Upgrade.upgrade.function();

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5957119420999911253}
   - component: {fileID: 2690953916502446717}
   - component: {fileID: 4440868292592033796}
+  - component: {fileID: -2176850151969794811}
   m_Layer: 0
   m_Name: iceCrystal
   m_TagString: Untagged
@@ -72,9 +73,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: 709511165
+  m_SortingLayer: 1
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: cee90eb66ca0d4643a740fbdf8946a5c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.7058824}
   m_FlipX: 0
@@ -99,6 +100,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v: {x: 0, y: 0, z: 0}
+--- !u!114 &-2176850151969794811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6357960598367966374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f593548a5f81d134491793e00ce3943e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyTime: 2
 --- !u!1 &7039593418803095270
 GameObject:
   m_ObjectHideFlags: 0

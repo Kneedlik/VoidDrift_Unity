@@ -227,13 +227,19 @@ public class plaerHealth : MonoBehaviour
 
         for (int i = 0; i < Enemies.Length; i++)
         {
-            renderers[i] = Enemies[i].GetComponent<Renderer>();
-            if (renderers[i] != null)
+            if (Enemies[i] != null)
             {
-                if (renderers[i].isVisible)
+                renderers[i] = Enemies[i].GetComponent<Renderer>();
+                if (renderers[i] != null)
                 {
-                    Health h = Enemies[i].GetComponent<Health>();
-                    h.TakeDamage(h.maxHealth);
+                    if (renderers[i].isVisible)
+                    {
+                        Health h = Enemies[i].GetComponent<Health>();
+                        if (h != null)
+                        {
+                            h.TakeDamage(1000);
+                        }
+                    }
                 }
             }
         }

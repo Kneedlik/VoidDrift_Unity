@@ -23,6 +23,7 @@ public class StartMenu : MonoBehaviour
     [SerializeField] Image BackButton;
 
     [SerializeField] TMP_Text Text;
+    [SerializeField] TMP_Text TextMusic;
 
     [SerializeField] GameObject StartPanel;
     [SerializeField] Volume Volume;
@@ -32,34 +33,61 @@ public class StartMenu : MonoBehaviour
     [SerializeField] ProgressionState Progress;
     [SerializeField] PlayerPrefs Prefs;
 
+    [SerializeField] Toggle FullScreenToggle;
+    [SerializeField] Toggle VSyncToggle;
+
     private void Start()
     {
         SettingsValues TempValues = SaveManager.LoadSettings();
-        if(TempValues != null)
+        if (TempValues != null)
         {
             Values = TempValues;
-            switch (Values.MasterVolume)
-            {
-                case 1f:
-                    Text.text = "100%";
-                    break;
-                case 0f:
-                    Text.text = "0%";
-                    break;
-                case 0.1f:
-                    Text.text = "10%";
-                    break;
-                case 0.25f:
-                    Text.text = "25%";
-                    break;
-                case 0.5f:
-                    Text.text = "50%";
-                    break;
-                case 0.75f:
-                    Text.text = "75%";
-                    break;
-            }
         }
+            
+        switch (Values.MasterVolume)
+        {
+            case 1f:
+                Text.text = "100%";
+                break;
+            case 0f:
+                Text.text = "0%";
+                break;
+            case 0.1f:
+                 Text.text = "10%";
+                 break;
+            case 0.25f:
+                 Text.text = "25%";
+                 break;
+            case 0.5f:
+                 Text.text = "50%";
+                 break;
+            case 0.75f:
+                 Text.text = "75%";
+                 break;
+        }
+
+        switch (Values.MusicVolume)
+        {
+            case 1f:
+                TextMusic.text = "100%";
+                break;
+            case 0f:
+                TextMusic.text = "0%";
+                break;
+            case 0.1f:
+                TextMusic.text = "10%";
+                break;
+            case 0.25f:
+                TextMusic.text = "25%";
+                break;
+            case 0.5f:
+                TextMusic.text = "50%";
+                break;
+            case 0.75f:
+                TextMusic.text = "75%";
+                break;
+        }
+
 
         //SaveManager.SavePlayerProgress(Progress);
         ProgressionState TempP = SaveManager.LoadPlayerProgress();
@@ -72,25 +100,41 @@ public class StartMenu : MonoBehaviour
 
         if(TempP != null)
         {
+            Debug.Log("LoadingP");
             Progress = TempP;
         }
-        
-        if(Progress == null)
-        {
-            Progress = new ProgressionState();
-        }
 
-        if(Prefs == null)
+        //if(Progress == null)
+        //{
+        //    Progress = new ProgressionState();
+        //}
+
+        //if(Prefs == null)
+        //{
+        //    Prefs = new PlayerPrefs();
+        //}
+
+        if(Values.IsFullScreen)
         {
-            Prefs = new PlayerPrefs();
+            FullScreenToggle.isOn = true;
         }
+        else FullScreenToggle.isOn = false;
+
+        if (Values.VSync == 1)
+        {
+            VSyncToggle.isOn = true;
+        }
+        else VSyncToggle.isOn = false;
 
         //Debug.Log(Progress.UnlockedWeapeons.Count);
 
         Vector2 cursorHotSpot = new Vector2(BaseCursor.width / 2, BaseCursor.height / 2);
         Cursor.SetCursor(BaseCursor, cursorHotSpot, CursorMode.Auto);
 
-        AudioManager.instance.PlayMusicId(1);
+        if (AudioManager.instance.IsMusicPlaying(1) == false)
+        {
+            AudioManager.instance.PlayMusicId(1);
+        }
     }
 
     private void Update()
@@ -200,7 +244,7 @@ public class StartMenu : MonoBehaviour
             QualitySettings.vSyncCount = 0;
         }
        
-        Debug.Log("Vsync");
+        Debug.Log(Values.VSync);
     }
 
     public void SetVolume()
@@ -238,6 +282,46 @@ public class StartMenu : MonoBehaviour
                 break;
         }
 
+        AudioManager.instance.ResetVolume(Values);
+        Debug.Log("Volume Change");
+    }
+
+    public void SetMusicVolume()
+    {
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlayId(10);
+        }
+
+        switch (Values.MusicVolume)
+        {
+            case 1f:
+                Values.MusicVolume = 0.0f;
+                TextMusic.text = "0%";
+                break;
+            case 0f:
+                Values.MusicVolume = 0.1f;
+                TextMusic.text = "10%";
+                break;
+            case 0.1f:
+                Values.MusicVolume = 0.25f;
+                TextMusic.text = "25%";
+                break;
+            case 0.25f:
+                Values.MusicVolume = 0.5f;
+                TextMusic.text = "50%";
+                break;
+            case 0.5f:
+                Values.MusicVolume = 0.75f;
+                TextMusic.text = "75%";
+                break;
+            case 0.75f:
+                Values.MusicVolume = 1f;
+                TextMusic.text = "100%";
+                break;
+        }
+
+        AudioManager.instance.ResetVolume(Values);
         Debug.Log("Volume Change");
     }
 

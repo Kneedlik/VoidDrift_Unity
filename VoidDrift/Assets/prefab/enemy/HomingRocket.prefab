@@ -264,11 +264,9 @@ GameObject:
   - component: {fileID: 3579855145867348301}
   - component: {fileID: 7446825934393108594}
   - component: {fileID: 5342286895986629991}
-  - component: {fileID: 2028490265936436563}
-  - component: {fileID: 1075507579893097370}
   m_Layer: 0
   m_Name: HomingRocket
-  m_TagString: PlayerProjectile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -373,7 +371,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.0052757263, y: 0.22720718}
@@ -429,6 +427,7 @@ MonoBehaviour:
   knockBack: 0
   impactEffect: {fileID: 0}
   impactParticles: {fileID: 0}
+  target: {fileID: 0}
   MaxBounceDistance: 0
   OnImpactGunOnly: 0
   OnImpact: 0
@@ -438,61 +437,12 @@ MonoBehaviour:
   UseForce: 0
   force: 130
   MaxSpeed: 25
-  rotSpeed: 45
+  rotSpeed: 37
   Enemy: 1
   PlayerOnly: 0
-  Trigger: 0
-  ExploPrefab: {fileID: 0}
+  Trigger: 1
+  ExploPrefab: {fileID: 1058065709114279790, guid: 7d517e06dc931e14eafe4e1120612ad5, type: 3}
   Delay: 0
   StopAfter: 0
   StartForceAfter: 0
---- !u!114 &2028490265936436563
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8202118121778315371}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 599b41622875a6749b7d10012ed19326, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemPool1:
-  - {fileID: 1058065709114279790, guid: 7d517e06dc931e14eafe4e1120612ad5, type: 3}
-  dropChancePool1:
-  - 100
-  pos: {fileID: 0}
---- !u!114 &1075507579893097370
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8202118121778315371}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f5ebb4d06b97cb44a7655a6cc30f5f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 30
-  maxHealth: 60
-  baseMaxHealth: 0
-  damageN: {fileID: 8636022699047134357, guid: 971665a441a2ea448a247928736ad030, type: 3}
-  self: {fileID: 8202118121778315371}
-  healthBarGObject: {fileID: 0}
-  healthBar: {fileID: 0}
-  armor: 0
-  multiplier: 0
-  ParticleExplosion: {fileID: 0}
-  DeathAnim: {fileID: 0}
-  DeathDelay: 0
-  DeathFunc: []
-  OnDamageFunc: []
-  respawning: 0
-  respawnTime: 0
-  prefab: {fileID: 0}
-  randOffset: 30
-  levelScaling: 1
-  Boss: 0
-  AlertOnHit: 0
+  Retarget: 1

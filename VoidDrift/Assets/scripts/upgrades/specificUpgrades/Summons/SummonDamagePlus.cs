@@ -27,7 +27,7 @@ public class SummonDamagePlus : upgrade
             level += summons[i].level;
         }
 
-        if (level >= 25)
+        if (level >= 10)
         {
             return true;
         }

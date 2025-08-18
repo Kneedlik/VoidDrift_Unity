@@ -20,13 +20,25 @@ public class PrimeOnHit :upgrade
 
     public override void function()
     {
-       if(level == 0)
-       {
+        if(level == 0)
+        {
             eventManager.OnImpact += PrimeSystem.instance.prime;
             eventManager.SummonOnImpact += PrimeSystem.instance.prime;
             description = string.Format("Prime damage + {0}% damage Chance to apply prime + {0}%", damageAmount, chance);
         }
-        else 
+        else if(level == 1)
+        {
+            PrimeSystem.instance.bonusDamage += damageAmount;
+            PrimeSystem.instance.chance += chance;
+            description = string.Format("Time to prime - 30% Prime Damage + {0}%",damageAmount);
+        }
+        else if(level == 2)
+        {
+            PrimeSystem.instance.timeToPrime = PrimeSystem.instance.timeToPrime * 0.7f;
+            PrimeSystem.instance.bonusDamage += damageAmount;
+            description = string.Format("Prime damage + {0}% damage Chance to apply prime + {0}%", damageAmount, chance);
+        }
+        else
         {
             PrimeSystem.instance.bonusDamage += damageAmount;
 
@@ -39,6 +51,6 @@ public class PrimeOnHit :upgrade
             }
             
         }
-       level++;
+        level++;
     }
 }

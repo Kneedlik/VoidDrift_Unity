@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 5625183162021203655}
   - component: {fileID: 5625183162021203653}
   - component: {fileID: 171776979}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: GarlicMain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -335,9 +335,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  fireRate: 0.8
+  fireRate: 0.6
   size: 1
-  baseDamage: 9
+  baseDamage: 12
   baseFireRate: 0.65
   baseSize: 1
   id: 7

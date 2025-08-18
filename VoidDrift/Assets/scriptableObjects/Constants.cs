@@ -20,6 +20,7 @@ public static class Constants
     public static int CorruptedRarityDecrease = 30;
     public static Color32 CorruptedColor = new Color32(255, 0, 85, 255);
     public static Color32 GreenColor = new Color32(0, 255, 45, 255);
-
-
+    public const float RandomDistance = 60;
+    public const float MaxDamageDistance = 75;
+    public const bool Demo = true;
 }

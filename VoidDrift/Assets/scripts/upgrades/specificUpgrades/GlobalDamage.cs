@@ -41,13 +41,16 @@ public class GlobalDamage : upgrade
 
         for (int i = 0; i < Enemies.Length; i++)
         {
-            if (renderers[i].isVisible)
+            if (renderers[i] != null)
             {
-                Health health = Enemies[i].GetComponent<Health>();
-                if(health != null)
+                if (renderers[i].isVisible)
                 {
-                    float pom = damage * Amount;
-                    health.TakeDamage((int)pom);
+                    Health health = Enemies[i].GetComponent<Health>();
+                    if (health != null)
+                    {
+                        float pom = damage * Amount;
+                        health.TakeDamage((int)pom,default(Color),false);
+                    }
                 }
             }
         }

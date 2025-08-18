@@ -41,16 +41,16 @@ public class TransporterAI : MonoBehaviour
             }
         }else
         {
-            for (int i = 0; i < Jets.Count; i++)
-            {
-                if (Jets[i] != null)
-                {
-                    if (Jets[i].activeInHierarchy)
-                    {
-                        Jets[i].SetActive(false);
-                    }
-                }
-            }
+            //for (int i = 0; i < Jets.Count; i++)
+            //{
+            //    if (Jets[i] != null)
+            //    {
+            //        if (Jets[i].activeInHierarchy)
+            //        {
+            //            Jets[i].SetActive(false);
+            //        }
+            //    }
+            //}
         }
     }
 

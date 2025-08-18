@@ -18,7 +18,8 @@ public class RL_BugetHoming : upgrade
     {
         rocketLauncher RocketLauncher = GameObject.FindWithTag("Weapeon").GetComponent<rocketLauncher>();
         RocketLauncher.HomingAmount += Amount;
-        RocketLauncher.setFirepoints();
+        PlayerStats.sharedInstance.increaseProjectiles(0);
+        //RocketLauncher.setFirepoints();
 
         if(level > 0)
         {

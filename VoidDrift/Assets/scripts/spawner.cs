@@ -8,6 +8,8 @@ public class spawner : MonoBehaviour
 
     public const float offsetX = 65;
     public const float offsetY = 40;
+    public const float offsetXBig = 1100;
+    public const float offsetYBig = 800;
     float spawnRate;
     int spawnN;
    
@@ -25,11 +27,12 @@ public class spawner : MonoBehaviour
 
     [SerializeField] string PrintPrefix;
     [SerializeField] string FileName;
+    [SerializeField] bool BigSpawner;
 
     float timeStamp;
     void Start()
     {
-        PrintWawePowerLevel();
+        //PrintWawePowerLevel();
         count = 0;
         // StartCoroutine(spawnEnemy());
         spawnRate = wawes[count].spawnRate;
@@ -49,7 +52,14 @@ public class spawner : MonoBehaviour
                 {
                     GameObject E;
                     GameObject En;
-                    Vector3 pos = KnedlikLib.GenerateRandPosition(transform.position,offsetX,offsetY);
+                    Vector3 pos;
+                    if (BigSpawner == false)
+                    {
+                        pos = KnedlikLib.GenerateRandPosition(transform.position, offsetX, offsetY);
+                    }else
+                    {
+                        pos = KnedlikLib.GenerateRandPosition(transform.position, offsetXBig, offsetYBig);
+                    }
 
                     En = wawes[count].decideEnemy();
                     if (En != null)
@@ -206,6 +216,12 @@ public class spawner : MonoBehaviour
     {
         Gizmos.color = Color.green;
 
-        Gizmos.DrawWireCube(transform.position, new Vector3(offsetX * 2,offsetY * 2,0));
+        if (BigSpawner == false)
+        {
+            Gizmos.DrawWireCube(transform.position, new Vector3(offsetX * 2, offsetY * 2, 0));
+        }else
+        {
+            Gizmos.DrawWireCube(transform.position, new Vector3(offsetXBig * 2, offsetYBig * 2, 0));
+        }
     }
 }

@@ -289,4 +289,12 @@ public class PlayerMovement : MonoBehaviour
         moveSpeed = baseMoveSpeed * realMultiplier * MasterManager.Instance.PlayerInformation.MsMultiplier;
         maxSpeed = baseMaxSpeed * realMultiplier * MasterManager.Instance.PlayerInformation.MsMultiplier;
     }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.blue;
+
+        Gizmos.DrawWireSphere(transform.position,Constants.RandomDistance);
+        Gizmos.DrawWireSphere(transform.position, Constants.MaxDamageDistance);
+    }
 }

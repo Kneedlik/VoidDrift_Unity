@@ -86,6 +86,8 @@ public class rocket : BulletScript
             if (Explode != null)
             {
                 Explode.damage = damagePlus;
+                Explode.transform.localScale = transform.localScale;
+                //Debug.Log(Explode.transform.localScale.x);
             }
         }
 

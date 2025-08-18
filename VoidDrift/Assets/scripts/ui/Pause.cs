@@ -96,6 +96,10 @@ public class Pause : MonoBehaviour
         //SceneManager.LoadScene("StartMenu");
         AchiavementManager.instance.CheckAll(false);
         AchiavementManager.instance.SaveAllToProgress();
+
+        AchiavementManager.instance.progressionState.Gold = MasterManager.Instance.progressionState.Gold;
+        Debug.Log(AchiavementManager.instance.progressionState.Gold);
+
         SaveManager.SavePlayerProgress(AchiavementManager.instance.progressionState);
         if (AudioManager.instance != null)
         {

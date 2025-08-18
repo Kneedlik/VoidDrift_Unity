@@ -215,11 +215,10 @@ MonoBehaviour:
   fireRate: 2
   size: 1
   baseDamage: 0
-  baseFireRate: 2
+  baseFireRate: 0.4
   baseSize: 0
   id: 3
   targets: 1
-  Targetingprefab: {fileID: 5622042291488099044, guid: 7f9154a15893a254d8ec2372c95c106b, type: 3}
 --- !u!114 &5998112818700953656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,3 +377,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 0.35
   speed: 14
+  RandomDelayMax: 0.35

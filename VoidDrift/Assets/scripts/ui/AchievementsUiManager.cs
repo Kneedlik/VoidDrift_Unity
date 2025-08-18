@@ -10,6 +10,12 @@ public class AchievementsUiManager : AchiavementManager
 
     private void Awake()
     {
+        ProgressionState TempP = SaveManager.LoadPlayerProgress();
+        if (TempP != null)
+        {
+            progressionState = TempP;
+        }
+
         instance = this;
     }
 

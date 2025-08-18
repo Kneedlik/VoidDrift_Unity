@@ -11651,8 +11651,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {x: 0, y: 0}
-  baseMoveSpeed: 140
-  baseMaxSpeed: 10
+  baseMoveSpeed: 125
+  baseMaxSpeed: 9
   moveSpeed: 0
   maxSpeed: 0
   moveSpeed_1: 800
@@ -11721,7 +11721,7 @@ MonoBehaviour:
   sorting: {fileID: 0}
   totalXP: 0
   bar: {fileID: 0}
-  healthPerLevel: 0.7
+  healthPerLevel: 1.1
   red: 0
   green: 0
   blue: 0
@@ -11776,9 +11776,10 @@ MonoBehaviour:
   revives: 0
   slider: {fileID: 0}
   TickRate: 1
-  HealingOrbDropChance: 0.35
+  HealingOrbDropChance: 0.15
   HealingOrbPrefab: {fileID: 6255875214124632419, guid: 6c27fa9bae4513444a8f57ed58c0c332, type: 3}
   ownedColours: 
+  weapeonSelection: {fileID: 2037186423}
 --- !u!1 &2249976208118168590
 GameObject:
   m_ObjectHideFlags: 0
@@ -12150,15 +12151,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 85072393607905457, guid: 57a931b9e02fa8d428a92f24910367a4, type: 3}
       propertyPath: baseDamage
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 85072393607905457, guid: 57a931b9e02fa8d428a92f24910367a4, type: 3}
       propertyPath: reloadSpeed
-      value: 0.65
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 85072393607905457, guid: 57a931b9e02fa8d428a92f24910367a4, type: 3}
       propertyPath: baseCoolDown
-      value: 0.46
+      value: 0.38
       objectReference: {fileID: 0}
     - target: {fileID: 85072393607905457, guid: 57a931b9e02fa8d428a92f24910367a4, type: 3}
       propertyPath: OffsetScaling
@@ -12906,7 +12907,7 @@ PrefabInstance:
       objectReference: {fileID: 5165149255182086180, guid: dab50b73ed8448540b35cce588658b55, type: 3}
     - target: {fileID: 2776333528265854994, guid: 317437082b94dc04194b22cf4db2fc4c, type: 3}
       propertyPath: damage
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2776333528265854994, guid: 317437082b94dc04194b22cf4db2fc4c, type: 3}
       propertyPath: pierce
@@ -12934,7 +12935,7 @@ PrefabInstance:
       objectReference: {fileID: 2249976208118168591}
     - target: {fileID: 2776333528265854994, guid: 317437082b94dc04194b22cf4db2fc4c, type: 3}
       propertyPath: baseDamage
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2776333528265854994, guid: 317437082b94dc04194b22cf4db2fc4c, type: 3}
       propertyPath: DroneAmount

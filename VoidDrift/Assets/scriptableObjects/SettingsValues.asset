@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: SettingsValues
   m_EditorClassIdentifier: 
   IsFullScreen: 1
-  VSync: 0
+  VSync: 1
+  MasterVolume: 1
+  MusicVolume: 1

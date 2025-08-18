@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 263518262}
   m_Layer: 0
   m_Name: NukeSummon
-  m_TagString: Untagged
+  m_TagString: SummonUpgrade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,9 +119,9 @@ MonoBehaviour:
   SubserviantUpgrades: []
   Final: 0
   RuneId: 0
-  DamageAmount1: 175
-  DamageAmount2: 175
-  DamageAmount3: 300
+  DamageAmount1: 150
+  DamageAmount2: 150
+  DamageAmount3: 250
   Summon: {fileID: 5784896279642537224, guid: d598c324c9528894d90123508f3c5597, type: 3}
 --- !u!1 &318889920
 GameObject:
@@ -1803,7 +1803,7 @@ MonoBehaviour:
   SubserviantUpgrades: []
   Final: 0
   RuneId: 3
-  amount: 30
+  amount: 0.5
 --- !u!1 &6775880731264444767
 GameObject:
   m_ObjectHideFlags: 0
@@ -2048,7 +2048,7 @@ MonoBehaviour:
   Final: 0
   RuneId: 0
   amount: 5
-  rarityIncrease: 5
+  rarityIncrease: 10
 --- !u!1 &7339895226829830620
 GameObject:
   m_ObjectHideFlags: 0
@@ -2279,8 +2279,8 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 0
   icon: {fileID: 21300000, guid: 83099ed5dffb0264d9eb893bc8105d1a, type: 3}
-  name: Ludens Echo
-  description: First time you damage an enemy deal + 150% bonus damage
+  name: Echo
+  description: First time you damage an enemy deal + 100% damage
   level: 0
   maxLevel: 0
   rarity: 80
@@ -2288,8 +2288,8 @@ MonoBehaviour:
   SubserviantUpgrades: []
   Final: 0
   RuneId: 0
-  amount: 75
-  amount2: 60
+  amount: 60
+  amount2: 50
 --- !u!1 &7339895226923330993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2460,7 +2460,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 0
   icon: {fileID: 21300000, guid: a86647dd9107d9f459b9a06f4e6c8d7b, type: 3}
-  name: 
+  name: Hot Rounds
   description: 'Base Damege + 30% Pellet Force + 20%
 
 '
@@ -2656,7 +2656,7 @@ MonoBehaviour:
   Final: 0
   RuneId: 0
   amount: 8
-  rarityIncrease: 5
+  rarityIncrease: 10
 --- !u!1 &7339895227153614168
 GameObject:
   m_ObjectHideFlags: 0
@@ -2770,7 +2770,7 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: 83099ed5dffb0264d9eb893bc8105d1a, type: 3}
   name: Corrupted Ludens echo
-  description: First time you damage an enemy deal 100 bonus damage and 10% max health
+  description: First time you damage an enemy deal 50 bonus damage and 10% max health
     damage
   level: 0
   maxLevel: 3
@@ -2830,7 +2830,7 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: e0f1347d810077449b22d38838856f9a, type: 3}
   name: Point blank
-  description: Crit damage + 17.5%
+  description: Crit damage + 20%
   level: 0
   maxLevel: 0
   rarity: 60
@@ -2838,7 +2838,7 @@ MonoBehaviour:
   SubserviantUpgrades: []
   Final: 0
   RuneId: 0
-  amount: 0.175
+  amount: 0.2
 --- !u!1 &7339895227246496312
 GameObject:
   m_ObjectHideFlags: 0
@@ -2889,7 +2889,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 0
   icon: {fileID: 21300000, guid: 68b45c47934a6414d9c819839a80e9c6, type: 3}
-  name: King Bible
+  name: Gravitas
   description: Summons 3 orbs that rotate around you dealing damage
   level: 0
   maxLevel: 5
@@ -2950,7 +2950,7 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: 2e7252d6d1e93564d8beba86a8a8bdf4, type: 3}
   name: Giant slayer
-  description: every fifth time you hit an enemy increase damage against that enemy
+  description: Every fifth time you hit an enemy increase damage against that enemy
     + 1
   level: 0
   maxLevel: 1
@@ -3069,7 +3069,7 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: 644c35a10aff6f742a3ef42e145981b1, type: 3}
   name: Shock
-  description: Shocked enemies take + 4 more damage from all sources
+  description: Shocked enemies take + 5 more damage from all sources
   level: 0
   maxLevel: 2
   rarity: 65
@@ -3274,7 +3274,7 @@ MonoBehaviour:
   SubserviantUpgrades: []
   Final: 0
   RuneId: 0
-  amount: 8
+  amount: 10
   healthAmaount: 15
   fireRateAmount: 5
   health: 0
@@ -3516,7 +3516,7 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: 5c507c2020b2cb846aaa1b8182f1861f, type: 3}
   name: Stat stick
-  description: Base Damage + 25% base FireRate + 20%
+  description: Base Damage + 20% base FireRate + 20%
   level: 0
   maxLevel: 0
   rarity: 100
@@ -3524,7 +3524,7 @@ MonoBehaviour:
   SubserviantUpgrades: []
   Final: 0
   RuneId: 0
-  DamageAmount: 0.25
+  DamageAmount: 0.2
   AsAmount: 0.2
 --- !u!1 &7339895227544969061
 GameObject:
@@ -3640,7 +3640,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 0
   icon: {fileID: 21300000, guid: f38e5357255360d41a1421d1cf7db619, type: 3}
-  name: 
+  name: Cluster granades
   description: Pellets cluster one more time
   level: 0
   maxLevel: 1
@@ -3896,7 +3896,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 0
   icon: {fileID: 21300000, guid: 9c2b64e8bf149ee49b7a3021a9ac441e, type: 3}
-  name: 
+  name: Shrapnel shell
   description: 'Base Area + 30% Projectiles + 2
 
 '
@@ -4152,7 +4152,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 0
   icon: {fileID: 21300000, guid: 68b504aa36699234aaabf4642529a1e4, type: 3}
-  name: Ckuster amunition
+  name: Cluster ammunition
   description: Pellets explode into 3 more
   level: 0
   maxLevel: 0
@@ -4211,9 +4211,9 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 0
   icon: {fileID: 21300000, guid: fb4bf5ab226480c4992ec77288214f38, type: 3}
-  name: Primed amunition
-  description: "Bullets have 40% chance to prime enemy \nPrimed enemies take + 200%
-    bonus damage"
+  name: Primed ammunition
+  description: "Bullets have 50% chance to Prime enemy \nPrimed enemies take + 150%
+    bonus damage after 1 second"
   level: 0
   maxLevel: 0
   rarity: 80
@@ -4221,9 +4221,9 @@ MonoBehaviour:
   SubserviantUpgrades: []
   Final: 0
   RuneId: 0
-  damageAmount: 30
+  damageAmount: 50
   chance: 10
-  maxChance: 0
+  maxChance: 100
 --- !u!1 &7339895227686380304
 GameObject:
   m_ObjectHideFlags: 0
@@ -4278,7 +4278,7 @@ MonoBehaviour:
   description: Crit chance + 15%
   level: 0
   maxLevel: 6
-  rarity: 60
+  rarity: 65
   CanBeDoubled: 1
   SubserviantUpgrades: []
   Final: 0
@@ -4622,7 +4622,7 @@ MonoBehaviour:
   Final: 0
   RuneId: 0
   amount: 8
-  rarityIncrease: 5
+  rarityIncrease: 10
 --- !u!1 &7339895227829586575
 GameObject:
   m_ObjectHideFlags: 0
@@ -4735,7 +4735,7 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: 5b9e6daca568bc149bc2add096264a93, type: 3}
   name: Blood spliter
-  description: Chance enemies drop Healing Orb + 0.3%
+  description: Chance enemies drop Healing Orb + 0.1%
   level: 0
   maxLevel: 0
   rarity: 60
@@ -4743,7 +4743,7 @@ MonoBehaviour:
   SubserviantUpgrades: []
   Final: 0
   RuneId: 0
-  Value: 0.2
+  Value: 0.1
 --- !u!1 &7339895227865177510
 GameObject:
   m_ObjectHideFlags: 0
@@ -4794,7 +4794,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 0
   icon: {fileID: 21300000, guid: 78aa647422bb324479703824478faa0d, type: 3}
-  name: Kinetic Missiles 2
+  name: Missile swarm
   description: Every Missle is now homing Projectiles + 2
   level: 0
   maxLevel: 1
@@ -4917,16 +4917,16 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: d3ea3abb74f35fe4e894f49a4514a345, type: 3}
   name: Travel Mode
-  description: Out of Combat move speed + 30%
+  description: While not firing Movemet speed + 30% Damage + 40%
   level: 0
-  maxLevel: 5
+  maxLevel: 3
   rarity: 60
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
   RuneId: 0
   amount: 30
-  system: {fileID: 0}
+  DamageAmount: 40
 --- !u!1 &7339895227892902010
 GameObject:
   m_ObjectHideFlags: 0
@@ -5041,7 +5041,7 @@ MonoBehaviour:
   description: Summons a drone that Primes enemies
   level: 0
   maxLevel: 5
-  rarity: 65
+  rarity: 70
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
@@ -5097,7 +5097,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 0
   icon: {fileID: 21300000, guid: 1ec6c5dd48e3d33439c66539c1f75515, type: 3}
-  name: 
+  name: High Explosive
   description: Pellets explode on Impact
   level: 0
   maxLevel: 0
@@ -5578,8 +5578,8 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 0
   icon: {fileID: 21300000, guid: 3b06f90bbeda9314a81d4074c97da8c7, type: 3}
-  name: 
-  description: Base Firerate + 25% projectiles + 3
+  name: Refraction
+  description: Base Firerate + 20% projectiles + 2
   level: 0
   maxLevel: 0
   rarity: 100
@@ -5587,8 +5587,8 @@ MonoBehaviour:
   SubserviantUpgrades: []
   Final: 0
   RuneId: 0
-  AsAmount: 0.25
-  projectiles: 3
+  AsAmount: 0.2
+  projectiles: 2
 --- !u!1 &7339895228053293429
 GameObject:
   m_ObjectHideFlags: 0
@@ -5822,7 +5822,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 0
   icon: {fileID: 21300000, guid: 7c6b477f9d6d4264eb9efb30eb699eb2, type: 3}
-  name: 
+  name: Autoloader
   description: Reload speed + 50% Knockback + 30%
   level: 0
   maxLevel: 0
@@ -5884,7 +5884,7 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: 46d59ea50f18d7146b8bb1dc1a8c9bd5, type: 3}
   name: Shapeless
-  description: Summons a drone that srikes enemy after getting hot with projectile
+  description: Summons an artifact that srikes enemy after getting hit with projectile
   level: 0
   maxLevel: 5
   rarity: 65
@@ -5945,7 +5945,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 0
   icon: {fileID: 21300000, guid: 503c464f16458cf41a270a6d499e7710, type: 3}
-  name: Hypersonic Amunition
+  name: Hypersonic Ammunition
   description: 'Projectile speed + 10%
 
     FireRate + 7.5%'
@@ -6068,7 +6068,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 0
   icon: {fileID: 21300000, guid: 01da8de4e530e21479d5c7e225ff1a80, type: 3}
-  name: 
+  name: Armor piercing
   description: Base Damage + 100% Pierce + 100 Base Firerate - 50%
   level: 0
   maxLevel: 1
@@ -6194,7 +6194,7 @@ MonoBehaviour:
   description: Poison now lasts indefinetly
   level: 0
   maxLevel: 1
-  rarity: 80
+  rarity: 70
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
@@ -6322,7 +6322,7 @@ MonoBehaviour:
   Final: 0
   RuneId: 0
   HealthAmount: 0.1
-  rarityIncrease: 5
+  rarityIncrease: 10
 --- !u!1 &7339895228254407142
 GameObject:
   m_ObjectHideFlags: 0
@@ -6627,7 +6627,7 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: 41f7a7bc2ce4ecb4eb568d8e3224d1bd, type: 3}
   name: Sky beam
-  description: Summons an artifack that shoots lightning at nearby targets
+  description: Summons an artifact that shoots lightning at nearby targets
   level: 0
   maxLevel: 5
   rarity: 65
@@ -7081,7 +7081,7 @@ MonoBehaviour:
   Final: 0
   RuneId: 0
   amount: 0.1
-  amount2: 0
+  amount2: 0.15
   chance: 15
   duration: 4
   speedPenalty: 0.15
@@ -7137,7 +7137,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 6c3f0163138c57f46a3e4ffbfe046512, type: 3}
   name: Spirit Flame
   description: Projectiles apply spirit flame up to five times enemies aflicted take
-    40 damage + 0.5% of max health every tick
+    40 damage + 0.5% of max health damage every tick
   level: 0
   maxLevel: 1
   rarity: 300
@@ -7258,8 +7258,8 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 0
   icon: {fileID: 21300000, guid: 75de6edafc83b8949aa61c6ac9b2b83e, type: 3}
-  name: 
-  description: Base damage + 60% projectiles + 5 Lasers now fire in a circular area
+  name: Kaleidoscope
+  description: Base damage + 50% projectiles + 5 Lasers now fire in a circular area
   level: 0
   maxLevel: 1
   rarity: 500
@@ -7271,7 +7271,7 @@ MonoBehaviour:
     LevelNeeded: 1
   Final: 1
   RuneId: 0
-  DamageMultiplier: 0.6
+  DamageMultiplier: 0.5
   ProjectileAmount: 5
 --- !u!1 &7339895228459032408
 GameObject:
@@ -7387,8 +7387,8 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: 8e2c60c959df3444e8681793fa8ec8ea, type: 3}
   name: Nuclear Warheads
-  description: ' Damage + 1500% FireRate - 85%  Rockets now deal damage in global
-    Area'
+  description: ' Damage + 1250% FireRate - 75%  Rockets now deal damage in global
+    Area Projectiles set to 1'
   level: 0
   maxLevel: 1
   rarity: 500
@@ -7400,8 +7400,8 @@ MonoBehaviour:
     LevelNeeded: 1
   Final: 1
   RuneId: 0
-  DamageAmountMultiplier: 15
-  AsPenaltyMultiplier: 0.9
+  DamageAmountMultiplier: 125
+  AsPenaltyMultiplier: 0.75
 --- !u!1 &7339895228464188006
 GameObject:
   m_ObjectHideFlags: 0
@@ -7452,7 +7452,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 0
   icon: {fileID: 21300000, guid: 2cc35042c799e974aaf8e92bf69814c1, type: 3}
-  name: Big Rocket
+  name: Heavy Warhead
   description: 'Every fifth shot fires BigRocket
 
 '
@@ -7464,7 +7464,7 @@ MonoBehaviour:
   Final: 0
   RuneId: 0
   Damage: 25
-  MultiplierAmount: 0.8
+  MultiplierAmount: 0.75
   CurrentShot: 0
   ShotsNeeded: 5
   BigRocketPrefab: {fileID: 2688692594259370575, guid: e81e35ccfded6c841a040dd4975ec989, type: 3}
@@ -7687,7 +7687,7 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: 3eca3b4e37e59154cb4413116d7d0807, type: 3}
   name: Gem
-  description: Summons a crystal that fires bullets in all directions
+  description: Summons an artifact that fires bullets in all directions
   level: 0
   maxLevel: 5
   rarity: 65
@@ -7811,7 +7811,7 @@ MonoBehaviour:
   description: Summon Damage + 15%
   level: 0
   maxLevel: 3
-  rarity: 80
+  rarity: 90
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
@@ -7871,7 +7871,7 @@ MonoBehaviour:
   description: 'Losing shield deals damage to enemies in close area
 
     Detonation
-    damage + 80'
+    damage + 100'
   level: 0
   maxLevel: 0
   rarity: 45
@@ -7879,7 +7879,7 @@ MonoBehaviour:
   SubserviantUpgrades: []
   Final: 0
   RuneId: 0
-  amount: 80
+  amount: 100
 --- !u!1 &7339895228542753679
 GameObject:
   m_ObjectHideFlags: 0
@@ -7940,8 +7940,8 @@ MonoBehaviour:
   Final: 0
   RuneId: 0
   summon: {fileID: 3906934220119455522, guid: 225e0dded2cae9948bc36aff33d61c6f, type: 3}
-  Damage1: 12
-  Damage2: 8
+  Damage1: 8
+  Damage2: 10
   Damage3: 16
 --- !u!1 &7339895228554903544
 GameObject:
@@ -7993,7 +7993,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 0
   icon: {fileID: 21300000, guid: fb4bf5ab226480c4992ec77288214f38, type: 3}
-  name: 
+  name: Delayed reaction
   description: Prime detonation now deals double damage but takes 50% longer to charge
   level: 0
   maxLevel: 1
@@ -8112,8 +8112,8 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 0
   icon: {fileID: 21300000, guid: efc0623c31f097345b020ec401a34c02, type: 3}
-  name: Charged amunition
-  description: 'Projectiles have 50% chance to trigger chain lightning '
+  name: Charged ammunition
+  description: 'Projectiles and summons have 50% chance to trigger chain lightning '
   level: 0
   maxLevel: 0
   rarity: 80
@@ -8174,8 +8174,8 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 0
   icon: {fileID: 21300000, guid: 1eafc8ec2a074284593b59c5d44ce91d, type: 3}
-  name: 
-  description: Pierce + 1 Base Area + 40%
+  name: Focused beam
+  description: Pierce + 1 Base Area + 30%
   level: 0
   maxLevel: 0
   rarity: 100
@@ -8184,7 +8184,7 @@ MonoBehaviour:
   Final: 0
   RuneId: 0
   PierceAmount: 1
-  AreaAmount: 0.4
+  AreaAmount: 0.3
 --- !u!1 &7339895228654063979
 GameObject:
   m_ObjectHideFlags: 0
@@ -8668,7 +8668,7 @@ MonoBehaviour:
     + 20%'
   level: 0
   maxLevel: 1
-  rarity: 120
+  rarity: 140
   CanBeDoubled: 0
   SubserviantUpgrades: []
   Final: 0
@@ -8845,7 +8845,7 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: e5b9abb3602f8994bb73c5a252ed6f09, type: 3}
   name: Battery
-  description: Base damage + 40%
+  description: Base damage + 30%
   level: 0
   maxLevel: 0
   rarity: 100
@@ -8853,7 +8853,7 @@ MonoBehaviour:
   SubserviantUpgrades: []
   Final: 0
   RuneId: 0
-  DamageMultiplier: 0.4
+  DamageMultiplier: 0.3
 --- !u!1 &7339895228888465854
 GameObject:
   m_ObjectHideFlags: 0
@@ -8968,7 +8968,7 @@ MonoBehaviour:
   description: Revives + 1
   level: 0
   maxLevel: 2
-  rarity: 6000
+  rarity: 60
   CanBeDoubled: 1
   SubserviantUpgrades: []
   Final: 0
@@ -9332,4 +9332,4 @@ MonoBehaviour:
   SubserviantUpgrades: []
   Final: 0
   RuneId: 4
-  amount: 50
+  amount: 1

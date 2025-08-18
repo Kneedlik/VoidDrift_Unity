@@ -256,7 +256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 55
-  maxSpeed: 9
+  maxSpeed: 7
   Multiplier: 1
 --- !u!114 &1076211932900973751
 MonoBehaviour:
@@ -289,6 +289,9 @@ MonoBehaviour:
   dropChancePool1:
   - 0.6
   pos: {fileID: 0}
+  Amount: 1
+  ForceMin: 0
+  ForceMax: 0
 --- !u!114 &2640932649007868823
 MonoBehaviour:
   m_ObjectHideFlags: 0

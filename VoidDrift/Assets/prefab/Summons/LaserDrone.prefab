@@ -115,13 +115,13 @@ MonoBehaviour:
   damage: 0
   fireRate: 0
   size: 1
-  baseDamage: 15
-  baseFireRate: 2.6
+  baseDamage: 16
+  baseFireRate: 1.3
   baseSize: 1
   id: 0
   Line: {fileID: 1103141219784353394}
   FirePoint: {fileID: 1898672042485362123}
-  LineDuration: 0.12
+  LineDuration: 0.18
 --- !u!1 &7872378995377215813
 GameObject:
   m_ObjectHideFlags: 0

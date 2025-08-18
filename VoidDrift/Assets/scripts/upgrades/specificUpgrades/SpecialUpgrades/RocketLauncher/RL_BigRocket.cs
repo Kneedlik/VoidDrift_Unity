@@ -29,7 +29,7 @@ public class RL_BigRocket : upgrade
         if(level == 0)
         {
             eventManager.OnFire += FireBigRocket;
-            description = string.Format("Big Big Rocket Damage + {0}%",MultiplierAmount);
+            description = string.Format("Big Big Rocket Damage + {0}%",MultiplierAmount * 100);
         }else
         {
             DamageMultiplier += MultiplierAmount;

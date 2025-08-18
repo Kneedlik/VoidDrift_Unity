@@ -6,22 +6,22 @@ public class DestroyTime : MonoBehaviour
 {
     public float destroyTime;
     public float fadeTime;
-    private Color textOpacity;
+    //private Color textOpacity;
     public TMP_Text textM;
     
     void Start()
     {
         Destroy(gameObject, destroyTime);
-        textM = this.GetComponent<TMP_Text>();
-        textOpacity = textM.color;
+        //textM = this.GetComponent<TMP_Text>();
+        //textOpacity = textM.color;
         
     }
 
-    private void Update()
-    {
-        textOpacity.a -= fadeTime * Time.deltaTime;
-        textM.color = textOpacity;
-    }
+    //private void Update()
+    //{
+    //    textOpacity.a -= fadeTime * Time.deltaTime;
+    //    textM.color = textOpacity;
+    //}
 
 
 }

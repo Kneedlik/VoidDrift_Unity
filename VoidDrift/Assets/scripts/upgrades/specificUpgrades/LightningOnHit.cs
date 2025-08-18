@@ -23,6 +23,7 @@ public class LightningOnHit : upgrade
         if (level == 0)
         {
             eventManager.OnImpact += LightningSystem.instance.lightningProc;
+            eventManager.SummonOnImpact += LightningSystem.instance.lightningProc;
             description = string.Format("Lightning damage + {0} Chance to trigger Lightning + {0}%", damageAmount, chance);
         } else if (level == 1)
         {

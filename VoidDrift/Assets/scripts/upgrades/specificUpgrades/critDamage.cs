@@ -5,7 +5,7 @@ using UnityEngine;
 public class critDamage : upgrade
 {
     public float amount;
-    float BaseMultiplier;
+    //float BaseMultiplier;
 
     private void Awake()
     {
@@ -15,7 +15,7 @@ public class critDamage : upgrade
 
     private void Start()
     {
-        BaseMultiplier = CritSystem.instance.critMultiplier;
+        //BaseMultiplier = CritSystem.instance.critMultiplier;
     }
 
     public override bool requirmentsMet()
@@ -30,9 +30,9 @@ public class critDamage : upgrade
 
     public override void function()
     {
-        float Temp = BaseMultiplier * amount;
+        //float Temp = BaseMultiplier * amount;
 
-        CritSystem.instance.critMultiplier += Temp;
+        CritSystem.instance.critMultiplier += amount;
         level++;
     }
 }

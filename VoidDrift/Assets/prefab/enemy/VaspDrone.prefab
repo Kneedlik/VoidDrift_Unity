@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -2305362513291642637}
   - component: {fileID: 2721286698377046952}
   - component: {fileID: 9159707446558214618}
-  m_Layer: 12
+  m_Layer: 11
   m_Name: VaspDrone
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.4
+  m_Mass: 0.6
   m_LinearDrag: 0.75
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
-  maxSpeed: 10
+  maxSpeed: 5.8
   Multiplier: 1
 --- !u!114 &5378140761206221849
 MonoBehaviour:
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  maxHealth: 28
+  maxHealth: 24
   baseMaxHealth: 0
   damageN: {fileID: 8636022699047134357, guid: 971665a441a2ea448a247928736ad030, type: 3}
   self: {fileID: 0}

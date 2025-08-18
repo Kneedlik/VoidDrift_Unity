@@ -122,9 +122,13 @@ public class timer : MonoBehaviour
 
     public void victory()
     {
-        MasterManager.Instance.AddGold(ProgressionConst.VictoryGold,true);
-        AchiavementManager.instance.CheckAll(true); //
-        AchiavementManager.instance.SaveAllToProgress();
+        MasterManager.Instance.AddGold(ProgressionConst.VictoryGold, true);
+        if (Constants.Demo == false)
+        {
+            AchiavementManager.instance.CheckAll(true); //
+            AchiavementManager.instance.SaveAllToProgress();
+        }
+        AchiavementManager.instance.progressionState.Gold = MasterManager.Instance.progressionState.Gold;
         SaveManager.SavePlayerProgress(AchiavementManager.instance.progressionState);
 
         Debug.Log("After");

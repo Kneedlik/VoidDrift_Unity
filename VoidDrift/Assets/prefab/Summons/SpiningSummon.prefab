@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31a9d23333c62a24b87766d79646979d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  main: {fileID: 5386182139941555313, guid: 7c01c5653c476594ba2504eda0bc3de7, type: 3}
+  main: {fileID: 4374338547487544711}
 --- !u!95 &1836934268825476906
 Animator:
   serializedVersion: 4
@@ -171,7 +171,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5386182139941555312, guid: 7c01c5653c476594ba2504eda0bc3de7, type: 3}
       propertyPath: speed
-      value: 150
+      value: 175
       objectReference: {fileID: 0}
     - target: {fileID: 5386182139941555313, guid: 7c01c5653c476594ba2504eda0bc3de7, type: 3}
       propertyPath: m_Name
@@ -191,7 +191,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5386182139941555314, guid: 7c01c5653c476594ba2504eda0bc3de7, type: 3}
       propertyPath: baseDamage
-      value: 40
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5386182139941555314, guid: 7c01c5653c476594ba2504eda0bc3de7, type: 3}
       propertyPath: orbDistance
@@ -254,5 +254,10 @@ PrefabInstance:
 --- !u!4 &4374338547487544699 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5386182139941555341, guid: 7c01c5653c476594ba2504eda0bc3de7, type: 3}
+  m_PrefabInstance: {fileID: 8505986492278905334}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4374338547487544711 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5386182139941555313, guid: 7c01c5653c476594ba2504eda0bc3de7, type: 3}
   m_PrefabInstance: {fileID: 8505986492278905334}
   m_PrefabAsset: {fileID: 0}

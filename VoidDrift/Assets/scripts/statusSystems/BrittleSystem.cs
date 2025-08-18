@@ -22,10 +22,32 @@ public class BrittleSystem : MonoBehaviour
     public float freezeDuration;
     public bool secondExplosion;
     [SerializeField] GameObject FreezeObject;
+
+    [SerializeField] float ListClearTimer = 3f;
+    float Timestamp;
     
     void Start()
     {
         Instance = this;
+    }
+
+    private void Update()
+    {
+        if(Timestamp <= 0)
+        {
+            for (int i = 0;i < BrittleEnemies.Count;i++)
+            {
+                if (BrittleEnemies[i] == null)
+                {
+                    BrittleEnemies.RemoveAt(i);
+                }
+            }
+
+            Timestamp = ListClearTimer;
+        }else
+        {
+            Timestamp -= Time.deltaTime;
+        }
     }
 
     public void ApplyBrittle(GameObject target, int damage, ref int plusDamage)
@@ -134,28 +156,36 @@ public class BrittleSystem : MonoBehaviour
     IEnumerator Freeze(GameObject target)
     {
         Rigidbody2D rb = target.GetComponent<Rigidbody2D>();
-        rb.velocity = Vector3.zero;
-        rb.constraints = RigidbodyConstraints2D.FreezeAll;
-        GameObject F = Instantiate(FreezeObject, target.transform.position, Quaternion.Euler(0, 0, 0));
-        //KnedlikLib.scaleParticleSize(target, F, 0.9f);
-        F.transform.SetParent(target.transform);
-
-        yield return new WaitForSeconds(freezeDuration);
-
-        if (target != null)
+        if (rb != null)
         {
-            if (secondExplosion)
-            {
-                GameObject E = Instantiate(explosionPrefab, target.transform.position, Quaternion.Euler(0, 0, 0));
-                explosion exp = E.GetComponent<explosion>();
-                int pom = KnedlikLib.ScaleDamage(explodeDamage, true, true);
-            }
+            rb.velocity = Vector3.zero;
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            GameObject F = Instantiate(FreezeObject, target.transform.position, Quaternion.Euler(0, 0, 0));
+   
+            //KnedlikLib.scaleParticleSize(target, F, 0.9f);
+            F.transform.SetParent(target.transform);
 
-            Destroy(F);
+            yield return new WaitForSeconds(freezeDuration);
 
-            if (rb != null)
+            if (target != null)
             {
-                rb.constraints = RigidbodyConstraints2D.None;
+                if (secondExplosion)
+                {
+                    GameObject E = Instantiate(explosionPrefab, target.transform.position, Quaternion.Euler(0, 0, 0));
+                    explosion exp = E.GetComponent<explosion>();
+                    int pom = KnedlikLib.ScaleDamage(explodeDamage, true, true);
+                    pom = KnedlikLib.ScaleStatusDamage(pom);
+                    exp.damage = pom;
+
+                    KnedlikLib.ScaleParticleByFloat(E, explodeRadius, true);
+                }
+
+                Destroy(F);
+
+                if (rb != null)
+                {
+                    rb.constraints = RigidbodyConstraints2D.None;
+                }
             }
         }
     }

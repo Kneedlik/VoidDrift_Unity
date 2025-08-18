@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33f843fd8fe2bde42b51a19585a96014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 40
+  damage: 0
   PlayerDamage: 20
   TrueDamage: 0
   destroyTime: 0.3
@@ -147,7 +147,14 @@ MonoBehaviour:
   ScaleArea: 0
   Impact: 0
   PostImpact: 0
+  OnCrit: 0
+  OnImpactGunOnly: 0
+  OnImpactSummon: 0
   Stun: 0
+  Colour:
+    serializedVersion: 2
+    rgba: 4294967295
+  IgnoreTargets: []
 --- !u!1 &6504948478918992659
 GameObject:
   m_ObjectHideFlags: 0

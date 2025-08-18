@@ -104,16 +104,16 @@ public class LasersSystem : MonoBehaviour
                             int DamagePlus = DamageBase;
                             if (eventManager.SummonOnImpact != null)
                             {
-                                eventManager.SummonOnImpact(hit[j].transform.gameObject, DamageBase, ref DamagePlus);
+                                eventManager.SummonOnImpact(hit[k].transform.gameObject, DamageBase, ref DamagePlus); //
                             }
 
                             if (eventManager.PostImpact != null)
                             {
-                                eventManager.PostImpact(hit[j].transform.gameObject, DamagePlus, ref DamagePlus);
+                                eventManager.PostImpact(hit[k].transform.gameObject, DamagePlus, ref DamagePlus);
                             }
 
                             int D = 0;
-                            BrittleSystem.Instance.ApplyBrittle(hit[j].transform.gameObject, 0, ref D);
+                            BrittleSystem.Instance.ApplyBrittle(hit[k].transform.gameObject, 0, ref D);
 
                             health.TakeDamage(DamagePlus);
                         }

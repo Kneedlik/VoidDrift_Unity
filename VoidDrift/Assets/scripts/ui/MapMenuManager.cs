@@ -16,6 +16,21 @@ public class MapMenuManager : MonoBehaviour
     [SerializeField] Toggle toggle;
     public bool HardMoodeUnlocked;
 
+    private void Awake()
+    {
+        ProgressionState TempP = SaveManager.LoadPlayerProgress();
+        if (TempP != null)
+        {
+            Progress = TempP;
+        }
+
+        PlayerPrefs TempPref = SaveManager.LoadPlayerPrefs();
+        if (TempPref != null)
+        {
+            Prefs = TempPref;
+        }
+    }
+
     private void Start()
     {
         SelectedLevel = 0;

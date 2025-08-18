@@ -114,8 +114,8 @@ MonoBehaviour:
   damage: 0
   fireRate: 0
   size: 1
-  baseDamage: 300
-  baseFireRate: 25
+  baseDamage: 150
+  baseFireRate: 30
   baseSize: 1
   id: 6
   DamageDelay: 0.2

@@ -15,7 +15,7 @@ public class UpgradeBox : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public bool IsPercentIncrease;
     [SerializeField] GameObject LockedObj;
     [SerializeField] GameObject LockedShadow;
-    [SerializeField] List<int> Prices = new List<int>();
+    public List<int> Prices = new List<int>();
     [SerializeField] List<Image> LevelImages = new List<Image>();
     [SerializeField] TMP_Text Price;
     [SerializeField] TMP_Text Name;
@@ -79,7 +79,7 @@ public class UpgradeBox : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                 if (ShopManager.Instance.Progress.Gold >= Prices[CurrentLevel])
                 {
                     ShopManager.Instance.Progress.Gold -= Prices[CurrentLevel];
-                    ShopManager.Instance.goldCounter.UpdateCount();
+                    ShopManager.Instance.goldCounter.SetCounter(ShopManager.Instance.Progress.Gold);
                     CurrentLevel += 1;
                     IncreaseLevel();
 
@@ -89,10 +89,10 @@ public class UpgradeBox : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                 CurrentLevel += 1;
                 IncreaseLevel();
             }
-        }else
-        {
-            IncreaseLevel();
-        }
+        }//else
+        //{
+        //    IncreaseLevel();
+        //}
 
         LoadFromProgression();
         SetUpWindow();

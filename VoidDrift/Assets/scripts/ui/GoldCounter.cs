@@ -12,6 +12,12 @@ public class GoldCounter : MonoBehaviour
 
     private void Awake()
     {
+        ProgressionState TempP = SaveManager.LoadPlayerProgress();
+        if (TempP != null)
+        {
+            Progress = TempP;
+        }
+
         UpdateCount();
     }
 
@@ -28,7 +34,12 @@ public class GoldCounter : MonoBehaviour
         }
         else
         {
-            Text.text = MasterManager.Instance.GoldEarned.ToString();
+            Text.text = MasterManager.Instance.progressionState.Gold.ToString();
         }
+    }
+
+    public void SetCounter(int Count)
+    {
+        Text.text = Count.ToString();
     }
 }

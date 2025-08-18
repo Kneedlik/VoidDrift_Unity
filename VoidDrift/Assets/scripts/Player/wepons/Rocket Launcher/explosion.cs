@@ -61,22 +61,25 @@ public class explosion : MonoBehaviour
                 {
                     if (isEnemy || collision.tag != "Player")
                     {
-                        if (Stun)
+                        if (force > 0)
                         {
-                            KnedlikLib.TryStun(collision.gameObject);
-                        }
-                        Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
-                        //Debug.Log(dir);
-                        //Debug.Log(force);
-                        rb.velocity = rb.velocity.normalized;
-                        Tenacity tenacity = collision.GetComponent<Tenacity>();
-                        float knockBackTemp = force;
-                        if (tenacity != null)
-                        {
-                            knockBackTemp = tenacity.CalculateForce(knockBackTemp);
-                        }
+                            if (Stun)
+                            {
+                                KnedlikLib.TryStun(collision.gameObject);
+                            }
+                            Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
+                            //Debug.Log(dir);
+                            //Debug.Log(force);
+                            rb.velocity = rb.velocity.normalized;
+                            Tenacity tenacity = collision.GetComponent<Tenacity>();
+                            float knockBackTemp = force;
+                            if (tenacity != null)
+                            {
+                                knockBackTemp = tenacity.CalculateForce(knockBackTemp);
+                            }
 
-                        rb.AddForce(dir * knockBackTemp, ForceMode2D.Impulse);
+                            rb.AddForce(dir * knockBackTemp, ForceMode2D.Impulse);
+                        }
                     }
                 }
             }
@@ -87,13 +90,16 @@ public class explosion : MonoBehaviour
             }
 
             Health health = collision.GetComponent<Health>();
-            plaerHealth pHealth = collision.GetComponent<plaerHealth>();
 
             if (isEnemy)
             {
-                if (pHealth != null)
+                if (PlayerDamage > 0)
                 {
-                    pHealth.TakeDamage(PlayerDamage);
+                    plaerHealth pHealth = collision.GetComponent<plaerHealth>();
+                    if (pHealth != null)
+                    {
+                        pHealth.TakeDamage(PlayerDamage);
+                    }
                 }
 
                 if (health != null)
@@ -114,6 +120,7 @@ public class explosion : MonoBehaviour
             }
             else
             {
+                plaerHealth pHealth = collision.GetComponent<plaerHealth>();
                 if (pHealth != null)
                 {
                     if (PlayerDamage > 0)

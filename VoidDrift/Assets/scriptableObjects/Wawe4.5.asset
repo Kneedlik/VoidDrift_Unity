@@ -23,7 +23,7 @@ MonoBehaviour:
   - 20
   spawnRate: 1.2
   spawnN: 4
-  healthMultiplier: 4
+  healthMultiplier: 5.25
   XpMultiplier: 2.8
   Boss: {fileID: 0}
   BossAmount: 1

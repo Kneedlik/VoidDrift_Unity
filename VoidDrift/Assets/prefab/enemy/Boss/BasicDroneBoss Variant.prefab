@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 411111404, guid: 2c33c835ad4029a4f94e3707caa9cd35, type: 3}
       propertyPath: maxHealth
-      value: 5000
+      value: 6400
       objectReference: {fileID: 0}
     - target: {fileID: 3275799785512524503, guid: 2c33c835ad4029a4f94e3707caa9cd35, type: 3}
       propertyPath: m_RootOrder

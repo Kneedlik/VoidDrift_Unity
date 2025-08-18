@@ -74,7 +74,7 @@ public class GuardianDrone : MonoBehaviour
             if (Lasers[i] != null)
             {
                 Lasers[i].SetPosition(0, FirePointsTemp[i].transform.position);
-                Lasers[i].SetPosition(1, FirePointsTemp[i].transform.position + FirePointsTemp[i].transform.up * 100);
+                Lasers[i].SetPosition(1, FirePointsTemp[i].transform.position + FirePointsTemp[i].transform.up * 1000);
             }
         }
     }

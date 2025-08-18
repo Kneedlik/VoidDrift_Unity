@@ -88,7 +88,7 @@ public class simpleAI : BaseAI
 
        // rb.rotation = Mathf.LerpAngle(rb.rotation, angle, rotationSpeed * Time.deltaTime);
 
-       Quaternion rotTarget3D = Quaternion.LookRotation(lookDir - new Vector3(transform.position.x, transform.position.y));
+        Quaternion rotTarget3D = Quaternion.LookRotation(lookDir - new Vector3(transform.position.x, transform.position.y));
         Quaternion rotTarget = Quaternion.Euler(0, 0, rotTarget3D.eulerAngles.y < 180 ? 270 - rotTarget3D.eulerAngles.x : rotTarget3D.eulerAngles.x - 270);
 
         transform.rotation = Quaternion.RotateTowards(transform.rotation, rotTarget, rotationSpeed * Time.deltaTime);

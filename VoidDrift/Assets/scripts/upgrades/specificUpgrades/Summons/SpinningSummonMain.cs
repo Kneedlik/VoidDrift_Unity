@@ -56,7 +56,6 @@ public class SpinningSummonMain :Summon
             points[i] = Vector3.Distance(Points[index].position, Points[i].position);
             
         }
-
     }
 
     private void OnDrawGizmos()
@@ -77,8 +76,11 @@ public class SpinningSummonMain :Summon
     {
         float pom = baseDamage * (PlayerStats.sharedInstance.SummonDamage / 100f);
         pom = pom * (PlayerStats.sharedInstance.damageMultiplier / 100f);
+        pom += PlayerStats.sharedInstance.ExtraDamage;
+        pom = pom * MasterManager.Instance.PlayerInformation.SummonDamageMultiplier;
+        pom = pom * MasterManager.Instance.PlayerInformation.DamageMultiplier;
         damage = (int)pom;
-
+       
         //Debug.Log(orbCount);
         //Debug.Log(orbs.Count);
 
@@ -125,7 +127,7 @@ public class SpinningSummonMain :Summon
         {
             for (int i = 0; i < pom; i++)
             {
-                followPosition f = orbs[i].GetComponent<followPosition>();
+                followPosition f = orbs[i].GetComponent<followPosition>();//
                 f.obj = Points[i].gameObject;
             }
 

@@ -395,13 +395,21 @@ public static class KnedlikLib
 
         Renderer[] renderers = new Renderer[Enemies.Length];
 
+        if (Enemies.Length == 0)
+        {
+            target = null;
+            return false;
+        }
+
         for (int i = 0; i < renderers.Length; i++)
         {
             renderers[i] = Enemies[i].GetComponent<Renderer>();
-
-            if (renderers[i].isVisible && list.Contains(renderers[i].transform) == false)
+            if (renderers[i] != null)
             {
-                Enemies2.Add(Enemies[i]);
+                if (renderers[i].isVisible && list.Contains(renderers[i].transform) == false)
+                {
+                    Enemies2.Add(Enemies[i]);
+                }
             }
         }
 

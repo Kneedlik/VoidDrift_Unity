@@ -6,7 +6,7 @@ public class WeapeonSelection : MonoBehaviour
 {
     MasterManager Master;
 
-    private void Awake()
+    public void ActivateWeapeon()
     {
         Master = GameObject.FindWithTag("Master").GetComponent<MasterManager>();
 
@@ -15,10 +15,11 @@ public class WeapeonSelection : MonoBehaviour
             weapeon WeapeonTemp = Weapeon.GetComponent<weapeon>();
             if (WeapeonTemp == null) continue;
 
-            if(WeapeonTemp.Id == Master.PlayerInformation.WeapeonId)
+            if (WeapeonTemp.Id == Master.PlayerInformation.WeapeonId)
             {
                 WeapeonTemp.gameObject.SetActive(true);
-            }else WeapeonTemp.gameObject.SetActive(false);  
+            }
+            else WeapeonTemp.gameObject.SetActive(false);
         }
     }
 }

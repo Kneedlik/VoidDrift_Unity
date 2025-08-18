@@ -33,7 +33,7 @@ public class MachneGun : Summon
         if(timeStamp <= 0)
         {
             
-           if(setClosestTarget(out target))
+            if(setClosestTarget(out target))
             {
                 timeStamp = fireRate;
                 StartCoroutine(shoot());
@@ -63,7 +63,8 @@ public class MachneGun : Summon
                 if (InterceptionPoint(target.position, transform.position, rb2.velocity, force, out var direction))
                 {
                     float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
-                    rb.rotation = angle;
+                    Bullet.transform.rotation = Quaternion.Euler(0, 0, angle);
+                    //rb.rotation = angle;
                     rb.velocity = direction.normalized * force;
                 }
                 else

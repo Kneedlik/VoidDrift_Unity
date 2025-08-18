@@ -13,9 +13,17 @@ public class MasterManager : MonoBehaviour
     public bool MapBoss2Kill;
     [SerializeField] GameObject DamageNumber;
     public int GoldEarned;
+    public Transform Player;
 
     private void Awake()
     {
+        ProgressionState TempP = SaveManager.LoadPlayerProgress();
+        if (TempP != null)
+        {
+            progressionState = TempP;
+        }
+
+        Player = GameObject.FindWithTag("Player").transform;
         Instance = this;
     }
 

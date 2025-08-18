@@ -24,8 +24,8 @@ public static class RuneConst
 
     public const int CritChance1Increase = 25;
     public const int CritChance2Increase = 40;
-    public const int CritDamage1Increase = 30;
-    public const int CritDamage2Increase = 50;
+    public const int CritDamage1Increase = 50;
+    public const int CritDamage2Increase = 100;
     public const int HealthDamageIncrease = 1;
     public const int OneSummonBonusIncrease = 50;
     public const int DroneFireRateIncrease = 15;
@@ -40,8 +40,8 @@ public static class RuneConst
     public const int PhoenixIncrease = 10;
 
     public const int LethalTempoIncrease = 50;
-    public const int NearDamageIncrease = 40;
-    public const int NewStatusIncrease = 4;
+    public const int NearDamageIncrease = 30;
+    public const int NewStatusIncrease = 2;
     public const int LasersIncrease = 12;
 
     public static float GetRuneIncrease(int Id)

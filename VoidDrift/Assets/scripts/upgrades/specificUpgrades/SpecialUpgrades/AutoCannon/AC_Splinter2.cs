@@ -57,8 +57,8 @@ public class AC_Splinter2 : upgrade
 
             Obj = Instantiate(Sparks, bullet.transform.position, Quaternion.Euler(bullet.transform.rotation.eulerAngles.z - 90,-90,0));
             KnedlikLib.ScaleParticleByFloat(Obj,1,true);
-            Obj = Instantiate(Smoke, bullet.transform.position, Quaternion.Euler(bullet.transform.rotation.eulerAngles.z - 90, -90, 0));
-            KnedlikLib.ScaleParticleByFloat(Obj, 1, true);
+            //Obj = Instantiate(Smoke, bullet.transform.position, Quaternion.Euler(bullet.transform.rotation.eulerAngles.z - 90, -90, 0));
+            //KnedlikLib.ScaleParticleByFloat(Obj, 1, true);
 
             if(Explosion != null)
             {

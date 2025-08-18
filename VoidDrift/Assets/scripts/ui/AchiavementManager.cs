@@ -12,6 +12,12 @@ public class AchiavementManager : MonoBehaviour
 
     void Awake()
     {
+        ProgressionState TempP = SaveManager.LoadPlayerProgress();
+        if (TempP != null)
+        {
+            progressionState = TempP;
+        }
+
         instance = this;
     }
 

@@ -46,7 +46,6 @@ public class BoosterDroneSystem : MonoBehaviour
                 
             }
         }
-        Debug.Log("Boost");
     }
 
     public void RemoveUnit(GameObject Target)
@@ -60,6 +59,5 @@ public class BoosterDroneSystem : MonoBehaviour
             BoostedUnits.Remove(Target);
             
         }
-        Debug.Log("Remove");
     }
 }

@@ -134,17 +134,17 @@ MonoBehaviour:
   damage: 4
   fireRate: 2.5
   size: 1
-  baseDamage: 25
-  baseFireRate: 1
+  baseDamage: 20
+  baseFireRate: 0.2
   baseSize: 1
   id: 1
   force: 50
-  BaseForce: 0
-  bulletsInBurst: 3
+  BaseForce: 90
+  bulletsInBurst: 1
   burstDelay: 0.1
   BulletPrefab: {fileID: 2149701107845920758, guid: 3f3ea329640feb44b884776cfa008252, type: 3}
   firePoint: {fileID: 3519188174613271900}
-  Pierce: 100
+  Pierce: 2
 --- !u!114 &7802902355362841442
 MonoBehaviour:
   m_ObjectHideFlags: 0

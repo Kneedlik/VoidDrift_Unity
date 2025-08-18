@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 1285785713}
   - component: {fileID: 7443212988443757286}
   - component: {fileID: 6108378297826598712}
-  m_Layer: 12
+  m_Layer: 11
   m_Name: suicideDrone
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -366,7 +366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 120
-  maxSpeed: 13
+  maxSpeed: 10
   Multiplier: 1
 --- !u!114 &3590360479638116533
 MonoBehaviour:

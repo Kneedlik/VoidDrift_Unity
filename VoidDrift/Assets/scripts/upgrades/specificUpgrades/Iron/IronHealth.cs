@@ -6,25 +6,21 @@ public class IronHealth : upgrade
 {
     GameObject player;
     plaerHealth health;
-    public int amount;
+    public float amount;
     void Start()
     {
         Type = type.iron;
         setColor();
     }
 
-    public void increaseHP()
-    {
-        health.setMaxHP(health.maxHealth + amount);
-        health.increaseHP(health.health + amount);
-    }
-
     public override void function()
     {
         player = GameObject.FindWithTag("Player");
         health = player.GetComponent<plaerHealth>();
-        health.setMaxHP(health.maxHealth + amount);
-        health.increaseHP(health.health + amount);
+        float HealthTemp = health.baseHealth * amount;
+        int TotalHealth = health.maxHealth + (int)HealthTemp;
+        health.setMaxHP(TotalHealth);
+        health.increaseHP(TotalHealth);
         level++;
     }
 }

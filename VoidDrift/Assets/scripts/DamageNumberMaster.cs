@@ -8,13 +8,13 @@ public class DamageNumberMaster : MonoBehaviour
     public int Count;
     public bool Full;
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateCounter()
     {
         Count = transform.childCount;
-        if(Count >= NumberCap)
+        if (Count >= NumberCap)
         {
             Full = true;
-        }else Full = false;
+        }
+        else Full = false;
     }
 }

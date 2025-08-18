@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GuardianDrone_Corrupted
       objectReference: {fileID: 0}
+    - target: {fileID: 2664196073113781368, guid: 5c72fef6941dea84c86ed09666ea4872, type: 3}
+      propertyPath: maxHealth
+      value: 50000
+      objectReference: {fileID: 0}
     - target: {fileID: 2664196073113781371, guid: 5c72fef6941dea84c86ed09666ea4872, type: 3}
       propertyPath: m_Controller
       value: 
@@ -83,5 +87,9 @@ PrefabInstance:
       propertyPath: ForceMax
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 6708328798574107502, guid: 5c72fef6941dea84c86ed09666ea4872, type: 3}
+      propertyPath: itemPool1.Array.data[0]
+      value: 
+      objectReference: {fileID: 5976875162170406126, guid: 13671599c5b6a1546bb293d623795d0b, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c72fef6941dea84c86ed09666ea4872, type: 3}

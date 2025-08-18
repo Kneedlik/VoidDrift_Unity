@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 1929432596}
   - component: {fileID: 1929432597}
   - component: {fileID: 1929432612}
+  - component: {fileID: 1291687030}
   m_Layer: 0
   m_Name: statusSystem
   m_TagString: StatusSystem
@@ -61,11 +62,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f29223a10191dc445a03e64efff0f901, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 16
+  damage: 15
   chance: 40
   duration: 8
   maxHealthDMG: 0
-  maxHealthDMGamount: 0.02
+  maxHealthDMGamount: 0.0075
   infect: 0
   distance: 8
   speed: 1
@@ -74,17 +75,17 @@ MonoBehaviour:
     rgba: 4287430560
   particles: {fileID: 7684258944382667462, guid: 63ddb8f44c0240e4daf5e81b3b16a746, type: 3}
   poisonedEnemies: []
-  CDamage: 30
-  CTrueDamage: 0.015
+  CDamage: 20
+  CTrueDamage: 0.01
   CDuration: 12.5
   CInfectDistance: 8
-  CSpeed: 0.75
+  CSpeed: 0.8
   CParticles: {fileID: 6297773213846443391, guid: cfe25543e768b9141bb9257d6d5e79c3, type: 3}
   CpoisonedEnemies: []
-  BDamage: 20
-  BTrueDamage: 0.04
+  BDamage: 15
+  BTrueDamage: 0.015
   BDuration: 8
-  BSpeed: 1.75
+  BSpeed: 1.4
   BParticles: {fileID: 7117855671623497608, guid: b0dc112c5264b5349a6ea83569442b3a, type: 3}
   BPoisonedEnemies: []
 --- !u!114 &2624672050981415261
@@ -111,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8672c5417f13479459396027b0a10013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 150
+  damage: 100
   flatDamage: 0
   aoeSize: 0
   Aoe: 0
@@ -122,10 +123,11 @@ MonoBehaviour:
   burnAmount: 0
   effectedEnemies: []
   CEffectedEnemies: []
-  CFlatDamage: 100
+  CFlatDamage: 50
   CTrueDamage: 0.1
   CExplosion: {fileID: 2917965379787373392, guid: 26777a6e6c7d3204f8bf0f6075de7b0e, type: 3}
   CImpact: {fileID: 7141900597748865149, guid: 898270af61609d54b8b97732639b8332, type: 3}
+  ClearTimer: 1
 --- !u!114 &2624672050981415263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,13 +183,14 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4294836107
   explode: 0
-  explodeDamage: 25
+  explodeDamage: 20
   explosionPrefab: {fileID: 6628090173598930134, guid: 4ef42d9dd11633c43a9510b38c1c1f3e, type: 3}
   explodeRadius: 1
   freeze: 0
-  freezeDuration: 1.2
+  freezeDuration: 1.5
   secondExplosion: 0
   FreezeObject: {fileID: 6357960598367966374, guid: 976a56bd295030a4db222334532ba263, type: 3}
+  ListClearTimer: 1
 --- !u!114 &2624672050981415587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,14 +206,10 @@ MonoBehaviour:
   PrimingObject: {fileID: 5006031772826920041, guid: cd1a902cfad0e2f4db0d6f23f1897972, type: 3}
   PrimedObject: {fileID: 8712145864841503017, guid: 15dcc08943b5ce84eb54027d78b23515, type: 3}
   ImpactParticles: {fileID: 4230744154398039163, guid: bb00000fe2ee57f4a8f8317cb5ebd46e, type: 3}
-  PrimedEnemies: []
-  PrimedObjects: []
-  Priming: []
-  PrimingObjects: []
-  bonusDamage: 300
-  timeToPrime: 1.5
-  duration: 8
-  chance: 40
+  bonusDamage: 150
+  timeToPrime: 1
+  duration: 10
+  chance: 50
   multiplier: 1
   speedMultiplier: 1
 --- !u!114 &2624672050981415586
@@ -290,6 +289,7 @@ MonoBehaviour:
   Cchain: 1
   MaxLightning: 30
   LightningCounter: 0
+  ClearTimer: 1
 --- !u!114 &2624672050981415590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,8 +302,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa7426d6f13f87c43800a203bc893ea1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 40
-  TrueDamage: 0.5
+  damage: 50
+  TrueDamage: 0.15
   maxStacks: 5
   duration: 5
   speed: 0.8
@@ -365,7 +365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8135a3c424ee46d49a81a0bc7a4beb83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamageIncrease: 0.4
+  DamageIncrease: 0.3
   AuraObj: {fileID: 4504797955614850787, guid: 06e26268702baf04088315fc03d737ae, type: 3}
   AffectedEnems: []
 --- !u!114 &1929432596
@@ -385,7 +385,7 @@ MonoBehaviour:
   BulletsInSalvo: 1
   Damage: 12
   Delay: 0.8
-  CoolDown: 6.5
+  CoolDown: 5
 --- !u!114 &1929432597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -416,9 +416,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BulletsInBurst: 2
-  CoolDown: 8.5
+  CoolDown: 6
   BlackHoleObj: {fileID: 2278057870061898724, guid: 0b5f1916f9707c648afb7d5b1852652a, type: 3}
   MaxX: 50
   MaxY: 27
   MinX: 17
   MinY: 13
+--- !u!114 &1291687030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2624672050981415256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4268cbccad8a2b84ea873e26d90ed738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpeedIncrease: 0.2
+  HealthIncrease: 0.1

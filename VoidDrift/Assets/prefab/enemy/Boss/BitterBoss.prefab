@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1076211932900973738, guid: a967c783e696c41458fd2340fbf04114, type: 3}
       propertyPath: maxHealth
-      value: 35000
+      value: 40000
       objectReference: {fileID: 0}
     - target: {fileID: 1076211932900973741, guid: a967c783e696c41458fd2340fbf04114, type: 3}
       propertyPath: m_RootOrder

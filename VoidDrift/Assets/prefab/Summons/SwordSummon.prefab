@@ -103,15 +103,15 @@ MonoBehaviour:
   damage: 6
   fireRate: 1.6
   size: 1
-  baseDamage: 18
-  baseFireRate: 0.5
+  baseDamage: 15
+  baseFireRate: 0.4
   baseSize: 1
   id: 8
   SlashObjectT: {fileID: 2360662370584755344, guid: 90426e44dc2ffe646abbbd5ca3409782, type: 3}
   SlashObjectF: {fileID: 4302739104029972387, guid: 4e4b49664e0b1614daa8b47c4e3a3153, type: 3}
   Crit: 0
   slashAmount: 1
-  slashDelay: 0.3
+  slashDelay: 0.2
   TicksNeeded: 3
 --- !u!95 &7118787310356922786
 Animator:

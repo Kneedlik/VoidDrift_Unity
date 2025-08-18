@@ -35,6 +35,7 @@ public class PlayerStats : MonoBehaviour
     public float HealingOrbDropChance;
     public GameObject HealingOrbPrefab;
     public List<type> ownedColours = new List<type>();
+    [SerializeField] WeapeonSelection weapeonSelection;
 
     weapeon gun;
     PlayerMovement speedScript;
@@ -49,6 +50,7 @@ public class PlayerStats : MonoBehaviour
         OnLevel = null;
 
         sharedInstance = this;
+        weapeonSelection.ActivateWeapeon();
         gun = GameObject.FindWithTag("Weapeon").GetComponent<weapeon>();
     }
 

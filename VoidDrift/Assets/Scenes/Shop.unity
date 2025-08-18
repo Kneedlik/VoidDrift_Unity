@@ -285,6 +285,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1715333479253933947, guid: 145fba498f84b2b4a8afe1ff820565a3, type: 3}
+      propertyPath: UnlockedByDefault
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715333479253933947, guid: 145fba498f84b2b4a8afe1ff820565a3, type: 3}
       propertyPath: Prices.Array.data[0]
       value: 500
       objectReference: {fileID: 0}
@@ -1043,6 +1047,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1715333479253933947, guid: 145fba498f84b2b4a8afe1ff820565a3, type: 3}
+      propertyPath: UnlockedByDefault
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715333479253933947, guid: 145fba498f84b2b4a8afe1ff820565a3, type: 3}
       propertyPath: Prices.Array.data[0]
       value: 1000
       objectReference: {fileID: 0}
@@ -1274,6 +1282,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1715333479253933947, guid: 145fba498f84b2b4a8afe1ff820565a3, type: 3}
+      propertyPath: UnlockedByDefault
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715333479253933947, guid: 145fba498f84b2b4a8afe1ff820565a3, type: 3}
       propertyPath: Prices.Array.data[0]
       value: 400
       objectReference: {fileID: 0}
@@ -1503,6 +1515,10 @@ PrefabInstance:
     - target: {fileID: 1715333479253933947, guid: 145fba498f84b2b4a8afe1ff820565a3, type: 3}
       propertyPath: Prices.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715333479253933947, guid: 145fba498f84b2b4a8afe1ff820565a3, type: 3}
+      propertyPath: UnlockedByDefault
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1715333479253933947, guid: 145fba498f84b2b4a8afe1ff820565a3, type: 3}
       propertyPath: Prices.Array.data[0]
@@ -3458,6 +3474,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1715333479253933947, guid: 145fba498f84b2b4a8afe1ff820565a3, type: 3}
+      propertyPath: UnlockedByDefault
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715333479253933947, guid: 145fba498f84b2b4a8afe1ff820565a3, type: 3}
       propertyPath: Prices.Array.data[0]
       value: 600
       objectReference: {fileID: 0}
@@ -4807,7 +4827,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 82889734215217709, guid: 19687077a00042742927cca0a889de02, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 82889734215217709, guid: 19687077a00042742927cca0a889de02, type: 3}
       propertyPath: m_AnchorMax.y
@@ -4815,7 +4835,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 82889734215217709, guid: 19687077a00042742927cca0a889de02, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 82889734215217709, guid: 19687077a00042742927cca0a889de02, type: 3}
       propertyPath: m_AnchorMin.y
@@ -4859,7 +4879,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 82889734215217709, guid: 19687077a00042742927cca0a889de02, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -969
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 82889734215217709, guid: 19687077a00042742927cca0a889de02, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -4909,6 +4929,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ResetAll
       objectReference: {fileID: 0}
+    - target: {fileID: 5066937012241852700, guid: 19687077a00042742927cca0a889de02, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7715091549407868300, guid: 19687077a00042742927cca0a889de02, type: 3}
       propertyPath: m_text
       value: Reset All
@@ -4942,6 +4966,10 @@ PrefabInstance:
     - target: {fileID: 1715333479253933947, guid: 145fba498f84b2b4a8afe1ff820565a3, type: 3}
       propertyPath: Prices.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715333479253933947, guid: 145fba498f84b2b4a8afe1ff820565a3, type: 3}
+      propertyPath: UnlockedByDefault
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1715333479253933947, guid: 145fba498f84b2b4a8afe1ff820565a3, type: 3}
       propertyPath: Prices.Array.data[0]

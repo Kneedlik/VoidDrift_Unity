@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4450168345284906417}
   - component: {fileID: 4357250581446988341}
+  - component: {fileID: -7955969729766664742}
   m_Layer: 0
   m_Name: GuardianLaser
   m_TagString: Untagged
@@ -140,3 +141,16 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &-7955969729766664742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4455314682857656357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f593548a5f81d134491793e00ce3943e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyTime: 3

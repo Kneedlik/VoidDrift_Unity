@@ -63,9 +63,10 @@ public class ScatterOnDeath : upgrade
                 {
                     GameObject Bullet = Instantiate(BulletPrefab, Target.transform.position, Quaternion.Euler(0, 0, 0));
                     BulletScript p =  Bullet.GetComponent<BulletScript>();
-                    float pom = damage * multiplier;
+                    float pom = W.damage * multiplier;
                     p.damagePlus = (int)pom;
                     p.PostImpact = false;
+                    Debug.Log((int)pom);
 
                     Bullet.transform.rotation = Quaternion.Euler(0, 0, temp);
                     temp += Angle;

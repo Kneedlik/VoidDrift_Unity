@@ -25,6 +25,37 @@ public class LudensEchoSystem : MonoBehaviour
     public GameObject CExplosion;
     public GameObject CImpact;
 
+    [SerializeField] float ClearTimer = 1f;
+    float Timestamp;
+
+    private void Update()
+    {
+        if (Timestamp <= 0)
+        {
+            for (int i = 0; i < effectedEnemies.Count; i++)
+            {
+                if (effectedEnemies[i] == null)
+                {
+                    effectedEnemies.RemoveAt(i);
+                }
+            }
+
+            for (int i = 0; i < CEffectedEnemies.Count; i++)
+            {
+                if (CEffectedEnemies[i] == null)
+                {
+                    CEffectedEnemies.RemoveAt(i);
+                }
+            }
+
+            Timestamp = ClearTimer;
+        }
+        else
+        {
+            Timestamp -= Time.deltaTime;
+        }
+    }
+
     void Start()
     {
         sharedInstance = this;

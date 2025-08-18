@@ -321,7 +321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
-  maxSpeed: 4.1
+  maxSpeed: 3.8
   Multiplier: 1
 --- !u!114 &4267888923654197807
 MonoBehaviour:
@@ -355,6 +355,9 @@ MonoBehaviour:
   dropChancePool1:
   - 0.66
   pos: {fileID: 0}
+  Amount: 1
+  ForceMin: 0
+  ForceMax: 0
 --- !u!95 &491196765021058153
 Animator:
   serializedVersion: 4

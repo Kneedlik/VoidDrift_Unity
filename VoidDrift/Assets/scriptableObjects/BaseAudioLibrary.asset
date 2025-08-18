@@ -79,7 +79,7 @@ MonoBehaviour:
   - Id: 9
     name: UiHover
     clip: {fileID: 8300000, guid: 4b3551f1c6b89fa4982a080863aa2a60, type: 3}
-    volume: 0.15
+    volume: 0.12
     pitch: 1
     Loop: 0
     source: {fileID: 0}
@@ -121,7 +121,7 @@ MonoBehaviour:
   - Id: 15
     name: Rocket
     clip: {fileID: 8300000, guid: e9125be2e88c5614a9c483cb0cb8b6b7, type: 3}
-    volume: 0.4
+    volume: 0.3
     pitch: 1
     Loop: 0
     source: {fileID: 0}
@@ -135,7 +135,7 @@ MonoBehaviour:
   - Id: 17
     name: Explosion
     clip: {fileID: 8300000, guid: b4b0030e5978c5d478e1ad093073f63d, type: 3}
-    volume: 0.3
+    volume: 0.2
     pitch: 1
     Loop: 0
     source: {fileID: 0}

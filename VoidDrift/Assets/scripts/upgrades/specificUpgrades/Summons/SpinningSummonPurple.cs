@@ -43,17 +43,17 @@ public class SpinningSummonPurple : upgrade
                 }
                 rarity -= 10;
 
-                 size = main.baseSize;
-                 distance = main.orbDistance;
+                size = main.baseSize;
+                distance = main.orbDistance;
                 fireRate = main.fireRate;
 
-                description = string.Format("Orb base damage + 15 firerate + 30% ");
+                description = string.Format("Orb base damage + 20 firerate + 30% ");
             }        
         }
 
         else if (level == 1)
         {
-            main.baseDamage += 15;
+            main.baseDamage += 20;
             float pom = fireRate * 0.1f;
             main.baseFireRate += pom;
 

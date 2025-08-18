@@ -30,7 +30,7 @@ public class statsOnRevive : upgrade
 
     public override bool requirmentsMet()
     {
-        if(Revive.Instance.level >= Revive.Instance.maxLevel)
+        if(PlayerStats.sharedInstance.revives >= 1)
         {
             return true;
         }else return false;

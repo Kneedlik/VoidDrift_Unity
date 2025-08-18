@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 1269613586839714195}
   - component: {fileID: 7124082400006253234}
   - component: {fileID: -7548127988421906290}
-  m_Layer: 12
+  m_Layer: 11
   m_Name: AdvancedDrone1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -199,8 +199,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc05fc48713b8604795a3503e0c65176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 55
-  maxSpeed: 5.8
+  speed: 50
+  maxSpeed: 4.7
   Multiplier: 1
 --- !u!114 &4769829029796524448
 MonoBehaviour:

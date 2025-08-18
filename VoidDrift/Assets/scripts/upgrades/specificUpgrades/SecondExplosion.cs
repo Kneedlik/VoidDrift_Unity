@@ -13,7 +13,7 @@ public class SecondExplosion : upgrade
 
     public override bool requirmentsMet()
     {
-        if (BrittleOnHit.instance.level >= 6 && FrostExplosoion.instance.level >= 3)
+        if (BrittleOnHit.instance.level >= 6 && FrostExplosoion.instance.level >= 1)
         {
             return true;
         }

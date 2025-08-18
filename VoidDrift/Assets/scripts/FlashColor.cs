@@ -43,6 +43,16 @@ public class FlashColor : MonoBehaviour
             return;
         }
 
+        if(spriteRenderer == null)
+        {
+            return;
+        }
+
+        if(gameObject.activeInHierarchy == false)
+        {
+            return;
+        }
+
         if(coolDown <= 0 && gameObject.activeSelf)
         {
             if (flash != null)

@@ -23,6 +23,7 @@ public class BulletScript : Projectile
 
     protected List<Transform> Enemies = new List<Transform>();
     [HideInInspector] public List<GameObject> IgnoreTargets = new List<GameObject>();
+    [SerializeField] bool ScaleParticles;
     
     private void Start()
     {
@@ -107,30 +108,47 @@ public class BulletScript : Projectile
     {
         if(impactEffect != null)
         {
+            GameObject Temp;
             if(Pos != Vector3.zero)
             {
-                Instantiate(impactEffect, Pos, transform.rotation);
+                Temp = Instantiate(impactEffect, Pos, transform.rotation);
             }
-            else Instantiate(impactEffect, transform.position, transform.rotation);
+            else Temp = Instantiate(impactEffect, transform.position, transform.rotation);
+            
+            if(ScaleParticles)
+            {
+                KnedlikLib.ScaleParticleByFloat(Temp, transform.localScale.x, true);
+            }
         }
         
         if (impactParticles != null)
         {
+            GameObject Temp;
             if (Pos != Vector3.zero)
             {
                 if (ChangeParticleRotation)
                 {
-                    Instantiate(impactParticles, Pos, Quaternion.Euler(ParticleRotation));
+                    Temp =Instantiate(impactParticles, Pos, Quaternion.Euler(ParticleRotation));
                 }
-                else Instantiate(impactParticles, Pos, Quaternion.Euler(-90, 0, 0));
+                else Temp = Instantiate(impactParticles, Pos, Quaternion.Euler(-90, 0, 0));
+
+                if (ScaleParticles)
+                {
+                    KnedlikLib.ScaleParticleByFloat(Temp, transform.localScale.x, true);
+                }
             }
             else
             {
                 if (ChangeParticleRotation)
                 {
-                    Instantiate(impactParticles, transform.position, Quaternion.Euler(ParticleRotation));
+                    Temp = Instantiate(impactParticles, transform.position, Quaternion.Euler(ParticleRotation));
                 }
-                else Instantiate(impactParticles, transform.position, Quaternion.Euler(-90, 0, 0));
+                else Temp =Instantiate(impactParticles, transform.position, Quaternion.Euler(-90, 0, 0));
+
+                if (ScaleParticles)
+                {
+                    KnedlikLib.ScaleParticleByFloat(Temp, transform.localScale.x, true);
+                }
             }
             
         }
@@ -183,6 +201,7 @@ public class BulletScript : Projectile
                 Color32 BaseColor = new Color32(0, 0, 0, 0);
                 if (!TempColor.Equals(BaseColor))
                 {
+                    OnCrit = false;
                     Color = TempColor;
                 }
             }

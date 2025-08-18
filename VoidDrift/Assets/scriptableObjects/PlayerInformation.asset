@@ -12,23 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a18ae35618c9d0749aaf9d59f8abb42f, type: 3}
   m_Name: PlayerInformation
   m_EditorClassIdentifier: 
-  WeapeonId: 5
-  DamageMultiplier: 1.3
-  AsMultiplier: 1.2
-  HealthMultiplier: 1.4
-  MsMultiplier: 1.15
-  XpMultiplier: 1.12
-  SizeMultiplier: 1.2
+  WeapeonId: 1
+  DamageMultiplier: 1.2
+  AsMultiplier: 1.1
+  HealthMultiplier: 1
+  MsMultiplier: 1.075
+  XpMultiplier: 1
+  SizeMultiplier: 1.1
   ReviveBonus: 0
   ProjectileBonus: 0
-  SummonDamageMultiplier: 1.1
-  Rerols: 1
+  SummonDamageMultiplier: 1
+  Rerols: 0
   SelectedLevel: 0
-  HealthRegen: 0.4
-  GoldGain: 1.1
-  EquippedRunes: 
-  Keystone: 0
-  MapEnemyHealthMultiplier: 1.75
-  MapGoldMultiplier: 1.75
-  MapDamageMultiplier: 1.5
+  HealthRegen: 0
+  GoldGain: 1
+  EquippedRunes: 100000000e000000
+  Keystone: 23
+  MapEnemyHealthMultiplier: 1
+  MapGoldMultiplier: 1
+  MapDamageMultiplier: 1
   HardMode: 0

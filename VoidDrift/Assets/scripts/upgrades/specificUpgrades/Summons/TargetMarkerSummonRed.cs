@@ -38,12 +38,12 @@ public class TargetMarkerSummonRed : upgrade
                 rarity -= 5;
                 fireRate = marker.baseFireRate;
 
-                description = string.Format("Spoter Drone cooldown - 25%");
+                description = string.Format("Spoter Drone cooldown - 30%");
 
             }
         }else if(level == 1)
         {
-            float pom = fireRate * 1.25f;
+            float pom = fireRate * 1.3f;
             pom = pom - fireRate;
             marker.baseFireRate -= pom;
 

@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Intensity: 0.4
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 1
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 00000000fd474a2a
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -221,9 +221,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 8754129979392217720, guid: fb95bf69ddc8be64ebd65f3d0c0da97d, type: 3}
-  bulletForce: 20
-  bulletsInABurst: 8
-  rapidFireDelay: 0.15
+  bulletForce: 15
+  bulletsInABurst: 6
+  rapidFireDelay: 0.2
   coolDown: 5
   timer: 0
   numberOfBursts: 1
@@ -480,7 +480,7 @@ MonoBehaviour:
   m_Intensity: 0.4
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 1
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 00000000fd474a2a
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -682,9 +682,13 @@ GameObject:
   - component: {fileID: 983163976253307543}
   - component: {fileID: 983163976253307540}
   - component: {fileID: 983163976253307541}
+  - component: {fileID: 2921406593844190336}
+  - component: {fileID: 7554305610417456010}
+  - component: {fileID: 3019093059179888429}
+  - component: {fileID: 2679596206352585803}
   m_Layer: 0
   m_Name: imperialJet
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -750,8 +754,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 709511165
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4bb2f14fdaaf3b84cb4c2bf3fad763f8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -777,7 +781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  maxHealth: 150
+  maxHealth: 900
   baseMaxHealth: 0
   damageN: {fileID: 8636022699047134357, guid: 971665a441a2ea448a247928736ad030, type: 3}
   self: {fileID: 983163976253307532}
@@ -785,8 +789,8 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   armor: 0
   multiplier: 0
-  ParticleExplosion: {fileID: 0}
-  DeathAnim: {fileID: 0}
+  ParticleExplosion: {fileID: 3528158295667628061, guid: 6d1756d7ad7932c49a9490abee50e3c2, type: 3}
+  DeathAnim: {fileID: 2789139120181189703, guid: 249db7ba3bcb1214da6841db87703b0f, type: 3}
   DeathDelay: 0
   DeathFunc:
   - {fileID: 0}
@@ -795,7 +799,7 @@ MonoBehaviour:
   respawnTime: 0
   prefab: {fileID: 0}
   randOffset: 30
-  levelScaling: 0
+  levelScaling: 1
   Boss: 0
   AlertOnHit: 0
 --- !u!50 &983163976253307528
@@ -935,6 +939,72 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2921406593844190336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983163976253307532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b012fce8103ed4a4397b4dcf4d66b057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UsePrefab: 1
+  xpValue: 120
+  percentValue: 0.4
+  XpPrefab: {fileID: 2320706730734592644, guid: cabbcd8f3c321f941b937e91cb5f0d6a, type: 3}
+  Point: {fileID: 0}
+--- !u!114 &7554305610417456010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983163976253307532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85883de9423e5554d82e1afb8f257258, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tenacity: 1
+  Decrease: 1
+--- !u!114 &3019093059179888429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983163976253307532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 599b41622875a6749b7d10012ed19326, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemPool1:
+  - {fileID: 24702221549039422, guid: eb3fb37a2fe25c546b90133982bcd09e, type: 3}
+  dropChancePool1:
+  - 100
+  pos: {fileID: 0}
+  Amount: 8
+  ForceMin: 5.5
+  ForceMax: 10
+--- !u!114 &2679596206352585803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983163976253307532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416d879c6a950ad449830a952d890d70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UseConstants: 1
+  duration: 0.1
+  flashMaterial: {fileID: 2100000, guid: e82836b480647394caf3762c08f71df0, type: 2}
 --- !u!1 &983163976541937964
 GameObject:
   m_ObjectHideFlags: 0
@@ -987,7 +1057,7 @@ MonoBehaviour:
   m_Intensity: 0.25
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 1
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 00000000fd474a2a
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0

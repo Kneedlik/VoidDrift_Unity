@@ -211,7 +211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 32
-  maxSpeed: 6.4
+  maxSpeed: 5
   Multiplier: 1
 --- !u!114 &6796515708585979780
 MonoBehaviour:

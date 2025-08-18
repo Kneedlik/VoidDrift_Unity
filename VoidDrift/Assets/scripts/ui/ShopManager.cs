@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System;
 
 public class ShopManager : MonoBehaviour
 {
@@ -24,6 +25,12 @@ public class ShopManager : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
+        ProgressionState TempP = SaveManager.LoadPlayerProgress();
+        if (TempP != null)
+        {
+            Progress = TempP;
+        }
+
         HideWindow();
         Instance = this;
         //ResetAll();
@@ -34,8 +41,16 @@ public class ShopManager : MonoBehaviour
         Progress.ShopUpgradesProgression.Clear();
         for (int i = 0; i < upgradeBoxes.Count; i++)
         {
+            int Index = 0;
+            for (int j = 0; j < upgradeBoxes[i].CurrentLevel;j++)
+            {
+                Progress.Gold += upgradeBoxes[i].Prices[Index];
+                Index++;
+            }
+
             upgradeBoxes[i].LoadFromProgression();
         }
+        goldCounter.SetCounter(Progress.Gold);
     }
 
     public void SetWindowDescription(int Id)
@@ -76,6 +91,7 @@ public class ShopManager : MonoBehaviour
 
     public void ExitToPlayerMenu()
     {
+        SaveManager.SavePlayerProgress(Progress);
         SceneManager.LoadScene(1);
     }
 

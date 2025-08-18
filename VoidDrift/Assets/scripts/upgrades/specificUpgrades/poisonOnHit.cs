@@ -44,7 +44,7 @@ public class poisonOnHit : upgrade
         {
             poisonSystem.sharedInstance.damage += damage;
             poisonSystem.sharedInstance.chance += chance;
-            description = string.Format("Poison now deals extra damage equal to 0.3% of targets max health");
+            description = string.Format("Poison now deals extra damage equal to 0.75% of targets max health");
         }
         else if(level == 4)
         {
@@ -67,10 +67,10 @@ public class poisonOnHit : upgrade
         else if(level == 8)
         {
             poisonSystem.sharedInstance.damage += damage2;
-            description = string.Format("Poison max health damage + 0.6%");
+            description = string.Format("Poison max health damage + 0.75%");
         }else if(level == 9)
         {
-            poisonSystem.sharedInstance.maxHealthDMGamount += 0.06f;
+            poisonSystem.sharedInstance.maxHealthDMGamount += 0.0075f;
             description = string.Format("Poison damage + {0}", damage);
             rarity -= 25;
         }else

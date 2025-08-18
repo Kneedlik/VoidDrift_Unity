@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 564cdb1dabea58b46b5ccf2c2b10774b, type: 3}
   m_Name: Progression
   m_EditorClassIdentifier: 
-  EnemiesKilled: 202
+  EnemiesKilled: 0
   MapEnemiesKilled: 0
-  Gold: 71999
+  Gold: 0
   UnlockedWeapeons:
   - Id: 1
     Unlocked: 1
@@ -23,59 +23,20 @@ MonoBehaviour:
     Unlocked: 1
     Bought: 1
   - Id: 3
-    Unlocked: 1
-    Bought: 1
+    Unlocked: 0
+    Bought: 0
   - Id: 4
     Unlocked: 1
     Bought: 1
   - Id: 5
-    Unlocked: 1
-    Bought: 1
-  UnlockedLevels: 010000000200000003000000
-  ShopUpgradesProgression:
-  - Id: 1
-    Unlocked: 1
-    CurrentLevel: 3
-  - Id: 5
-    Unlocked: 1
-    CurrentLevel: 2
-  - Id: 2
-    Unlocked: 1
-    CurrentLevel: 2
-  - Id: 4
-    Unlocked: 1
-    CurrentLevel: 2
-  - Id: 6
-    Unlocked: 1
-    CurrentLevel: 2
-  - Id: 3
-    Unlocked: 1
-    CurrentLevel: 2
-  - Id: 3
-    Unlocked: 1
-    CurrentLevel: 2
-  - Id: 11
-    Unlocked: 1
-    CurrentLevel: 1
-  - Id: 8
-    Unlocked: 1
-    CurrentLevel: 1
-  - Id: 9
-    Unlocked: 1
-    CurrentLevel: 1
-  - Id: 12
-    Unlocked: 1
-    CurrentLevel: 1
-  - Id: 7
-    Unlocked: 1
-    CurrentLevel: 1
-  - Id: 10
-    Unlocked: 1
-    CurrentLevel: 1
-  UnlockedRunes: 0100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f0000001000000011000000
-  UnlockedKeyStones: 1500000016000000170000001800000019000000
-  UnlockedSlots: 01000000020000000300000004000000
-  HardModeUnlocked: 1
+    Unlocked: 0
+    Bought: 0
+  UnlockedLevels: 01000000
+  ShopUpgradesProgression: []
+  UnlockedRunes: 01000000030000000500000007000000090000000b0000000d0000000e0000000f00000010000000
+  UnlockedKeyStones: 150000001600000017000000
+  UnlockedSlots: 010000000200000003000000
+  HardModeUnlocked: 0
   UnlockedAchievements:
   - Id: 3
     Unlocked: 0
@@ -92,11 +53,11 @@ MonoBehaviour:
   - Id: 22
     Unlocked: 0
     Claimed: 0
-    Current: 0
+    Current: 1
   - Id: 27
     Unlocked: 0
     Claimed: 0
-    Current: 0
+    Current: 25
   - Id: 16
     Unlocked: 0
     Claimed: 0

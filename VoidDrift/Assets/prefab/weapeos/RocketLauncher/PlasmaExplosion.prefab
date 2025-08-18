@@ -48,7 +48,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 8
+  m_Radius: 7.5
 --- !u!114 &4537726543074296370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,6 +74,7 @@ MonoBehaviour:
   PostImpact: 1
   OnCrit: 1
   OnImpactGunOnly: 1
+  OnImpactSummon: 0
   Stun: 1
   Colour:
     serializedVersion: 2

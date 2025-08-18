@@ -66,7 +66,6 @@ public class KillSpeed : upgrade
 
     IEnumerator speedBurst()
     {
-        Debug.Log("yep");
         int pom = totalAmount;
         PlayerStats.sharedInstance.IncreaseSpeed(totalAmount);
         Movement.updateMS(PlayerStats.sharedInstance.SpeedMultiplier);

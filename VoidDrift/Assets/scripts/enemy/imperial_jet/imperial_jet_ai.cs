@@ -131,15 +131,43 @@ public class imperial_jet_ai : simpleAI
             alert = false;
             patrol = true;
             currentTarget = waypoints[wayPointIndex].position;
-        }
-
-        
+        }   
     }
 
     protected override void FixedUpdate()
     {
+        if (patrol)
+        {
+            // Vector2 lookDir = ((Vector2)path.vectorPath[currentWatPoint] - rb.position).normalized;
+            // Vector3 lookDir = path.vectorPath[currentWatPoint];
+            //lookDir = rb.velocity;
+
+            distance = Vector2.Distance(rb.position, waypoints[wayPointIndex].position);
+            if (distance < nextWayPointDistance)
+            {
+                IncreaseIndex();
+            }else
+            {
+                rb.AddForce(speed * transform.up, ForceMode2D.Force);
+            }
+
+            //float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90;
+
+            lookAt(waypoints[wayPointIndex].position);
+            //moveCharacter(speed);
+
+            if (distance < nextWayPointDistance)
+            {
+                currentWatPoint++;
+            }
+        }
+
+        setMaxSpeed(maxSpeed);
+
         if (path == null)
-        { return; }
+        {
+            return;
+        }
 
         if (currentWatPoint >= path.vectorPath.Count)
         {
@@ -152,35 +180,12 @@ public class imperial_jet_ai : simpleAI
         }
 
         // lookDir = path.vectorPath[currentWatPoint+3] ;
-        setMaxSpeed(maxSpeed);
+        
 
         if (alert)
         {                
             moveCharacter(speed);
             lookAt(currentTarget);              
-           
-        }
-        else if (patrol)
-        {
-            // Vector2 lookDir = ((Vector2)path.vectorPath[currentWatPoint] - rb.position).normalized;
-            // Vector3 lookDir = path.vectorPath[currentWatPoint];
-            lookDir = rb.velocity;
-
-            distance = Vector2.Distance(rb.position, waypoints[wayPointIndex].position);
-            if (distance < nextWayPointDistance)
-            {
-                IncreaseIndex();
-            }
-
-            //float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90;
-
-            lookAtRB(lookDir);
-            moveCharacter(speed);
-
-            if (distance < nextWayPointDistance)
-            {
-                currentWatPoint++;
-            }
         }
 
     }

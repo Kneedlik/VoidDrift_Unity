@@ -150,12 +150,14 @@ public class gunShipAI : simpleAI
                 force.y = force.y * -1;
                 rb.AddForce(force, ForceMode2D.Force);
 
-
-                distance = Vector2.Distance(rb.position, path.vectorPath[currentWatPoint]);
-
-                if (distance < nextWayPointDistance)
+                if (currentWatPoint < path.vectorPath.Count)
                 {
-                    currentWatPoint++;
+                    distance = Vector2.Distance(rb.position, path.vectorPath[currentWatPoint]); //
+
+                    if (distance < nextWayPointDistance)
+                    {
+                        currentWatPoint++;
+                    }
                 }
             }
 

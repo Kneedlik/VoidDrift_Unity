@@ -37,10 +37,32 @@ public class LightningSystem : MonoBehaviour
 
     [SerializeField] int MaxLightning;
     public int LightningCounter;
+    [SerializeField] float ClearTimer = 1f;
+    float Timestamp;
 
     void Start()
     {
         instance = this;
+    }
+
+    private void Update()
+    {
+        if (Timestamp <= 0)
+        {
+            for (int i = 0; i < shocked.Count; i++)
+            {
+                if (shocked[i] == null)
+                {
+                    shocked.RemoveAt(i);
+                }
+            }
+
+            Timestamp = ClearTimer;
+        }
+        else
+        {
+            Timestamp -= Time.deltaTime;
+        }
     }
 
     public void lightningProc(GameObject target,int damage,ref int Damage)

@@ -448,7 +448,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UsePrefab: 1
   xpValue: 35
-  percentValue: 0.05
+  percentValue: 0.15
   XpPrefab: {fileID: 2320706730734592644, guid: cabbcd8f3c321f941b937e91cb5f0d6a, type: 3}
   Point: {fileID: 0}
 --- !u!114 &5629886561211450769

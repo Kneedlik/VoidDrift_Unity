@@ -19,6 +19,18 @@ public class PlayerMenuManager : MonoBehaviour
 
     private void Awake()
     {
+        ProgressionState TempP = SaveManager.LoadPlayerProgress();
+        if (TempP != null)
+        {
+            progressionState = TempP;
+        }
+
+        PlayerPrefs TempPref = SaveManager.LoadPlayerPrefs();
+        if (TempPref != null)
+        {
+            playerPrefs = TempPref;
+        }
+
         instance = this;
     }
 
@@ -101,8 +113,28 @@ public class PlayerMenuManager : MonoBehaviour
             AudioManager.instance.PlayId(10);
         }
         playerInformation.CalculateStats(progressionState);
+        UpdateRuneState();
         SaveToPlayerPrefs();
+        SaveManager.SavePlayerPrefs(playerPrefs);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void UpdateRuneState()
+    {
+        playerInformation.EquippedRunes.Clear();
+        for (int i = 0;i < EquipedRuneBoxes.Count;i++)
+        {
+            if (EquipedRuneBoxes[i].KeyStone)
+            {
+                playerInformation.Keystone = EquipedRuneBoxes[i].EquipedId;
+            }else
+            {
+                if (EquipedRuneBoxes[i].EquipedId != 0)
+                {
+                    playerInformation.EquippedRunes.Add(EquipedRuneBoxes[i].EquipedId);
+                }
+            }
+        }
     }
 
     public void DeselectAllWeapeons()
@@ -127,9 +159,9 @@ public class PlayerMenuManager : MonoBehaviour
         {
             AudioManager.instance.PlayId(10);
         }
+        SaveToPlayerPrefs();
         SaveManager.SavePlayerPrefs(playerPrefs);
         SaveManager.SavePlayerProgress(progressionState);
-        SaveToPlayerPrefs();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
@@ -140,16 +172,23 @@ public class PlayerMenuManager : MonoBehaviour
             AudioManager.instance.PlayId(10);
         }
         SaveToPlayerPrefs();
+        SaveManager.SavePlayerPrefs(playerPrefs);
         SceneManager.LoadScene(6);
     }
 
     public void EnterAchievments()
     {
+        if(Constants.Demo)
+        {
+            return;
+        }
+
         if (AudioManager.instance != null)
         {
             AudioManager.instance.PlayId(10);
         }
         SaveToPlayerPrefs();
+        SaveManager.SavePlayerPrefs(playerPrefs);
         SceneManager.LoadScene(7);
     }
 

@@ -8,9 +8,16 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;
     //public List<Sound> Sounds = new List<Sound>();
     public AudioLibrary Sounds;
+    public List<Sound> Sources;
+    public List<Sound> SourcesMusic;
 
     private void Awake()
     {
+        if(instance != null)
+        {
+            return;
+        }
+
         DontDestroyOnLoad(gameObject);
         SettingsValues Settings = SaveManager.LoadSettings();
 
@@ -30,6 +37,7 @@ public class AudioManager : MonoBehaviour
 
                 s.source.pitch = s.pitch;
                 s.source.loop = s.source.loop;
+                Sources.Add(s);
             }
         }
 
@@ -42,13 +50,27 @@ public class AudioManager : MonoBehaviour
                 s.source.clip = s.clip;
                 if (Settings != null)
                 {
-                    s.source.volume = s.volume * Settings.MasterVolume;
+                    s.source.volume = s.volume * Settings.MusicVolume * Settings.MasterVolume;
                 }
                 else s.source.volume = s.volume;
 
                 s.source.pitch = s.pitch;
                 s.source.loop = s.Loop;
+                SourcesMusic.Add(s);
             }
+        }
+    }
+
+    public void ResetVolume(SettingsValues Settings)
+    {
+        for (int i = 0; i < Sources.Count; i++)
+        {
+            Sources[i].source.volume = Settings.MasterVolume * Sources[i].volume;
+        }
+
+        for (int i = 0; i < SourcesMusic.Count; i++)
+        {
+            SourcesMusic[i].source.volume = Settings.MusicVolume * Settings.MasterVolume * SourcesMusic[i].volume;
         }
     }
 
@@ -90,6 +112,19 @@ public class AudioManager : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public bool IsMusicPlaying(int Id)
+    {
+        for (int i = 0; i < Sounds.MusicList.Count; i++)
+        {
+            if (Sounds.MusicList[i].Id == Id)
+            {
+                return Sounds.MusicList[i].source.isPlaying;
+            }
+        }
+
+        return false;
     }
 
     public void PlayMusicId(int Id)

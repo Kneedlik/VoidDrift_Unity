@@ -64,12 +64,7 @@ public static class SaveManager
         using FileStream stream = File.Create(path);
         stream.Close();
 
-        GameSettings Settings = new GameSettings();
-        Settings.FullScreen = Values.IsFullScreen;
-        Settings.VSync = Values.VSync;
-        Settings.MasterVolume = Values.MasterVolume;
-
-        File.WriteAllText(path, JsonConvert.SerializeObject(Settings));
+        File.WriteAllText(path, JsonConvert.SerializeObject(Values));
     }
 
     public static SettingsValues LoadSettings()
