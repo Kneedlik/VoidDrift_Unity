@@ -12,6 +12,7 @@ public class levelingSystem : MonoBehaviour
 {
     public static levelingSystem instance;
 
+    PlayerActions MyInput;
     public int level = 1;
     public int currentXp;
     public int xpNeeded;
@@ -66,6 +67,8 @@ public class levelingSystem : MonoBehaviour
         bar.displayedLevel(level);
         bar.setMaxXp(xpNeeded);
         bar.setXP(currentXp);
+        MyInput = new PlayerActions();
+        MyInput.Enable();
     }
 
     private void Start()
@@ -77,24 +80,24 @@ public class levelingSystem : MonoBehaviour
     {
         if(Constants.Cheating)
         {
-            if(Input.GetKeyDown(KeyCode.K))
+            if(MyInput.Gameplay.LevelUp.ReadValue<float>() == 1f && MyInput.Gameplay.LevelUp.triggered)
             {
                 addXp(xpNeeded - currentXp);
             }
 
-            if(Input.GetKeyDown(KeyCode.J))
+            if(MyInput.Gameplay.LevelUpI.ReadValue<float>() == 1f && MyInput.Gameplay.LevelUpI.triggered)
             {
                 NonLevelUpgradeSorting Sorting = GameObject.FindWithTag("IronUpgrades").GetComponent<NonLevelUpgradeSorting>();
                 SetUpLevelMenu(true,Sorting);
             }
 
-            if (Input.GetKeyDown(KeyCode.H))
+            if (MyInput.Gameplay.LevelUpC.ReadValue<float>() == 1f && MyInput.Gameplay.LevelUpC.triggered)
             {
                 NonLevelUpgradeSorting Sorting = GameObject.FindWithTag("CorruptedUpgrades").GetComponent<NonLevelUpgradeSorting>();
                 SetUpLevelMenu(true, Sorting);
             }
 
-            if(Input.GetKeyDown(KeyCode.M))
+            if(MyInput.Gameplay.SaveMenu.ReadValue<float>() == 1f && MyInput.Gameplay.SaveMenu.triggered)
             {
                 if(SaveScreen.activeInHierarchy)
                 {

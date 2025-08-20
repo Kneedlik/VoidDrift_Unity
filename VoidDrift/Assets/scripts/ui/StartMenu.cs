@@ -10,6 +10,7 @@ using TMPro;
 
 public class StartMenu : MonoBehaviour
 {
+    PlayerActions MyInput;
     [SerializeField] Texture2D BaseCursor;
     [SerializeField] SettingsValues Values;
 
@@ -35,6 +36,12 @@ public class StartMenu : MonoBehaviour
 
     [SerializeField] Toggle FullScreenToggle;
     [SerializeField] Toggle VSyncToggle;
+
+    private void Awake()
+    {
+        MyInput = new PlayerActions();
+        MyInput.Enable();
+    }
 
     private void Start()
     {
@@ -139,7 +146,7 @@ public class StartMenu : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (MyInput.Gameplay.Pause.triggered && MyInput.Gameplay.Pause.ReadValue<float>() > 0)
         {
             if(Settings.activeSelf)
             {

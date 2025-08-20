@@ -1,5 +1,6 @@
 
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CameraFollow : MonoBehaviour
 {
@@ -38,7 +39,7 @@ public class CameraFollow : MonoBehaviour
 
     private void FixedUpdate()
     {
-        mousepos = cam.ScreenToWorldPoint(Input.mousePosition);
+        mousepos = cam.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         mousepos.x = mousepos.x - target.position.x;
         mousepos.x = mousepos.x - offset.x;
 

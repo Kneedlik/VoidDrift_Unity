@@ -5,6 +5,7 @@ using TMPro;
 
 public class AutoCannon : weapeon
 {
+    PlayerActions MyInput;
     public Transform SidefirePoint1;
     public Transform SidefirePoint2;
     public GameObject bulletPrefab;
@@ -43,6 +44,21 @@ public class AutoCannon : weapeon
     public float BounceDistance;
     public bool BounceDistanceOff = false;
 
+    private void Awake()
+    {
+        MyInput = new PlayerActions();
+    }
+
+    private void OnEnable()
+    {
+        MyInput.Enable();
+    }
+
+    private void OnDisable()
+    {
+        MyInput.Disable();
+    }
+
     private void Start()
     {
         SetUpWeapeon();
@@ -63,7 +79,7 @@ public class AutoCannon : weapeon
             timeStamp -= Time.deltaTime;
         }
 
-        if (Input.GetButton("Fire1"))
+        if (MyInput.Gameplay.Fire.ReadValue<float>() > 0)
         {
             shootCheck = true;
         }

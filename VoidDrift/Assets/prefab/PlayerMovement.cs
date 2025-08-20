@@ -1,9 +1,10 @@
 
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    PlayerActions MyInput = null;
     //mouse
     private Rigidbody2D rb;
     private Vector2 mousePos;
@@ -53,23 +54,36 @@ public class PlayerMovement : MonoBehaviour
 
     private float pom;
 
+    private void Awake()
+    {
+        MyInput = new PlayerActions();
+        MyInput.Enable();
+        MyInput.Gameplay.Movement.performed += OnMovementPreformed;
+        MyInput.Gameplay.Movement.canceled += OnMovementCanceled;
+    }
+
+    void OnMovementPreformed(InputAction.CallbackContext value)
+    {
+        movement = value.ReadValue<Vector2>();
+    }
+
+    void OnMovementCanceled(InputAction.CallbackContext value)
+    {
+        movement = Vector2.zero;
+    }
+
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
-        //dashTime = startDashTime;
         movementState = false;
         pom = rb.mass;
-       // spaceDownTime = 0;
         updateMS(100);
         cam = Camera.main;
     }
     void Update()
     {
         speed = rb.velocity.magnitude;
-        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-
-        movement.y = Input.GetAxisRaw("Vertical");
-        movement.x = Input.GetAxisRaw("Horizontal");
+        mousePos = cam.ScreenToWorldPoint(Mouse.current.position.ReadValue());
 
         if(AudioManager.instance != null)
         {
@@ -116,15 +130,6 @@ public class PlayerMovement : MonoBehaviour
             else movementState = true;
         }
      */
-        if (Input.GetKey(KeyCode.W))
-        {
-            Wcheck = true;
-        } else Wcheck = false;
-
-        if (Input.GetKey(KeyCode.S))
-        {
-            Scheck = true;
-        } else Scheck = false;
 
        /*
         if (spaceDown)
@@ -139,9 +144,8 @@ public class PlayerMovement : MonoBehaviour
         Vector2 lookDir = (mousePos - rb.position);
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
 
-     
-            rb.rotation = Mathf.LerpAngle(rb.rotation, angle, rotationLerp);
-            lookDir.Normalize();
+        rb.rotation = Mathf.LerpAngle(rb.rotation, angle, rotationLerp);
+        lookDir.Normalize();
 
         //movement
         if (movementState)

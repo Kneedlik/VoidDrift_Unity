@@ -7,6 +7,7 @@ using UnityEngine.Rendering;
 
 public class Pause : MonoBehaviour
 {
+    PlayerActions MyInput;
     public static bool GamePaused;
     public GameObject PauseUI;
     plaerHealth health;
@@ -17,16 +18,26 @@ public class Pause : MonoBehaviour
 
     private void Awake()
     {
+        MyInput = new PlayerActions();
         volume = GameObject.FindGameObjectWithTag("GlobalVolume").GetComponent<Volume>();
         health = GameObject.FindWithTag("Player").GetComponent<plaerHealth>();
         GamePaused = false;
         Resume();
     }
 
+    private void OnEnable()
+    {
+        MyInput.Enable();
+    }
+
+    private void OnDisable()
+    {
+        MyInput.Disable();
+    }
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(MyInput.Gameplay.Pause.triggered && MyInput.Gameplay.Pause.ReadValue<float>() > 0)
         {
             if (health.health > 0)
             {
@@ -40,8 +51,6 @@ public class Pause : MonoBehaviour
                 }
             }else Resume();
         }
-
-
     }
 
    public void Resume()
