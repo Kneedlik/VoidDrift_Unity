@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class MiningLaser : weapeon
 {
+    PlayerActions MyInput;
     public List<Hovl_Laser> LasersList = new List<Hovl_Laser>();
     public List<Hovl_Laser> SideLasersList = new List<Hovl_Laser>();
 
@@ -39,6 +40,20 @@ public class MiningLaser : weapeon
     [SerializeField] GameObject DronePrefab;
     [SerializeField] DroneManager Dronemanager;
     [SerializeField] float DroneDistance;
+    private void Awake()
+    {
+        MyInput = new PlayerActions();
+    }
+
+    private void OnEnable()
+    {
+        MyInput.Enable();
+    }
+
+    private void OnDisable()
+    {
+        MyInput.Disable();
+    }
 
     private void Start()
     {
@@ -56,7 +71,7 @@ public class MiningLaser : weapeon
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("Fire1"))
+        if (MyInput.Gameplay.Fire.ReadValue<float>() > 0)
         {
             if (Circle == false && DronesFinal == false && Inferno == false)
             {
@@ -105,7 +120,7 @@ public class MiningLaser : weapeon
 
         if (DronesFinal == false)
         {
-            if (Input.GetButton("Fire1") && timeStamp <= 0)
+            if (MyInput.Gameplay.Fire.ReadValue<float>() > 0 && timeStamp <= 0)
             {
                 timeStamp = CoolDown;
                 DealDamage();
@@ -513,6 +528,9 @@ public class MiningLaser : weapeon
                 LasersList.Add(CubeTemp.GetComponent<Hovl_Laser>());
                 offset += Temp;
             }
+        }else if(DronesFinal)
+        {
+            SetUpDrones();
         }
     }
 
@@ -565,6 +583,7 @@ public class MiningLaser : weapeon
         {
             Amount = DroneAmount + projectileCount + sideProjectiles ;
         }
+        Dronemanager.DeleteAllDrones();
 
         float Offset = 360f / Amount;
         float Temp = 0f;

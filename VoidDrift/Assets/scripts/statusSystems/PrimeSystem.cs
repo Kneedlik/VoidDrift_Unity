@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PrimeSystem : MonoBehaviour
@@ -21,9 +22,44 @@ public class PrimeSystem : MonoBehaviour
     public float multiplier = 1;
     public float speedMultiplier = 1;
 
+    float Timestamp;
+    [SerializeField] float ListClearTimer = 3f;
+
     void Start()
     {
         instance = this;
+    }
+
+    private void Update()
+    {
+        if (Timestamp <= 0)
+        {
+            foreach (var key in PrimedEnemies.Keys.ToList())
+            {
+                if (key == null)
+                {
+                    //Debug.Log(PrimedEnemies.Count);
+                    PrimedEnemies.Remove(key);
+                    //Debug.Log(PrimedEnemies.Count);
+                }
+            }
+
+            foreach (var key in PrimingEnemies.Keys.ToList())
+            {
+                if (key == null)
+                {
+                    //Debug.Log(PrimingEnemies.Count);
+                    PrimingEnemies.Remove(key);
+                    //Debug.Log(PrimingEnemies.Count);
+                }
+            }
+
+            Timestamp = ListClearTimer;
+        }
+        else
+        {
+            Timestamp -= Time.deltaTime;
+        }
     }
 
     public void prime(GameObject target, int damage,ref int scaledDamage)

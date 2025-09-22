@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Windows;
 
 public class TracerGun : weapeon
 {
+    PlayerActions MyInput;
     private float timeStamp;
     private bool shootCheck;
     Rigidbody2D rb;
@@ -38,6 +40,21 @@ public class TracerGun : weapeon
     [SerializeField] Transform Firepoint2;
 
     // Start is called before the first frame update
+    private void Awake()
+    {
+        MyInput = new PlayerActions();
+    }
+
+    private void OnEnable()
+    {
+        MyInput.Enable();
+    }
+
+    private void OnDisable()
+    {
+        MyInput.Disable();
+    }
+
     void Start()
     {
         SetUpWeapeon();
@@ -63,7 +80,7 @@ public class TracerGun : weapeon
             TimeStampSum -= Time.deltaTime;
         }
 
-        if (Input.GetButton("Fire1"))
+        if (MyInput.Gameplay.Fire.ReadValue<float>() > 0)
         {
             shootCheck = true;
         }

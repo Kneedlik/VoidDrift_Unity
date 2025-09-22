@@ -42,49 +42,55 @@ public class LaserDrone : Summon
 
     IEnumerator ShootCorutine(Transform Target)
     {
+        bool hit = false;
+
         Line.EnablePrepare();
         Line.SetUp(FirePoint.position, Target.position, false);
         Vector3 Dir = (Target.position - FirePoint.position).normalized;
-        RaycastHit2D hitInfo = Physics2D.Raycast(FirePoint.position, Dir * 1000);
-        if (hitInfo.collider != null)
+        RaycastHit2D[] hitInfo = Physics2D.RaycastAll(FirePoint.position, Dir * 1000);
+
+        for (int i = 0; i < hitInfo.Length; i++)
         {
-            //Debug.Log("Hit");
-            Health health = hitInfo.transform.GetComponent<Health>();
-            if(health != null)
+            if (hitInfo[i].collider != null && hit == false)
             {
-                int DamagePlus = damage;
-                if(eventManager.OnImpact != null)
+                //Debug.Log("Hit");
+                Health health = hitInfo[i].transform.GetComponent<Health>();
+                if (health != null)
                 {
-                    eventManager.OnImpact(hitInfo.transform.gameObject,damage, ref DamagePlus);
-                }
-
-                Color32 Color = new Color32(0,0,0,0);
-                if(eventManager.OnCrit != null)
-                {
-                    Color32 TempColor = eventManager.OnCrit(hitInfo.transform.gameObject, DamagePlus, ref DamagePlus);
-                    Color32 BaseColor = new Color32(0, 0, 0, 0);
-                    if (!TempColor.Equals(BaseColor))
+                    int DamagePlus = damage;
+                    if (eventManager.OnImpact != null)
                     {
-                        Color = TempColor;
+                        eventManager.OnImpact(hitInfo[i].transform.gameObject, damage, ref DamagePlus);
                     }
-                }
 
-                if(eventManager.PostImpact != null)
-                {
-                    eventManager.PostImpact(hitInfo.transform.gameObject, DamagePlus, ref DamagePlus);
-                }
+                    Color32 Color = new Color32(0, 0, 0, 0);
+                    if (eventManager.OnCrit != null)
+                    {
+                        Color32 TempColor = eventManager.OnCrit(hitInfo[i].transform.gameObject, DamagePlus, ref DamagePlus);
+                        Color32 BaseColor = new Color32(0, 0, 0, 0);
+                        if (!TempColor.Equals(BaseColor))
+                        {
+                            Color = TempColor;
+                        }
+                    }
 
-                if (Color.Equals(new Color32(0, 0, 0, 0)))
-                {
-                    health.TakeDamage(DamagePlus);
-                }
-                else
-                {
-                    //Debug.Log(Color);
-                    health.TakeDamage(DamagePlus, Color);
+                    if (eventManager.PostImpact != null)
+                    {
+                        eventManager.PostImpact(hitInfo[i].transform.gameObject, DamagePlus, ref DamagePlus);
+                    }
+
+                    if (Color.Equals(new Color32(0, 0, 0, 0)))
+                    {
+                        health.TakeDamage(DamagePlus);
+                    }
+                    else
+                    {
+                        //Debug.Log(Color);
+                        health.TakeDamage(DamagePlus, Color);
+                    }
+                    hit = true;
                 }
             }
-
         }
         float TimeStampTemp = LineDuration;
         while(TimeStampTemp > 0)
@@ -107,6 +113,9 @@ public class LaserDrone : Summon
     {
         float pom = baseDamage * (PlayerStats.sharedInstance.SummonDamage / 100f);
         pom = pom * (PlayerStats.sharedInstance.damageMultiplier / 100f);
+        pom += PlayerStats.sharedInstance.ExtraDamage;
+        pom = pom * MasterManager.Instance.PlayerInformation.SummonDamageMultiplier;
+        pom = pom * MasterManager.Instance.PlayerInformation.DamageMultiplier;
         damage = (int)pom;
 
     }

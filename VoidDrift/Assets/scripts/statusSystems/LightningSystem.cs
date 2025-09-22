@@ -150,8 +150,6 @@ public class LightningSystem : MonoBehaviour
     {
         if (shocked.Contains(target) == false)
         {
-            Debug.Log("ShockTrigger");
-
             Health health = target.GetComponent<Health>();
             GameObject Obj = Instantiate(ShockObject, target.transform.position, Quaternion.Euler(-90, 0, 0));
             Obj.transform.SetParent(target.transform);
@@ -174,7 +172,6 @@ public class LightningSystem : MonoBehaviour
     {
         LightningCounter++;
         GameObject pom = Instantiate(Lobject,transform);
-        //Debug.Log("EEE");
         LightningBolt script = pom.GetComponent<LightningBolt>();
         script.StartObject.transform.position = begin.transform.position;
         script.EndObject.transform.position = ending.transform.position;

@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 5185391676591580200}
   - component: {fileID: 5185391676591580201}
   - component: {fileID: 4348595694247271656}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ElectricDroneAura
   m_TagString: Untagged
   m_Icon: {fileID: 0}

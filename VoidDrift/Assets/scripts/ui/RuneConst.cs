@@ -41,7 +41,7 @@ public static class RuneConst
 
     public const int LethalTempoIncrease = 50;
     public const int NearDamageIncrease = 30;
-    public const int NewStatusIncrease = 2;
+    public const int NewStatusIncrease = 1;
     public const int LasersIncrease = 12;
 
     public static float GetRuneIncrease(int Id)

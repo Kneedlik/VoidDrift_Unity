@@ -16,7 +16,7 @@ public class SG_Homing : upgrade
 
     public override bool requirmentsMet()
     {
-        if(FinalConditionsMet() && SG_Damage.instance.level >= 1 && SG_FireRate.instance.level >= 1)
+        if(FinalConditionsMet() && SG_ReloadSpeed.instance.level >= 1 && SG_FireRate.instance.level >= 1)
         {
             return true;
         }else return false;

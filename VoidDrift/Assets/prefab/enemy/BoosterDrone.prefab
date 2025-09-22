@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 7929140047241928482}
   - component: {fileID: 7929140047241928541}
   - component: {fileID: 7929140047241928480}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BoosterDroneAura
   m_TagString: Untagged
   m_Icon: {fileID: 0}

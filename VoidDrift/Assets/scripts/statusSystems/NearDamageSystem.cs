@@ -10,10 +10,33 @@ public class NearDamageSystem : MonoBehaviour
     public List<GameObject> AffectedEnems = new List<GameObject>();
     Transform Player;
 
+    float Timestamp;
+    [SerializeField] float ListClearTimer = 3f;
+
     void Awake()
     {
         instance = this;
         Player = GameObject.FindWithTag("Player").transform;
+    }
+
+    private void Update()
+    {
+        if (Timestamp <= 0)
+        {
+            for (int i = 0; i < AffectedEnems.Count; i++)
+            {
+                if (AffectedEnems[i] == null)
+                {
+                    AffectedEnems.RemoveAt(i);
+                }
+            }
+
+            Timestamp = ListClearTimer;
+        }
+        else
+        {
+            Timestamp -= Time.deltaTime;
+        }
     }
 
     public void SetUp()
@@ -46,11 +69,5 @@ public class NearDamageSystem : MonoBehaviour
                 health.multiplier -= DamageIncrease;
             }
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

@@ -107,10 +107,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPool1:
-  - {fileID: 24702221549039422, guid: eb3fb37a2fe25c546b90133982bcd09e, type: 3}
+  - {fileID: 7674282569647781966, guid: f80c732bbcca3de40b5eb15d54ebf07d, type: 3}
   dropChancePool1:
   - 100
   pos: {fileID: 0}
-  Amount: 12
-  ForceMin: 5.5
-  ForceMax: 10
+  Amount: 1
+  ForceMin: 0
+  ForceMax: 0

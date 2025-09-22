@@ -24,12 +24,12 @@ public class LightningOnHit : upgrade
         {
             eventManager.OnImpact += LightningSystem.instance.lightningProc;
             eventManager.SummonOnImpact += LightningSystem.instance.lightningProc;
-            description = string.Format("Lightning damage + {0} Chance to trigger Lightning + {0}%", damageAmount, chance);
+            description = string.Format("Lightning damage + {0} Chance to trigger Lightning + {1}%", damageAmount, chance);
         } else if (level == 1)
         {
             LightningSystem.instance.damage1 += damageAmount;
             LightningSystem.instance.chance += chance;
-            description = string.Format("Lightning damage + {0} Chance to trigger Lightning + {0}%", damageAmount, chance);
+            description = string.Format("Lightning damage + {0} Chance to trigger Lightning + {1}%", damageAmount, chance);
         } else if (level == 2)
         {
             LightningSystem.instance.damage1 += damageAmount;

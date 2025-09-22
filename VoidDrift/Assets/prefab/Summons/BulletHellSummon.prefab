@@ -230,7 +230,7 @@ MonoBehaviour:
   fireRate: 2.4
   size: 1
   baseDamage: 16
-  baseFireRate: 1.7
+  baseFireRate: 1.8
   baseSize: 1
   id: 5
   bullet: {fileID: 862567238636943838, guid: 275baa65de00dc743bae12545fe26909, type: 3}

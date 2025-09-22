@@ -1979,7 +1979,7 @@ MonoBehaviour:
     rgba: 0
   icon: {fileID: 21300000, guid: 15c828a8a8b5781418bd5bca9df06755, type: 3}
   name: Iron Vigor
-  description: Max health + 40
+  description: Max health + 40%
   level: 0
   maxLevel: 0
   rarity: 100
@@ -1987,7 +1987,7 @@ MonoBehaviour:
   SubserviantUpgrades: []
   Final: 0
   RuneId: 0
-  amount: 40
+  amount: 0.4
 --- !u!1 &7339895226812186411
 GameObject:
   m_ObjectHideFlags: 0
@@ -3463,8 +3463,8 @@ MonoBehaviour:
   Final: 0
   RuneId: 0
   summon: {fileID: 4556972382933838620, guid: 279c2bc2b88cf6741b4214752dda2e96, type: 3}
-  Damage1: 20
-  Damage2: 40
+  Damage1: 30
+  Damage2: 50
 --- !u!1 &7339895227540304069
 GameObject:
   m_ObjectHideFlags: 0
@@ -7529,7 +7529,7 @@ MonoBehaviour:
   SubserviantUpgrades:
   - Upgrade: {fileID: 7339895228018338372}
     LevelNeeded: 1
-  - Upgrade: {fileID: 7339895227027590873}
+  - Upgrade: {fileID: 7339895228104492262}
     LevelNeeded: 1
   Final: 1
   RuneId: 0

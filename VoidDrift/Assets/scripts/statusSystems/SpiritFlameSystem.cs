@@ -25,9 +25,32 @@ public class SpiritFlameSystem : MonoBehaviour
    
     public bool active;
 
+    float Timestamp;
+    [SerializeField] float ListClearTimer = 3f;
+
     void Start()
     {
         instance = this;
+    }
+
+    private void Update()
+    {
+        if (Timestamp <= 0)
+        {
+            for (int i = 0; i < enemies.Count; i++)
+            {
+                if (enemies[i] == null)
+                {
+                    enemies.RemoveAt(i);
+                }
+            }
+
+            Timestamp = ListClearTimer;
+        }
+        else
+        {
+            Timestamp -= Time.deltaTime;
+        }
     }
 
     public void SpiritFlame(GameObject target,int damage, ref int Damage)
@@ -92,7 +115,6 @@ public class SpiritFlameSystem : MonoBehaviour
 
     public void ChangeColor(GameObject weapeon,GameObject bullet)
     {
-      
         if (active)
         {
             SpriteRenderer S = bullet.GetComponent<SpriteRenderer>();

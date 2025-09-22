@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Net.Sockets;
 using UnityEngine;
+using UnityEngine.Windows;
 
 public class rocketLauncher : weapeon
 {
+    PlayerActions MyInput;
     //Homing
     public int HomingAmount;
     public bool HomingFinal;
@@ -39,6 +41,20 @@ public class rocketLauncher : weapeon
     [SerializeField] float RangeY;
     public float SpeedMultiplier = 1f;
     public int ImpactDamage;
+    private void Awake()
+    {
+        MyInput = new PlayerActions();
+    }
+
+    private void OnEnable()
+    {
+        MyInput.Enable();
+    }
+
+    private void OnDisable()
+    {
+        MyInput.Disable();
+    }
 
     void Start()
     {
@@ -58,12 +74,10 @@ public class rocketLauncher : weapeon
             timeStamp -= Time.deltaTime;
         }
 
-        if (Input.GetButtonDown("Fire1"))
+        if (MyInput.Gameplay.Fire.ReadValue<float>() > 0)
         {
             shootCheck = true;
-        }
-
-        if(Input.GetButtonUp("Fire1"))
+        }else
         {
             shootCheck = false;
         }
@@ -187,7 +201,7 @@ public class rocketLauncher : weapeon
                 eventManager.OnFireAll(gameObject, Obj);
             }
             BulletScript Bullet = Obj.GetComponent<BulletScript>();
-            float Temp = damage * 3f + ImpactDamage + extraDamage;
+            float Temp = damage * 5f + ImpactDamage + extraDamage;
             Bullet.setDamage((int)Temp);
         }
     }

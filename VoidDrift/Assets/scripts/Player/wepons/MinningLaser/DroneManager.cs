@@ -25,10 +25,16 @@ public class DroneManager : MonoBehaviour
 
         if (TimeStamp <= 0)
         {
-            //Debug.Log("Shooting");
-            if (DroneList[CurrentIndex].Shoot())
+            if (DroneList[CurrentIndex] != null)
             {
-                TimeStamp = CoolDown;
+                //Debug.Log("Shooting");
+                if (DroneList[CurrentIndex].Shoot())
+                {
+                    TimeStamp = CoolDown;
+                    KnedlikLib.IncreaseIndex(ref CurrentIndex, DroneList.Count);
+                }
+            }else
+            {
                 KnedlikLib.IncreaseIndex(ref CurrentIndex, DroneList.Count);
             }
         }
@@ -40,18 +46,43 @@ public class DroneManager : MonoBehaviour
         DroneList.Clear();
         foreach(Transform e in transform)
         {
-            LaserDrone LaserDroneTemp = e.GetComponent<LaserDrone>();
-            if (LaserDroneTemp != null)
+            if (e != null)
             {
-                LaserDroneTemp.scaleSummonDamage();
-                DroneList.Add(LaserDroneTemp);
+                LaserDrone LaserDroneTemp = e.GetComponent<LaserDrone>();
+                if (LaserDroneTemp != null)
+                {
+                    DroneList.Add(LaserDroneTemp);
+                }
             }
         }
+
+        ScaleDamageAll();
 
         if (DroneList.Count != 0)
         {
             CoolDown = BaseCoolDown / AsMultiplier;
             CoolDown = CoolDown / DroneList.Count;
+        }
+        CurrentIndex = 0;
+    }
+
+    public void DeleteAllDrones()
+    {
+        foreach (Transform e in transform)
+        {
+            Destroy(e.gameObject);
+        }
+        DroneList.Clear();
+    }
+
+    public void ScaleDamageAll()
+    {
+        for (int i = 0; i < DroneList.Count; i++)
+        {
+            if (DroneList[i] != null)
+            {
+                DroneList[i].scaleSummonDamage();
+            }
         }
     }
 

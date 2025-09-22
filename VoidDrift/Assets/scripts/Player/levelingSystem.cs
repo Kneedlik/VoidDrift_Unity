@@ -51,6 +51,7 @@ public class levelingSystem : MonoBehaviour
     [SerializeField] GameObject UIVolume;
 
     [SerializeField] string FileName;
+    [SerializeField] PlayerInformation Info;
 
 
     private void Awake()
@@ -458,7 +459,7 @@ public class levelingSystem : MonoBehaviour
     {
         float pom = health * healthPerLevel * (level - 1);
         pom = pom + health;
-        pom = pom * MasterManager.Instance.PlayerInformation.MapEnemyHealthMultiplier;
+        pom = pom * Info.MapEnemyHealthMultiplier;
         return (int)pom;
     }
 

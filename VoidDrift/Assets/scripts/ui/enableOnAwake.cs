@@ -11,10 +11,13 @@ public class enableOnAwake : MonoBehaviour
 
     private void Awake()
     {
-        miniMap.SetActive(true);
-        HealthBar.SetActive(true);
-        XpBar.SetActive(true);
-        Timer.SetActive(true);
+        if (Constants.HideUI == false)
+        {
+            miniMap.SetActive(true);
+            HealthBar.SetActive(true);
+            XpBar.SetActive(true);
+            Timer.SetActive(true);
+        }
     }
 
 

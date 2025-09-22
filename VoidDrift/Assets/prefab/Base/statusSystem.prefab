@@ -83,7 +83,7 @@ MonoBehaviour:
   CParticles: {fileID: 6297773213846443391, guid: cfe25543e768b9141bb9257d6d5e79c3, type: 3}
   CpoisonedEnemies: []
   BDamage: 15
-  BTrueDamage: 0.015
+  BTrueDamage: 0.01
   BDuration: 8
   BSpeed: 1.4
   BParticles: {fileID: 7117855671623497608, guid: b0dc112c5264b5349a6ea83569442b3a, type: 3}
@@ -212,6 +212,7 @@ MonoBehaviour:
   chance: 50
   multiplier: 1
   speedMultiplier: 1
+  ListClearTimer: 3
 --- !u!114 &2624672050981415586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,6 +315,7 @@ MonoBehaviour:
   light: {fileID: 6838603595385545263, guid: 5c9c3e8c0dc35bc4c9c38fd927dc9c36, type: 3}
   Fire: {fileID: 1900756431413560, guid: 529eb4216865eba419c1a4a68d0b0388, type: 3}
   active: 1
+  ListClearTimer: 3
 --- !u!114 &2624672050981415593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,6 +370,7 @@ MonoBehaviour:
   DamageIncrease: 0.3
   AuraObj: {fileID: 4504797955614850787, guid: 06e26268702baf04088315fc03d737ae, type: 3}
   AffectedEnems: []
+  ListClearTimer: 3
 --- !u!114 &1929432596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,6 +406,7 @@ MonoBehaviour:
   FlatDamage: 5
   AngleOffset: 30
   AffectedTargets: []
+  ListClearTimer: 3
 --- !u!114 &1929432612
 MonoBehaviour:
   m_ObjectHideFlags: 0

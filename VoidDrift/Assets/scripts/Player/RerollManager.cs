@@ -49,7 +49,7 @@ public class RerollManager : MonoBehaviour
 
     public void ReRollUpgrades()
     {
-        if(CurrentRerolls <= 0)
+        if(CurrentRerolls <= 0 && Constants.Cheating == false)
         {
             return;
         }else

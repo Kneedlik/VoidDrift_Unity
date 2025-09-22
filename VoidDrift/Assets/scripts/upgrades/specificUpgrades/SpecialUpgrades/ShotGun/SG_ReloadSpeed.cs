@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class SG_ReloadSpeed : upgrade 
 {
+    public static SG_ReloadSpeed instance;
     public float ReloadSpeedIncrease;
     public float KnockBackIncrease;
     // Start is called before the first frame update
     void Start()
     {
+        instance = this;
         Type = type.special;
         setColor();
     }

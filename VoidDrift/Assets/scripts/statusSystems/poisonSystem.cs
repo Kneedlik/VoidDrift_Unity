@@ -41,9 +41,48 @@ public class poisonSystem : MonoBehaviour
     [SerializeField] GameObject BParticles;
     public List<GameObject> BPoisonedEnemies = new List<GameObject>();
 
+    [SerializeField] float ListClearTimer = 3f;
+    float Timestamp;
+
     void Awake()
     {
         sharedInstance = this;
+    }
+
+    private void Update()
+    {
+        if (Timestamp <= 0)
+        {
+            for (int i = 0; i < poisonedEnemies.Count; i++)
+            {
+                if (poisonedEnemies[i] == null)
+                {
+                    poisonedEnemies.RemoveAt(i);
+                }
+            }
+
+            for (int i = 0; i < CpoisonedEnemies.Count; i++)
+            {
+                if (CpoisonedEnemies[i] == null)
+                {
+                    CpoisonedEnemies.RemoveAt(i);
+                }
+            }
+
+            for (int i = 0; i < BPoisonedEnemies.Count; i++)
+            {
+                if (BPoisonedEnemies[i] == null)
+                {
+                    BPoisonedEnemies.RemoveAt(i);
+                }
+            }
+
+            Timestamp = ListClearTimer;
+        }
+        else
+        {
+            Timestamp -= Time.deltaTime;
+        }
     }
 
     public void CorruptedPoison(GameObject target,int damage,ref int plusdamage)

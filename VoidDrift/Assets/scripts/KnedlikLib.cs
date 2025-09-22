@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal;
 
 public static class KnedlikLib 
@@ -340,7 +341,7 @@ public static class KnedlikLib
             }
         }
 
-        Vector3 MousePos = camera.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 MousePos = camera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         if (Enemies2.Count > 0)
         {
             for (int i = 0; i < Enemies2.Count; i++)

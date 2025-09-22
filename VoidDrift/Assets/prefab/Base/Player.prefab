@@ -4984,7 +4984,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DroneList: []
-  BaseCoolDown: 1.5
+  BaseCoolDown: 0.7
   CoolDown: 0
 --- !u!1 &293977001
 GameObject:
@@ -11746,6 +11746,7 @@ MonoBehaviour:
   SaveScreen: {fileID: 0}
   UIVolume: {fileID: 0}
   FileName: LevelsXp
+  Info: {fileID: 11400000, guid: 6fe1b5e96d7dd2f47a58d5bd1e7c2a5c, type: 2}
 --- !u!114 &1454237884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12151,15 +12152,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 85072393607905457, guid: 57a931b9e02fa8d428a92f24910367a4, type: 3}
       propertyPath: baseDamage
-      value: 10
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 85072393607905457, guid: 57a931b9e02fa8d428a92f24910367a4, type: 3}
       propertyPath: reloadSpeed
-      value: 0.6
+      value: 0.45
       objectReference: {fileID: 0}
     - target: {fileID: 85072393607905457, guid: 57a931b9e02fa8d428a92f24910367a4, type: 3}
       propertyPath: baseCoolDown
-      value: 0.38
+      value: 0.34
       objectReference: {fileID: 0}
     - target: {fileID: 85072393607905457, guid: 57a931b9e02fa8d428a92f24910367a4, type: 3}
       propertyPath: OffsetScaling

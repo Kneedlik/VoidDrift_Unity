@@ -11,6 +11,8 @@ public class LethalTempoSystem : MonoBehaviour
     [SerializeField] float AngleOffset;
     public List<GameObject> AffectedTargets = new List<GameObject>();
     Transform Player;
+    float Timestamp;
+    [SerializeField] float ListClearTimer = 3f;
 
     // Start is called before the first frame update
     private void Awake()
@@ -21,6 +23,26 @@ public class LethalTempoSystem : MonoBehaviour
     private void Start()
     {
         Player = GameObject.FindWithTag("Player").transform;
+    }
+
+    private void Update()
+    {
+        if (Timestamp <= 0)
+        {
+            for (int i = 0; i < AffectedTargets.Count; i++)
+            {
+                if (AffectedTargets[i] == null)
+                {
+                    AffectedTargets.RemoveAt(i);
+                }
+            }
+
+            Timestamp = ListClearTimer;
+        }
+        else
+        {
+            Timestamp -= Time.deltaTime;
+        }
     }
 
     public void Activation(GameObject target, int damage, ref int plusDamage)

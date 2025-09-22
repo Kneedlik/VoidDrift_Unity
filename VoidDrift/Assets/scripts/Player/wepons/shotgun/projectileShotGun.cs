@@ -3,10 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Windows;
 using static UnityEngine.GraphicsBuffer;
 
 public class projectileShotGun : weapeon
 {
+    PlayerActions MyInput;
     public float range;
     public float spread;
 
@@ -49,6 +51,20 @@ public class projectileShotGun : weapeon
     public float LaserImpactDelay;
     public float LaserDamageDelay;
     public float LaserRayCastSize;
+    private void Awake()
+    {
+        MyInput = new PlayerActions();
+    }
+
+    private void OnEnable()
+    {
+        MyInput.Enable();
+    }
+
+    private void OnDisable()
+    {
+        MyInput.Disable();
+    }
 
     void Start()
     {
@@ -83,7 +99,7 @@ public class projectileShotGun : weapeon
             timeStamp -= Time.deltaTime;
         }
 
-        if (Input.GetButton("Fire1"))
+        if (MyInput.Gameplay.Fire.ReadValue<float>() > 0)
         {
             shootCheck = true;
         }

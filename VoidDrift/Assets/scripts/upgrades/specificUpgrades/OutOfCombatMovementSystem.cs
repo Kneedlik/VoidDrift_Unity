@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Windows;
 
 public class OutOfCombatMovementSystem : MonoBehaviour
 {
+    PlayerActions MyInput;
     public static OutOfCombatMovementSystem instance;
     float timeStamp;
     public float coolDown;
@@ -13,14 +15,21 @@ public class OutOfCombatMovementSystem : MonoBehaviour
 
     public GameObject Line;
 
+    private void OnDisable()
+    {
+        MyInput.Disable();
+    }
+
     void Awake()
     {
         instance = this;
         enabled = false;
+        MyInput = new PlayerActions();
     }
 
     private void OnEnable()
     {
+        MyInput.Enable();
         active = false;
         increaseMovespeed();
     }
@@ -28,7 +37,7 @@ public class OutOfCombatMovementSystem : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetButton("Fire1"))
+        if(MyInput.Gameplay.Fire.ReadValue<float>() > 0)
         {
             reduceMoveSpeed();
         }

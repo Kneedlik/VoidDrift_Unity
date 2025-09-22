@@ -22,15 +22,9 @@ MonoBehaviour:
   - Id: 2
     Unlocked: 1
     Bought: 1
-  - Id: 3
-    Unlocked: 0
-    Bought: 0
   - Id: 4
     Unlocked: 1
     Bought: 1
-  - Id: 5
-    Unlocked: 0
-    Bought: 0
   UnlockedLevels: 01000000
   ShopUpgradesProgression: []
   UnlockedRunes: 01000000030000000500000007000000090000000b0000000d0000000e0000000f00000010000000

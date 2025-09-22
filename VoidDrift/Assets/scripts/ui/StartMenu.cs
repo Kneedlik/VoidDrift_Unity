@@ -26,6 +26,8 @@ public class StartMenu : MonoBehaviour
     [SerializeField] TMP_Text Text;
     [SerializeField] TMP_Text TextMusic;
 
+    [SerializeField] TMP_Text ControlScheme;
+
     [SerializeField] GameObject StartPanel;
     [SerializeField] Volume Volume;
 
@@ -36,6 +38,7 @@ public class StartMenu : MonoBehaviour
 
     [SerializeField] Toggle FullScreenToggle;
     [SerializeField] Toggle VSyncToggle;
+    bool BigChange;
 
     private void Awake()
     {
@@ -132,6 +135,14 @@ public class StartMenu : MonoBehaviour
             VSyncToggle.isOn = true;
         }
         else VSyncToggle.isOn = false;
+
+        if(Values.UseKeyboard)
+        {
+            ControlScheme.text = "Mouse/Keyboard";
+        }else
+        {
+            ControlScheme.text = "Controller";
+        }
 
         //Debug.Log(Progress.UnlockedWeapeons.Count);
 
@@ -250,8 +261,6 @@ public class StartMenu : MonoBehaviour
             Values.VSync = 0;
             QualitySettings.vSyncCount = 0;
         }
-       
-        Debug.Log(Values.VSync);
     }
 
     public void SetVolume()
@@ -332,6 +341,21 @@ public class StartMenu : MonoBehaviour
         Debug.Log("Volume Change");
     }
 
+    public void ChangeControls()
+    {
+        if(Values.UseKeyboard)
+        {
+            Values.UseKeyboard = false;
+            ControlScheme.text = "Controller";
+        }
+        else
+        {
+            Values.UseKeyboard = true;
+            ControlScheme.text = "Mouse/Keyboard";
+        }
+        BigChange = true;
+    }
+
     public void CloseSettings()
     {
         if (AudioManager.instance != null)
@@ -342,6 +366,12 @@ public class StartMenu : MonoBehaviour
         BackButton.color = new Color32(255, 0, 33, 255);
         StartMenuObject.SetActive(true );
         Settings.SetActive(false);
+
+        if(BigChange)
+        {
+            Destroy(VirtualMouseManager.instance.gameObject);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
    
 }

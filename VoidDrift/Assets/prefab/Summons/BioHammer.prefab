@@ -102,11 +102,11 @@ MonoBehaviour:
   damage: 16
   fireRate: 2.1
   size: 1
-  baseDamage: 30
-  baseFireRate: 1
+  baseDamage: 40
+  baseFireRate: 0.9
   baseSize: 0
   id: 2
-  damageDelay: 0.4
+  damageDelay: 0.35
   healthScaling: 0.2
   TrueDamage: 0
   Aoe: 0
