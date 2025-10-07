@@ -11,6 +11,7 @@ public class Level2CompletedH : Achiavement
         {
             Unlock();
             PrizeActivation();
+            UnlockAchiavementSteam("ACH05");
         }
     }
 

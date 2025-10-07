@@ -11,6 +11,7 @@ public class TransporterKilled : Achiavement
         {
             Unlock();
             PrizeActivation();
+            UnlockAchiavementSteam("ACH14");
         }
     }
 

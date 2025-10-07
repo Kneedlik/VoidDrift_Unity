@@ -11,6 +11,7 @@ public class Level1CompletedHard : Achiavement
         {
             Unlock();
             PrizeActivation();
+            UnlockAchiavementSteam("ACH04");
         }
     }
 

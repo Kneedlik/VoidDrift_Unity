@@ -10,6 +10,7 @@ public class Lvl40 : Achiavement
         {
             Unlock();
             PrizeActivation();
+            UnlockAchiavementSteam("ACH12");
         }else
         {
             int Temp = levelingSystem.instance.level;

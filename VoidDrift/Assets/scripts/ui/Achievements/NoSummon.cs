@@ -10,6 +10,7 @@ public class NoSummon : Achiavement
         {
             Unlock();
             PrizeActivation();
+            UnlockAchiavementSteam("ACH11");
         }
     }
 

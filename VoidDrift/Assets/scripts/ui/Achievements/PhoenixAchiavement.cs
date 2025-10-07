@@ -12,6 +12,7 @@ public class PhoenixAchiavement : Achiavement
         {
             Unlock();
             PrizeActivation();
+            UnlockAchiavementSteam("ACH07");
         }else
         {
             int Temp = PlayerStats.sharedInstance.revives;

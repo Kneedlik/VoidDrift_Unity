@@ -8,12 +8,18 @@ public class Level1Completed : Achiavement
     [SerializeField] int LevelIndex;
     [SerializeField] int SlotId;
 
+    //private void Start()
+    //{
+    //    UnlockAchiavementSteam("ACH01");
+    //}
+
     public override void function(bool Win)
     {
         if(Win && SceneManager.GetActiveScene().buildIndex == LevelIndex)
         {
             Unlock();
             PrizeActivation();
+            UnlockAchiavementSteam("ACH01");
         }
     }
 

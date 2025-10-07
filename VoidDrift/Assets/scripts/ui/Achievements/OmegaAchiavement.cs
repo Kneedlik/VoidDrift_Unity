@@ -10,6 +10,7 @@ public class OmegaAchiavement : Achiavement
         {
             Unlock();
             PrizeActivation();
+            UnlockAchiavementSteam("ACH09");
         }
     }
 

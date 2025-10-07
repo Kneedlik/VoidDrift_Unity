@@ -369,7 +369,14 @@ public class StartMenu : MonoBehaviour
 
         if(BigChange)
         {
-            Destroy(VirtualMouseManager.instance.gameObject);
+            try
+            {
+                Destroy(VirtualMouseManager.instance.gameObject);
+            }
+            catch (System.Exception e)
+            {
+                Debug.Log(e);
+            }
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }

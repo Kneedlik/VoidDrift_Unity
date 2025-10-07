@@ -5251,6 +5251,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ef91c96ff1ba9d459c77b0119ac429c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1423837957
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1423837959}
+  - component: {fileID: 1423837958}
+  m_Layer: 0
+  m_Name: Steam
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1423837958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423837957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cff6e3eaa5b217408a953da8a179229, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1423837959
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423837957}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1424075844
 GameObject:
   m_ObjectHideFlags: 0
@@ -5626,7 +5670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
+  m_sendNavigationEvents: 0
   m_DragThreshold: 10
 --- !u!4 &1673322698
 Transform:
@@ -7170,6 +7214,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3638639622053334825, guid: 191a168f0f6b4ae45bbcfa8486710df4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5096485602635949170, guid: 191a168f0f6b4ae45bbcfa8486710df4, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -7194,9 +7242,21 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6550049784204534813, guid: 191a168f0f6b4ae45bbcfa8486710df4, type: 3}
+      propertyPath: m_CursorSpeed
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 6550049784204534813, guid: 191a168f0f6b4ae45bbcfa8486710df4, type: 3}
+      propertyPath: m_StickAction.m_Action.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Gamepad>/rightStick
+      objectReference: {fileID: 0}
     - target: {fileID: 8738508630106406889, guid: 191a168f0f6b4ae45bbcfa8486710df4, type: 3}
       propertyPath: m_Name
       value: VirtualMouseManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8738508630106406889, guid: 191a168f0f6b4ae45bbcfa8486710df4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8738508630106406890, guid: 191a168f0f6b4ae45bbcfa8486710df4, type: 3}
       propertyPath: m_Pivot.x

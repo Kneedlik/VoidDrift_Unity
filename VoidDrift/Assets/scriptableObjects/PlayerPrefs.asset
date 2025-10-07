@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dd4717a02b07a247967a81f0b764705, type: 3}
   m_Name: PlayerPrefs
   m_EditorClassIdentifier: 
-  EquipedWeapeon: 0
+  EquipedWeapeon: 1
   SelectedLevel: 0
   Keystone: 0
   RuneSlot1: 0

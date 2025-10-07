@@ -7,6 +7,7 @@ public class LevelCheckPoint : Achiavement
 {
     public float TargetTime;
     public int LevelIndex;
+    public string AchId;
 
     public override void function(bool Win)
     {
@@ -16,6 +17,10 @@ public class LevelCheckPoint : Achiavement
             {
                 PrizeActivation();
                 Unlock();
+                if(AchId == "")
+                {
+                    UnlockAchiavementSteam(AchId);
+                }
             }
         }
     }

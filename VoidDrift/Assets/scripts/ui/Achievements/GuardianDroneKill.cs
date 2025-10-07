@@ -11,6 +11,7 @@ public class GuardianDroneKill : Achiavement
         {
             Unlock();
             PrizeActivation();
+            UnlockAchiavementSteam("ACH16");
         }
     }
 

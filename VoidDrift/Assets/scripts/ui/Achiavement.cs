@@ -27,6 +27,21 @@ public class Achiavement : AchievementProgress
 
     }
 
+    public void UnlockAchiavementSteam(string Id)
+    {
+        if (Constants.Demo == false)
+        {
+            var Ach = new Steamworks.Data.Achievement(Id);
+            Ach.Trigger();
+        }
+    }
+
+    public void ClearAchiavementSteam(string Id)
+    {
+        var Ach = new Steamworks.Data.Achievement(Id);
+        Ach.Clear();
+    }
+
     public void Unlock()
     {
         Current = Needed;

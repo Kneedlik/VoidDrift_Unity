@@ -11,6 +11,7 @@ public class CruiserBossDestroyed : Achiavement
         {
             Unlock();
             PrizeActivation();
+            UnlockAchiavementSteam("ACH13");
         }
     }
 

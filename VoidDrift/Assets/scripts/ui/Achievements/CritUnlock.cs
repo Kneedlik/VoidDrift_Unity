@@ -11,6 +11,7 @@ public class CritUnlock : Achiavement
             Debug.Log("Crit 100");
             Unlock();
             PrizeActivation();
+            UnlockAchiavementSteam("ACH10");
         }else
         {
             int Temp = CritSystem.instance.critChance;

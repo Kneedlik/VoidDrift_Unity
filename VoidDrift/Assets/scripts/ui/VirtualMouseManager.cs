@@ -14,6 +14,7 @@ public class VirtualMouseManager : MonoBehaviour
     {
         if (instance != null)
         {
+            gameObject.SetActive(false);
             return;
         }
 
@@ -42,6 +43,11 @@ public class VirtualMouseManager : MonoBehaviour
         if (UseKeyboard || Gamepad.all.Count == 0)
         {
             VirtualMouse.SetActive(false);
+        }else
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+            Debug.Log("Locked");
         }
+
     }
 }
