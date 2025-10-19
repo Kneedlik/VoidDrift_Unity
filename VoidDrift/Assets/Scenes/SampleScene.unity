@@ -224619,6 +224619,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1653032154420619863, guid: 85f45ade01a9df142af1f68ee0315459, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85f45ade01a9df142af1f68ee0315459, type: 3}
 --- !u!1001 &1900762940201537312
@@ -224868,6 +224872,14 @@ PrefabInstance:
     - target: {fileID: 231911933, guid: 1625b10ef1e86274b92c26bff3cc684c, type: 3}
       propertyPath: BaseCoolDown
       value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 293977003, guid: 1625b10ef1e86274b92c26bff3cc684c, type: 3}
+      propertyPath: SummonDelay
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 293977003, guid: 1625b10ef1e86274b92c26bff3cc684c, type: 3}
+      propertyPath: SummonCooldown
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 293977003, guid: 1625b10ef1e86274b92c26bff3cc684c, type: 3}
       propertyPath: WeapeonUpgrades.Array.data[0]
@@ -225578,6 +225590,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 318889922, guid: d4c6e44d3d55f854a82760415ec0c06e, type: 3}
+      propertyPath: Amount
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7339895226768260071, guid: d4c6e44d3d55f854a82760415ec0c06e, type: 3}
       propertyPath: amount
       value: 0.4
@@ -225683,6 +225699,10 @@ PrefabInstance:
     - target: {fileID: 7339895228421642844, guid: d4c6e44d3d55f854a82760415ec0c06e, type: 3}
       propertyPath: rarity
       value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 7339895228434425025, guid: d4c6e44d3d55f854a82760415ec0c06e, type: 3}
+      propertyPath: rarity
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 7339895228486298392, guid: d4c6e44d3d55f854a82760415ec0c06e, type: 3}
       propertyPath: m_Name

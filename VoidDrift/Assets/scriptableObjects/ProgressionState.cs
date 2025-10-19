@@ -53,4 +53,12 @@ public class ProgressionState : ScriptableObject
         State.Unlocked = true;
         State.Bought = false;
     }
+
+    public void UnlockLevel(int Id)
+    {
+        if(UnlockedLevels.Contains(Id) == false)
+        {
+            UnlockedLevels.Add(Id);
+        }
+    }
 }

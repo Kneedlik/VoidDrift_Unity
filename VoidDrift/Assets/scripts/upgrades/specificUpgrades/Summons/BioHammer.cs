@@ -86,9 +86,12 @@ public class BioHammer : Summon
         float pom = diff * healthScaling;
         pom = baseDamage + pom;
 
+        pom = pom * (PlayerStats.sharedInstance.SummonDamage / 100f);
+        pom = pom * (PlayerStats.sharedInstance.damageMultiplier / 100f);
+        pom += PlayerStats.sharedInstance.ExtraDamage;
+
         pom = pom * (PlayerStats.sharedInstance.SummonDamage / 100) * MasterManager.Instance.PlayerInformation.SummonDamageMultiplier;
         pom = pom * (PlayerStats.sharedInstance.damageMultiplier / 100)  * MasterManager.Instance.PlayerInformation.DamageMultiplier;
         damage = (int)pom;
-
    }
 }

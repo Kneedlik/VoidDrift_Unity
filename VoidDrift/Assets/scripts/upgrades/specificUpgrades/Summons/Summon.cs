@@ -113,7 +113,7 @@ public class Summon : MonoBehaviour
 
         if(Enemies2.Count == 0)
         {
-            target = Enemies[0].transform;
+            target = null;
             return false;
         }else
         {

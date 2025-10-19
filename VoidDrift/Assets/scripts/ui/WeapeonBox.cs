@@ -15,21 +15,20 @@ public class WeapeonBox : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     [SerializeField] Image WeapeonImage;
     [SerializeField] GameObject LockedObj;
     [SerializeField] PlayerInformation playerInformation;
-    [SerializeField] ProgressionState progressionState;
     [SerializeField] PlayerMenuManager playerMenuManager;
     [SerializeField] TMP_Text PriceText;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
-        for (int i = 0; i < progressionState.UnlockedWeapeons.Count; i++)
+        for (int i = 0; i < playerMenuManager.progressionState.UnlockedWeapeons.Count; i++)
         {
-            if (progressionState.UnlockedWeapeons[i].Id == WeapeonId)
+            if (playerMenuManager.progressionState.UnlockedWeapeons[i].Id == WeapeonId)
             {
-                if (progressionState.UnlockedWeapeons[i].Unlocked)
+                if (playerMenuManager.progressionState.UnlockedWeapeons[i].Unlocked)
                 {
                     UnLock();
-                    if (progressionState.UnlockedWeapeons[i].Bought)
+                    if (playerMenuManager.progressionState.UnlockedWeapeons[i].Bought)
                     {
                         Bought = true;
                         WeapeonImage.color = new Color32(255, 255, 255, 255);
@@ -97,17 +96,19 @@ public class WeapeonBox : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             return;
         }
 
-        if (progressionState.Gold - Price > 0)
+        if (playerMenuManager.progressionState.Gold - Price > 0)
         {
-            progressionState.Gold -= Price;
+            playerMenuManager.progressionState.Gold -= Price;
+            playerMenuManager.Counter.SetCounter(playerMenuManager.progressionState.Gold);
+
             Bought = true;
             bool Contains = false;
-            for (int i = 0; i < progressionState.UnlockedWeapeons.Count; i++)
+            for (int i = 0; i < playerMenuManager.progressionState.UnlockedWeapeons.Count; i++)
             {
-                if (progressionState.UnlockedWeapeons[i].Id == WeapeonId)
+                if (playerMenuManager.progressionState.UnlockedWeapeons[i].Id == WeapeonId)
                 {
-                    progressionState.UnlockedWeapeons[i].Unlocked = true;
-                    progressionState.UnlockedWeapeons[i].Bought = true;
+                    playerMenuManager.progressionState.UnlockedWeapeons[i].Unlocked = true;
+                    playerMenuManager.progressionState.UnlockedWeapeons[i].Bought = true;
                 }
             }
 

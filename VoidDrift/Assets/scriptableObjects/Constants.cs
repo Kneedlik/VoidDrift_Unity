@@ -5,7 +5,7 @@ using UnityEngine;
 
 public static class Constants
 {
-    public static bool Cheating = false;
+    public static bool Cheating = true;
     public static float VictoryDelay = 2.5f;
     public static float FinalBossSpawnDelay = 2.5f;
     public static float BossTPDistance = 90;
@@ -22,6 +22,6 @@ public static class Constants
     public static Color32 GreenColor = new Color32(0, 255, 45, 255);
     public const float RandomDistance = 60;
     public const float MaxDamageDistance = 75;
-    public const bool Demo = true;
+    public const bool Demo = false;
     public const bool HideUI = false;
 }

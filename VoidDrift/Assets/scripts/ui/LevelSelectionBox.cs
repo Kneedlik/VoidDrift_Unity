@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class LevelSelectionBox : MonoBehaviour
 {
     public int LevelId;
-    [SerializeField] ProgressionState progressionState;
     [SerializeField] GameObject SelectedImg;
     [SerializeField] GameObject LockedImage;
     [SerializeField] Image MapImage;
@@ -17,7 +16,7 @@ public class LevelSelectionBox : MonoBehaviour
     void Start()
     {
         BaseColor = MapImage.color;
-        if(progressionState.UnlockedLevels.Contains(LevelId))
+        if(MenuManager.Progress.UnlockedLevels.Contains(LevelId))
         {
             Unlock();
         }else

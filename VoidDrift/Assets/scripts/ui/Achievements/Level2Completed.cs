@@ -27,6 +27,8 @@ public class Level2Completed : Achiavement
 
         AchiavementManager.instance.progressionState.UnlockNewWeapeon(WeaoeonConsts.Tracer);
 
+        AchiavementManager.instance.progressionState.UnlockLevel(3);
+
         if(AchiavementManager.instance.progressionState.UnlockedSlots.Contains(SlotId) == false)
         {
             AchiavementManager.instance.progressionState.UnlockedSlots.Add(SlotId);

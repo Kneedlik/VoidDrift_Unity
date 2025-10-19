@@ -29,10 +29,13 @@ public class Achiavement : AchievementProgress
 
     public void UnlockAchiavementSteam(string Id)
     {
-        if (Constants.Demo == false)
+        if (SteamIntegration.instance != null)
         {
-            var Ach = new Steamworks.Data.Achievement(Id);
-            Ach.Trigger();
+            if (Constants.Demo == false && SteamIntegration.instance.Running)
+            {
+                var Ach = new Steamworks.Data.Achievement(Id);
+                Ach.Trigger();
+            }
         }
     }
 

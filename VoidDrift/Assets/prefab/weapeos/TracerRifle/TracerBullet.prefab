@@ -289,10 +289,11 @@ MonoBehaviour:
   OnCrit: 1
   PostImpact: 1
   IgnoreTargets: []
+  ScaleParticles: 0
   UseForce: 0
   force: 200
   MaxSpeed: 80
-  rotSpeed: 600
+  rotSpeed: 800
   Enemy: 0
   PlayerOnly: 0
   Trigger: 1

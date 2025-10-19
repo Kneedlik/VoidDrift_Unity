@@ -10,7 +10,7 @@ public class MapMenuManager : MonoBehaviour
     public List<LevelSelectionBox> LevelBoxes = new List<LevelSelectionBox>();
     public int SelectedLevel = 0;
     [SerializeField] GameObject LockedObj;
-    [SerializeField] ProgressionState Progress;
+    public ProgressionState Progress;
     [SerializeField] PlayerInformation PlayerInfo;
     [SerializeField] PlayerPrefs Prefs;
     [SerializeField] Toggle toggle;
@@ -136,7 +136,6 @@ public class MapMenuManager : MonoBehaviour
             AudioManager.instance.PlayId(10);
         }
 
-        Debug.Log(IsHardMode);
         if(IsHardMode)
         {
             ActivateHardMode();

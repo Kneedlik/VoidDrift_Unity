@@ -36,6 +36,8 @@ public class Level1Completed : Achiavement
         }
 
         AchiavementManager.instance.progressionState.UnlockNewWeapeon(WeaoeonConsts.Rockets);
+
+        AchiavementManager.instance.progressionState.UnlockLevel(2);
         
         if (AchiavementManager.instance.progressionState.UnlockedSlots.Contains(SlotId) == false)
         {

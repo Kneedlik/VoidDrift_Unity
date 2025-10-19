@@ -11,16 +11,21 @@ public class MaxHpAchiavement : Achiavement
         plaerHealth health = GameObject.FindWithTag("Player").GetComponent<plaerHealth>();
         if (health != null)
         {
-            if(health.health >= health.maxHealth * BonusHealth)
+            Debug.Log(health.maxHealth);
+            Debug.Log(health.baseHealth * BonusHealth);
+            if(health.maxHealth >= health.baseHealth * BonusHealth)
             {
                 Unlock();
                 PrizeActivation();
             }else
             {
-                float Temp = health.health / health.maxHealth;
+                float Temp = health.maxHealth / health.baseHealth;
                 Temp = Temp - 1;
                 Temp = Temp * 100f;
-                Current = (int)Temp;  
+                if (Temp > Current)
+                {
+                    Current = (int)Temp;
+                }
             }
         
         }

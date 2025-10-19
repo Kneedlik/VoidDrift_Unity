@@ -77,7 +77,6 @@ public class BulletScript : Projectile
                         float rand2 = Random.Range(-100, 100) / 100f;
                         direction = new Vector2(rand1, rand2).normalized;
                         rb.velocity = direction * rb.velocity.magnitude;
-                        Debug.Log(direction);
 
                         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
                         rb.rotation = angle;
@@ -92,6 +91,9 @@ public class BulletScript : Projectile
                     SpawnEffects();
                     Destroy(gameObject);
                 }
+            }else
+            {
+                pierce = pierce - 1;
             }
 
         }

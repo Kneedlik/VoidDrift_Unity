@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -42,6 +43,8 @@ public class SpiritFlameSystem : MonoBehaviour
                 if (enemies[i] == null)
                 {
                     enemies.RemoveAt(i);
+                    stacks.RemoveAt(i);
+                    timers.RemoveAt(i);
                 }
             }
 
@@ -75,7 +78,6 @@ public class SpiritFlameSystem : MonoBehaviour
                     stacks[i]++;
                 }
                 timers[i] = duration;
-                Debug.Log(1);
             } else if(enemies.Contains(target) == false)
             {
                 bool full = true;
@@ -106,8 +108,7 @@ public class SpiritFlameSystem : MonoBehaviour
                 F.transform.SetParent(target.transform);
 
                 StartCoroutine(startSpiritFlame(target));
-                int index = enemies.IndexOf(target);
-                StartCoroutine(endSpiritFlame(i,F));
+                StartCoroutine(endSpiritFlame(target,F));
                
             }  
         }   
@@ -138,7 +139,6 @@ public class SpiritFlameSystem : MonoBehaviour
 
     IEnumerator startSpiritFlame(GameObject target)
     {
-        int index = enemies.IndexOf(target);
         yield return new WaitForSeconds(speed);
 
         Health health = null;
@@ -148,11 +148,11 @@ public class SpiritFlameSystem : MonoBehaviour
             health = target.GetComponent<Health>();
         }
         
-
         while (enemies.Contains (target) && target != null && target.activeSelf)
         {
             if(health != null)
             {
+                int index = enemies.IndexOf(target);
                 int Damage = damage * stacks[index];
                 float pom = (TrueDamage * stacks[index]) / 100f;
                 pom = health.maxHealth * pom;
@@ -168,19 +168,26 @@ public class SpiritFlameSystem : MonoBehaviour
 
     
 
-    IEnumerator endSpiritFlame(int index,GameObject Vfx)
+    IEnumerator endSpiritFlame(GameObject Enemy,GameObject Vfx)
     {
-        while (timers[index] > 0)
+        if (Enemy != null)
         {
-            
-            timers[index] -= Time.deltaTime;
-            yield return new WaitForSeconds(0);
+            if(enemies.Contains(Enemy))
+            {
+                while (Enemy != null && enemies.Contains(Enemy) &&  timers[enemies.IndexOf(Enemy)] > 0)
+                {
+                    timers[enemies.IndexOf(Enemy)] -= Time.deltaTime;
+                    yield return new WaitForSeconds(0);
+                }
+
+                if (enemies.Contains(Enemy) && Enemy != null)
+                {
+                    stacks[enemies.IndexOf(Enemy)] = 0;
+                    enemies[enemies.IndexOf(Enemy)] = null; //
+                }
+            }
         }
 
-        enemies[index] = null;
-        stacks[index] = 0;
-       
-        
         if(Vfx != null)
         {
             Destroy(Vfx);

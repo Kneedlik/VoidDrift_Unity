@@ -103,8 +103,15 @@ public class Pause : MonoBehaviour
         }
         Debug.Log("Exiting to menu");
         //SceneManager.LoadScene("StartMenu");
-        AchiavementManager.instance.CheckAll(false);
-        AchiavementManager.instance.SaveAllToProgress();
+
+        AchiavementManager.instance.progressionState.MapEnemiesKilled = MasterManager.Instance.progressionState.MapEnemiesKilled;
+        AchiavementManager.instance.progressionState.EnemiesKilled = MasterManager.Instance.progressionState.EnemiesKilled;
+
+        if (Constants.Demo == false)
+        {
+            AchiavementManager.instance.CheckAll(false);
+            AchiavementManager.instance.SaveAllToProgress();
+        }
 
         AchiavementManager.instance.progressionState.Gold = MasterManager.Instance.progressionState.Gold;
         Debug.Log(AchiavementManager.instance.progressionState.Gold);

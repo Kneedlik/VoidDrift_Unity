@@ -12,6 +12,7 @@ public class PlayerMenuManager : MonoBehaviour
     public PlayerInformation playerInformation;
     public PlayerPrefs playerPrefs;
     public ProgressionState progressionState;
+    public GoldCounter Counter;
     public static PlayerMenuManager instance;
     public List<WeapeonBox> weapeonBoxes = new List<WeapeonBox>();
     public List<RuneBox> RuneBoxes = new List<RuneBox>();
@@ -116,6 +117,7 @@ public class PlayerMenuManager : MonoBehaviour
         UpdateRuneState();
         SaveToPlayerPrefs();
         SaveManager.SavePlayerPrefs(playerPrefs);
+        SaveManager.SavePlayerProgress(progressionState);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
@@ -189,6 +191,7 @@ public class PlayerMenuManager : MonoBehaviour
         }
         SaveToPlayerPrefs();
         SaveManager.SavePlayerPrefs(playerPrefs);
+        SaveManager.SavePlayerProgress(progressionState);
         SceneManager.LoadScene(7);
     }
 

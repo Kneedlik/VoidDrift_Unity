@@ -167,13 +167,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aee5d76e8607d17498042485750feef6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Id: 0
+  Id: 1052
   Type: 0
   color:
     serializedVersion: 2
     rgba: 0
   icon: {fileID: 21300000, guid: b8b6392deb3216343845b02a6e0c0b06, type: 3}
-  name: 
+  name: Orbiters
   description: Periodically Summon 2 Drones
   level: 0
   maxLevel: 0
@@ -182,7 +182,7 @@ MonoBehaviour:
   SubserviantUpgrades: []
   Final: 0
   RuneId: 0
-  Amount: 0
+  Amount: 2
 --- !u!1 &345113445
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,7 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77d61574a3820b544981516a150786bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Id: 0
+  Id: 1056
   Type: 0
   color:
     serializedVersion: 2
@@ -349,13 +349,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8623d505f841b4445a408da505d7b59f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Id: 0
+  Id: 1054
   Type: 0
   color:
     serializedVersion: 2
     rgba: 0
   icon: {fileID: 21300000, guid: be1f5a0286729964a93b5122604c8e4e, type: 3}
-  name: 
+  name: Bullet Hell
   description: Double the amount of Projectiles fired
   level: 0
   maxLevel: 1
@@ -412,13 +412,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3353291d66721ba458e985a43dcb1c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Id: 0
+  Id: 1050
   Type: 0
   color:
     serializedVersion: 2
     rgba: 0
   icon: {fileID: 21300000, guid: b545745ce0a9b5d4f9fc461e31c23d0f, type: 3}
-  name: 
+  name: Piercing Shoot
   description: Pierce + 1
   level: 0
   maxLevel: 0
@@ -532,14 +532,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7366412aa63d89143a4189acd4159389, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Id: 0
+  Id: 1053
   Type: 0
   color:
     serializedVersion: 2
     rgba: 0
   icon: {fileID: 21300000, guid: 97eb9b353d81cf64084c40e18bc642ca, type: 3}
-  name: 
-  description: Instead of firing summon drones every shot
+  name: Orbiter swarm
+  description: Instead of firing summon drones every shot Drones + 2 Fire rate -
+    35%
   level: 0
   maxLevel: 1
   rarity: 500
@@ -549,7 +550,8 @@ MonoBehaviour:
     LevelNeeded: 2
   Final: 1
   RuneId: 0
-  SummonAmount: 0
+  SummonAmount: 2
+  AsPenalty: 0.35
 --- !u!1 &1362470231
 GameObject:
   m_ObjectHideFlags: 0
@@ -594,13 +596,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae836de3113aa25498a1a98e053eb5e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Id: 0
+  Id: 1055
   Type: 0
   color:
     serializedVersion: 2
     rgba: 0
   icon: {fileID: 21300000, guid: 098bb313767c18948898dc137b05581a, type: 3}
-  name: 
+  name: Plasma tower
   description: Base Damage + 25% Base Area + 25%
   level: 0
   maxLevel: 0
@@ -719,14 +721,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e41cd860f761b34299b80f5e7a01847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Id: 0
+  Id: 1051
   Type: 0
   color:
     serializedVersion: 2
     rgba: 0
   icon: {fileID: 21300000, guid: 6ec363b24c26eff4cb6b790f47ff6dd9, type: 3}
-  name: 
-  description: You now fire single lagre projectile Pierce + 20 Base projectile Speed
+  name: Unstoppable
+  description: You now fire single lagre projectile Pierce + 10 Base projectile Speed
     + 40% Base Damage + 50% Base Attack Speed - 50%
   level: 0
   maxLevel: 1
@@ -739,7 +741,7 @@ MonoBehaviour:
     LevelNeeded: 1
   Final: 1
   RuneId: 0
-  PierceAmount: 20
+  PierceAmount: 10
   SpeedMultiplier: 0.4
   RotationMultiplier: 0.6
   DamageMultiplier: 0.5
@@ -847,13 +849,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8f2cafdac6836945a8235366c65bbe8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Id: 0
+  Id: 1057
   Type: 0
   color:
     serializedVersion: 2
     rgba: 0
   icon: {fileID: 21300000, guid: 0ae8155df5ccea746ae6e7a29093bb7d, type: 3}
-  name: 
+  name: Quad Damage
   description: Projectile amount + 4
   level: 0
   maxLevel: 0
@@ -2596,6 +2598,7 @@ MonoBehaviour:
   Final: 0
   RuneId: 0
   amount: 3
+  Info: {fileID: 11400000, guid: 6fe1b5e96d7dd2f47a58d5bd1e7c2a5c, type: 2}
 --- !u!1 &7339895227069592265
 GameObject:
   m_ObjectHideFlags: 0
@@ -8967,7 +8970,7 @@ MonoBehaviour:
   name: Hope
   description: Revives + 1
   level: 0
-  maxLevel: 2
+  maxLevel: 3
   rarity: 60
   CanBeDoubled: 1
   SubserviantUpgrades: []

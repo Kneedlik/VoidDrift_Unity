@@ -123,6 +123,9 @@ public class timer : MonoBehaviour
     public void victory()
     {
         MasterManager.Instance.AddGold(ProgressionConst.VictoryGold, true);
+        AchiavementManager.instance.progressionState.MapEnemiesKilled = MasterManager.Instance.progressionState.MapEnemiesKilled;
+        AchiavementManager.instance.progressionState.EnemiesKilled = MasterManager.Instance.progressionState.EnemiesKilled;
+
         if (Constants.Demo == false)
         {
             AchiavementManager.instance.CheckAll(true); //

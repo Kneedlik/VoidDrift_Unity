@@ -41,7 +41,10 @@ public class foddeBullet : MonoBehaviour
                     sr.enabled = false;
                 }
 
-                rb.velocity = Vector2.zero;
+                if (rb != null)
+                {
+                    rb.velocity = Vector2.zero;
+                }
 
                 if(impactEffect != null)
                 {

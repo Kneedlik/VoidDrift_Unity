@@ -169,20 +169,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f708a74455290145962f13a5d4ec8c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePlus: 20
-  damage: 20
-  destroyTime: 2.5
+  damagePlus: 30
+  damage: 40
+  destroyTime: 2
   pierce: 99
   Bounce: 0
   knockBack: 4.5
   impactEffect: {fileID: 0}
   impactParticles: {fileID: 0}
+  target: {fileID: 0}
   MaxBounceDistance: 0
   OnImpactGunOnly: 1
   OnImpact: 1
   OnCrit: 1
-  PostImpact: 0
+  PostImpact: 1
   IgnoreTargets: []
+  ScaleParticles: 0
 --- !u!1 &7667972735744221334
 GameObject:
   m_ObjectHideFlags: 0

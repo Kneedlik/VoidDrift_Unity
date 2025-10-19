@@ -23,7 +23,7 @@ MonoBehaviour:
   - 81
   - 15
   - 4
-  spawnRate: 0.725
+  spawnRate: 0.8
   spawnN: 8
   healthMultiplier: 40
   XpMultiplier: 18

@@ -5082,8 +5082,8 @@ MonoBehaviour:
   SummonFinal: 0
   SummonCount: 0
   SummonPrefab: {fileID: 4709633329786434157, guid: af6dd304e24298b40a7aa1327170f14c, type: 3}
-  SummonCooldown: 2.65
-  SummonDelay: 0.2
+  SummonCooldown: 1.1
+  SummonDelay: 0.1
   DroneManager: {fileID: 314303765}
   SummonPointDistance: 4
   SummonList: []

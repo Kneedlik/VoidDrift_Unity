@@ -7,7 +7,7 @@ public class Level2CompletedH : Achiavement
 {
     public override void function(bool Win)
     {
-        if (Win && SceneManager.GetActiveScene().buildIndex == 4)
+        if (Win && SceneManager.GetActiveScene().buildIndex == 4 && MasterManager.Instance.PlayerInformation.HardMode)
         {
             Unlock();
             PrizeActivation();

@@ -2181,7 +2181,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &651409175
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7644,6 +7644,7 @@ MonoBehaviour:
   playerInformation: {fileID: 11400000, guid: 6fe1b5e96d7dd2f47a58d5bd1e7c2a5c, type: 2}
   playerPrefs: {fileID: 11400000, guid: 1d5ac1ea1c945ce4c8e877a638164032, type: 2}
   progressionState: {fileID: 11400000, guid: 7857322546f26cc4289fdf38e1509a9a, type: 2}
+  Counter: {fileID: 1934427891}
   weapeonBoxes:
   - {fileID: 564392635}
   - {fileID: 1346280982}

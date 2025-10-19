@@ -23,6 +23,7 @@ public class TR_DoubleProjectileFinal : upgrade
     public override void function()
     {
         TracerGun gun = GameObject.FindWithTag("Weapeon").GetComponent<TracerGun>();
+        levelingSystem.instance.FinallForm = true;
 
         if (gun != null)
         {

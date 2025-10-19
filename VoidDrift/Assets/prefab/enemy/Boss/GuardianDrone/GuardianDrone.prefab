@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  maxHealth: 1500000
+  maxHealth: 600000
   baseMaxHealth: 0
   damageN: {fileID: 8636022699047134357, guid: 971665a441a2ea448a247928736ad030, type: 3}
   self: {fileID: 0}
@@ -198,6 +198,8 @@ MonoBehaviour:
   levelScaling: 0
   Boss: 1
   AlertOnHit: 0
+  MapBoss: 0
+  MapBoss2: 0
 --- !u!114 &2664196073113781374
 MonoBehaviour:
   m_ObjectHideFlags: 0

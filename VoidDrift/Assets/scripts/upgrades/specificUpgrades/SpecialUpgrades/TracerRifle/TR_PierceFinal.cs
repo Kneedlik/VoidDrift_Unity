@@ -29,6 +29,7 @@ public class TR_PierceFinal : upgrade
     public override void function()
     {
         TracerGun gun = GameObject.FindWithTag("Weapeon").GetComponent<TracerGun>();
+        levelingSystem.instance.FinallForm = true;
 
         if (gun != null)
         {

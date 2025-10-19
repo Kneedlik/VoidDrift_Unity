@@ -20,6 +20,7 @@ public class TR_Summon : upgrade
     {
         TracerGun TR = GameObject.FindWithTag("Weapeon").GetComponent<TracerGun>();
         TR.SummonCount += Amount;
+        TR.setFirepoints();
 
         if(level == 0)
         {

@@ -8,6 +8,7 @@ public class ScatterOnDeath : upgrade
     public int amount;
     float multiplier;
     weapeon W;
+    public PlayerInformation Info;
 
     private void Start()
     {
@@ -17,7 +18,7 @@ public class ScatterOnDeath : upgrade
 
     public override bool requirmentsMet()
     {
-        if(levelingSystem.instance.red >= 5)
+        if(levelingSystem.instance.red >= 5 && Info.WeapeonId != WeaoeonConsts.Rockets)
         {
             return true;
         }else return false;
@@ -66,7 +67,7 @@ public class ScatterOnDeath : upgrade
                     float pom = W.damage * multiplier;
                     p.damagePlus = (int)pom;
                     p.PostImpact = false;
-                    Debug.Log((int)pom);
+                    //Debug.Log((int)pom);
 
                     Bullet.transform.rotation = Quaternion.Euler(0, 0, temp);
                     temp += Angle;

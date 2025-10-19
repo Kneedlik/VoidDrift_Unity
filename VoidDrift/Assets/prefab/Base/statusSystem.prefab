@@ -79,15 +79,16 @@ MonoBehaviour:
   CTrueDamage: 0.01
   CDuration: 12.5
   CInfectDistance: 8
-  CSpeed: 0.8
+  CSpeed: 1.3
   CParticles: {fileID: 6297773213846443391, guid: cfe25543e768b9141bb9257d6d5e79c3, type: 3}
   CpoisonedEnemies: []
   BDamage: 15
   BTrueDamage: 0.01
   BDuration: 8
-  BSpeed: 1.4
+  BSpeed: 1.6
   BParticles: {fileID: 7117855671623497608, guid: b0dc112c5264b5349a6ea83569442b3a, type: 3}
   BPoisonedEnemies: []
+  ListClearTimer: 3
 --- !u!114 &2624672050981415261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,7 +305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 50
-  TrueDamage: 0.15
+  TrueDamage: 0.2
   maxStacks: 5
   duration: 5
   speed: 0.8

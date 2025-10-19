@@ -17,7 +17,7 @@ public class IrisDrones : Achiavement
             }
         }
 
-        if(Count >= 5)
+        if(Count >= 3)
         {
             Unlock();
             PrizeActivation();

@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Level3Completed : Achiavement
 {
     [SerializeField] int LevelIndex;
+    [SerializeField] int SlotId;
 
     // Start is called before the first frame update
 
@@ -24,6 +25,11 @@ public class Level3Completed : Achiavement
         if (AchiavementManager.instance.progressionState.HardModeUnlocked == false)
         {
             AchiavementManager.instance.progressionState.HardModeUnlocked = true;
+        }
+
+        if (AchiavementManager.instance.progressionState.UnlockedSlots.Contains(SlotId) == false)
+        {
+            AchiavementManager.instance.progressionState.UnlockedSlots.Add(SlotId);
         }
     }
 }

@@ -20,15 +20,21 @@ MonoBehaviour:
     Unlocked: 1
     Bought: 1
   - Id: 2
-    Unlocked: 1
-    Bought: 1
+    Unlocked: 0
+    Bought: 0
+  - Id: 3
+    Unlocked: 0
+    Bought: 0
   - Id: 4
-    Unlocked: 1
-    Bought: 1
+    Unlocked: 0
+    Bought: 0
+  - Id: 5
+    Unlocked: 0
+    Bought: 0
   UnlockedLevels: 01000000
   ShopUpgradesProgression: []
-  UnlockedRunes: 01000000030000000500000007000000090000000b0000000d0000000e0000000f00000010000000
-  UnlockedKeyStones: 150000001600000017000000
+  UnlockedRunes: 
+  UnlockedKeyStones: 
   UnlockedSlots: 010000000200000003000000
   HardModeUnlocked: 0
   UnlockedAchievements:
@@ -47,11 +53,11 @@ MonoBehaviour:
   - Id: 22
     Unlocked: 0
     Claimed: 0
-    Current: 1
+    Current: 0
   - Id: 27
     Unlocked: 0
     Claimed: 0
-    Current: 25
+    Current: 0
   - Id: 16
     Unlocked: 0
     Claimed: 0
@@ -153,6 +159,10 @@ MonoBehaviour:
     Claimed: 0
     Current: 0
   - Id: 5
+    Unlocked: 0
+    Claimed: 0
+    Current: 0
+  - Id: 33
     Unlocked: 0
     Claimed: 0
     Current: 0

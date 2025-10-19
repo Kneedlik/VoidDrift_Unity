@@ -7,7 +7,7 @@ public class Level1CompletedHard : Achiavement
 {
     public override void function(bool Win)
     {
-        if (Win && SceneManager.GetActiveScene().buildIndex == 3)
+        if (Win && SceneManager.GetActiveScene().buildIndex == 3 && MasterManager.Instance.PlayerInformation.HardMode)
         {
             Unlock();
             PrizeActivation();

@@ -418,4 +418,9 @@ public class TracerGun : weapeon
             }
         }
     }
+
+    public override GameObject GetProjectile()
+    {
+        return bulletPrefab;
+    }
 }

@@ -19,7 +19,7 @@ MonoBehaviour:
   - {fileID: 9134502682905301589, guid: a5e73291dab67dc45a9d612a32ab9112, type: 3}
   chanses:
   - 100
-  spawnRate: 0.8
+  spawnRate: 0.9
   spawnN: 10
   healthMultiplier: 70
   XpMultiplier: 25

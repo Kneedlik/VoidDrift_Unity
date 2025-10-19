@@ -31,7 +31,6 @@ public class eventManager : MonoBehaviour
     {
         //  eventManager.OnImpact += poisonSystem.sharedInstance.Poison;
         ClearAllEffects();
-
     }
 
     public static void ClearAllEffects()
@@ -45,5 +44,7 @@ public class eventManager : MonoBehaviour
         OnDamageEnemy = null;
         OnKill = null;
         ImpactGunOnly = null;
+        OnCrit = null;
+        ImpactGunOnlyHitScan = null;
     }
 }

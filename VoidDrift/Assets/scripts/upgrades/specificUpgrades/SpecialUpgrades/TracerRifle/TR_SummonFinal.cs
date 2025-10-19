@@ -5,6 +5,8 @@ using UnityEngine;
 public class TR_SummonFinal : upgrade
 {
     public int SummonAmount;
+    public float AsPenalty;
+
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +28,9 @@ public class TR_SummonFinal : upgrade
         TracerGun gun = GameObject.FindWithTag("Weapeon").GetComponent<TracerGun>();
         gun.SummonFinal = true;
         gun.SummonCount += SummonAmount;
+        gun.ASmultiplier -= AsPenalty;
         gun.setFirepoints();
         gun.setSideFirepoints();
+        levelingSystem.instance.FinallForm = true;
     }
 }

@@ -173,8 +173,8 @@ MonoBehaviour:
   Unlocked: 0
   Claimed: 0
   Current: 0
-  Needed: 200
-  Description: Get + 200% bonus hp
+  Needed: 100
+  Description: Get + 100% bonus hp
   SecondText: 
   Icon: {fileID: 21300000, guid: 2619d18bbffb92c4c84e97aed829a13f, type: 3}
   IconColor:
@@ -298,8 +298,8 @@ MonoBehaviour:
   Unlocked: 0
   Claimed: 0
   Current: 0
-  Needed: 8
-  Description: Put 8 or more levels into Corosive Coating upgrade
+  Needed: 6
+  Description: Put 6 or more levels into Corosive Coating upgrade
   SecondText: 
   Icon: {fileID: 21300000, guid: 0b63bad756ea2974f8a43298eafb6031, type: 3}
   IconColor:
@@ -312,7 +312,7 @@ MonoBehaviour:
     rgba: 4281204480
   Page: 0
   Order: 14
-  TargetLevel: 8
+  TargetLevel: 6
 --- !u!1 &1403416206
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,6 +563,7 @@ MonoBehaviour:
   Order: 12
   TargetTime: 600
   LevelIndex: 4
+  AchId: 
 --- !u!1 &4935351423267208907
 GameObject:
   m_ObjectHideFlags: 0
@@ -611,7 +612,7 @@ MonoBehaviour:
   Unlocked: 0
   Claimed: 0
   Current: 0
-  Needed: 0
+  Needed: 100
   Description: 'Enemies killed:'
   SecondText: 
   Icon: {fileID: 21300000, guid: dbceb0d2d980b1f4f9cbc4afd934a582, type: 3}
@@ -625,7 +626,7 @@ MonoBehaviour:
     rgba: 4294967295
   Page: 0
   Order: 29
-  GoldReward: 0
+  GoldReward: 300
 --- !u!1 &4935351423290691740
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,8 +751,8 @@ MonoBehaviour:
     rgba: 4294967295
   Page: 0
   Order: 16
-  LevelIndex: 0
-  SlotId: 0
+  LevelIndex: 4
+  SlotId: 5
 --- !u!1 &4935351423490358320
 GameObject:
   m_ObjectHideFlags: 0
@@ -878,6 +879,7 @@ MonoBehaviour:
   Order: 19
   TargetTime: 600
   LevelIndex: 5
+  AchId: 
 --- !u!1 &4935351424032747098
 GameObject:
   m_ObjectHideFlags: 0
@@ -1049,6 +1051,7 @@ MonoBehaviour:
   Order: 1
   TargetTime: 300
   LevelIndex: 3
+  AchId: 
 --- !u!1 &4935351424194455390
 GameObject:
   m_ObjectHideFlags: 0
@@ -1160,7 +1163,7 @@ MonoBehaviour:
   Claimed: 0
   Current: 0
   Needed: 5
-  Description: Control 5 Iris drones at one time
+  Description: Control 3 or more Iris drones at one time
   SecondText: 
   Icon: {fileID: 21300000, guid: 0a7f1836d7d2dda489f1b35d035e7f48, type: 3}
   IconColor:
@@ -1221,7 +1224,7 @@ MonoBehaviour:
   Unlocked: 0
   Claimed: 0
   Current: 0
-  Needed: 0
+  Needed: 40
   Description: 'Roaming enemies killed:'
   SecondText: 
   Icon: {fileID: 21300000, guid: 9a590ac8cf3489548bd15703874d1218, type: 3}
@@ -1235,7 +1238,7 @@ MonoBehaviour:
     rgba: 4294967295
   Page: 0
   Order: 27
-  GoldReward: 0
+  GoldReward: 1000
 --- !u!1 &4935351424508811333
 GameObject:
   m_ObjectHideFlags: 0
@@ -1284,7 +1287,7 @@ MonoBehaviour:
   Unlocked: 0
   Claimed: 0
   Current: 0
-  Needed: 0
+  Needed: 100
   Description: 'Roaming enemies killed:'
   SecondText: 
   Icon: {fileID: 21300000, guid: 9a590ac8cf3489548bd15703874d1218, type: 3}
@@ -1298,7 +1301,7 @@ MonoBehaviour:
     rgba: 4294967295
   Page: 0
   Order: 28
-  GoldReward: 0
+  GoldReward: 5000
 --- !u!1 &4935351424528607592
 GameObject:
   m_ObjectHideFlags: 0
@@ -1409,7 +1412,7 @@ MonoBehaviour:
   Unlocked: 0
   Claimed: 0
   Current: 0
-  Needed: 0
+  Needed: 100000
   Description: 'Enemies killed:'
   SecondText: 
   Icon: {fileID: 21300000, guid: dbceb0d2d980b1f4f9cbc4afd934a582, type: 3}
@@ -1423,7 +1426,7 @@ MonoBehaviour:
     rgba: 4294967295
   Page: 0
   Order: 32
-  GoldReward: 0
+  GoldReward: 3000
 --- !u!1 &4935351424638070555
 GameObject:
   m_ObjectHideFlags: 0
@@ -1486,7 +1489,8 @@ MonoBehaviour:
     rgba: 4294918656
   Page: 0
   Order: 21
-  LevelIndex: 0
+  LevelIndex: 5
+  SlotId: 6
 --- !u!1 &4935351424654916567
 GameObject:
   m_ObjectHideFlags: 0
@@ -1599,7 +1603,7 @@ MonoBehaviour:
   Unlocked: 0
   Claimed: 0
   Current: 0
-  Needed: 0
+  Needed: 3000
   Description: 'Enemies killed:'
   SecondText: 
   Icon: {fileID: 21300000, guid: dbceb0d2d980b1f4f9cbc4afd934a582, type: 3}
@@ -1613,7 +1617,7 @@ MonoBehaviour:
     rgba: 4294967295
   Page: 0
   Order: 30
-  GoldReward: 0
+  GoldReward: 500
 --- !u!1 &4935351424753017771
 GameObject:
   m_ObjectHideFlags: 0
@@ -1662,7 +1666,7 @@ MonoBehaviour:
   Unlocked: 0
   Claimed: 0
   Current: 0
-  Needed: 0
+  Needed: 10
   Description: 'Roaming enemies killed:'
   SecondText: 
   Icon: {fileID: 21300000, guid: 9a590ac8cf3489548bd15703874d1218, type: 3}
@@ -1676,7 +1680,7 @@ MonoBehaviour:
     rgba: 4294967295
   Page: 0
   Order: 26
-  GoldReward: 0
+  GoldReward: 500
 --- !u!1 &4935351424795792064
 GameObject:
   m_ObjectHideFlags: 0
@@ -1725,7 +1729,7 @@ MonoBehaviour:
   Unlocked: 0
   Claimed: 0
   Current: 0
-  Needed: 0
+  Needed: 500000
   Description: 'Enemies killed:'
   SecondText: 
   Icon: {fileID: 21300000, guid: dbceb0d2d980b1f4f9cbc4afd934a582, type: 3}
@@ -1739,7 +1743,7 @@ MonoBehaviour:
     rgba: 4294967295
   Page: 0
   Order: 33
-  GoldReward: 0
+  GoldReward: 5000
 --- !u!1 &4935351424821752509
 GameObject:
   m_ObjectHideFlags: 0
@@ -1850,7 +1854,7 @@ MonoBehaviour:
   Unlocked: 1
   Claimed: 0
   Current: 0
-  Needed: 0
+  Needed: 20000
   Description: 'Enemies killed:'
   SecondText: 
   Icon: {fileID: 21300000, guid: dbceb0d2d980b1f4f9cbc4afd934a582, type: 3}
@@ -1864,7 +1868,7 @@ MonoBehaviour:
     rgba: 4294967295
   Page: 0
   Order: 31
-  GoldReward: 0
+  GoldReward: 1000
 --- !u!1 &4935351425038434648
 GameObject:
   m_ObjectHideFlags: 0
@@ -1991,6 +1995,7 @@ MonoBehaviour:
   Order: 2
   TargetTime: 900
   LevelIndex: 3
+  AchId: 
 --- !u!1 &6136948111568450206
 GameObject:
   m_ObjectHideFlags: 0
@@ -2039,8 +2044,8 @@ MonoBehaviour:
   Unlocked: 0
   Claimed: 0
   Current: 0
-  Needed: 4
-  Description: Finish game with 4 or more revives
+  Needed: 3
+  Description: Finish game with 3 or more revives
   SecondText: 
   Icon: {fileID: 21300000, guid: ac9ad31fc846c0a43aadb2293235fece, type: 3}
   IconColor:
@@ -2053,7 +2058,7 @@ MonoBehaviour:
     rgba: 4294901900
   Page: 0
   Order: 10
-  ReviveAmount: 4
+  ReviveAmount: 3
 --- !u!1 &8495937058041373240
 GameObject:
   m_ObjectHideFlags: 0

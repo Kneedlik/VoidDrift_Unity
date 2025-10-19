@@ -10,10 +10,11 @@ public class MapEnemiesKilled : Achiavement
     {
         if (AchiavementManager.instance.progressionState.MapEnemiesKilled >= Needed)
         {
+            Unlock();
             PrizeActivation();
             Current = Needed;
         }
-        else Current = AchiavementManager.instance.progressionState.EnemiesKilled;
+        else Current = AchiavementManager.instance.progressionState.MapEnemiesKilled;
     }
 
     public override void PrizeActivation()

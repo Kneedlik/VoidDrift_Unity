@@ -21,7 +21,7 @@ MonoBehaviour:
   chanses:
   - 50
   - 50
-  spawnRate: 0.6
+  spawnRate: 0.65
   spawnN: 10
   healthMultiplier: 70
   XpMultiplier: 22

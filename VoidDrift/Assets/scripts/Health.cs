@@ -39,6 +39,9 @@ public class Health : MonoBehaviour
     public bool Boss = false;
     public bool AlertOnHit = false;
 
+    public bool MapBoss;
+    public bool MapBoss2;
+
     bool Dead;
     DamageNumberMaster DmMaster;
 
@@ -342,6 +345,8 @@ public class Health : MonoBehaviour
             MasterManager.Instance.progressionState.MapEnemiesKilled++;
         }else MasterManager.Instance.progressionState.EnemiesKilled++;
 
+        Debug.Log(MasterManager.Instance.progressionState.EnemiesKilled);
+
         if(Boss)
         {
             BossBarManager.Instance.RemoveBar(this);
@@ -361,6 +366,16 @@ public class Health : MonoBehaviour
                     DeathFunc[i].function();
                 }
             }
+        }
+
+        if(MapBoss)
+        {
+            MasterManager.Instance.MapBossKill = true;
+        }
+
+        if(MapBoss2)
+        {
+            MasterManager.Instance.MapBoss2Kill = true;
         }
         
         Invoke("PreDestroy",DeathDelay);

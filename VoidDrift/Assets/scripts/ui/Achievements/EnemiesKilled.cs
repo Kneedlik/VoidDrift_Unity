@@ -10,6 +10,7 @@ public class EnemiesKilled : Achiavement
     {
         if (AchiavementManager.instance.progressionState.EnemiesKilled >= Needed)
         {
+            Unlock();
             PrizeActivation();
             Current = Needed;
         }
@@ -19,5 +20,6 @@ public class EnemiesKilled : Achiavement
     public override void PrizeActivation()
     {
         AchiavementManager.instance.progressionState.Gold += GoldReward;
+        MasterManager.Instance.progressionState.Gold += GoldReward;
     }
 }
